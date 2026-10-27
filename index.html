@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>해외 자막 음매드 모음</title>
+
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Web Fonts (Pretendard, JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#0a0c10] text-slate-100 antialiased selection:bg-blue-600/30 selection:text-white">
+
+  <!-- 상단 네비게이션 헤더 -->
+  <header class="sticky top-0 z-40 bg-[#0a0c10]/95 backdrop-blur-sm border-b border-neutral-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
+      
+      <!-- 로고 및 타이틀 -->
+      <div class="flex items-center justify-between">
+        <a href="javascript:void(0)" onclick="app.setSearchQuery(''); app.setViewMode('tag');" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-300 group-hover:border-neutral-700 transition-colors">
+            <i data-lucide="play" class="w-4 h-4 ml-0.5"></i>
+          </div>
+          <div>
+            <h1 id="site-title" class="text-sm sm:text-base font-bold text-neutral-100 tracking-tight">해외 자막 음매드 모음</h1>
+            <p id="site-subtitle" class="text-[11px] text-neutral-500 font-normal">한국어 자막 음매드 아카이브</p>
+          </div>
+        </a>
+
+        <!-- 모바일 액션 (편집 모드 전용) -->
+        <button id="btn-mobile-register" onclick="Modals.openExtractorModal()" class="hidden px-2.5 py-1.5 rounded border border-neutral-800 bg-neutral-900 text-xs font-medium text-neutral-300">
+          + 등록
+        </button>
+      </div>
+
+      <!-- 컨트롤러 바 -->
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- 언어 선택 -->
+        <div class="flex bg-neutral-900 p-0.5 rounded border border-neutral-800 text-xs">
+          <button id="btn-lang-ko" onclick="app.setLanguage('ko')" class="px-2 py-0.5 text-xs font-semibold rounded">KO</button>
+          <button id="btn-lang-ja" onclick="app.setLanguage('ja')" class="px-2 py-0.5 text-xs font-semibold rounded text-neutral-400">JA</button>
+        </div>
+
+        <!-- 뷰 모드 -->
+        <div class="flex bg-neutral-900 p-0.5 rounded border border-neutral-800 text-xs font-medium">
+          <button id="btn-tag" onclick="app.setViewMode('tag')" class="px-2.5 py-1 rounded">태그별</button>
+          <button id="btn-all" onclick="app.setViewMode('all')" class="px-2.5 py-1 rounded text-neutral-400">전체</button>
+          <button id="btn-subtitler" onclick="app.setViewMode('subtitler')" class="px-2.5 py-1 rounded text-neutral-400">자막 제작자</button>
+          <button id="btn-creator" onclick="app.setViewMode('creator')" class="px-2.5 py-1 rounded text-neutral-400">원작자</button>
+        </div>
+
+        <!-- 정렬 선택 -->
+        <div class="flex items-center gap-1 bg-neutral-900 px-2.5 py-1 rounded border border-neutral-800 text-xs text-neutral-300">
+          <select id="sort-select" onchange="app.setSortOrder(this.value)" class="bg-transparent font-medium outline-none cursor-pointer">
+            <option value="latest" class="bg-neutral-900">최신순</option>
+            <option value="oldest" class="bg-neutral-900">오래된순</option>
+            <option value="name" class="bg-neutral-900">제목순</option>
+            <option value="random" class="bg-neutral-900">랜덤</option>
+          </select>
+        </div>
+
+        <!-- 영상 등록 버튼 (데스크톱, 편집 모드 전용) -->
+        <button id="btn-desktop-register" onclick="Modals.openExtractorModal()" class="hidden items-center gap-1.5 px-3 py-1 rounded bg-neutral-100 hover:bg-white text-neutral-900 text-xs font-semibold transition-colors">
+          <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+          <span>영상 등록</span>
+        </button>
+
+        <!-- 편집/뷰어 모드 전환 토글 -->
+        <button id="btn-toggle-edit" onclick="app.toggleEditMode()" class="hidden px-2.5 py-1 rounded border border-neutral-700 text-xs font-medium text-neutral-300 hover:bg-neutral-800 transition-colors">
+          <span id="btn-toggle-edit-text">편집 모드</span>
+        </button>
+
+        <!-- 검색창 -->
+        <div class="relative flex-grow sm:flex-grow-0 w-full sm:w-48 md:w-56">
+          <i data-lucide="search" class="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-neutral-500"></i>
+          <input type="text" id="search-input" placeholder="검색..." oninput="app.setSearchQuery(this.value)"
+            class="bg-neutral-900 border border-neutral-800 text-xs pl-8 pr-7 py-1 rounded w-full outline-none focus:border-neutral-600 transition-colors text-neutral-200 placeholder:text-neutral-500" />
+          <button id="search-clear-btn" onclick="app.clearSearch()" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-neutral-300">
+            <i data-lucide="x" class="w-3 h-3"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 비주얼 웹 빌더 (WYSIWYG) 툴바 독 ================= -->
+    <div id="edit-mode-banner" class="hidden bg-[#0c0f16] border-t border-b border-neutral-800 px-3 sm:px-4 py-2 text-xs select-none sticky top-14 z-30 shadow-lg backdrop-blur-md">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
+        
+        <!-- 왼쪽: 뷰포트 반응형 제어 & 그리드 설정 -->
+        <div class="flex items-center gap-2 flex-wrap">
+          <!-- 빌더 모드 배지 -->
+          <div class="flex items-center gap-1.5 px-2 py-0.5 rounded bg-blue-950/80 border border-blue-800/80 text-blue-300 font-semibold text-[11px]">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+            <span>비주얼 빌더</span>
+          </div>
+
+          <!-- 뷰포트 프레임 스위처 (반응형 Breakpoint 시뮬레이션) -->
+          <div class="flex items-center bg-neutral-900 border border-neutral-800 rounded p-0.5 text-neutral-400" title="반응형 뷰포트 전환">
+            <button id="btn-viewport-desktop" onclick="Builder.setViewport('desktop')" class="px-2 py-0.5 rounded bg-neutral-800 text-white font-semibold text-xs flex items-center gap-1">
+              <i data-lucide="monitor" class="w-3.5 h-3.5"></i>
+              <span class="hidden sm:inline">데스크톱</span>
+            </button>
+            <button id="btn-viewport-tablet" onclick="Builder.setViewport('tablet')" class="px-2 py-0.5 rounded text-neutral-400 hover:text-white text-xs flex items-center gap-1 transition-colors">
+              <i data-lucide="tablet" class="w-3.5 h-3.5"></i>
+              <span class="hidden sm:inline">태블릿</span>
+            </button>
+            <button id="btn-viewport-mobile" onclick="Builder.setViewport('mobile')" class="px-2 py-0.5 rounded text-neutral-400 hover:text-white text-xs flex items-center gap-1 transition-colors">
+              <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+              <span class="hidden sm:inline">모바일</span>
+            </button>
+          </div>
+
+          <!-- 그리드 컬럼(열) 제어 -->
+          <div class="hidden lg:flex items-center bg-neutral-900 border border-neutral-800 rounded p-0.5 text-neutral-400" title="그리드 열(Columns) 수">
+            <span class="text-[10px] text-neutral-500 font-mono px-1.5">열</span>
+            <button id="btn-grid-col-auto" onclick="Builder.setGridColumns('auto')" class="px-1.5 py-0.5 rounded bg-neutral-800 text-white text-[11px] font-semibold">Auto</button>
+            <button id="btn-grid-col-2" onclick="Builder.setGridColumns('2')" class="px-1.5 py-0.5 rounded text-neutral-400 hover:text-white text-[11px]">2</button>
+            <button id="btn-grid-col-3" onclick="Builder.setGridColumns('3')" class="px-1.5 py-0.5 rounded text-neutral-400 hover:text-white text-[11px]">3</button>
+            <button id="btn-grid-col-4" onclick="Builder.setGridColumns('4')" class="px-1.5 py-0.5 rounded text-neutral-400 hover:text-white text-[11px]">4</button>
+            <button id="btn-grid-col-5" onclick="Builder.setGridColumns('5')" class="px-1.5 py-0.5 rounded text-neutral-400 hover:text-white text-[11px]">5</button>
+          </div>
+
+          <!-- 카드 밀도 제어 -->
+          <div class="hidden xl:flex items-center bg-neutral-900 border border-neutral-800 rounded p-0.5 text-neutral-400" title="카드 스타일 밀도">
+            <button id="btn-density-standard" onclick="Builder.setCardDensity('standard')" class="px-2 py-0.5 rounded bg-neutral-800 text-white text-[11px] font-semibold">표준</button>
+            <button id="btn-density-compact" onclick="Builder.setCardDensity('compact')" class="px-2 py-0.5 rounded text-neutral-400 hover:text-white text-[11px]">컴팩트</button>
+          </div>
+        </div>
+
+        <!-- 오른쪽: 레이어 탐색기 & 도구 & 저장 액션 -->
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <!-- 레이어 / 컴포넌트 목록 트리 토글 -->
+          <button id="btn-toggle-layers" onclick="Builder.toggleLayerPanel()" class="px-2.5 py-1 rounded border border-neutral-700/80 bg-neutral-900 hover:bg-neutral-800 text-xs text-neutral-300 flex items-center gap-1.5 transition-colors" title="DOM 레이어 / 비디오 목록 탐색기">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-neutral-400"></i>
+            <span>레이어</span>
+          </button>
+
+          <!-- 새 영상 빠른 추가 -->
+          <button onclick="Modals.openExtractorModal()" class="px-2.5 py-1 rounded bg-neutral-100 hover:bg-white text-neutral-950 font-semibold text-xs flex items-center gap-1 transition-colors">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>영상 추가</span>
+          </button>
+
+          <!-- 프로필 동기화 -->
+          <button onclick="app.syncProfiles()" class="hidden md:flex px-2 py-1 rounded border border-neutral-800 hover:bg-neutral-800 text-xs text-neutral-400 hover:text-neutral-200 items-center gap-1 transition-colors" title="프로필 이미지 일괄 동기화">
+            <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+          </button>
+
+          <!-- data.json 편집 -->
+          <button onclick="Modals.openRawJsonModal()" class="hidden md:flex px-2 py-1 rounded border border-neutral-800 hover:bg-neutral-800 text-xs text-neutral-400 hover:text-neutral-200 items-center gap-1 transition-colors" title="data.json 직접 편집">
+            <i data-lucide="code" class="w-3 h-3"></i>
+            <span>JSON</span>
+          </button>
+
+          <!-- 저장 상태 인디케이터 -->
+          <div class="flex items-center gap-1.5 px-2 py-1 text-xs text-neutral-400 font-mono">
+            <span id="builder-save-indicator-dot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span id="builder-save-indicator-text" class="hidden sm:inline">저장됨</span>
+          </div>
+
+          <!-- 저장 버튼 (단축키 안내 포함) -->
+          <button onclick="app.saveDataToServer()" class="px-2.5 py-1 rounded border border-neutral-700 hover:bg-neutral-800 text-xs text-neutral-200 font-semibold flex items-center gap-1 transition-colors" title="서버 저장 (Ctrl+S)">
+            <i data-lucide="save" class="w-3.5 h-3.5 text-neutral-400"></i>
+            <span>저장</span>
+          </button>
+
+          <!-- 종료 (뷰어 모드 전환) -->
+          <button onclick="app.toggleEditMode(false)" class="px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-xs text-neutral-200 font-medium flex items-center gap-1 transition-colors" title="편집 종료 및 뷰어 모드로 보기">
+            <i data-lucide="eye" class="w-3.5 h-3.5 text-neutral-400"></i>
+            <span>뷰어 모드</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 검색 필터 알림 바 -->
+    <div id="search-filter-banner" class="hidden bg-neutral-900/60 border-t border-neutral-800 px-4 py-1.5 text-xs text-neutral-400 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span>검색어: <strong id="current-search-text" class="text-neutral-200"></strong></span>
+        <span id="search-result-count" class="text-neutral-500 font-mono"></span>
+      </div>
+      <button onclick="app.clearSearch()" class="hover:text-neutral-200 underline text-[11px]">필터 해제</button>
+    </div>
+  </header>
+
+  <!-- 메인 캔버스 래퍼 (반응형 뷰포트 시뮬레이션 지원) -->
+  <div id="canvas-wrapper" class="w-full flex justify-center py-2 transition-all duration-300">
+    <main id="main-content" class="max-w-7xl mx-auto p-4 sm:p-6 w-full flex-grow transition-all duration-300">
+      <!-- 초기 스켈레톤 로더는 JS에서 주입됨 -->
+    </main>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="mt-auto py-8 border-t border-neutral-800/80 bg-neutral-950/60 text-xs text-neutral-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="font-normal">해외 자막 음매드 모음 • 영상 저작권은 각 원작자 및 자막 제작자에게 있습니다.</p>
+      <div id="footer-edit-tools" class="hidden items-center gap-3">
+        <button onclick="Modals.openExtractorModal()" class="hover:text-neutral-300">영상 등록</button>
+        <span>•</span>
+        <button onclick="Modals.openDataModal()" class="hover:text-neutral-300">data.json 관리</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= 모달 1: 제작자 / 자막자 상세 ================= -->
+  <div id="creator-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 modal-fade">
+    <div class="bg-neutral-900 border border-neutral-800 w-full max-w-5xl max-h-[88vh] flex flex-col rounded-xl overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-neutral-800 flex items-center justify-between bg-neutral-950/60">
+        <div class="flex items-center gap-3">
+          <img id="modal-creator-profile" src="" class="w-10 h-10 rounded-lg object-cover border border-neutral-800" onerror="this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100'" />
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="modal-creator-type-badge" class="px-1.5 py-0.2 rounded text-[10px] font-mono border border-neutral-700 bg-neutral-800 text-neutral-300"></span>
+              <h3 id="modal-creator-name" class="text-sm sm:text-base font-bold text-neutral-100"></h3>
+              <span id="modal-creator-channel-badge" class="hidden"></span>
+              <button id="modal-creator-edit-btn" onclick="Modals.promptEditCreatorProfile()" title="프로필 이미지 / 채널 연동 변경" class="hidden p-1 rounded text-neutral-500 hover:text-neutral-200 hover:bg-neutral-800 transition-colors">
+                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <p id="modal-creator-count" class="text-[11px] text-neutral-500 font-mono mt-0.5"></p>
+          </div>
+        </div>
+        <button onclick="Modals.closeCreatorModal()" class="p-1.5 rounded hover:bg-neutral-800 text-neutral-400 hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div class="p-4 overflow-y-auto flex-grow bg-[#0a0c10]">
+        <div id="modal-creator-works" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 모달 2: 영상 등록 및 추출기 ================= -->
+  <div id="extractor-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 modal-fade">
+    <div class="bg-neutral-900 border border-neutral-800 w-full max-w-3xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-neutral-800 flex items-center justify-between bg-neutral-950/60">
+        <h3 id="extractor-modal-title" class="text-sm font-bold text-neutral-100">영상 등록</h3>
+        <button onclick="Modals.closeExtractorModal()" class="p-1.5 rounded hover:bg-neutral-800 text-neutral-400 hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="p-4 sm:p-5 overflow-y-auto flex-grow space-y-4 bg-[#0a0c10] text-xs">
+        <!-- URL 입력 -->
+        <div class="space-y-1.5">
+          <label class="block font-semibold text-neutral-300">영상 주소 또는 재생목록 링크 붙여넣기</label>
+          <div class="flex gap-2">
+            <input type="text" id="extract-input" placeholder="YouTube 영상, 재생목록(list=...), 네이버 블로그 영상 iframe"
+              class="flex-grow bg-neutral-950 border border-neutral-800 px-3 py-2 rounded text-neutral-100 font-mono text-xs outline-none focus:border-neutral-600"
+              oninput="Modals.handleExtractInput(this.value)" />
+          </div>
+          <p class="text-[11px] text-neutral-500">YouTube 링크 입력 시 제목과 채널명이 자동 입력됩니다. 재생목록 입력 시 일괄 추출 목록이 생성됩니다.</p>
+        </div>
+
+        <!-- 중복 영상 감지 알림 배너 -->
+        <div id="duplicate-warning-banner" class="hidden p-3 rounded-lg border border-amber-600/70 bg-amber-950/40 text-amber-300 text-xs flex items-center justify-between gap-3 shadow-sm animate-fade-in">
+          <div class="flex items-center gap-2 min-w-0">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0"></i>
+            <div class="min-w-0">
+              <span class="font-bold text-amber-200">이미 등록된 영상입니다:</span>
+              <span id="duplicate-warning-text" class="text-amber-300/90 truncate ml-1 font-medium"></span>
+            </div>
+          </div>
+          <button id="btn-edit-duplicate" type="button" class="px-2.5 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/50 text-[11px] font-semibold shrink-0 transition-colors flex items-center gap-1">
+            <i data-lucide="edit-2" class="w-3 h-3"></i>
+            <span>해당 영상 수정</span>
+          </button>
+        </div>
+
+        <!-- 단일 영상 폼 -->
+        <div id="single-video-section" class="space-y-4">
+          <div id="extract-preview-section" class="hidden p-3 rounded-lg border border-neutral-800 bg-neutral-950 space-y-2">
+            <div class="flex items-center justify-between text-[11px]">
+              <span id="extract-platform-badge" class="px-1.5 py-0.2 rounded font-mono"></span>
+              <span id="extract-status-text" class="text-neutral-500 font-mono"></span>
+            </div>
+            <div class="w-full aspect-video rounded overflow-hidden bg-black border border-neutral-800" id="extract-player-container"></div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center justify-between text-neutral-400">
+                <span>제목 (한국어 표기) *</span>
+                <span id="auto-title-badge" class="hidden text-[10px] text-emerald-400 font-mono">자동 완성</span>
+              </div>
+              <input type="text" id="meta-title" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 outline-none focus:border-neutral-600" oninput="Modals.updateGeneratedJSON()" />
+            </div>
+            <div class="space-y-1">
+              <span class="text-neutral-400">원제 (원곡/원작 제목)</span>
+              <input type="text" id="meta-orig-title" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 outline-none focus:border-neutral-600" oninput="Modals.updateGeneratedJSON()" />
+            </div>
+            <div class="space-y-1">
+              <span class="text-neutral-400">업로드 날짜 (YYYY/MM/DD)</span>
+              <input type="text" id="meta-date" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 font-mono outline-none focus:border-neutral-600" oninput="Modals.updateGeneratedJSON()" />
+            </div>
+
+            <!-- 자막/번역자 (Subtitler) 정보 입력 영역 -->
+            <div class="space-y-2 sm:col-span-2 p-3 rounded-lg border border-neutral-800 bg-neutral-950">
+              <div class="flex items-center justify-between flex-wrap gap-1.5">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-medium text-neutral-300 text-xs">자막/번역자 (Subtitler) 정보</span>
+                  <span class="text-[10px] text-neutral-500 font-mono">(합작 시 쉼표 , 로 구분)</span>
+                  <span id="auto-subtitler-badge" class="hidden text-[10px] text-emerald-400 font-mono">자동입력</span>
+                </div>
+                <div id="subtitler-avatar-preview" class="hidden flex items-center gap-1 text-[11px] text-neutral-400 flex-wrap justify-end"></div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[11px] text-neutral-400 mb-1">자막 제작자 명칭 (합작 시 쉼표 , 로 여러 명 입력: A, B)</label>
+                  <input type="text" id="meta-subtitler" placeholder="자막 제작자명 (예: 신병, 랩소디제이)" class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 outline-none focus:border-neutral-600" oninput="Modals.updateGeneratedJSON(); Modals.renderSubtitlerAvatarsPreview();" onchange="Modals.checkSubtitlerAutoLink(this.value)" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-neutral-400 mb-1">프로필 연동 (네이버 블로그, 유튜브, 니코동 주소)</label>
+                  <div class="flex gap-1.5">
+                    <input type="text" id="meta-subtitler-query" placeholder="블로그/유튜브/니코동 링크" class="flex-grow bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 font-mono text-xs outline-none focus:border-neutral-600" onkeydown="if(event.key==='Enter'){event.preventDefault();Modals.lookupSubtitlerProfile();}" />
+                    <button type="button" onclick="Modals.lookupSubtitlerProfile()" class="px-2.5 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-medium shrink-0 transition-colors">
+                      불러오기
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 원작자 및 니코동 정보 입력 영역 -->
+            <div class="space-y-2 sm:col-span-2 p-3 rounded-lg border border-neutral-800 bg-neutral-950">
+              <div class="flex items-center justify-between flex-wrap gap-1.5">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-medium text-neutral-300 text-xs">원작자 (Creator) 정보</span>
+                  <span class="text-[10px] text-neutral-500 font-mono">(합작 시 쉼표 , 로 구분)</span>
+                  <span id="auto-creator-badge" class="hidden text-[10px] text-emerald-400 font-mono">설명란에서 자동 감지됨</span>
+                </div>
+                <div id="creator-avatar-preview" class="hidden flex items-center gap-1 text-[11px] text-neutral-400 flex-wrap justify-end"></div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[11px] text-neutral-400 mb-1">원작자 명칭 (합작 시 쉼표 , 로 여러 명 입력: A, B)</label>
+                  <input type="text" id="meta-creator" placeholder="원작자명 (예: のし, たっぴ)" class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 outline-none focus:border-neutral-600" oninput="Modals.updateGeneratedJSON(); Modals.renderCreatorAvatarsPreview();" />
+                </div>
+                <div>
+                  <label class="block text-[11px] text-neutral-400 mb-1">프로필 연동 (니코동, 유튜브, 네이버 블로그 링크)</label>
+                  <div class="flex gap-1.5">
+                    <input type="text" id="meta-nico-query" placeholder="니코동(ID/sm번호) 또는 유튜브/블로그 링크" class="flex-grow bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 font-mono text-xs outline-none focus:border-neutral-600" onkeydown="if(event.key==='Enter'){event.preventDefault();Modals.lookupNicoProfile();}" />
+                    <button type="button" onclick="Modals.lookupNicoProfile()" class="px-2.5 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-medium shrink-0 transition-colors">
+                      불러오기
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 원본 MAD 링크 (Source URL) 입력 영역 -->
+            <div class="space-y-1 sm:col-span-2">
+              <div class="flex items-center justify-between text-neutral-400">
+                <span class="font-medium text-neutral-300">원본 MAD 링크 (니코동 / YouTube 주소)</span>
+                <span id="auto-source-badge" class="hidden text-[10px] text-emerald-400 font-mono">자동 감지됨</span>
+              </div>
+              <input type="text" id="meta-source-url" placeholder="니코동 주소(sm번호) 또는 유튜브 링크 (예: https://www.nicovideo.jp/watch/sm...)"
+                class="w-full bg-neutral-950 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 font-mono text-xs outline-none focus:border-neutral-600"
+                oninput="Modals.updateGeneratedJSON()" />
+              <p class="text-[11px] text-neutral-500">원작 MAD 영상 링크입니다. sm번호(예: sm12345678)만 입력해도 니코동 링크로 자동 변환됩니다.</p>
+            </div>
+
+            <div class="space-y-1 sm:col-span-2">
+              <span class="text-neutral-400">태그 (쉼표 구분)</span>
+              <input type="text" id="meta-tags" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 outline-none focus:border-neutral-600" oninput="Modals.updateGeneratedJSON()" />
+            </div>
+            <div class="space-y-1 sm:col-span-2">
+              <span class="text-neutral-400">설명 / 비고 (입력 시 원작/제작자 자동 감지)</span>
+              <textarea id="meta-desc" rows="2" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2.5 py-1.5 text-neutral-100 outline-none focus:border-neutral-600 resize-none" oninput="Modals.handleDescInput(this.value)"></textarea>
+            </div>
+          </div>
+
+          <pre id="extract-json-output" class="bg-neutral-950 p-2.5 rounded border border-neutral-800 text-neutral-400 font-mono text-[11px] overflow-x-auto max-h-28"></pre>
+        </div>
+
+        <!-- 재생목록 일괄 등록 폼 -->
+        <div id="playlist-section" class="hidden space-y-3">
+          <div id="playlist-loading" class="hidden p-8 text-center text-neutral-400 border border-neutral-800 rounded bg-neutral-950">
+            <p class="font-medium text-xs">재생목록 영상을 추출하고 있습니다...</p>
+          </div>
+          <div id="playlist-result-container" class="space-y-3 hidden">
+            <div class="p-3 rounded border border-neutral-800 bg-neutral-950 space-y-2">
+              <div class="flex items-center justify-between pb-2 border-b border-neutral-800">
+                <span id="playlist-summary-count" class="font-mono text-neutral-200"></span>
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="Modals.toggleSelectAllPlaylist('new')" class="hover:text-emerald-300 font-medium text-emerald-400 text-xs">신규만 선택</button>
+                  <span class="text-neutral-700">|</span>
+                  <button type="button" onclick="Modals.toggleSelectAllPlaylist(true)" class="hover:text-white text-xs">모두 선택</button>
+                  <span class="text-neutral-700">|</span>
+                  <button type="button" onclick="Modals.toggleSelectAllPlaylist(false)" class="hover:text-white text-xs">전체 해제</button>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
+                <input type="text" id="playlist-batch-subtitler" placeholder="자막자 일괄 적용" oninput="Modals.applyBatchSubtitler(this.value)" class="bg-neutral-900 border border-neutral-800 rounded px-2 py-1 text-xs outline-none" />
+                <input type="text" id="playlist-batch-creator" placeholder="원작자 일괄 적용" oninput="Modals.applyBatchCreator(this.value)" class="bg-neutral-900 border border-neutral-800 rounded px-2 py-1 text-xs outline-none" />
+                <input type="text" id="playlist-batch-tags" placeholder="태그 일괄 적용" oninput="Modals.applyBatchTags(this.value)" class="bg-neutral-900 border border-neutral-800 rounded px-2 py-1 text-xs outline-none" />
+                <input type="text" id="playlist-batch-date" placeholder="날짜 일괄 적용" oninput="Modals.applyBatchDate(this.value)" class="bg-neutral-900 border border-neutral-800 rounded px-2 py-1 text-xs outline-none font-mono" />
+              </div>
+            </div>
+            <div id="playlist-items-list" class="space-y-1.5 max-h-[38vh] overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 모달 푸터 버튼 -->
+      <div class="p-3 sm:p-4 border-t border-neutral-800 bg-neutral-950 flex items-center justify-between gap-2 text-xs">
+        <button onclick="Modals.closeExtractorModal()" class="px-3 py-1.5 rounded hover:bg-neutral-800 text-neutral-400">닫기</button>
+        <div id="single-footer-buttons" class="flex items-center gap-2">
+          <button id="btn-save-video-to-server" onclick="Modals.saveCurrentVideoToFile()" class="px-3.5 py-1.5 rounded bg-neutral-100 hover:bg-white text-neutral-950 font-semibold">
+            <span id="btn-save-video-text">data.json에 저장 (덮어쓰기)</span>
+          </button>
+          <button onclick="Modals.addSingleToSession()" class="px-3 py-1.5 rounded border border-neutral-700 hover:bg-neutral-800 text-neutral-300">화면에만 추가</button>
+        </div>
+        <div id="playlist-footer-buttons" class="hidden flex items-center gap-2">
+          <button onclick="Modals.savePlaylistToServer()" class="px-3.5 py-1.5 rounded bg-neutral-100 hover:bg-white text-neutral-950 font-semibold">
+            <span id="btn-save-playlist-text">선택 영상 일괄 저장</span>
+          </button>
+          <button onclick="Modals.addPlaylistToSession()" class="px-3 py-1.5 rounded border border-neutral-700 hover:bg-neutral-800 text-neutral-300">화면에만 추가</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 모달 3: data.json 관리 ================= -->
+  <div id="data-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 modal-fade">
+    <div class="bg-neutral-900 border border-neutral-800 w-full max-w-lg rounded-xl overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-neutral-800 flex items-center justify-between bg-neutral-950/60">
+        <h3 class="text-sm font-bold text-neutral-100">data.json 파일 관리</h3>
+        <button onclick="Modals.closeDataModal()" class="p-1.5 rounded hover:bg-neutral-800 text-neutral-400"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div class="p-4 space-y-4 text-xs bg-[#0a0c10]">
+        <div class="p-3 rounded border border-neutral-800 bg-neutral-950 space-y-2">
+          <h4 class="font-semibold text-neutral-200">로컬 data.json 불러오기</h4>
+          <input type="file" id="json-file-input" accept=".json" onchange="Modals.handleFileUpload(event)" class="text-neutral-400 file:mr-3 file:py-1 file:px-2.5 file:rounded file:border-0 file:text-xs file:bg-neutral-800 file:text-neutral-200 hover:file:bg-neutral-700 cursor-pointer" />
+        </div>
+        <div class="p-3 rounded border border-neutral-800 bg-neutral-950 space-y-2">
+          <h4 class="font-semibold text-neutral-200">현재 아카이브 data.json 내보내기</h4>
+          <button onclick="Modals.downloadDataJSON()" class="px-3 py-1.5 rounded border border-neutral-700 hover:bg-neutral-800 text-neutral-200 font-medium">data.json 파일 다운로드</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 모달 4: data.json 원본 직접 편집기 ================= -->
+  <div id="raw-json-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 modal-fade">
+    <div class="bg-neutral-900 border border-neutral-800 w-full max-w-4xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-neutral-800 flex items-center justify-between bg-neutral-950/60">
+        <h3 class="text-sm font-bold text-neutral-100">data.json 원본 편집</h3>
+        <button onclick="Modals.closeRawJsonModal()" class="p-1.5 rounded hover:bg-neutral-800 text-neutral-400"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div class="px-4 py-2 border-b border-neutral-800 bg-neutral-950/90 flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <button onclick="Modals.formatRawJSON()" class="px-2.5 py-1 rounded border border-neutral-700 hover:bg-neutral-800 text-neutral-300">정렬 (Format)</button>
+          <button onclick="Modals.validateRawJSON()" class="px-2.5 py-1 rounded border border-neutral-700 hover:bg-neutral-800 text-neutral-300">문법 검증</button>
+        </div>
+        <span id="raw-json-status" class="text-neutral-500 font-mono"></span>
+      </div>
+      <div class="p-4 overflow-hidden flex-grow flex flex-col gap-2 bg-[#0a0c10]">
+        <div id="raw-json-error-box" class="hidden p-2 rounded border border-red-800/80 bg-red-950/30 text-red-300 text-xs font-mono">
+          <span id="raw-json-error-text"></span>
+        </div>
+        <textarea id="raw-json-textarea" spellcheck="false" class="flex-grow w-full h-[50vh] bg-neutral-950 border border-neutral-800 rounded p-3 text-neutral-300 font-mono text-xs leading-relaxed outline-none focus:border-neutral-700 resize-none"></textarea>
+      </div>
+      <div class="p-3 border-t border-neutral-800 bg-neutral-950 flex items-center justify-between text-xs">
+        <button onclick="Modals.closeRawJsonModal()" class="px-3 py-1.5 rounded hover:bg-neutral-800 text-neutral-400">닫기</button>
+        <button onclick="Modals.saveRawJSONToFile()" class="px-3.5 py-1.5 rounded bg-neutral-100 hover:bg-white text-neutral-950 font-semibold">data.json에 저장 (덮어쓰기)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 토스트 알림 컨테이너 -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- 스크립트 모듈 로드 -->
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/modals.js"></script>
+  <script src="js/builder.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

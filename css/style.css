@@ -1,0 +1,248 @@
+/* -------------------------------------------------------------
+ * 해외 자막 음매드 모음 - Style
+ * ------------------------------------------------------------- */
+
+:root {
+  --bg-main: #0a0c10;
+  --bg-surface: #10141d;
+  --bg-subtle: #161b26;
+  --border-color: #212836;
+  --border-hover: #333d52;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(37, 99, 235, 0.35);
+  color: #ffffff;
+}
+
+/* 스크롤바 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2638;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* 미니멀 카드 호버 인터랙션 */
+.card-item {
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.card-item:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+/* 썸네일 16:9 여백 없이 꽉 채움 */
+.card-item .aspect-video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 카드 내 제작자/자막러 아바타 아이콘 크기 (22px) */
+.card-avatar-img {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  object-fit: cover;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+/* 스켈레톤 로더 */
+.skeleton {
+  background: linear-gradient(90deg, #121722 25%, #182030 50%, #121722 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 텍스트 2줄 제한 */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 모달 페이드 */
+.modal-fade {
+  animation: modalIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* -------------------------------------------------------------
+ * 유튜브 스타일 재생목록 카드 상단 덱 스택 효과
+ * ------------------------------------------------------------- */
+.playlist-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist-deck-stack {
+  position: relative;
+  width: 100%;
+  padding-top: 8px; /* 상단 스택 레이어가 올라올 여백 */
+}
+
+/* 스택 레이어 1 (가장 뒤쪽/상단 - 좁음) */
+.playlist-deck-layer-1 {
+  position: absolute;
+  top: 0;
+  left: 6%;
+  right: 6%;
+  height: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #1a202c;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+/* 스택 레이어 2 (중간 - 중간 폭) */
+.playlist-deck-layer-2 {
+  position: absolute;
+  top: 4px;
+  left: 3%;
+  right: 3%;
+  height: 10px;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  background-color: #242c3d;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+/* 호버 시 입체 스택 미세 팝업 효과 */
+.group:hover .playlist-deck-layer-1 {
+  transform: translateY(-2.5px);
+}
+.group:hover .playlist-deck-layer-2 {
+  transform: translateY(-1.2px);
+}
+
+/* 전면 메인 썸네일 박스 */
+.playlist-thumb-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #0b0f16;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  z-index: 3;
+}
+
+/* -------------------------------------------------------------
+ * 비주얼 웹 빌더 (WYSIWYG) 스타일
+ * ------------------------------------------------------------- */
+.builder-dragging {
+  opacity: 0.35 !important;
+  transform: scale(0.97) !important;
+  border: 2px dashed #3b82f6 !important;
+  cursor: grabbing !important;
+}
+
+.builder-drag-target {
+  border: 2px solid #3b82f6 !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3) !important;
+}
+
+.builder-highlight-pulse {
+  animation: builder-pulse 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes builder-pulse {
+  0% {
+    outline: 3px solid #3b82f6;
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+  }
+  100% {
+    outline: 3px solid transparent;
+    box-shadow: none;
+  }
+}
+
+.builder-inline-editable {
+  border-radius: 4px;
+  padding: 1px 3px;
+  margin: -1px -3px;
+  transition: all 0.15s ease;
+  cursor: text;
+}
+.builder-inline-editable:hover {
+  background: rgba(255, 255, 255, 0.06);
+  outline: 1px dashed rgba(255, 255, 255, 0.25);
+}
+.builder-inline-editable:focus {
+  background: rgba(0, 0, 0, 0.7);
+  outline: 1.5px solid #3b82f6;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 컴팩트 카드 밀도 스타일 */
+.card-compact .p-3 {
+  padding: 0.5rem 0.65rem !important;
+}
+.card-compact h3 {
+  font-size: 0.7rem !important;
+  line-height: 1.2 !important;
+}
+.card-compact .space-y-2 {
+  gap: 0.25rem !important;
+}
