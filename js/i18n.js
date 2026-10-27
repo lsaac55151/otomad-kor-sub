@@ -2,9 +2,9 @@
 window.I18N = {
   ko: {
     siteTitle: "해외 자막 음매드 모음",
-    siteSubtitle: "한국어 자막 음매드 아카이브",
-    sortLatest: "최신순",
-    sortOldest: "오래된순",
+    siteSubtitle: "SUBTITLED OTOMAD",
+    sortLatest: "업데이트순",
+    sortOldest: "업데이트가 오래된순",
     sortName: "제목순",
     sortRandom: "랜덤",
     viewTag: "태그별 분류",
@@ -26,9 +26,9 @@ window.I18N = {
   },
   ja: {
     siteTitle: "海外字幕音MADまとめ",
-    siteSubtitle: "韓国語字幕音MADアーカイブ",
-    sortLatest: "新しい順",
-    sortOldest: "古い順",
+    siteSubtitle: "SUBTITLED OTOMAD",
+    sortLatest: "更新順",
+    sortOldest: "更新が古い順",
     sortName: "名前順",
     sortRandom: "ランダム",
     viewTag: "タグ別分類",

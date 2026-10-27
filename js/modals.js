@@ -88,41 +88,41 @@ window.Modals = (function () {
       if (chInfo.platform === 'youtube') {
         btnHtml = `
           <a href="${chInfo.url}" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800/90 hover:bg-neutral-700 text-[11px] font-semibold text-neutral-200 hover:text-white border border-neutral-700/80 hover:border-neutral-500 shadow-sm transition-all group"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main border theme-border-subtle hover:border-[#4169e1] shadow-sm transition-all group"
             title="YouTube 채널로 이동">
             <svg class="w-3.5 h-3.5 fill-red-500 shrink-0" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             <span>YouTube 채널</span>
-            <i data-lucide="arrow-up-right" class="w-3 h-3 text-neutral-400 group-hover:text-neutral-200"></i>
+            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover:text-[#4169e1] transition-colors"></i>
           </a>
         `;
       } else if (chInfo.platform === 'naver') {
         btnHtml = `
           <a href="${chInfo.url}" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-950/80 hover:bg-emerald-900 text-[11px] font-semibold text-emerald-300 hover:text-emerald-100 border border-emerald-700/80 hover:border-emerald-500 shadow-sm transition-all group"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main hover:text-[#03c75a] border theme-border-subtle hover:border-[#03c75a] shadow-sm transition-all group"
             title="네이버 블로그로 이동">
-            <span class="w-3.5 h-3.5 rounded bg-emerald-500 text-neutral-950 font-black text-[9px] flex items-center justify-center shrink-0">N</span>
+            <span class="w-3.5 h-3.5 rounded bg-[#03c75a] text-white font-black text-[9px] flex items-center justify-center shrink-0">N</span>
             <span>네이버 블로그</span>
-            <i data-lucide="arrow-up-right" class="w-3 h-3 text-emerald-400 group-hover:text-emerald-200"></i>
+            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover:text-[#03c75a] transition-colors"></i>
           </a>
         `;
       } else if (chInfo.platform === 'niconico') {
         btnHtml = `
           <a href="${chInfo.url}" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800/90 hover:bg-neutral-700 text-[11px] font-semibold text-neutral-200 hover:text-white border border-neutral-700/80 hover:border-neutral-500 shadow-sm transition-all group"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main border theme-border-subtle hover:border-[#4169e1] shadow-sm transition-all group"
             title="니코동 마이페이지로 이동">
-            <i data-lucide="tv" class="w-3.5 h-3.5 text-neutral-400 group-hover:text-neutral-200"></i>
+            <i data-lucide="tv" class="w-3.5 h-3.5 theme-text-sub group-hover:text-[#4169e1]"></i>
             <span>니코동 마이페이지</span>
-            <i data-lucide="arrow-up-right" class="w-3 h-3 text-neutral-400 group-hover:text-neutral-200"></i>
+            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover:text-[#4169e1] transition-colors"></i>
           </a>
         `;
       } else {
         btnHtml = `
           <a href="${chInfo.url}" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800/90 hover:bg-neutral-700 text-[11px] font-semibold text-neutral-200 hover:text-white border border-neutral-700/80 hover:border-neutral-500 shadow-sm transition-all group"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main border theme-border-subtle hover:border-[#4169e1] shadow-sm transition-all group"
             title="공식 채널/페이지로 이동">
-            <i data-lucide="globe" class="w-3.5 h-3.5 text-neutral-400 group-hover:text-neutral-200"></i>
+            <i data-lucide="globe" class="w-3.5 h-3.5 theme-text-sub group-hover:text-[#4169e1]"></i>
             <span>채널 바로가기</span>
-            <i data-lucide="arrow-up-right" class="w-3 h-3 text-neutral-400 group-hover:text-neutral-200"></i>
+            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover:text-[#4169e1] transition-colors"></i>
           </a>
         `;
       }
@@ -363,7 +363,7 @@ window.Modals = (function () {
       const avatar = pmap[name];
       if (avatar) {
         return `
-          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-neutral-900 border border-neutral-700/80 text-[11px] text-neutral-200 shadow-sm" title="${API.escapeHTML(name)}">
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded theme-bg-subtle border theme-border-medium text-[11px] theme-text-main shadow-sm" title="${API.escapeHTML(name)}">
             <img src="${avatar}" referrerpolicy="no-referrer" class="w-3.5 h-3.5 rounded-full object-cover shrink-0" onerror="this.style.display='none'" />
             <span class="truncate max-w-[90px] font-medium">${API.escapeHTML(name)}</span>
           </span>
@@ -374,7 +374,7 @@ window.Modals = (function () {
 
     if (chips.length > 0) {
       prevSec.innerHTML = chips.join('');
-      prevSec.className = 'flex items-center gap-1.5 text-[11px] text-neutral-400 flex-wrap justify-end';
+      prevSec.className = 'flex items-center gap-1.5 text-[11px] theme-text-sub flex-wrap justify-end';
       prevSec.classList.remove('hidden');
     } else {
       prevSec.classList.add('hidden');
@@ -399,7 +399,7 @@ window.Modals = (function () {
       const avatar = pmap[name];
       if (avatar) {
         return `
-          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-neutral-900 border border-neutral-700/80 text-[11px] text-neutral-200 shadow-sm" title="${API.escapeHTML(name)}">
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded theme-bg-subtle border theme-border-medium text-[11px] theme-text-main shadow-sm" title="${API.escapeHTML(name)}">
             <img src="${avatar}" referrerpolicy="no-referrer" class="w-3.5 h-3.5 rounded-full object-cover shrink-0" onerror="this.style.display='none'" />
             <span class="truncate max-w-[90px] font-medium">${API.escapeHTML(name)}</span>
           </span>
@@ -410,7 +410,7 @@ window.Modals = (function () {
 
     if (chips.length > 0) {
       prevSec.innerHTML = chips.join('');
-      prevSec.className = 'flex items-center gap-1.5 text-[11px] text-neutral-400 flex-wrap justify-end';
+      prevSec.className = 'flex items-center gap-1.5 text-[11px] theme-text-sub flex-wrap justify-end';
       prevSec.classList.remove('hidden');
     } else {
       prevSec.classList.add('hidden');
@@ -1126,9 +1126,9 @@ window.Modals = (function () {
 
     if (summaryCount) {
       if (dupCount > 0) {
-        summaryCount.innerHTML = `총 <strong class="text-[#faf9f6]">${totalCount}</strong>개 중 <strong class="text-[#87ceeb]">${selectedCount}</strong>개 선택됨 <span class="text-[#ffa500] font-semibold text-[11px] ml-1">(중복 ${dupCount}개 자동 제외됨)</span>`;
+        summaryCount.innerHTML = `총 <strong class="theme-text-main">${totalCount}</strong>개 중 <strong class="text-[#4169e1] font-bold">${selectedCount}</strong>개 선택됨 <span class="text-[#ffa500] font-semibold text-[11px] ml-1">(중복 ${dupCount}개 자동 제외됨)</span>`;
       } else {
-        summaryCount.innerHTML = `총 <strong class="text-[#faf9f6]">${totalCount}</strong>개 중 <strong class="text-[#87ceeb]">${selectedCount}</strong>개 선택`;
+        summaryCount.innerHTML = `총 <strong class="theme-text-main">${totalCount}</strong>개 중 <strong class="text-[#4169e1] font-bold">${selectedCount}</strong>개 선택`;
       }
     }
     if (saveBtn) saveBtn.textContent = `선택 영상 (${selectedCount}개) data.json에 일괄 저장`;
@@ -1139,17 +1139,17 @@ window.Modals = (function () {
       if (isDup) {
         cardBg = item.selected
           ? 'bg-[#ffa500]/15 border-[#ffa500]/70'
-          : 'bg-[#14172c]/70 border-[#c0c0c0]/20 opacity-60';
+          : 'theme-bg-subtle theme-border-subtle opacity-60';
       } else {
         cardBg = item.selected
-          ? 'bg-[#1b1f3b] border-[#4169e1] shadow-sm'
-          : 'bg-[#14172c] border-[#c0c0c0]/20 opacity-60';
+          ? 'theme-bg-surface border-[#4169e1] shadow-sm'
+          : 'theme-bg-subtle theme-border-subtle opacity-60';
       }
 
       return `
       <div class="p-2 rounded border ${cardBg} flex items-center gap-3 transition-colors">
-        <input type="checkbox" ${item.selected ? 'checked' : ''} onchange="Modals.togglePlaylistItem(${idx}, this.checked)" class="w-4 h-4 cursor-pointer rounded border-[#c0c0c0]/40 bg-[#0c0e1a] shrink-0" />
-        <div class="w-16 aspect-video rounded overflow-hidden bg-black shrink-0 border border-[#c0c0c0]/25 relative">
+        <input type="checkbox" ${item.selected ? 'checked' : ''} onchange="Modals.togglePlaylistItem(${idx}, this.checked)" class="w-4 h-4 cursor-pointer rounded theme-border-medium theme-bg-canvas shrink-0" />
+        <div class="w-16 aspect-video rounded overflow-hidden bg-black shrink-0 border theme-border-subtle relative">
           <img src="${item.thumbnail_url}" class="w-full h-full object-cover" loading="lazy" />
           ${isDup ? '<span class="absolute bottom-0 inset-x-0 bg-[#ffa500] text-[#0c0e1a] text-[9px] font-bold text-center py-0.2">중복</span>' : ''}
         </div>
@@ -1157,13 +1157,13 @@ window.Modals = (function () {
           <div class="flex items-center gap-1.5">
             ${isDup ? `<span class="px-1.5 py-0.2 rounded text-[10px] bg-[#ffa500]/20 text-[#ffa500] border border-[#ffa500]/50 font-semibold shrink-0" title="기존: ${API.escapeHTML(item.existingTitle)}">이미 등록됨</span>` : ''}
             <input type="text" value="${API.escapeHTML(item.title)}" oninput="Modals.updatePlaylistItemTitle(${idx}, this.value)"
-              class="w-full bg-[#0c0e1a] border border-[#c0c0c0]/30 focus:border-[#87ceeb] rounded px-2 py-0.5 text-xs text-[#faf9f6] outline-none transition-colors" />
+              class="w-full theme-bg-canvas border theme-border-medium focus:border-[#4169e1] rounded px-2 py-0.5 text-xs theme-text-main outline-none transition-colors" />
           </div>
-          <div class="flex items-center justify-between text-[11px] text-[#c0c0c0] font-mono truncate">
+          <div class="flex items-center justify-between text-[11px] theme-text-sub font-mono truncate">
             <div class="flex items-center gap-1.5 truncate">
               <span>자막: ${API.escapeHTML(Array.isArray(item.subtitler) ? item.subtitler.join(', ') : (item.subtitler || '미지정'))}</span>
-              ${item.creator ? `<span>•</span><span class="text-[#87ceeb] font-medium truncate max-w-[140px]" title="원작자: ${API.escapeHTML(item.creator)}">원작: ${API.escapeHTML(item.creator)}</span>` : ''}
-              ${item.source_url ? `<span>•</span><span class="text-[#87ceeb] font-medium shrink-0" title="${API.escapeHTML(item.source_url)}">출처: ${item.source_url.includes('nicovideo') || item.source_url.includes('nico.ms') ? '니코동' : '유튜브'}</span>` : ''}
+              ${item.creator ? `<span>•</span><span class="text-[#4169e1] font-medium truncate max-w-[140px]" title="원작자: ${API.escapeHTML(item.creator)}">원작: ${API.escapeHTML(item.creator)}</span>` : ''}
+              ${item.source_url ? `<span>•</span><span class="text-[#4169e1] font-medium shrink-0" title="${API.escapeHTML(item.source_url)}">출처: ${item.source_url.includes('nicovideo') || item.source_url.includes('nico.ms') ? '니코동' : '유튜브'}</span>` : ''}
             </div>
             ${isDup ? `<span class="text-[#ffa500]/90 truncate text-[10px] ml-2 shrink-0">기존: "${API.escapeHTML(item.existingTitle)}"</span>` : ''}
           </div>

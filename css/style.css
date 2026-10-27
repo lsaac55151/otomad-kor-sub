@@ -1,10 +1,11 @@
 /* -------------------------------------------------------------
  * 해외 자막 음매드 모음 (Subtitled Otomad Archive) - Style
- * Adobe Color 테마 적용: #4169E1, #87CEEB, #1B1F3B, #C0C0C0, #FAF9F6, #FFA500
+ * Adobe Color 테마 듀얼 모드: #4169E1, #87CEEB, #1B1F3B, #C0C0C0, #FAF9F6, #FFA500
  * ------------------------------------------------------------- */
 
-:root {
-  /* Adobe Color 팔레트 핵심 색상 */
+/* 1. 라이트 모드 (소프트 라이트 / Alabaster Ivory & Midnight Navy) */
+:root, [data-theme="light"] {
+  /* Adobe Color 원본 팔레트 */
   --color-royal-blue: #4169E1;
   --color-sky-blue: #87CEEB;
   --color-midnight-navy: #1B1F3B;
@@ -12,27 +13,106 @@
   --color-off-white: #FAF9F6;
   --color-vibrant-orange: #FFA500;
 
-  /* 시맨틱 테마 변수 (명암 대비 및 가독성 최적화) */
-  --bg-canvas: #0c0e1a;         /* 가장 깊은 딥 네이비 배경 (1B1F3B 파생 캔버스) */
-  --bg-surface: #1b1f3b;        /* 카드 및 주요 서피스 컨테이너 */
-  --bg-subtle: #14172c;         /* 헤더, 인풋 필드, 툴바 등 서브 배경 */
-  --bg-hover: #252b52;          /* 카드 및 목록 호버 시 배경 */
+  /* 시맨틱 테마 변수 - Light */
+  --bg-canvas: #faf9f6;                      /* 온화하고 정갈한 알라바스터 오프화이트 캔버스 */
+  --bg-canvas-backdrop: rgba(250, 249, 246, 0.94);
+  --bg-surface: #ffffff;                     /* 카드 및 서피스 클린 화이트 */
+  --bg-subtle: #f0f2f6;                      /* 툴바, 헤더, 인풋 및 서브 컨테이너 */
+  --bg-hover: #e6eaf2;                       /* 목록/카드 호버 상태 */
+  --bg-input: #ffffff;                       /* 텍스트 입력창 배경 */
+  --bg-modal-backdrop: rgba(27, 31, 59, 0.65); /* 모달 딤 배경 */
 
-  --text-primary: #faf9f6;      /* 최고 명암 대비 메인 텍스트 (명도 0.976, 대비율 11:1 이상) */
-  --text-secondary: #c0c0c0;    /* 선명한 실버 서브 텍스트 (명도 0.753, 대비율 6:1 이상) */
-  --text-muted: #8e98b0;        /* 메타 라벨용 보조 텍스트 */
-  --text-link: #87ceeb;         /* 어두운 배경에서 또렷하게 읽히는 스카이 블루 링크 */
+  --text-primary: #1b1f3b;                   /* 미드나잇 네이비 타이포그래피 (14.8:1 최상급 가독성) */
+  --text-secondary: #4b536d;                 /* 슬레이트 네이비 보조 텍스트 (6.3:1 가독성) */
+  --text-muted: #6d758f;                     /* 날짜 및 부가 라벨 */
+  --text-link: #2554c7;                      /* 명확한 로열 블루 링크 */
 
-  --border-subtle: rgba(192, 192, 192, 0.16);  /* 은은한 실버 테두리 */
-  --border-medium: rgba(192, 192, 192, 0.32);  /* 인풋 및 구분선 */
-  --border-focus: #87ceeb;                     /* 포커스 및 호버 스카이 블루 */
+  --border-subtle: rgba(27, 31, 59, 0.12);   /* 소프트 네이비 라인 */
+  --border-medium: rgba(27, 31, 59, 0.22);   /* 인풋 및 구분선 */
+  --border-focus: #4169e1;                   /* 포커스 링 */
 
-  --primary: #4169e1;           /* 로열 블루 메인 브랜드/버튼 */
+  --primary: #4169e1;                        /* 로열 블루 액션 버튼 */
   --primary-hover: #3355c7;
   --primary-text: #faf9f6;
 
-  --accent-orange: #ffa500;     /* 편집 모드 및 중요 알림 액센트 */
-  --accent-orange-text: #0c0e1a;
+  --accent-sky: #0284c7;
+  --accent-sky-bg: rgba(135, 206, 235, 0.25);
+  --accent-sky-text: #0369a1;
+  --accent-sky-border: rgba(135, 206, 235, 0.6);
+
+  --accent-orange: #d97706;                  /* 편집 모드/주의 앰버 오렌지 */
+  --accent-orange-bg: rgba(255, 165, 0, 0.16);
+  --accent-orange-text: #b45309;
+  --accent-orange-border: rgba(255, 165, 0, 0.55);
+
+  --shadow-card: 0 4px 16px -2px rgba(27, 31, 59, 0.08), 0 2px 6px -1px rgba(27, 31, 59, 0.04);
+  --shadow-card-hover: 0 12px 28px -4px rgba(27, 31, 59, 0.14), 0 0 16px -2px rgba(65, 105, 225, 0.18);
+  --scrollbar-thumb: #c0c0c0;
+  --skeleton-base: #e8ecf2;
+  --skeleton-highlight: #f5f7fa;
+}
+
+/* 2. 다크 모드 (미드나잇 다크 / Midnight Navy & Alabaster) */
+[data-theme="dark"] {
+  --color-royal-blue: #4169E1;
+  --color-sky-blue: #87CEEB;
+  --color-midnight-navy: #1B1F3B;
+  --color-silver-grey: #C0C0C0;
+  --color-off-white: #FAF9F6;
+  --color-vibrant-orange: #FFA500;
+
+  /* 시맨틱 테마 변수 - Dark */
+  --bg-canvas: #0c0e1a;                      /* 딥 네이비 캔버스 */
+  --bg-canvas-backdrop: rgba(12, 14, 26, 0.94);
+  --bg-surface: #1b1f3b;                     /* 미드나잇 네이비 서피스 */
+  --bg-subtle: #14172c;                      /* 헤더/인풋 서브 배경 */
+  --bg-hover: #252b52;
+  --bg-input: #14172c;
+  --bg-modal-backdrop: rgba(12, 14, 26, 0.88);
+
+  --text-primary: #faf9f6;                   /* 화이트 텍스트 (12.5:1 가독성) */
+  --text-secondary: #c0c0c0;                 /* 실버 그레이 서브 텍스트 (6.5:1 가독성) */
+  --text-muted: #8e98b0;
+  --text-link: #87ceeb;                      /* 스카이 블루 링크 */
+
+  --border-subtle: rgba(192, 192, 192, 0.16);
+  --border-medium: rgba(192, 192, 192, 0.32);
+  --border-focus: #87ceeb;
+
+  --primary: #4169e1;
+  --primary-hover: #3355c7;
+  --primary-text: #faf9f6;
+
+  --accent-sky: #87ceeb;
+  --accent-sky-bg: rgba(135, 206, 235, 0.15);
+  --accent-sky-text: #87ceeb;
+  --accent-sky-border: rgba(135, 206, 235, 0.35);
+
+  --accent-orange: #ffa500;
+  --accent-orange-bg: rgba(255, 165, 0, 0.15);
+  --accent-orange-text: #ffa500;
+  --accent-orange-border: rgba(255, 165, 0, 0.6);
+
+  --shadow-card: 0 4px 14px -2px rgba(0, 0, 0, 0.5);
+  --shadow-card-hover: 0 8px 24px -4px rgba(12, 14, 26, 0.8), 0 0 16px -2px rgba(65, 105, 225, 0.2);
+  --scrollbar-thumb: #252b52;
+  --skeleton-base: #14172c;
+  --skeleton-highlight: #1f2545;
+}
+
+/* -------------------------------------------------------------
+ * 테마 전환 시 지연 및 차례차례 순차 변환(엇박자 깜빡임) 방지
+ * 일시적으로 모든 transition을 차단하여 한 번에 즉각('뙇') 일괄 전환
+ * ------------------------------------------------------------- */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
 }
 
 body {
@@ -44,9 +124,26 @@ body {
 }
 
 ::selection {
-  background-color: rgba(65, 105, 225, 0.45);
+  background-color: rgba(65, 105, 225, 0.40);
   color: #faf9f6;
 }
+
+/* -------------------------------------------------------------
+ * 공통 시맨틱 헬퍼 클래스
+ * ------------------------------------------------------------- */
+.theme-bg-canvas { background-color: var(--bg-canvas) !important; }
+.theme-bg-surface { background-color: var(--bg-surface) !important; }
+.theme-bg-subtle { background-color: var(--bg-subtle) !important; }
+.theme-bg-input { background-color: var(--bg-input) !important; }
+.theme-bg-hover:hover { background-color: var(--bg-hover) !important; }
+
+.theme-text-main { color: var(--text-primary) !important; }
+.theme-text-sub { color: var(--text-secondary) !important; }
+.theme-text-muted { color: var(--text-muted) !important; }
+.theme-text-link { color: var(--text-link) !important; }
+
+.theme-border-subtle { border-color: var(--border-subtle) !important; }
+.theme-border-medium { border-color: var(--border-medium) !important; }
 
 /* 스크롤바 */
 ::-webkit-scrollbar {
@@ -57,24 +154,24 @@ body {
   background: var(--bg-canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: #252b52;
+  background: var(--scrollbar-thumb);
   border-radius: 3px;
-  border: 1px solid rgba(192, 192, 192, 0.15);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4169e1;
+  background: var(--primary);
 }
 
 /* 카드 아이템 스타일 및 호버 인터랙션 */
 .card-item {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
   transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 .card-item:hover {
-  border-color: rgba(135, 206, 235, 0.55);
+  border-color: var(--border-focus);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px -4px rgba(12, 14, 26, 0.8), 0 0 16px -2px rgba(65, 105, 225, 0.18);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* 썸네일 16:9 여백 없이 꽉 채움 */
@@ -96,12 +193,12 @@ body {
   object-fit: cover;
   border-radius: 9999px;
   flex-shrink: 0;
-  border: 1px solid rgba(192, 192, 192, 0.35);
+  border: 1px solid var(--border-medium);
 }
 
 /* 스켈레톤 로더 */
 .skeleton {
-  background: linear-gradient(90deg, #14172c 25%, #1f2545 50%, #14172c 75%);
+  background: linear-gradient(90deg, var(--skeleton-base) 25%, var(--skeleton-highlight) 50%, var(--skeleton-base) 75%);
   background-size: 200% 100%;
   animation: skeleton-pulse 1.6s ease-in-out infinite;
 }
@@ -151,10 +248,10 @@ body {
   height: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: #14172c;
-  border-top: 1px solid rgba(192, 192, 192, 0.20);
-  border-left: 1px solid rgba(192, 192, 192, 0.12);
-  border-right: 1px solid rgba(192, 192, 192, 0.12);
+  background-color: var(--bg-subtle);
+  border-top: 1px solid var(--border-medium);
+  border-left: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
 }
@@ -167,10 +264,10 @@ body {
   height: 10px;
   border-top-left-radius: 11px;
   border-top-right-radius: 11px;
-  background-color: #1f2545;
-  border-top: 1px solid rgba(192, 192, 192, 0.28);
-  border-left: 1px solid rgba(192, 192, 192, 0.16);
-  border-right: 1px solid rgba(192, 192, 192, 0.16);
+  background-color: var(--bg-hover);
+  border-top: 1px solid var(--border-medium);
+  border-left: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
 }
@@ -188,9 +285,9 @@ body {
   aspect-ratio: 16 / 9;
   border-radius: 12px;
   overflow: hidden;
-  background-color: #0c0e1a;
-  border: 1px solid rgba(192, 192, 192, 0.22);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-card);
   z-index: 3;
 }
 
@@ -205,9 +302,9 @@ body {
 }
 
 .builder-drag-target {
-  border: 2px solid #87ceeb !important;
+  border: 2px solid #4169e1 !important;
   transform: translateY(-4px) !important;
-  box-shadow: 0 0 22px rgba(135, 206, 235, 0.45) !important;
+  box-shadow: 0 0 20px rgba(65, 105, 225, 0.40) !important;
 }
 
 .builder-highlight-pulse {
@@ -233,13 +330,13 @@ body {
   cursor: text;
 }
 .builder-inline-editable:hover {
-  background: rgba(135, 206, 235, 0.12);
-  outline: 1px dashed rgba(135, 206, 235, 0.5);
+  background: var(--accent-sky-bg);
+  outline: 1px dashed var(--border-focus);
 }
 .builder-inline-editable:focus {
-  background: #14172c;
-  outline: 1.5px solid #ffa500;
-  color: #faf9f6;
+  background: var(--bg-subtle);
+  outline: 1.5px solid var(--accent-orange);
+  color: var(--text-primary);
 }
 
 @keyframes slideUp {
