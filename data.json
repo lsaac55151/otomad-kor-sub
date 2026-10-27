@@ -283,7 +283,10 @@
     "User 34221972": "https://img.nicoprofile.nimg.jp/usericon/3422/34221972.jpg",
     "シラカバ": "https://img.nicoprofile.nimg.jp/usericon/1860/18600400.jpg?1765901241",
     "레이": "https://yt3.googleusercontent.com/Zsnx8O9SKDCfHBZ7ol1vOSOV0BQeugHbmITfct-XgR_hkOa3UA-W3QL3wgmNuS1KezC9OkmFZA=s900-c-k-c0x00ffffff-no-rj",
-    "クルルヤック": "https://img.nicoprofile.nimg.jp/usericon/13310/133104757.jpg?1748712245"
+    "クルルヤック": "https://img.nicoprofile.nimg.jp/usericon/13310/133104757.jpg?1748712245",
+    "セロ": "https://img.nicoprofile.nimg.jp/usericon/defaults/blank.jpg",
+    "とこがね2号": "https://img.nicoprofile.nimg.jp/usericon/defaults/blank.jpg",
+    "トミー": "https://img.nicoprofile.nimg.jp/usericon/2283/22834261.jpg?1385197121"
   },
   "channelMap": {
     "57877": "https://www.nicovideo.jp/user/19674048",
@@ -523,9 +526,96 @@
     "User 34221972": "https://www.nicovideo.jp/user/34221972",
     "シラカバ": "https://www.nicovideo.jp/user/18600400",
     "레이": "https://www.youtube.com/@vudghkskfk",
-    "クルルヤック": "https://www.nicovideo.jp/user/133104757"
+    "クルルヤック": "https://www.nicovideo.jp/user/133104757",
+    "セロ": "https://www.nicovideo.jp/user/19720301",
+    "とこがね2号": "https://www.nicovideo.jp/user/22502036",
+    "トミー": "https://www.nicovideo.jp/user/22834261"
   },
   "videos": [
+    {
+      "title": "[데스노트 MAD] 라이토의 퍼펙트 창세교실",
+      "originalTitle": "[데스노트 MAD] 육조년과 야가미 이야기",
+      "creator": "While",
+      "subtitler": "신세계",
+      "upload_date": "2026/10/27",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130187542937",
+      "naver_vid": "FCE8F76AD9880589FE96973DDF4A2F75C4AD",
+      "naver_outkey": "V123fa109b5497b385c94b9f35e9bb7398afc3c354cb8f186d6c68a6153f5b3a844a9b9f35e9bb7398afc",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/03/16/510/4d60aa79aa1239657ff30c7b93cfa7b4e0ae_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130187542937",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm22834261",
+      "id": "video-1793102521304"
+    },
+    {
+      "title": "[데스노트 MAD] 육조년과 야가미 이야기",
+      "originalTitle": "[데스노트 MAD] 육조년과 야가미 이야기",
+      "creator": "とこがね2号",
+      "subtitler": "신세계",
+      "upload_date": "2026/10/27",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/220003413727",
+      "naver_vid": "3FFF91EE4EA1E6C5C0BF8269B15E73A77018",
+      "naver_outkey": "V127984af7201b05a36448accd31423c0621141be5b93507d6f580054b5315db0580c8accd31423c06211",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/05/18/1103/4239f1a1b5827555dc2cd6b1f075c8f2f864_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/220003413727",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm19729471",
+      "id": "video-1793102358622"
+    },
+    {
+      "title": "[데스노트 MAD] 라이토호마 믹서 리메이크ver",
+      "originalTitle": "[데스노트 MAD] 라이토호마 믹서 리메이크ver",
+      "creator": "",
+      "subtitler": "신세계",
+      "upload_date": "2026/10/27",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/220017252054",
+      "naver_vid": "BAB3ABD7062E1A44CBE10E798E7B382BB0E8",
+      "naver_outkey": "V122d20a0b176ee1f4d6b45628e47435121eba2f2fc37c852620aedb04c6d5391501745628e47435121eb",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/06/01/696/ca1d07abc705dfa275ce86a2e531fda29d05_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/220017252054",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793102325994"
+    },
+    {
+      "title": "[데스노트 MAD] 뉴 리얼 월드",
+      "originalTitle": "[데스노트 MAD] 뉴 리얼 월드",
+      "creator": "のし",
+      "subtitler": "신세계",
+      "upload_date": "2026/10/27",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/220009613955",
+      "naver_vid": "C24605482EBCCB3F0474E77B8BF50C066627",
+      "naver_outkey": "V12377f047fbf4c12773457aa820458275cd7c3ded2e01f48eb1fb3512e05803c93b057aa820458275cd7",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/05/24/422/4f3968a206d246c19447f908b167d501d118_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/220009613955",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm23565887",
+      "id": "video-1793102123669"
+    },
     {
       "title": "\"키라가 아니야 【아무것도 없어】\" (한국어 자막)",
       "originalTitle": "\"키라가 아니야 【아무것도 없어】\" (한국어 자막)",
@@ -760,27 +850,6 @@
       "description": "",
       "source_url": "",
       "id": "video-1792496305306"
-    },
-    {
-      "title": "키라라 중사 [키랏! 하고 행진]",
-      "originalTitle": "키라라 중사 [키랏! 하고 행진]",
-      "creator": "TB",
-      "subtitler": "TB",
-      "upload_date": "2026/10/20",
-      "platform": "youtube",
-      "yt_id": "r3hgmhDkXBo",
-      "naver_url": "",
-      "naver_vid": "",
-      "naver_outkey": "",
-      "thumbnail_url": "https://i.ytimg.com/vi/r3hgmhDkXBo/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=r3hgmhDkXBo",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "",
-      "source_url": "https://www.nicovideo.jp/watch/sm35394573",
-      "id": "video-1792462012939"
     },
     {
       "id": "0Ivdpu708uc",
@@ -3569,24 +3638,6 @@
       "tags": [],
       "description": "원제: 物売るっていうレベル5-judgelight-\n원작 주소: https://www.nicovideo.jp/watch/sm36532704\n제작자: じすみっく님\n\n#한글자막 #음매드 #플스",
       "source_url": "https://www.nicovideo.jp/watch/sm36532704"
-    },
-    {
-      "id": "gSFWC2RKc14",
-      "title": "私に祟が舞い降りた！",
-      "originalTitle": "私に祟が舞い降りた！",
-      "creator": "わん(wan)",
-      "subtitler": "わん(wan)",
-      "upload_date": "2026/10/16",
-      "platform": "youtube",
-      "yt_id": "gSFWC2RKc14",
-      "thumbnail_url": "https://i.ytimg.com/vi/gSFWC2RKc14/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=gSFWC2RKc14",
-      "is_viewable": true,
-      "tags": [
-        "쓰르라미 울 적에"
-      ],
-      "description": "お持ち帰り~\nhttps://www.nicovideo.jp/watch/sm39555061\n#音MAD",
-      "source_url": "https://www.nicovideo.jp/watch/sm39555061"
     },
     {
       "id": "NnwGuzdNlx4",
@@ -6616,7 +6667,8 @@
       "tags": [
         "아이돌 마스터"
       ],
-      "description": "귀여워"
+      "description": "귀여워",
+      "source_url": "https://www.nicovideo.jp/watch/sm31145337"
     },
     {
       "id": "b5rLvkOVUbg",
