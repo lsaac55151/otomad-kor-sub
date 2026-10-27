@@ -1126,9 +1126,9 @@ window.Modals = (function () {
 
     if (summaryCount) {
       if (dupCount > 0) {
-        summaryCount.innerHTML = `총 <strong class="text-white">${totalCount}</strong>개 중 <strong class="text-white">${selectedCount}</strong>개 선택됨 <span class="text-amber-400 font-semibold text-[11px] ml-1">(중복 ${dupCount}개 자동 제외됨)</span>`;
+        summaryCount.innerHTML = `총 <strong class="text-[#faf9f6]">${totalCount}</strong>개 중 <strong class="text-[#87ceeb]">${selectedCount}</strong>개 선택됨 <span class="text-[#ffa500] font-semibold text-[11px] ml-1">(중복 ${dupCount}개 자동 제외됨)</span>`;
       } else {
-        summaryCount.innerHTML = `총 <strong class="text-white">${totalCount}</strong>개 중 <strong class="text-white">${selectedCount}</strong>개 선택`;
+        summaryCount.innerHTML = `총 <strong class="text-[#faf9f6]">${totalCount}</strong>개 중 <strong class="text-[#87ceeb]">${selectedCount}</strong>개 선택`;
       }
     }
     if (saveBtn) saveBtn.textContent = `선택 영상 (${selectedCount}개) data.json에 일괄 저장`;
@@ -1138,34 +1138,34 @@ window.Modals = (function () {
       let cardBg = '';
       if (isDup) {
         cardBg = item.selected
-          ? 'bg-amber-950/20 border-amber-800/80'
-          : 'bg-neutral-950/70 border-neutral-800/60 opacity-60';
+          ? 'bg-[#ffa500]/15 border-[#ffa500]/70'
+          : 'bg-[#14172c]/70 border-[#c0c0c0]/20 opacity-60';
       } else {
         cardBg = item.selected
-          ? 'bg-neutral-900 border-neutral-700'
-          : 'bg-neutral-950 border-neutral-800 opacity-50';
+          ? 'bg-[#1b1f3b] border-[#4169e1] shadow-sm'
+          : 'bg-[#14172c] border-[#c0c0c0]/20 opacity-60';
       }
 
       return `
       <div class="p-2 rounded border ${cardBg} flex items-center gap-3 transition-colors">
-        <input type="checkbox" ${item.selected ? 'checked' : ''} onchange="Modals.togglePlaylistItem(${idx}, this.checked)" class="w-4 h-4 cursor-pointer rounded border-neutral-700 bg-neutral-900 shrink-0" />
-        <div class="w-16 aspect-video rounded overflow-hidden bg-black shrink-0 border border-neutral-800 relative">
+        <input type="checkbox" ${item.selected ? 'checked' : ''} onchange="Modals.togglePlaylistItem(${idx}, this.checked)" class="w-4 h-4 cursor-pointer rounded border-[#c0c0c0]/40 bg-[#0c0e1a] shrink-0" />
+        <div class="w-16 aspect-video rounded overflow-hidden bg-black shrink-0 border border-[#c0c0c0]/25 relative">
           <img src="${item.thumbnail_url}" class="w-full h-full object-cover" loading="lazy" />
-          ${isDup ? '<span class="absolute bottom-0 inset-x-0 bg-amber-950/90 text-amber-300 text-[9px] font-bold text-center py-0.2">중복</span>' : ''}
+          ${isDup ? '<span class="absolute bottom-0 inset-x-0 bg-[#ffa500] text-[#0c0e1a] text-[9px] font-bold text-center py-0.2">중복</span>' : ''}
         </div>
         <div class="flex-grow min-w-0 space-y-1">
           <div class="flex items-center gap-1.5">
-            ${isDup ? `<span class="px-1.5 py-0.2 rounded text-[10px] bg-amber-950 text-amber-400 border border-amber-800 font-semibold shrink-0" title="기존: ${API.escapeHTML(item.existingTitle)}">이미 등록됨</span>` : ''}
+            ${isDup ? `<span class="px-1.5 py-0.2 rounded text-[10px] bg-[#ffa500]/20 text-[#ffa500] border border-[#ffa500]/50 font-semibold shrink-0" title="기존: ${API.escapeHTML(item.existingTitle)}">이미 등록됨</span>` : ''}
             <input type="text" value="${API.escapeHTML(item.title)}" oninput="Modals.updatePlaylistItemTitle(${idx}, this.value)"
-              class="w-full bg-neutral-950 border border-neutral-800 focus:border-neutral-600 rounded px-2 py-0.5 text-xs text-neutral-100 outline-none" />
+              class="w-full bg-[#0c0e1a] border border-[#c0c0c0]/30 focus:border-[#87ceeb] rounded px-2 py-0.5 text-xs text-[#faf9f6] outline-none transition-colors" />
           </div>
-          <div class="flex items-center justify-between text-[11px] text-neutral-500 font-mono truncate">
+          <div class="flex items-center justify-between text-[11px] text-[#c0c0c0] font-mono truncate">
             <div class="flex items-center gap-1.5 truncate">
               <span>자막: ${API.escapeHTML(Array.isArray(item.subtitler) ? item.subtitler.join(', ') : (item.subtitler || '미지정'))}</span>
-              ${item.creator ? `<span>•</span><span class="text-emerald-400 font-medium truncate max-w-[140px]" title="원작자: ${API.escapeHTML(item.creator)}">원작: ${API.escapeHTML(item.creator)}</span>` : ''}
-              ${item.source_url ? `<span>•</span><span class="text-blue-400 font-medium shrink-0" title="${API.escapeHTML(item.source_url)}">출처: ${item.source_url.includes('nicovideo') || item.source_url.includes('nico.ms') ? '니코동' : '유튜브'}</span>` : ''}
+              ${item.creator ? `<span>•</span><span class="text-[#87ceeb] font-medium truncate max-w-[140px]" title="원작자: ${API.escapeHTML(item.creator)}">원작: ${API.escapeHTML(item.creator)}</span>` : ''}
+              ${item.source_url ? `<span>•</span><span class="text-[#87ceeb] font-medium shrink-0" title="${API.escapeHTML(item.source_url)}">출처: ${item.source_url.includes('nicovideo') || item.source_url.includes('nico.ms') ? '니코동' : '유튜브'}</span>` : ''}
             </div>
-            ${isDup ? `<span class="text-amber-400/80 truncate text-[10px] ml-2 shrink-0">기존: "${API.escapeHTML(item.existingTitle)}"</span>` : ''}
+            ${isDup ? `<span class="text-[#ffa500]/90 truncate text-[10px] ml-2 shrink-0">기존: "${API.escapeHTML(item.existingTitle)}"</span>` : ''}
           </div>
         </div>
       </div>

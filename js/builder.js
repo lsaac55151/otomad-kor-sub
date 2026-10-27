@@ -26,9 +26,9 @@ window.Builder = (function () {
       const btn = document.getElementById(`btn-viewport-${m}`);
       if (btn) {
         if (m === mode) {
-          btn.className = 'px-2.5 py-1 rounded bg-neutral-800 text-white font-semibold text-xs flex items-center gap-1.5 shadow-sm';
+          btn.className = 'px-2.5 py-1 rounded bg-[#4169e1] text-[#faf9f6] font-semibold text-xs flex items-center gap-1.5 shadow-sm';
         } else {
-          btn.className = 'px-2.5 py-1 rounded text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 text-xs flex items-center gap-1.5 transition-colors';
+          btn.className = 'px-2.5 py-1 rounded text-[#c0c0c0] hover:text-[#faf9f6] hover:bg-[#1b1f3b] text-xs flex items-center gap-1.5 transition-colors';
         }
       }
     });
@@ -37,10 +37,10 @@ window.Builder = (function () {
       main.className = 'w-full max-w-7xl mx-auto p-4 sm:p-6 flex-grow transition-all duration-300';
       if (wrapper) wrapper.className = 'w-full flex justify-center py-2 transition-all duration-300';
     } else if (mode === 'tablet') {
-      main.className = 'w-full max-w-[768px] mx-auto p-4 flex-grow border-x border-dashed border-neutral-800 bg-[#0c0f15] shadow-2xl rounded-xl my-4 transition-all duration-300';
+      main.className = 'w-full max-w-[768px] mx-auto p-4 flex-grow border-x border-dashed border-[#c0c0c0]/30 bg-[#0c0e1a] shadow-2xl rounded-xl my-4 transition-all duration-300';
       if (wrapper) wrapper.className = 'w-full flex justify-center py-2 bg-black/40 transition-all duration-300';
     } else if (mode === 'mobile') {
-      main.className = 'w-full max-w-[390px] mx-auto p-3 flex-grow border-x border-dashed border-neutral-800 bg-[#0c0f15] shadow-2xl rounded-2xl my-4 transition-all duration-300';
+      main.className = 'w-full max-w-[390px] mx-auto p-3 flex-grow border-x border-dashed border-[#c0c0c0]/30 bg-[#0c0e1a] shadow-2xl rounded-2xl my-4 transition-all duration-300';
       if (wrapper) wrapper.className = 'w-full flex justify-center py-2 bg-black/40 transition-all duration-300';
     }
 
@@ -57,8 +57,8 @@ window.Builder = (function () {
       const btn = document.getElementById(`btn-grid-col-${c}`);
       if (btn) {
         btn.className = c === cols
-          ? 'px-2 py-0.5 rounded bg-neutral-800 text-white text-[11px] font-semibold'
-          : 'px-2 py-0.5 rounded text-neutral-400 hover:text-neutral-200 text-[11px] font-medium';
+          ? 'px-2 py-0.5 rounded bg-[#4169e1] text-[#faf9f6] text-[11px] font-semibold shadow-sm'
+          : 'px-2 py-0.5 rounded text-[#c0c0c0] hover:text-[#faf9f6] text-[11px] font-medium transition-colors';
       }
     });
     if (window.app && app.render) app.render();
@@ -88,8 +88,8 @@ window.Builder = (function () {
       const btn = document.getElementById(`btn-density-${d}`);
       if (btn) {
         btn.className = d === density
-          ? 'px-2 py-0.5 rounded bg-neutral-800 text-white text-[11px] font-semibold'
-          : 'px-2 py-0.5 rounded text-neutral-400 hover:text-neutral-200 text-[11px] font-medium';
+          ? 'px-2 py-0.5 rounded bg-[#4169e1] text-[#faf9f6] text-[11px] font-semibold shadow-sm'
+          : 'px-2 py-0.5 rounded text-[#c0c0c0] hover:text-[#faf9f6] text-[11px] font-medium transition-colors';
       }
     });
     if (window.app && app.render) app.render();
@@ -192,27 +192,27 @@ window.Builder = (function () {
       document.body.appendChild(bar);
     }
 
-    bar.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-neutral-900 border border-neutral-700/90 shadow-2xl rounded-xl px-4 py-2.5 flex items-center gap-3 backdrop-blur-md text-xs text-neutral-100 animate-slide-up';
+    bar.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#1b1f3b] border border-[#c0c0c0]/35 shadow-2xl rounded-xl px-4 py-2.5 flex items-center gap-3 backdrop-blur-md text-xs text-[#faf9f6] animate-slide-up';
     bar.innerHTML = `
-      <div class="flex items-center gap-2 pr-3 border-r border-neutral-800">
-        <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-        <span class="font-semibold"><strong class="font-mono text-white text-sm">${count}</strong>개 선택됨</span>
+      <div class="flex items-center gap-2 pr-3 border-r border-[#c0c0c0]/25">
+        <span class="w-2 h-2 rounded-full bg-[#ffa500] animate-pulse"></span>
+        <span class="font-semibold"><strong class="font-mono text-[#ffa500] text-sm">${count}</strong>개 선택됨</span>
       </div>
-      <button onclick="Builder.selectAllVideos(false)" class="text-neutral-400 hover:text-white transition-colors">선택 해제</button>
-      <div class="h-4 w-[1px] bg-neutral-800"></div>
-      <button onclick="Builder.batchAddTags()" class="px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition-colors flex items-center gap-1 font-medium">
-        <i data-lucide="tag" class="w-3.5 h-3.5 text-neutral-400"></i>
+      <button onclick="Builder.selectAllVideos(false)" class="text-[#c0c0c0] hover:text-[#faf9f6] transition-colors">선택 해제</button>
+      <div class="h-4 w-[1px] bg-[#c0c0c0]/25"></div>
+      <button onclick="Builder.batchAddTags()" class="px-2.5 py-1 rounded bg-[#14172c] hover:bg-[#252b52] border border-[#c0c0c0]/30 text-[#faf9f6] transition-colors flex items-center gap-1 font-medium shadow-sm">
+        <i data-lucide="tag" class="w-3.5 h-3.5 text-[#87ceeb]"></i>
         <span>태그 추가</span>
       </button>
-      <button onclick="Builder.batchSetSubtitler()" class="px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition-colors flex items-center gap-1 font-medium">
-        <i data-lucide="user" class="w-3.5 h-3.5 text-neutral-400"></i>
+      <button onclick="Builder.batchSetSubtitler()" class="px-2.5 py-1 rounded bg-[#14172c] hover:bg-[#252b52] border border-[#c0c0c0]/30 text-[#faf9f6] transition-colors flex items-center gap-1 font-medium shadow-sm">
+        <i data-lucide="user" class="w-3.5 h-3.5 text-[#87ceeb]"></i>
         <span>자막러 변경</span>
       </button>
-      <button onclick="Builder.batchDeleteVideos()" class="px-2.5 py-1 rounded bg-red-950/80 hover:bg-red-900 border border-red-800/80 text-red-300 transition-colors flex items-center gap-1 font-medium">
+      <button onclick="Builder.batchDeleteVideos()" class="px-2.5 py-1 rounded bg-red-950/80 hover:bg-red-900 border border-red-700/80 text-red-200 transition-colors flex items-center gap-1 font-semibold shadow-sm">
         <i data-lucide="trash-2" class="w-3.5 h-3.5 text-red-400"></i>
         <span>선택 삭제</span>
       </button>
-      <button onclick="Builder.selectAllVideos(false)" class="p-1 rounded text-neutral-500 hover:text-neutral-300 ml-1">
+      <button onclick="Builder.selectAllVideos(false)" class="p-1 rounded text-[#c0c0c0] hover:text-[#faf9f6] ml-1">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
     `;
@@ -297,9 +297,9 @@ window.Builder = (function () {
     }
 
     const btn = document.getElementById('btn-toggle-layers');
-    if (btn) btn.classList.add('bg-neutral-800', 'text-white');
+    if (btn) btn.classList.add('bg-[#4169e1]', 'text-[#faf9f6]');
 
-    drawer.className = 'fixed top-0 right-0 bottom-0 w-80 sm:w-96 bg-neutral-950 border-l border-neutral-800 shadow-2xl z-50 flex flex-col transition-all duration-300';
+    drawer.className = 'fixed top-0 right-0 bottom-0 w-80 sm:w-96 bg-[#14172c] border-l border-[#c0c0c0]/30 shadow-2xl z-50 flex flex-col transition-all duration-300';
     renderLayerDrawerContent();
   };
 
@@ -318,23 +318,23 @@ window.Builder = (function () {
     });
 
     drawer.innerHTML = `
-      <div class="p-3.5 border-b border-neutral-800 flex items-center justify-between bg-neutral-900/60">
+      <div class="p-3.5 border-b border-[#c0c0c0]/25 flex items-center justify-between bg-[#1b1f3b]">
         <div class="flex items-center gap-2">
-          <i data-lucide="layers" class="w-4 h-4 text-blue-400"></i>
-          <span class="font-bold text-xs text-neutral-100">레이어 탐색기</span>
-          <span class="text-[11px] font-mono text-neutral-500">(${filtered.length})</span>
+          <i data-lucide="layers" class="w-4 h-4 text-[#87ceeb]"></i>
+          <span class="font-bold text-xs text-[#faf9f6]">레이어 탐색기</span>
+          <span class="text-[11px] font-mono text-[#87ceeb]">(${filtered.length})</span>
         </div>
-        <button onclick="Builder.toggleLayerPanel(false)" class="p-1 rounded text-neutral-400 hover:text-white hover:bg-neutral-800">
+        <button onclick="Builder.toggleLayerPanel(false)" class="p-1 rounded text-[#c0c0c0] hover:text-[#faf9f6] hover:bg-[#252b52] transition-colors">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
 
-      <div class="p-2 border-b border-neutral-800/80 bg-neutral-900/30">
+      <div class="p-2 border-b border-[#c0c0c0]/20 bg-[#14172c]">
         <div class="relative">
-          <i data-lucide="search" class="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-neutral-500"></i>
+          <i data-lucide="search" class="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#c0c0c0]"></i>
           <input type="text" placeholder="레이어 목록 검색..." value="${API.escapeHTML(state.layerSearch)}"
             oninput="Builder.searchLayers(this.value)"
-            class="w-full bg-neutral-900 border border-neutral-800 rounded px-2.5 py-1 pl-8 text-xs text-neutral-200 outline-none focus:border-neutral-600" />
+            class="w-full bg-[#0c0e1a] border border-[#c0c0c0]/30 rounded px-2.5 py-1 pl-8 text-xs text-[#faf9f6] placeholder:text-[#c0c0c0]/60 outline-none focus:border-[#87ceeb] transition-colors" />
         </div>
       </div>
 
@@ -347,25 +347,25 @@ window.Builder = (function () {
           const subText = Array.isArray(v.subtitler) ? v.subtitler.join(', ') : (v.subtitler || '');
 
           return `
-            <div class="group/layer p-1.5 rounded-lg border ${isSelected ? 'border-blue-700 bg-blue-950/20' : 'border-neutral-800/60 bg-neutral-900/40 hover:bg-neutral-800/60'} flex items-center gap-2.5 cursor-pointer transition-colors"
+            <div class="group/layer p-1.5 rounded-lg border ${isSelected ? 'border-[#ffa500] bg-[#ffa500]/15' : 'border-[#c0c0c0]/15 bg-[#1b1f3b]/70 hover:bg-[#1b1f3b] hover:border-[#87ceeb]/40'} flex items-center gap-2.5 cursor-pointer transition-colors"
               onclick="Builder.scrollToCard('${API.escapeHTML(key)}')">
               <input type="checkbox" ${isSelected ? 'checked' : ''}
                 onclick="event.stopPropagation()"
                 onchange="Builder.toggleSelectVideo('${API.escapeHTML(key)}', this.checked)"
-                class="w-3.5 h-3.5 rounded border-neutral-700 bg-neutral-900 cursor-pointer" />
-              <div class="w-12 aspect-video rounded overflow-hidden bg-black shrink-0 border border-neutral-800">
+                class="w-3.5 h-3.5 rounded border-[#c0c0c0]/40 bg-[#0c0e1a] cursor-pointer" />
+              <div class="w-12 aspect-video rounded overflow-hidden bg-black shrink-0 border border-[#c0c0c0]/25">
                 <img src="${thumb}" referrerpolicy="no-referrer" class="w-full h-full object-cover" loading="lazy" />
               </div>
               <div class="min-w-0 flex-grow">
-                <p class="text-xs font-medium text-neutral-200 truncate group-hover/layer:text-white">${API.escapeHTML(v.title)}</p>
-                <div class="flex items-center gap-1.5 text-[10px] text-neutral-500 font-mono mt-0.5 truncate">
+                <p class="text-xs font-medium text-[#faf9f6] truncate group-hover/layer:text-[#87ceeb] transition-colors">${API.escapeHTML(v.title)}</p>
+                <div class="flex items-center gap-1.5 text-[10px] text-[#c0c0c0] font-mono mt-0.5 truncate">
                   <span class="truncate max-w-[120px]">${API.escapeHTML(subText ? `자막:${subText}` : (crText ? `원작:${crText}` : '미지정'))}</span>
                   <span>•</span>
                   <span>${v.upload_date || '날짜없음'}</span>
                 </div>
               </div>
               <div class="flex items-center gap-1 opacity-0 group-hover/layer:opacity-100 transition-opacity">
-                <button onclick="event.stopPropagation(); Modals.openExtractorModal('${API.escapeHTML(key)}')" title="속성 편집" class="p-1 rounded hover:bg-neutral-700 text-neutral-300">
+                <button onclick="event.stopPropagation(); Modals.openExtractorModal('${API.escapeHTML(key)}')" title="속성 편집" class="p-1 rounded hover:bg-[#252b52] text-[#87ceeb]">
                   <i data-lucide="edit-2" class="w-3 h-3"></i>
                 </button>
               </div>
@@ -399,10 +399,10 @@ window.Builder = (function () {
     const text = document.getElementById('builder-save-indicator-text');
     if (dot && text) {
       if (unsaved) {
-        dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-pulse';
+        dot.className = 'w-2 h-2 rounded-full bg-[#ffa500] animate-pulse';
         text.textContent = '변경사항 미저장';
       } else {
-        dot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+        dot.className = 'w-2 h-2 rounded-full bg-[#87ceeb]';
         text.textContent = '저장됨';
       }
     }

@@ -150,12 +150,12 @@ window.app = (function () {
     // 헤더 상태 업데이트
     ['ko', 'ja'].forEach(l => {
       const btn = document.getElementById(`btn-lang-${l}`);
-      if (btn) btn.className = `px-2 py-0.5 text-xs font-semibold rounded transition-colors ${state.lang === l ? 'bg-neutral-800 text-white' : 'text-neutral-400 hover:text-neutral-200'}`;
+      if (btn) btn.className = `px-2 py-0.5 text-xs font-semibold rounded transition-colors ${state.lang === l ? 'bg-[#4169e1] text-[#faf9f6]' : 'text-[#c0c0c0] hover:text-[#faf9f6]'}`;
     });
 
     ['tag', 'all', 'subtitler', 'creator'].forEach(m => {
       const btn = document.getElementById(`btn-${m}`);
-      if (btn) btn.className = `px-2.5 py-1 rounded text-xs font-medium transition-colors ${state.viewMode === m ? 'bg-neutral-800 text-white' : 'text-neutral-400 hover:text-neutral-200'}`;
+      if (btn) btn.className = `px-2.5 py-1 rounded text-xs font-medium transition-colors ${state.viewMode === m ? 'bg-[#4169e1] text-[#faf9f6] font-semibold shadow-sm' : 'text-[#c0c0c0] hover:text-[#faf9f6]'}`;
     });
 
     // 검색 필터 배너
@@ -177,10 +177,10 @@ window.app = (function () {
     // 빈 상태 (Empty State)
     if (filtered.length === 0) {
       main.innerHTML = `
-        <div class="py-20 text-center border border-dashed border-neutral-800 rounded-xl my-4 bg-neutral-900/20">
-          <p class="text-sm font-semibold text-neutral-300">${curI18n.noVideos}</p>
-          <p class="text-xs text-neutral-500 mt-1">${curI18n.noVideosDesc}</p>
-          ${state.searchQuery ? `<button onclick="app.clearSearch()" class="mt-4 px-3 py-1.5 rounded border border-neutral-700 hover:bg-neutral-800 text-xs text-neutral-300 font-medium transition-colors">${curI18n.clearFilter}</button>` : ''}
+        <div class="py-20 text-center border border-dashed border-[#c0c0c0]/25 rounded-xl my-4 bg-[#14172c]/40">
+          <p class="text-sm font-semibold text-[#faf9f6]">${curI18n.noVideos}</p>
+          <p class="text-xs text-[#c0c0c0] mt-1">${curI18n.noVideosDesc}</p>
+          ${state.searchQuery ? `<button onclick="app.clearSearch()" class="mt-4 px-3 py-1.5 rounded border border-[#c0c0c0]/35 bg-[#1b1f3b] hover:bg-[#252b52] text-xs text-[#faf9f6] font-medium transition-colors">${curI18n.clearFilter}</button>` : ''}
         </div>
       `;
       lucide.createIcons();
@@ -195,7 +195,7 @@ window.app = (function () {
       const sorted = sortVideos(filtered);
       main.innerHTML = `
         <div class="space-y-4">
-          <div class="flex items-center justify-between pb-2 border-b border-neutral-800 text-xs text-neutral-400 font-mono">
+          <div class="flex items-center justify-between pb-2 border-b border-[#c0c0c0]/20 text-xs text-[#c0c0c0] font-mono">
             <span>ALL (${sorted.length})</span>
           </div>
           <div class="${gridClass} ${densityClass}">
@@ -257,13 +257,13 @@ window.app = (function () {
           <div class="mb-6 space-y-4">
             <!-- 뒤로가기 버튼 -->
             <button onclick="app.selectTagFilter('')"
-              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-neutral-800 bg-neutral-900/70 hover:bg-neutral-800 text-xs text-neutral-300 font-medium transition-colors">
-              <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#c0c0c0]/30 bg-[#14172c] hover:bg-[#252b52] text-xs text-[#faf9f6] font-medium transition-colors shadow-sm">
+              <i data-lucide="arrow-left" class="w-3.5 h-3.5 text-[#87ceeb]"></i>
               <span>모든 재생목록 보기</span>
             </button>
 
             <!-- 재생목록 정보 헤더 카드 -->
-            <div class="p-4 sm:p-5 rounded-xl border border-neutral-800 bg-neutral-900/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="p-4 sm:p-5 rounded-xl border border-[#c0c0c0]/25 bg-[#1b1f3b] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-lg">
               <div class="flex items-center gap-4 min-w-0">
                 <div class="playlist-deck-stack w-28 sm:w-36 shrink-0">
                   <div class="playlist-deck-layer-1"></div>
@@ -277,17 +277,17 @@ window.app = (function () {
                   </div>
                 </div>
                 <div class="min-w-0">
-                  <div class="flex items-center gap-2 text-xs text-neutral-400">
-                    <span class="font-semibold text-neutral-300">재생목록</span>
+                  <div class="flex items-center gap-2 text-xs text-[#c0c0c0]">
+                    <span class="font-semibold text-[#87ceeb]">재생목록</span>
                     <span>•</span>
                     <span>공개</span>
                     <span>•</span>
-                    <span class="font-mono">${currentTagVideos.length}개의 동영상</span>
+                    <span class="font-mono text-[#faf9f6]">${currentTagVideos.length}개의 동영상</span>
                   </div>
-                  <h2 class="text-lg sm:text-xl font-bold text-neutral-100 tracking-tight mt-1 truncate">
+                  <h2 class="text-lg sm:text-xl font-bold text-[#faf9f6] tracking-tight mt-1 truncate">
                     ${API.escapeHTML(state.selectedTag)}
                   </h2>
-                  <p class="text-xs text-neutral-500 mt-1">
+                  <p class="text-xs text-[#c0c0c0] mt-1">
                     최근 업데이트: ${latestDateText}
                   </p>
                 </div>
@@ -296,7 +296,7 @@ window.app = (function () {
               ${currentTagVideos.length > 0 ? `
                 <div class="flex items-center gap-2 w-full md:w-auto shrink-0">
                   <button onclick="app.playVideo('${currentTagVideos[0].id || `${currentTagVideos[0].title}-${currentTagVideos[0].upload_date}`}')"
-                    class="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-neutral-100 hover:bg-white text-neutral-950 text-xs font-bold transition-colors">
+                    class="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#4169e1] hover:bg-[#3355c7] text-[#faf9f6] text-xs font-bold transition-colors shadow-md">
                     <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
                     <span>첫 영상부터 재생</span>
                   </button>
@@ -314,13 +314,13 @@ window.app = (function () {
         // 2) 전체 재생목록 그리드 (스크린샷 속 유튜브 보관함 재생목록 카드 스타일)
         main.innerHTML = `
           <div class="space-y-6">
-            <div class="flex items-center justify-between pb-3 border-b border-neutral-800/80">
+            <div class="flex items-center justify-between pb-3 border-b border-[#c0c0c0]/20">
               <div class="flex items-baseline gap-2">
-                <h2 class="text-base font-bold text-neutral-100 tracking-tight">재생목록</h2>
-                <span class="text-xs text-neutral-500 font-mono">${sortedTags.length}개</span>
+                <h2 class="text-base font-bold text-[#faf9f6] tracking-tight">재생목록</h2>
+                <span class="text-xs text-[#87ceeb] font-mono">${sortedTags.length}개</span>
               </div>
-              <div class="text-xs text-neutral-400">
-                <span>총 <strong class="text-neutral-200 font-mono">${filtered.length}</strong>개 동영상</span>
+              <div class="text-xs text-[#c0c0c0]">
+                <span>총 <strong class="text-[#faf9f6] font-mono">${filtered.length}</strong>개 동영상</span>
               </div>
             </div>
 
@@ -361,18 +361,18 @@ window.app = (function () {
                     <!-- 카드 하단 메타 정보 -->
                     <div class="mt-3 flex items-start justify-between gap-2">
                       <div class="min-w-0 flex-grow">
-                        <h3 class="text-sm font-semibold text-neutral-100 group-hover:text-white line-clamp-2 leading-snug cursor-pointer transition-colors" title="${API.escapeHTML(tag)}">
+                        <h3 class="text-sm font-semibold text-[#faf9f6] group-hover:text-[#87ceeb] line-clamp-2 leading-snug cursor-pointer transition-colors" title="${API.escapeHTML(tag)}">
                           ${API.escapeHTML(tag)}
                         </h3>
-                        <p class="text-xs text-neutral-400 mt-1">공개 · 재생목록</p>
-                        <p class="text-xs text-neutral-500 mt-0.5">최근 업데이트: ${latestDateText}</p>
+                        <p class="text-xs text-[#c0c0c0] mt-1">공개 · 재생목록</p>
+                        <p class="text-xs text-[#c0c0c0]/80 mt-0.5">최근 업데이트: ${latestDateText}</p>
                         <div class="mt-1.5">
-                          <button onclick="event.stopPropagation(); app.selectTagFilter('${API.escapeHTML(tag)}')" class="text-xs font-medium text-neutral-400 hover:text-neutral-200 transition-colors inline-block">
+                          <button onclick="event.stopPropagation(); app.selectTagFilter('${API.escapeHTML(tag)}')" class="text-xs font-medium text-[#87ceeb] hover:text-[#faf9f6] transition-colors inline-block">
                             전체 재생목록 보기
                           </button>
                         </div>
                       </div>
-                      <button class="p-1 -mr-1 text-neutral-400 hover:text-neutral-200 rounded-full hover:bg-neutral-800 transition-colors shrink-0" title="재생목록 보기" onclick="event.stopPropagation(); app.selectTagFilter('${API.escapeHTML(tag)}')">
+                      <button class="p-1 -mr-1 text-[#c0c0c0] hover:text-[#faf9f6] rounded-full hover:bg-[#1b1f3b] transition-colors shrink-0" title="재생목록 보기" onclick="event.stopPropagation(); app.selectTagFilter('${API.escapeHTML(tag)}')">
                         <i data-lucide="more-vertical" class="w-4 h-4"></i>
                       </button>
                     </div>
@@ -410,24 +410,24 @@ window.app = (function () {
 
             return `
               <div onclick="Modals.openCreatorModal('${API.escapeHTML(name)}', '${state.viewMode}')"
-                class="card-item p-3 rounded-lg border border-neutral-800 bg-neutral-900/50 hover:bg-neutral-900 cursor-pointer flex items-center justify-between gap-3 group/item transition-all">
+                class="card-item p-3 rounded-lg border border-[#c0c0c0]/20 bg-[#1b1f3b] hover:bg-[#252b52] hover:border-[#87ceeb]/50 cursor-pointer flex items-center justify-between gap-3 group/item transition-all shadow-sm">
                 <div class="flex items-center gap-3 min-w-0 flex-grow">
-                  <div class="w-10 h-10 rounded overflow-hidden bg-neutral-800 shrink-0 border border-neutral-800">
+                  <div class="w-10 h-10 rounded overflow-hidden bg-[#14172c] shrink-0 border border-[#c0c0c0]/30">
                     <img src="${profile}" referrerpolicy="no-referrer" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100'" />
                   </div>
                   <div class="flex-grow min-w-0">
-                    <h3 class="text-xs font-semibold text-neutral-100 truncate">${API.escapeHTML(name)}</h3>
-                    <p class="text-[11px] text-neutral-500 font-mono">${count} ${curI18n.works}</p>
+                    <h3 class="text-xs font-semibold text-[#faf9f6] truncate">${API.escapeHTML(name)}</h3>
+                    <p class="text-[11px] text-[#87ceeb] font-mono">${count} ${curI18n.works}</p>
                   </div>
                 </div>
                 ${channelUrl ? `
                   <a href="${channelUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                    class="p-1.5 rounded bg-neutral-800/80 hover:bg-neutral-700 text-neutral-400 hover:text-white border border-neutral-700/60 transition-colors shrink-0"
+                    class="p-1.5 rounded bg-[#14172c] hover:bg-[#4169e1] text-[#87ceeb] hover:text-[#faf9f6] border border-[#c0c0c0]/30 transition-colors shrink-0"
                     title="${isNico ? '니코동 마이페이지로 이동' : (isYt ? 'YouTube 채널로 이동' : (isNaver ? '네이버 블로그로 이동' : '채널 페이지로 이동'))}">
                     <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                   </a>
                 ` : `
-                  <i data-lucide="chevron-right" class="w-4 h-4 text-neutral-600 shrink-0"></i>
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-[#c0c0c0]/60 shrink-0"></i>
                 `}
               </div>
             `;
@@ -564,10 +564,10 @@ window.app = (function () {
 
       buttons.push(`
         <a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${titleText}"
-          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-800/90 hover:bg-neutral-700 text-[11px] font-semibold text-neutral-200 hover:text-white border border-neutral-700/80 hover:border-neutral-500 transition-all shadow-sm group/btn">
+          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#14172c] hover:bg-[#252b52] text-[11px] font-semibold text-[#faf9f6] hover:text-[#87ceeb] border border-[#c0c0c0]/30 hover:border-[#87ceeb]/60 transition-all shadow-sm group/btn">
           ${iconHtml}
           <span>${labelText}</span>
-          <i data-lucide="arrow-up-right" class="w-3 h-3 text-neutral-400 group-hover/btn:text-neutral-200 transition-colors"></i>
+          <i data-lucide="arrow-up-right" class="w-3 h-3 text-[#c0c0c0] group-hover/btn:text-[#87ceeb] transition-colors"></i>
         </a>
       `);
     }
@@ -635,7 +635,7 @@ window.app = (function () {
     const isSelected = window.Builder && Builder.state.selectedIds.has(videoKey);
 
     return `
-      <div class="card-item rounded-lg border ${isSelected ? 'border-blue-600 bg-blue-950/20' : 'border-neutral-800 bg-neutral-900/60'} overflow-hidden flex flex-col justify-between transition-all"
+      <div class="card-item rounded-lg border ${isSelected ? 'border-[#ffa500] bg-[#ffa500]/15 shadow-[0_0_20px_rgba(255,165,0,0.3)]' : 'border-[#c0c0c0]/20 bg-[#1b1f3b]'} overflow-hidden flex flex-col justify-between transition-all"
         data-card-key="${API.escapeHTML(videoKey)}"
         ${state.isEditMode ? `
           draggable="true"
@@ -646,18 +646,18 @@ window.app = (function () {
         ` : ''}>
         
         ${state.isEditMode ? `
-          <div class="px-2.5 py-1.5 bg-neutral-950 border-b border-neutral-800/80 flex items-center justify-between text-xs select-none">
+          <div class="px-2.5 py-1.5 bg-[#14172c] border-b border-[#c0c0c0]/25 flex items-center justify-between text-xs select-none">
             <div class="flex items-center gap-1.5">
               <input type="checkbox" ${isSelected ? 'checked' : ''}
                 onclick="event.stopPropagation()"
                 onchange="Builder.toggleSelectVideo('${API.escapeHTML(videoKey)}', this.checked)"
-                class="w-3.5 h-3.5 rounded border-neutral-700 bg-neutral-900 cursor-pointer" title="일괄 작업용 선택" />
-              <div class="flex items-center gap-1 cursor-grab active:cursor-grabbing text-neutral-400 hover:text-neutral-200" title="드래그하여 순서 재배치">
-                <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-neutral-500"></i>
-                <span class="text-[10px] font-mono font-semibold text-neutral-400">#${domId.split('-').pop() ? Number(domId.split('-').pop()) + 1 : ''}</span>
+                class="w-3.5 h-3.5 rounded border-[#c0c0c0]/40 bg-[#0c0e1a] cursor-pointer" title="일괄 작업용 선택" />
+              <div class="flex items-center gap-1 cursor-grab active:cursor-grabbing text-[#c0c0c0] hover:text-[#faf9f6]" title="드래그하여 순서 재배치">
+                <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-[#87ceeb]"></i>
+                <span class="text-[10px] font-mono font-bold text-[#ffa500]">#${domId.split('-').pop() ? Number(domId.split('-').pop()) + 1 : ''}</span>
               </div>
             </div>
-            <div class="flex items-center gap-1 text-[10px] text-neutral-500 font-mono">
+            <div class="flex items-center gap-1 text-[10px] text-[#c0c0c0] font-mono">
               <span>드래그 이동</span>
             </div>
           </div>
@@ -673,30 +673,30 @@ window.app = (function () {
           <div>
             ${state.isEditMode ? `
               <h3 contenteditable="true" spellcheck="false"
-                class="text-xs font-semibold text-neutral-100 hover:text-white transition-colors line-clamp-2 leading-snug cursor-text builder-inline-editable"
+                class="text-xs font-semibold text-[#faf9f6] hover:text-[#87ceeb] transition-colors line-clamp-2 leading-snug cursor-text builder-inline-editable"
                 onblur="Builder.saveInlineTitle('${API.escapeHTML(videoKey)}', this.innerText)"
                 onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}"
                 title="클릭하여 제목 직접 수정">${API.escapeHTML(v.title)}</h3>
             ` : `
               <h3 onclick="app.playVideo('${API.escapeHTML(videoKey)}')" title="${API.escapeHTML(v.title)}"
-                class="text-xs font-semibold text-neutral-100 hover:text-white transition-colors line-clamp-2 leading-snug cursor-pointer">
+                class="text-xs font-semibold text-[#faf9f6] hover:text-[#87ceeb] transition-colors line-clamp-2 leading-snug cursor-pointer">
                 ${API.escapeHTML(v.title)}
               </h3>
             `}
-            ${v.originalTitle ? `<p class="text-[11px] text-neutral-500 truncate mt-0.5">${API.escapeHTML(v.originalTitle)}</p>` : ''}
+            ${v.originalTitle ? `<p class="text-[11px] text-[#c0c0c0] truncate mt-0.5">${API.escapeHTML(v.originalTitle)}</p>` : ''}
           </div>
 
-          <div class="pt-2 border-t border-neutral-800/80 space-y-2 text-xs">
+          <div class="pt-2 border-t border-[#c0c0c0]/20 space-y-2 text-xs">
             <div class="flex items-start justify-between gap-2">
-              <span class="text-neutral-400 text-xs shrink-0 font-medium ${subtitlers.length > 1 ? 'mt-0.5' : ''}">자막</span>
+              <span class="text-[#c0c0c0] text-xs shrink-0 font-medium ${subtitlers.length > 1 ? 'mt-0.5' : ''}">자막</span>
               ${subtitlers.length > 1 ? `
                 <div class="flex items-center gap-1.5 flex-wrap justify-end max-w-[200px]">
                   ${subtitlers.map(sName => {
                     const sAvatar = pmap[sName] || '';
                     return `
                       <button onclick="Modals.openCreatorModal('${API.escapeHTML(sName)}', 'subtitler')"
-                        class="inline-flex items-center gap-1.5 font-medium text-neutral-200 hover:text-white transition-colors truncate max-w-[160px] group text-right px-1.5 py-0.5 rounded bg-neutral-800/80 hover:bg-neutral-800 border border-neutral-700/60" title="${API.escapeHTML(sName)}">
-                        ${sAvatar ? `<img src="${sAvatar}" referrerpolicy="no-referrer" class="card-avatar-img w-[18px] h-[18px] rounded-full object-cover shrink-0 border border-neutral-700/80" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[18px] h-[18px] rounded-full bg-neutral-800 border border-neutral-700/60 text-[9px] flex items-center justify-center text-neutral-300 shrink-0 font-medium font-mono">자</span>`}
+                        class="inline-flex items-center gap-1.5 font-medium text-[#faf9f6] hover:text-[#87ceeb] transition-colors truncate max-w-[160px] group text-right px-1.5 py-0.5 rounded bg-[#14172c] hover:bg-[#252b52] border border-[#c0c0c0]/25 hover:border-[#87ceeb]/50" title="${API.escapeHTML(sName)}">
+                        ${sAvatar ? `<img src="${sAvatar}" referrerpolicy="no-referrer" class="card-avatar-img w-[18px] h-[18px] rounded-full object-cover shrink-0 border border-[#c0c0c0]/40" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[18px] h-[18px] rounded-full bg-[#14172c] border border-[#c0c0c0]/35 text-[9px] flex items-center justify-center text-[#87ceeb] shrink-0 font-medium font-mono">자</span>`}
                         <span class="truncate text-xs font-medium">${API.escapeHTML(sName)}</span>
                       </button>
                     `;
@@ -704,22 +704,22 @@ window.app = (function () {
                 </div>
               ` : `
                 <button onclick="Modals.openCreatorModal('${API.escapeHTML(subtitlers[0] || 'Unknown')}', 'subtitler')"
-                  class="flex items-center gap-2 font-medium text-neutral-200 hover:text-white transition-colors truncate max-w-[170px] text-right group">
-                  ${pmap[subtitlers[0]] ? `<img src="${pmap[subtitlers[0]]}" referrerpolicy="no-referrer" class="card-avatar-img w-[22px] h-[22px] rounded-full object-cover shrink-0 border border-neutral-700/80" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[22px] h-[22px] rounded-full bg-neutral-800 border border-neutral-700/60 text-[10px] flex items-center justify-center text-neutral-300 shrink-0 font-medium font-mono">자</span>`}
+                  class="flex items-center gap-2 font-medium text-[#faf9f6] hover:text-[#87ceeb] transition-colors truncate max-w-[170px] text-right group">
+                  ${pmap[subtitlers[0]] ? `<img src="${pmap[subtitlers[0]]}" referrerpolicy="no-referrer" class="card-avatar-img w-[22px] h-[22px] rounded-full object-cover shrink-0 border border-[#c0c0c0]/40" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[22px] h-[22px] rounded-full bg-[#14172c] border border-[#c0c0c0]/35 text-[10px] flex items-center justify-center text-[#87ceeb] shrink-0 font-medium font-mono">자</span>`}
                   <span class="truncate text-xs font-medium">${API.escapeHTML(subtitlers[0] || 'Unknown')}</span>
                 </button>
               `}
             </div>
             <div class="flex items-start justify-between gap-2">
-              <span class="text-neutral-400 text-xs shrink-0 font-medium ${creators.length > 1 ? 'mt-0.5' : ''}">원작</span>
+              <span class="text-[#c0c0c0] text-xs shrink-0 font-medium ${creators.length > 1 ? 'mt-0.5' : ''}">원작</span>
               ${creators.length > 1 ? `
                 <div class="flex items-center gap-1.5 flex-wrap justify-end max-w-[200px]">
                   ${creators.map(cName => {
                     const cAvatar = pmap[cName] || '';
                     return `
                       <button onclick="Modals.openCreatorModal('${API.escapeHTML(cName)}', 'creator')"
-                        class="inline-flex items-center gap-1.5 font-medium text-neutral-200 hover:text-white transition-colors truncate max-w-[160px] group text-right px-1.5 py-0.5 rounded bg-neutral-800/80 hover:bg-neutral-800 border border-neutral-700/60" title="${API.escapeHTML(cName)}">
-                        ${cAvatar ? `<img src="${cAvatar}" referrerpolicy="no-referrer" class="card-avatar-img w-[18px] h-[18px] rounded-full object-cover shrink-0 border border-neutral-700/80" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[18px] h-[18px] rounded-full bg-neutral-800 border border-neutral-700/60 text-[9px] flex items-center justify-center text-neutral-300 shrink-0 font-medium font-mono">원</span>`}
+                        class="inline-flex items-center gap-1.5 font-medium text-[#faf9f6] hover:text-[#87ceeb] transition-colors truncate max-w-[160px] group text-right px-1.5 py-0.5 rounded bg-[#14172c] hover:bg-[#252b52] border border-[#c0c0c0]/25 hover:border-[#87ceeb]/50" title="${API.escapeHTML(cName)}">
+                        ${cAvatar ? `<img src="${cAvatar}" referrerpolicy="no-referrer" class="card-avatar-img w-[18px] h-[18px] rounded-full object-cover shrink-0 border border-[#c0c0c0]/40" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[18px] h-[18px] rounded-full bg-[#14172c] border border-[#c0c0c0]/35 text-[9px] flex items-center justify-center text-[#87ceeb] shrink-0 font-medium font-mono">원</span>`}
                         <span class="truncate text-xs font-medium">${API.escapeHTML(cName)}</span>
                       </button>
                     `;
@@ -727,19 +727,19 @@ window.app = (function () {
                 </div>
               ` : `
                 <button onclick="Modals.openCreatorModal('${API.escapeHTML(creators[0] || 'Unknown')}', 'creator')"
-                  class="flex items-center gap-2 font-medium text-neutral-200 hover:text-white transition-colors truncate max-w-[170px] text-right group">
-                  ${pmap[creators[0]] ? `<img src="${pmap[creators[0]]}" referrerpolicy="no-referrer" class="card-avatar-img w-[22px] h-[22px] rounded-full object-cover shrink-0 border border-neutral-700/80" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[22px] h-[22px] rounded-full bg-neutral-800 border border-neutral-700/60 text-[10px] flex items-center justify-center text-neutral-300 shrink-0 font-medium font-mono">원</span>`}
+                  class="flex items-center gap-2 font-medium text-[#faf9f6] hover:text-[#87ceeb] transition-colors truncate max-w-[170px] text-right group">
+                  ${pmap[creators[0]] ? `<img src="${pmap[creators[0]]}" referrerpolicy="no-referrer" class="card-avatar-img w-[22px] h-[22px] rounded-full object-cover shrink-0 border border-[#c0c0c0]/40" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[22px] h-[22px] rounded-full bg-[#14172c] border border-[#c0c0c0]/35 text-[10px] flex items-center justify-center text-[#87ceeb] shrink-0 font-medium font-mono">원</span>`}
                   <span class="truncate text-xs font-medium">${API.escapeHTML(creators[0] || 'Unknown')}</span>
                 </button>
               `}
             </div>
           </div>
 
-          <div class="pt-2 border-t border-neutral-800/60 flex items-center justify-between gap-2">
+          <div class="pt-2 border-t border-[#c0c0c0]/20 flex items-center justify-between gap-2">
             <div class="flex flex-wrap gap-1 overflow-hidden max-h-5">
               ${tags.slice(0, 3).map(t => `
                 <span onclick="app.selectTagFilter('${API.escapeHTML(t)}')"
-                  class="cursor-pointer text-[10px] text-neutral-400 hover:text-neutral-200 transition-colors bg-neutral-800/60 px-1.5 py-0.2 rounded border border-neutral-800">
+                  class="cursor-pointer text-[10px] text-[#87ceeb] hover:text-[#faf9f6] transition-colors bg-[#14172c] hover:bg-[#4169e1] px-1.5 py-0.2 rounded border border-[#c0c0c0]/25">
                   #${API.escapeHTML(t)}
                 </span>
               `).join('')}
@@ -747,18 +747,18 @@ window.app = (function () {
           </div>
 
           ${state.isEditMode ? `
-            <div class="pt-2 border-t border-neutral-800 flex items-center justify-between text-xs">
+            <div class="pt-2 border-t border-[#c0c0c0]/25 flex items-center justify-between text-xs">
               <div class="flex items-center gap-1">
-                <button onclick="app.moveVideo('${API.escapeHTML(v.id || videoKey)}', -1)" title="순서 앞으로" class="p-1 rounded hover:bg-neutral-800 text-neutral-400 hover:text-neutral-200">
+                <button onclick="app.moveVideo('${API.escapeHTML(v.id || videoKey)}', -1)" title="순서 앞으로" class="p-1 rounded hover:bg-[#252b52] text-[#c0c0c0] hover:text-[#faf9f6] transition-colors">
                   <i data-lucide="chevron-up" class="w-3.5 h-3.5"></i>
                 </button>
-                <button onclick="app.moveVideo('${API.escapeHTML(v.id || videoKey)}', 1)" title="순서 뒤로" class="p-1 rounded hover:bg-neutral-800 text-neutral-400 hover:text-neutral-200">
+                <button onclick="app.moveVideo('${API.escapeHTML(v.id || videoKey)}', 1)" title="순서 뒤로" class="p-1 rounded hover:bg-[#252b52] text-[#c0c0c0] hover:text-[#faf9f6] transition-colors">
                   <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
                 </button>
               </div>
               <div class="flex items-center gap-1.5">
-                <button onclick="Modals.openExtractorModal('${API.escapeHTML(v.id || videoKey)}')" class="px-2 py-0.5 rounded border border-neutral-700 hover:bg-neutral-800 text-[11px] text-neutral-300 font-medium">수정</button>
-                <button onclick="app.deleteVideo('${API.escapeHTML(v.id || videoKey)}')" class="px-2 py-0.5 rounded border border-red-900/60 hover:bg-red-950 text-[11px] text-red-400 font-medium">삭제</button>
+                <button onclick="Modals.openExtractorModal('${API.escapeHTML(v.id || videoKey)}')" class="px-2 py-0.5 rounded border border-[#87ceeb]/50 hover:bg-[#87ceeb]/15 text-[11px] text-[#87ceeb] font-semibold transition-colors">수정</button>
+                <button onclick="app.deleteVideo('${API.escapeHTML(v.id || videoKey)}')" class="px-2 py-0.5 rounded border border-red-500/50 hover:bg-red-950/40 text-[11px] text-red-400 font-medium transition-colors">삭제</button>
               </div>
             </div>
           ` : ''}
@@ -943,11 +943,11 @@ window.app = (function () {
       if (showToggle) {
         toggleBtn.classList.remove('hidden');
         if (isEdit) {
-          toggleBtn.className = 'px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs flex items-center gap-1.5 transition-colors shadow-sm';
+          toggleBtn.className = 'px-2.5 py-1 rounded bg-[#ffa500] hover:bg-[#ffb833] text-[#0c0e1a] font-bold text-xs flex items-center gap-1.5 transition-colors shadow-sm';
           if (toggleText) toggleText.innerHTML = '<i data-lucide="eye" class="w-3.5 h-3.5"></i><span>뷰어 모드</span>';
         } else {
-          toggleBtn.className = 'px-2.5 py-1 rounded border border-neutral-700 hover:bg-neutral-800 text-neutral-300 font-medium text-xs flex items-center gap-1.5 transition-colors';
-          if (toggleText) toggleText.innerHTML = '<i data-lucide="edit-3" class="w-3.5 h-3.5"></i><span>편집 모드</span>';
+          toggleBtn.className = 'px-2.5 py-1 rounded border border-[#c0c0c0]/40 hover:bg-[#1b1f3b] text-[#faf9f6] font-medium text-xs flex items-center gap-1.5 transition-colors';
+          if (toggleText) toggleText.innerHTML = '<i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#87ceeb]"></i><span>편집 모드</span>';
         }
       } else {
         toggleBtn.classList.add('hidden');
