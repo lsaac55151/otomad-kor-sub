@@ -286,7 +286,9 @@
     "クルルヤック": "https://img.nicoprofile.nimg.jp/usericon/13310/133104757.jpg?1748712245",
     "セロ": "https://img.nicoprofile.nimg.jp/usericon/defaults/blank.jpg",
     "とこがね2号": "https://img.nicoprofile.nimg.jp/usericon/defaults/blank.jpg",
-    "トミー": "https://img.nicoprofile.nimg.jp/usericon/2283/22834261.jpg?1385197121"
+    "トミー": "https://img.nicoprofile.nimg.jp/usericon/2283/22834261.jpg?1385197121",
+    "dnflqkf2": "https://ssl.pstatic.net/static/blog/icon/og_270x270.png",
+    "이쫑": "https://blogpfthumb-phinf.pstatic.net/20160705_96/fgyood_1467688664110GNMR9_PNG/unnamed.png?type=f204_204"
   },
   "channelMap": {
     "57877": "https://www.nicovideo.jp/user/19674048",
@@ -529,7 +531,8 @@
     "クルルヤック": "https://www.nicovideo.jp/user/133104757",
     "セロ": "https://www.nicovideo.jp/user/19720301",
     "とこがね2号": "https://www.nicovideo.jp/user/22502036",
-    "トミー": "https://www.nicovideo.jp/user/22834261"
+    "トミー": "https://www.nicovideo.jp/user/22834261",
+    "울프티어": "https://www.youtube.com/@rhapsodj"
   },
   "videos": [
     {
@@ -812,6 +815,24 @@
       "source_url": "https://www.nicovideo.jp/watch/sm24308891"
     },
     {
+      "id": "4Jkl5CcLJUY",
+      "title": "역전노트 | 바카야로이드",
+      "originalTitle": "역전노트 | 바카야로이드",
+      "creator": "賦笠",
+      "subtitler": "신병",
+      "upload_date": "2025/04/26",
+      "platform": "youtube",
+      "yt_id": "4Jkl5CcLJUY",
+      "thumbnail_url": "https://i.ytimg.com/vi/4Jkl5CcLJUY/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=4Jkl5CcLJUY",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "원제-逆 転 ノ ー トsm34046219\n원본 주소: https://www.nicovideo.jp/watch/sm34046219\n제작자: 賦笠님",
+      "source_url": "https://www.nicovideo.jp/watch/sm34046219"
+    },
+    {
       "id": "1r6QeMrlOHQ",
       "title": "후자케루나~ 토 데스N@TE [데스케MAD]",
       "originalTitle": "후자케루나~ 토 데스N@TE [데스케MAD]",
@@ -829,24 +850,6 @@
       ],
       "description": "원제: 【デスけ】ふざけるな～っとデスN@TE【ふぃぎゅ＠メイト】 sm27251142\n원본 주소: https://www.nicovideo.jp/watch/sm27251142\n제작자:セーネ艦님\n\n어릴 때 한 자막을 복구하고 있습니다.",
       "source_url": "https://www.nicovideo.jp/watch/sm27251142"
-    },
-    {
-      "id": "4Jkl5CcLJUY",
-      "title": "역전노트 | 바카야로이드",
-      "originalTitle": "역전노트 | 바카야로이드",
-      "creator": "賦笠",
-      "subtitler": "신병",
-      "upload_date": "2025/04/26",
-      "platform": "youtube",
-      "yt_id": "4Jkl5CcLJUY",
-      "thumbnail_url": "https://i.ytimg.com/vi/4Jkl5CcLJUY/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=4Jkl5CcLJUY",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "원제-逆 転 ノ ー トsm34046219\n원본 주소: https://www.nicovideo.jp/watch/sm34046219\n제작자: 賦笠님",
-      "source_url": "https://www.nicovideo.jp/watch/sm34046219"
     },
     {
       "id": "NP0wgYDDqEE",
@@ -1102,22 +1105,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm31029172"
     },
     {
-      "id": "1NFeMWULn5U",
-      "title": "Won☆Chu KissMe!【宇宙Trip】",
-      "originalTitle": "Won☆Chu KissMe!【宇宙Trip】",
-      "creator": "劇団獅子",
-      "subtitler": "_BackUP",
-      "upload_date": "2024/07/20",
-      "platform": "youtube",
-      "yt_id": "1NFeMWULn5U",
-      "thumbnail_url": "https://i.ytimg.com/vi/1NFeMWULn5U/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=1NFeMWULn5U",
-      "is_viewable": true,
-      "tags": [],
-      "description": "Maker : 劇団獅子\n\n720p30\n\n#sm33637097",
-      "source_url": "https://www.nicovideo.jp/watch/sm33637097"
-    },
-    {
       "id": "O7p9dPeu_I8",
       "title": "*しかし誰も来ない",
       "originalTitle": "*しかし誰も来ない",
@@ -1132,6 +1119,22 @@
       "tags": [],
       "description": "Maker : 味噌煮\n\n1080p30\n\n#sm31117679",
       "source_url": "https://www.nicovideo.jp/watch/sm31117679"
+    },
+    {
+      "id": "1NFeMWULn5U",
+      "title": "Won☆Chu KissMe!【宇宙Trip】",
+      "originalTitle": "Won☆Chu KissMe!【宇宙Trip】",
+      "creator": "劇団獅子",
+      "subtitler": "_BackUP",
+      "upload_date": "2024/07/20",
+      "platform": "youtube",
+      "yt_id": "1NFeMWULn5U",
+      "thumbnail_url": "https://i.ytimg.com/vi/1NFeMWULn5U/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=1NFeMWULn5U",
+      "is_viewable": true,
+      "tags": [],
+      "description": "Maker : 劇団獅子\n\n720p30\n\n#sm33637097",
+      "source_url": "https://www.nicovideo.jp/watch/sm33637097"
     },
     {
       "id": "_7R0s0wjTQE",
@@ -1330,6 +1333,24 @@
       "source_url": ""
     },
     {
+      "id": "O60KME5VbtU",
+      "title": "[자막]브로메브로리",
+      "originalTitle": "[자막]브로메브로리",
+      "creator": "henohenocappa",
+      "subtitler": "풍선",
+      "upload_date": "2024/04/27",
+      "platform": "youtube",
+      "yt_id": "O60KME5VbtU",
+      "thumbnail_url": "https://i.ytimg.com/vi/O60KME5VbtU/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=O60KME5VbtU",
+      "is_viewable": true,
+      "tags": [
+        "브로리"
+      ],
+      "description": "https://blog.naver.com/pjutkfkdgo/220871225896\nhttps://youtu.be/dyBretGZZoQ",
+      "source_url": "https://www.youtube.com/watch?v=dyBretGZZoQ"
+    },
+    {
       "id": "zsEn_2FY8bU",
       "title": "【유희왕MAD】사장 카이바 사장",
       "originalTitle": "【유희왕MAD】사장 카이바 사장",
@@ -1346,24 +1367,6 @@
       ],
       "description": "한글자막입니다.\nMaker : ゴギガガガギゴ\n\n720p60\n\n#sm34071058",
       "source_url": "https://www.nicovideo.jp/watch/sm34071058"
-    },
-    {
-      "id": "_bBjdutkvpI",
-      "title": "결투 생활!",
-      "originalTitle": "결투 생활!",
-      "creator": "While",
-      "subtitler": "_BackUP",
-      "upload_date": "2024/04/27",
-      "platform": "youtube",
-      "yt_id": "_bBjdutkvpI",
-      "thumbnail_url": "https://i.ytimg.com/vi/_bBjdutkvpI/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=_bBjdutkvpI",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "한글자막입니다.\n제작자 : 秋雨\n\n480p 29.6FPS\n\n#sm26840382",
-      "source_url": "https://www.nicovideo.jp/watch/sm26840382"
     },
     {
       "id": "K2Z7ONptNtI",
@@ -1384,22 +1387,22 @@
       "source_url": "https://www.nicovideo.jp/watch/sm12546042"
     },
     {
-      "id": "O60KME5VbtU",
-      "title": "[자막]브로메브로리",
-      "originalTitle": "[자막]브로메브로리",
-      "creator": "henohenocappa",
-      "subtitler": "풍선",
+      "id": "_bBjdutkvpI",
+      "title": "결투 생활!",
+      "originalTitle": "결투 생활!",
+      "creator": "While",
+      "subtitler": "_BackUP",
       "upload_date": "2024/04/27",
       "platform": "youtube",
-      "yt_id": "O60KME5VbtU",
-      "thumbnail_url": "https://i.ytimg.com/vi/O60KME5VbtU/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=O60KME5VbtU",
+      "yt_id": "_bBjdutkvpI",
+      "thumbnail_url": "https://i.ytimg.com/vi/_bBjdutkvpI/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=_bBjdutkvpI",
       "is_viewable": true,
       "tags": [
-        "브로리"
+        "유희왕"
       ],
-      "description": "https://blog.naver.com/pjutkfkdgo/220871225896\nhttps://youtu.be/dyBretGZZoQ",
-      "source_url": "https://www.youtube.com/watch?v=dyBretGZZoQ"
+      "description": "한글자막입니다.\n제작자 : 秋雨\n\n480p 29.6FPS\n\n#sm26840382",
+      "source_url": "https://www.nicovideo.jp/watch/sm26840382"
     },
     {
       "id": "I4CmwmYTRpk",
@@ -1420,24 +1423,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm30727451"
     },
     {
-      "id": "CDQUYRMvSGo",
-      "title": "키라유리 참☆패!【유루유리×바카야로이드】",
-      "originalTitle": "키라유리 참☆패!【유루유리×바카야로이드】",
-      "creator": "セーネ艦",
-      "subtitler": "신병",
-      "upload_date": "2024/04/16",
-      "platform": "youtube",
-      "yt_id": "CDQUYRMvSGo",
-      "thumbnail_url": "https://i.ytimg.com/vi/CDQUYRMvSGo/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=CDQUYRMvSGo",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "원제-きらゆり ざん☆パイ！【ゆるゆり×バカヤロイド】 sm27348798\n원본: https://www.nicovideo.jp/watch/sm27348798\n제작자:セーネ艦, tokachi님",
-      "source_url": "https://www.nicovideo.jp/watch/sm27348798"
-    },
-    {
       "id": "HnIosdcSKhs",
       "title": "장수생의 마법[Z회 MAD]",
       "originalTitle": "장수생의 마법[Z회 MAD]",
@@ -1454,6 +1439,24 @@
       ],
       "description": "원제: スベルのだろう sm29786402\n원본 주소: https://youtu.be/IFPAShBQHg8\nhttps://www.nicovideo.jp/watch/sm29786402\n제작자:伯方님\n\n어릴 때 한 자막을 복구하고 있습니다.",
       "source_url": "https://www.nicovideo.jp/watch/sm29786402"
+    },
+    {
+      "id": "CDQUYRMvSGo",
+      "title": "키라유리 참☆패!【유루유리×바카야로이드】",
+      "originalTitle": "키라유리 참☆패!【유루유리×바카야로이드】",
+      "creator": "セーネ艦",
+      "subtitler": "신병",
+      "upload_date": "2024/04/16",
+      "platform": "youtube",
+      "yt_id": "CDQUYRMvSGo",
+      "thumbnail_url": "https://i.ytimg.com/vi/CDQUYRMvSGo/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=CDQUYRMvSGo",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "원제-きらゆり ざん☆パイ！【ゆるゆり×バカヤロイド】 sm27348798\n원본: https://www.nicovideo.jp/watch/sm27348798\n제작자:セーネ艦, tokachi님",
+      "source_url": "https://www.nicovideo.jp/watch/sm27348798"
     },
     {
       "id": "tcN2DqpTVuU",
@@ -1830,24 +1833,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm33094314"
     },
     {
-      "id": "eVVkZITkpLo",
-      "title": "[자막] 호아걸 [Z회 MAD]",
-      "originalTitle": "[자막] 호아걸 [Z회 MAD]",
-      "creator": "じすみっく",
-      "subtitler": "신병",
-      "upload_date": "2023/05/03",
-      "platform": "youtube",
-      "yt_id": "eVVkZITkpLo",
-      "thumbnail_url": "https://i.ytimg.com/vi/eVVkZITkpLo/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=eVVkZITkpLo",
-      "is_viewable": true,
-      "tags": [
-        "Z회"
-      ],
-      "description": "*어릴 때 자막한 Z회 MAD 영상을 백업했습니다. \n(번역이 맞지 않는 부분이 있을 수 있습니다.)\n\n원제: ホアガール sm31593437\n원본 https://www.nicovideo.jp/watch/sm31593437\n제작자: じすみっく님\n원곡은 애니메이션 '바보걸' 의 오프닝 '전력☆Summer!'",
-      "source_url": "https://www.nicovideo.jp/watch/sm31593437"
-    },
-    {
       "id": "eNOb17opX7k",
       "title": "[자막] 장수소녀 나 [Z회 MAD]",
       "originalTitle": "[자막] 장수소녀 나 [Z회 MAD]",
@@ -1864,6 +1849,24 @@
       ],
       "description": "*어릴 때 자막한 Z회 MAD 영상을 백업했습니다. \n(번역이 맞지 않는 부분이 있을 수 있습니다.)\n\n원제: 多浪少女 俺 sm33138480\n원본 https://www.nicovideo.jp/watch/sm33138480\n제작자: ドラちゃん님\n원곡은 애니메이션 '마법소녀 나' 의 오프닝 'NOISY LOVE POWER☆'",
       "source_url": "https://www.nicovideo.jp/watch/sm33138480"
+    },
+    {
+      "id": "eVVkZITkpLo",
+      "title": "[자막] 호아걸 [Z회 MAD]",
+      "originalTitle": "[자막] 호아걸 [Z회 MAD]",
+      "creator": "じすみっく",
+      "subtitler": "신병",
+      "upload_date": "2023/05/03",
+      "platform": "youtube",
+      "yt_id": "eVVkZITkpLo",
+      "thumbnail_url": "https://i.ytimg.com/vi/eVVkZITkpLo/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=eVVkZITkpLo",
+      "is_viewable": true,
+      "tags": [
+        "Z회"
+      ],
+      "description": "*어릴 때 자막한 Z회 MAD 영상을 백업했습니다. \n(번역이 맞지 않는 부분이 있을 수 있습니다.)\n\n원제: ホアガール sm31593437\n원본 https://www.nicovideo.jp/watch/sm31593437\n제작자: じすみっく님\n원곡은 애니메이션 '바보걸' 의 오프닝 '전력☆Summer!'",
+      "source_url": "https://www.nicovideo.jp/watch/sm31593437"
     },
     {
       "id": "JRJTp7lfNKI",
@@ -2566,24 +2569,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm26284658"
     },
     {
-      "id": "3XzsUKLSkVU",
-      "title": "[자막] Hey! 구르메 스파이서 Queen",
-      "originalTitle": "[자막] Hey! 구르메 스파이서 Queen",
-      "creator": "じすみっく",
-      "subtitler": "신병",
-      "upload_date": "2022/05/06",
-      "platform": "youtube",
-      "yt_id": "3XzsUKLSkVU",
-      "thumbnail_url": "https://i.ytimg.com/vi/3XzsUKLSkVU/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=3XzsUKLSkVU",
-      "is_viewable": true,
-      "tags": [
-        "구르메 스파이서"
-      ],
-      "description": "원제: Hey！グルメスパイザ―Queen sm37617218\n원본 https://www.nicovideo.jp/watch/sm37617218\n제작자: じすみっく님\n원곡은 다가시카시 op인 Hey! 칼로리 Queen\n\n#한글자막 #음매드 #토리코",
-      "source_url": "https://www.nicovideo.jp/watch/sm37617218"
-    },
-    {
       "id": "IqqXiwxAxK0",
       "title": "[자막] 자근뇌 [Z회×바람의 검심]",
       "originalTitle": "[자막] 자근뇌 [Z회×바람의 검심]",
@@ -2603,6 +2588,24 @@
       ],
       "description": "원제: ばかす sm31782298\n원본 https://www.nicovideo.jp/watch/sm31782298\n제작자: じすみっく님\n원곡은 애니메이션 바람의 검심 op-주근깨\n\n*소바카스(주근께)→바카스(바보s)\n\n#한글자막 #음매드 #Z회",
       "source_url": "https://www.nicovideo.jp/watch/sm31782298"
+    },
+    {
+      "id": "3XzsUKLSkVU",
+      "title": "[자막] Hey! 구르메 스파이서 Queen",
+      "originalTitle": "[자막] Hey! 구르메 스파이서 Queen",
+      "creator": "じすみっく",
+      "subtitler": "신병",
+      "upload_date": "2022/05/06",
+      "platform": "youtube",
+      "yt_id": "3XzsUKLSkVU",
+      "thumbnail_url": "https://i.ytimg.com/vi/3XzsUKLSkVU/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=3XzsUKLSkVU",
+      "is_viewable": true,
+      "tags": [
+        "구르메 스파이서"
+      ],
+      "description": "원제: Hey！グルメスパイザ―Queen sm37617218\n원본 https://www.nicovideo.jp/watch/sm37617218\n제작자: じすみっく님\n원곡은 다가시카시 op인 Hey! 칼로리 Queen\n\n#한글자막 #음매드 #토리코",
+      "source_url": "https://www.nicovideo.jp/watch/sm37617218"
     },
     {
       "id": "pc8_UHmBYPM",
@@ -2675,24 +2678,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm36240001"
     },
     {
-      "id": "rKZhWP4vDCE",
-      "title": "얼티밋 크라운 [얼티밋 선배 란란루] (자막)",
-      "originalTitle": "얼티밋 크라운 [얼티밋 선배 란란루] (자막)",
-      "creator": "Kixi",
-      "subtitler": "쌍쌍바",
-      "upload_date": "2022/04/08",
-      "platform": "youtube",
-      "yt_id": "rKZhWP4vDCE",
-      "thumbnail_url": "https://i.ytimg.com/vi/rKZhWP4vDCE/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=rKZhWP4vDCE",
-      "is_viewable": true,
-      "tags": [
-        "도날드"
-      ],
-      "description": "원본 영상 출처 : https://www.nicovideo.jp/watch/sm39964436",
-      "source_url": "https://www.nicovideo.jp/watch/sm39964436"
-    },
-    {
       "id": "wpLrlGcnYDg",
       "title": "[자막] 창궁의 홧프너 [Z회 MAD]",
       "originalTitle": "[자막] 창궁의 홧프너 [Z회 MAD]",
@@ -2711,6 +2696,24 @@
       "source_url": "https://www.nicovideo.jp/watch/sm31593474"
     },
     {
+      "id": "rKZhWP4vDCE",
+      "title": "얼티밋 크라운 [얼티밋 선배 란란루] (자막)",
+      "originalTitle": "얼티밋 크라운 [얼티밋 선배 란란루] (자막)",
+      "creator": "Kixi",
+      "subtitler": "쌍쌍바",
+      "upload_date": "2022/04/08",
+      "platform": "youtube",
+      "yt_id": "rKZhWP4vDCE",
+      "thumbnail_url": "https://i.ytimg.com/vi/rKZhWP4vDCE/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=rKZhWP4vDCE",
+      "is_viewable": true,
+      "tags": [
+        "도날드"
+      ],
+      "description": "원본 영상 출처 : https://www.nicovideo.jp/watch/sm39964436",
+      "source_url": "https://www.nicovideo.jp/watch/sm39964436"
+    },
+    {
       "id": "HCSRCmgJQhA",
       "title": "금모자 오도루 [금빛 모자이크 MAD]",
       "originalTitle": "금모자 오도루 [금빛 모자이크 MAD]",
@@ -2725,24 +2728,6 @@
       "tags": [],
       "description": "원제 : きんモザオドル\nhttps://www.nicovideo.jp/watch/sm35223412\n제작자: スーパー님",
       "source_url": "https://www.nicovideo.jp/watch/sm35223412"
-    },
-    {
-      "id": "tPVcbb_eYMw",
-      "title": "Twin시험☆투엔★트리 [Z회 MAD]",
-      "originalTitle": "Twin시험☆투엔★트리 [Z회 MAD]",
-      "creator": "じすみっく",
-      "subtitler": "신병",
-      "upload_date": "2022/04/07",
-      "platform": "youtube",
-      "yt_id": "tPVcbb_eYMw",
-      "thumbnail_url": "https://i.ytimg.com/vi/tPVcbb_eYMw/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=tPVcbb_eYMw",
-      "is_viewable": true,
-      "tags": [
-        "Z회"
-      ],
-      "description": "원제 : Twi試☆うかっ★テール\n원작 주소: https://www.nicovideo.jp/watch/sm32008700\n제작자: じすみっく님\n\nTwi(追(추가)의 로마자 발음)試(시험) / 트윈테일→우캇테루(붙었어)",
-      "source_url": "https://www.nicovideo.jp/watch/sm32008700"
     },
     {
       "id": "1oLCs39ucYg",
@@ -2779,6 +2764,24 @@
       ],
       "description": "원제 : 馬簪 BAKANZASHI\n원본 주소 : https://www.nicovideo.jp/watch/sm28920173\n제작자: 伯方님\n\n바(馬, 말)+칸자시(簪, 비녀)=바카(바보)+(으)ㄴ자시",
       "source_url": "https://www.nicovideo.jp/watch/sm28920173"
+    },
+    {
+      "id": "tPVcbb_eYMw",
+      "title": "Twin시험☆투엔★트리 [Z회 MAD]",
+      "originalTitle": "Twin시험☆투엔★트리 [Z회 MAD]",
+      "creator": "じすみっく",
+      "subtitler": "신병",
+      "upload_date": "2022/04/07",
+      "platform": "youtube",
+      "yt_id": "tPVcbb_eYMw",
+      "thumbnail_url": "https://i.ytimg.com/vi/tPVcbb_eYMw/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=tPVcbb_eYMw",
+      "is_viewable": true,
+      "tags": [
+        "Z회"
+      ],
+      "description": "원제 : Twi試☆うかっ★テール\n원작 주소: https://www.nicovideo.jp/watch/sm32008700\n제작자: じすみっく님\n\nTwi(追(추가)의 로마자 발음)試(시험) / 트윈테일→우캇테루(붙었어)",
+      "source_url": "https://www.nicovideo.jp/watch/sm32008700"
     },
     {
       "id": "kbK4CVVFf9I",
@@ -3428,6 +3431,22 @@
       "source_url": "https://www.nicovideo.jp/watch/sm37809157"
     },
     {
+      "id": "uP1WXQWOxbw",
+      "title": "【욘나 쎈 바디워시】 플라티나 스파이스 한국어 자막 Ver. 【올드 스파이스 합성물】",
+      "originalTitle": "【욘나 쎈 바디워시】 플라티나 스파이스 한국어 자막 Ver. 【올드 스파이스 합성물】",
+      "creator": "RazQ",
+      "subtitler": "오르카 ORCA",
+      "upload_date": "2020/11/08",
+      "platform": "youtube",
+      "yt_id": "uP1WXQWOxbw",
+      "thumbnail_url": "https://i.ytimg.com/vi/uP1WXQWOxbw/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=uP1WXQWOxbw",
+      "is_viewable": true,
+      "tags": [],
+      "description": "이 영상은 욘나 쎄서 보는 사람들을 전부 존나 쎄게 만든다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ\n\n\n\n\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n\n본가 주소 : https://www.nicovideo.jp/watch/sm23766924 \n                   : https://youtu.be/X1M69l7ZGlw\n\n원곡  : 니세모노가타리 OP - 백금디스코\n[偽物語「つきひフェニックス」 OP - 白金ディスコ]\n\n소스 : 올드 스파이스\n\n자막만 단 영상입니다. 제가 합성한 게 아닙니다.\nこれは歌詞付け動画です。私が作ったMADではありません。\n\n#올드스파이스\n#테리크루즈\n#음MAD",
+      "source_url": "https://www.nicovideo.jp/watch/sm23766924"
+    },
+    {
       "id": "cjFG9JONCT4",
       "title": "【코만도 MAD】코코코코만도【한글화】【코만도 팬 필수 시청】",
       "originalTitle": "【코만도 MAD】코코코코만도【한글화】【코만도 팬 필수 시청】",
@@ -3444,22 +3463,6 @@
       ],
       "description": "기승전결이 완벽한... 스토리가 멋진 MAD입니다. 다다다다천사 MAD들 중에서도 특히 많이 돌려봤을 정도로 명작입니다. 제 자막이 이 느낌을 잘 살릴 수 있었으면 좋겠네요.\n\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n원 출처 : https://www.youtube.com/watch?v=5rcoJBvWOvM\n                https://www.nicovideo.jp/watch/sm34045266\n\nMAD 만드신 분 :  ゆうしゃアシスタント(용사 어시스턴트) 님\n\n#코만도\n#다다다다천사\n#음MAD\n#나나오아카리\n\n이 영상은 수익을 창출하지 않습니다.",
       "source_url": "https://www.youtube.com/watch?v=5rcoJBvWOvM"
-    },
-    {
-      "id": "uP1WXQWOxbw",
-      "title": "【욘나 쎈 바디워시】 플라티나 스파이스 한국어 자막 Ver. 【올드 스파이스 합성물】",
-      "originalTitle": "【욘나 쎈 바디워시】 플라티나 스파이스 한국어 자막 Ver. 【올드 스파이스 합성물】",
-      "creator": "RazQ",
-      "subtitler": "오르카 ORCA",
-      "upload_date": "2020/11/08",
-      "platform": "youtube",
-      "yt_id": "uP1WXQWOxbw",
-      "thumbnail_url": "https://i.ytimg.com/vi/uP1WXQWOxbw/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=uP1WXQWOxbw",
-      "is_viewable": true,
-      "tags": [],
-      "description": "이 영상은 욘나 쎄서 보는 사람들을 전부 존나 쎄게 만든다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ\n\n\n\n\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n\n본가 주소 : https://www.nicovideo.jp/watch/sm23766924 \n                   : https://youtu.be/X1M69l7ZGlw\n\n원곡  : 니세모노가타리 OP - 백금디스코\n[偽物語「つきひフェニックス」 OP - 白金ディスコ]\n\n소스 : 올드 스파이스\n\n자막만 단 영상입니다. 제가 합성한 게 아닙니다.\nこれは歌詞付け動画です。私が作ったMADではありません。\n\n#올드스파이스\n#테리크루즈\n#음MAD",
-      "source_url": "https://www.nicovideo.jp/watch/sm23766924"
     },
     {
       "id": "BpFTM-w8DQ0",
@@ -3693,22 +3696,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm37084620"
     },
     {
-      "id": "LdOUUiyni8o",
-      "title": "Zero's Name (reupload)",
-      "originalTitle": "Zero's Name (reupload)",
-      "creator": "さときび",
-      "subtitler": "Tommy Hyland",
-      "upload_date": "2020/06/13",
-      "platform": "youtube",
-      "yt_id": "LdOUUiyni8o",
-      "thumbnail_url": "https://i.ytimg.com/vi/LdOUUiyni8o/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=LdOUUiyni8o",
-      "is_viewable": true,
-      "tags": [],
-      "description": "ゼロの名は。【リゼロx前前前世】\nRlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nOriginal link: http://www.nicovideo.jp/watch/sm31923700\nAuthor: さときび",
-      "source_url": "https://www.nicovideo.jp/watch/sm31923700"
-    },
-    {
       "id": "TN_OzKSFldI",
       "title": "Benkyou Houhou Valkyria (reupload)",
       "originalTitle": "Benkyou Houhou Valkyria (reupload)",
@@ -3725,6 +3712,22 @@
       ],
       "description": "勉強方法ヴァルキュリア\nRlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nOriginal link: http://www.nicovideo.jp/watch/sm28758057\nAuthor: じすみっく",
       "source_url": "https://www.nicovideo.jp/watch/sm28758057"
+    },
+    {
+      "id": "LdOUUiyni8o",
+      "title": "Zero's Name (reupload)",
+      "originalTitle": "Zero's Name (reupload)",
+      "creator": "さときび",
+      "subtitler": "Tommy Hyland",
+      "upload_date": "2020/06/13",
+      "platform": "youtube",
+      "yt_id": "LdOUUiyni8o",
+      "thumbnail_url": "https://i.ytimg.com/vi/LdOUUiyni8o/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=LdOUUiyni8o",
+      "is_viewable": true,
+      "tags": [],
+      "description": "ゼロの名は。【リゼロx前前前世】\nRlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nOriginal link: http://www.nicovideo.jp/watch/sm31923700\nAuthor: さときび",
+      "source_url": "https://www.nicovideo.jp/watch/sm31923700"
     },
     {
       "id": "OFVY3SWUioQ",
@@ -3744,6 +3747,22 @@
       ],
       "description": "2013年にニコニコに投稿した総勢12名による合作になります。（画質・音質調整版）\n今までYouTubeにアップできていなかったので今更ながら公開します。\n参加者一覧：https://www.nicovideo.jp/mylist/39379737\n原曲様：https://www.nicovideo.jp/watch/sm18827261\n\n出典：ジョジョの奇妙な冒険 第1部～第8部",
       "source_url": "https://www.nicovideo.jp/watch/sm18827261"
+    },
+    {
+      "id": "d9DcaZyUbms",
+      "title": "Bomb A Yo! (reupload)",
+      "originalTitle": "Bomb A Yo! (reupload)",
+      "creator": "影莉央",
+      "subtitler": "Tommy Hyland",
+      "upload_date": "2020/06/10",
+      "platform": "youtube",
+      "yt_id": "d9DcaZyUbms",
+      "thumbnail_url": "https://i.ytimg.com/vi/d9DcaZyUbms/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=d9DcaZyUbms",
+      "is_viewable": true,
+      "tags": [],
+      "description": "ボーンバYO！！\nRlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nOriginal link: https://www.nicovideo.jp/watch/sm34647366\nAuthor: 影莉央\n#otomad #kaguyasama",
+      "source_url": "https://www.nicovideo.jp/watch/sm34647366"
     },
     {
       "id": "ajcnN9LZ6Sc",
@@ -3778,22 +3797,6 @@
       "tags": [],
       "description": "Dr 血小板\nRlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nOriginal link: http://www.nicovideo.jp/watch/sm33536261\nAuthor: youtt6",
       "source_url": "https://www.nicovideo.jp/watch/sm33536261"
-    },
-    {
-      "id": "d9DcaZyUbms",
-      "title": "Bomb A Yo! (reupload)",
-      "originalTitle": "Bomb A Yo! (reupload)",
-      "creator": "影莉央",
-      "subtitler": "Tommy Hyland",
-      "upload_date": "2020/06/10",
-      "platform": "youtube",
-      "yt_id": "d9DcaZyUbms",
-      "thumbnail_url": "https://i.ytimg.com/vi/d9DcaZyUbms/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=d9DcaZyUbms",
-      "is_viewable": true,
-      "tags": [],
-      "description": "ボーンバYO！！\nRlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nOriginal link: https://www.nicovideo.jp/watch/sm34647366\nAuthor: 影莉央\n#otomad #kaguyasama",
-      "source_url": "https://www.nicovideo.jp/watch/sm34647366"
     },
     {
       "id": "5mC-7DqEtQw",
@@ -3917,24 +3920,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm31049747"
     },
     {
-      "id": "QWZUARyYgLY",
-      "title": "I refuse (reupload)",
-      "originalTitle": "I refuse (reupload)",
-      "creator": "とそちか",
-      "subtitler": "Tommy Hyland",
-      "upload_date": "2020/05/08",
-      "platform": "youtube",
-      "yt_id": "QWZUARyYgLY",
-      "thumbnail_url": "https://i.ytimg.com/vi/QWZUARyYgLY/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=QWZUARyYgLY",
-      "is_viewable": true,
-      "tags": [
-        "죠죠"
-      ],
-      "description": "Rlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nだ　が　断　る\nOriginal link\nhttp://www.nicovideo.jp/watch/sm29810477\nAuthor: とそちか",
-      "source_url": "https://www.nicovideo.jp/watch/sm29810477"
-    },
-    {
       "id": "35xi2jIfIlc",
       "title": "Dorararaemon's Song (reupload)",
       "originalTitle": "Dorararaemon's Song (reupload)",
@@ -3951,6 +3936,24 @@
       ],
       "description": "Rlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nドラララえもんのうた\nOriginal link\nhttp://www.nicovideo.jp/watch/sm28569259\nAuthor: とそちか",
       "source_url": "https://www.nicovideo.jp/watch/sm28569259"
+    },
+    {
+      "id": "QWZUARyYgLY",
+      "title": "I refuse (reupload)",
+      "originalTitle": "I refuse (reupload)",
+      "creator": "とそちか",
+      "subtitler": "Tommy Hyland",
+      "upload_date": "2020/05/08",
+      "platform": "youtube",
+      "yt_id": "QWZUARyYgLY",
+      "thumbnail_url": "https://i.ytimg.com/vi/QWZUARyYgLY/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=QWZUARyYgLY",
+      "is_viewable": true,
+      "tags": [
+        "죠죠"
+      ],
+      "description": "Rlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nだ　が　断　る\nOriginal link\nhttp://www.nicovideo.jp/watch/sm29810477\nAuthor: とそちか",
+      "source_url": "https://www.nicovideo.jp/watch/sm29810477"
     },
     {
       "id": "aV6xj-Sg5Rw",
@@ -4116,23 +4119,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm35712965"
     },
     {
-      "id": "HdXEUwUzHnY",
-      "title": "【데스노트MAD】아쿠타가와 신노스케의 야가미 라이토 ~  Light Friend (동방프로젝트×바카야로이드)",
-      "originalTitle": "【데스노트MAD】아쿠타가와 신노스케의 야가미 라이토 ~  Light Friend (동방프로젝트×바카야로이드)",
-      "creator": "",
-      "subtitler": "불명",
-      "upload_date": "2019/09/06",
-      "platform": "youtube",
-      "yt_id": "HdXEUwUzHnY",
-      "thumbnail_url": "https://i.ytimg.com/vi/HdXEUwUzHnY/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=HdXEUwUzHnY",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처: 니코동\n자막: 신세계\n\n동방풍신록 3면 보스 카와시로 니토리 테마곡 〈아쿠타가와 류노스케의 캇파 ~ Candid Friend〉의 바카야로이드 버전!"
-    },
-    {
       "id": "EGTcyGnFPJM",
       "title": "【데스노트MAD】달시계 ~ 라이토 다이얼 (동방프로젝트×바카야로이드)",
       "originalTitle": "【데스노트MAD】달시계 ~ 라이토 다이얼 (동방프로젝트×바카야로이드)",
@@ -4148,6 +4134,23 @@
         "바카야로이드"
       ],
       "description": "출처: 니코동\n자막: 신세계\n\n동방홍마향 〈달시계 ~ 루나 다이얼〉의 바카야로이드 버전!!"
+    },
+    {
+      "id": "HdXEUwUzHnY",
+      "title": "【데스노트MAD】아쿠타가와 신노스케의 야가미 라이토 ~  Light Friend (동방프로젝트×바카야로이드)",
+      "originalTitle": "【데스노트MAD】아쿠타가와 신노스케의 야가미 라이토 ~  Light Friend (동방프로젝트×바카야로이드)",
+      "creator": "",
+      "subtitler": "불명",
+      "upload_date": "2019/09/06",
+      "platform": "youtube",
+      "yt_id": "HdXEUwUzHnY",
+      "thumbnail_url": "https://i.ytimg.com/vi/HdXEUwUzHnY/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=HdXEUwUzHnY",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처: 니코동\n자막: 신세계\n\n동방풍신록 3면 보스 카와시로 니토리 테마곡 〈아쿠타가와 류노스케의 캇파 ~ Candid Friend〉의 바카야로이드 버전!"
     },
     {
       "id": "eTWDZHpA2Dg",
@@ -4225,63 +4228,29 @@
       "source_url": "https://www.nicovideo.jp/watch/sm23008255"
     },
     {
-      "id": "RMpTaaSN1ZU",
-      "title": "【데스노트MAD】요마야신 (妖魔夜神)",
-      "originalTitle": "【데스노트MAD】요마야신 (妖魔夜神)",
-      "creator": "孔雀石",
-      "subtitler": "신세계",
+      "id": "IsJRt-e83-M",
+      "title": "[유희왕 MAD]기어와라! 신게츠! W",
+      "originalTitle": "[유희왕 MAD]기어와라! 신게츠! W",
+      "creator": "オッジブ",
+      "subtitler": "김광철",
       "upload_date": "2019/08/03",
       "platform": "youtube",
-      "yt_id": "RMpTaaSN1ZU",
-      "thumbnail_url": "https://i.ytimg.com/vi/RMpTaaSN1ZU/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=RMpTaaSN1ZU",
+      "yt_id": "IsJRt-e83-M",
+      "thumbnail_url": "https://i.ytimg.com/vi/IsJRt-e83-M/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=IsJRt-e83-M",
       "is_viewable": true,
       "tags": [
-        "바카야로이드"
+        "유희왕"
       ],
-      "description": "출처: 니코동\n자막: 신세계\n\n동방홍마향 1면 보스 루미아 테마곡 〈요마야행〉의 바카야로이드 버전!!",
-      "source_url": ""
-    },
-    {
-      "id": "GY0UMmY0w6Q",
-      "title": "【데스노트MAD】R. I. T. 라이토는 키라인가? 최종귀축 신세계 Y【바카야로이드】",
-      "originalTitle": "【데스노트MAD】R. I. T. 라이토는 키라인가? 최종귀축 신세계 Y【바카야로이드】",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2019/08/03",
-      "platform": "youtube",
-      "yt_id": "GY0UMmY0w6Q",
-      "thumbnail_url": "https://i.ytimg.com/vi/GY0UMmY0w6Q/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=GY0UMmY0w6Q",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처: 니코동\n자막: 신세계\n\n\n〈최종귀축 여동생 플랑드르 S〉의 바카야로이드 버전!!"
-    },
-    {
-      "id": "ZCqkN4Hhbps",
-      "title": "【데스노트MAD】라이토는 엄청난 바카야로를 외치며 나갔습니다【바카야로이드】",
-      "originalTitle": "【데스노트MAD】라이토는 엄청난 바카야로를 외치며 나갔습니다【바카야로이드】",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2019/08/03",
-      "platform": "youtube",
-      "yt_id": "ZCqkN4Hhbps",
-      "thumbnail_url": "https://i.ytimg.com/vi/ZCqkN4Hhbps/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=ZCqkN4Hhbps",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처: 니코동\n자막: 신세계\n\n이오시스(IOSYS)의 〈마리사는 엄청난 것을 훔쳐갔습니다〉의 바카야로이드 버전!!"
+      "description": "(원작-https://www.nicovideo.jp/watch/sm20555248)\n신게츠가 아니라 벡터입니다만 신게츠가 어그로 잘끌릴것 같아서 \n제목을 바꿨습니다. \n오역지적은 언제나 환영입니다.\n날씨도 더운데 다들 몸관리 잘하십쇼.",
+      "source_url": "https://www.nicovideo.jp/watch/sm20555248"
     },
     {
       "id": "ZsSa2tt11wQ",
       "title": "【데스노트MAD】라이⑩데스tiny(라이토⊙데스티니)",
       "originalTitle": "【데스노트MAD】라이⑩데스tiny(라이토⊙데스티니)",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "신세계",
       "upload_date": "2019/08/03",
       "platform": "youtube",
       "yt_id": "ZsSa2tt11wQ",
@@ -4291,41 +4260,8 @@
       "tags": [
         "바카야로이드"
       ],
-      "description": "제목: 라이10 데스티니\n출처: 니코동\n자막: 신세계\n\n〈케로⑨Destiny〉의 바카야로이드 버전!!\n여담으로 10을 일본어 훈독으로 읽으면 토가 됩니다."
-    },
-    {
-      "id": "FmcIIqjow64",
-      "title": "【데스노트MAD】마지막에 발견되고 즉시 미친다 ~광기의 야가미 라이토군~【바카야로이드】",
-      "originalTitle": "【데스노트MAD】마지막에 발견되고 즉시 미친다 ~광기의 야가미 라이토군~【바카야로이드】",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2019/08/03",
-      "platform": "youtube",
-      "yt_id": "FmcIIqjow64",
-      "thumbnail_url": "https://i.ytimg.com/vi/FmcIIqjow64/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=FmcIIqjow64",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처: 니코동\n자막: 신세계\n\n이오시스(IOSYS)의 〈환부에서 멈추고 바로 녹는다 ~광기의 우동게인~〉의 바카야로이드 버전!!"
-    },
-    {
-      "id": "vGWllq7qiYw",
-      "title": "【데스노트MAD】히로아리, 괴조를 쏘다【동방×바카야로이드】",
-      "originalTitle": "【데스노트MAD】히로아리, 괴조를 쏘다【동방×바카야로이드】",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2019/08/03",
-      "platform": "youtube",
-      "yt_id": "vGWllq7qiYw",
-      "thumbnail_url": "https://i.ytimg.com/vi/vGWllq7qiYw/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=vGWllq7qiYw",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처: 니코동\n자막: 신세계\n\n〈동방요요몽〉의 콘파쿠 요무 테마곡의 바카야로이드 버전!!"
+      "description": "제목: 라이10 데스티니\n출처: 니코동\n자막: 신세계\n\n〈케로⑨Destiny〉의 바카야로이드 버전!!\n여담으로 10을 일본어 훈독으로 읽으면 토가 됩니다.",
+      "source_url": ""
     },
     {
       "id": "ugQWsOhnP8Y",
@@ -4346,22 +4282,94 @@
       "source_url": ""
     },
     {
-      "id": "IsJRt-e83-M",
-      "title": "[유희왕 MAD]기어와라! 신게츠! W",
-      "originalTitle": "[유희왕 MAD]기어와라! 신게츠! W",
-      "creator": "オッジブ",
-      "subtitler": "김광철",
+      "id": "ZCqkN4Hhbps",
+      "title": "【데스노트MAD】라이토는 엄청난 바카야로를 외치며 나갔습니다【바카야로이드】",
+      "originalTitle": "【데스노트MAD】라이토는 엄청난 바카야로를 외치며 나갔습니다【바카야로이드】",
+      "creator": "",
+      "subtitler": "신세계",
       "upload_date": "2019/08/03",
       "platform": "youtube",
-      "yt_id": "IsJRt-e83-M",
-      "thumbnail_url": "https://i.ytimg.com/vi/IsJRt-e83-M/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=IsJRt-e83-M",
+      "yt_id": "ZCqkN4Hhbps",
+      "thumbnail_url": "https://i.ytimg.com/vi/ZCqkN4Hhbps/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=ZCqkN4Hhbps",
       "is_viewable": true,
       "tags": [
-        "유희왕"
+        "바카야로이드"
       ],
-      "description": "(원작-https://www.nicovideo.jp/watch/sm20555248)\n신게츠가 아니라 벡터입니다만 신게츠가 어그로 잘끌릴것 같아서 \n제목을 바꿨습니다. \n오역지적은 언제나 환영입니다.\n날씨도 더운데 다들 몸관리 잘하십쇼.",
-      "source_url": "https://www.nicovideo.jp/watch/sm20555248"
+      "description": "출처: 니코동\n자막: 신세계\n\n이오시스(IOSYS)의 〈마리사는 엄청난 것을 훔쳐갔습니다〉의 바카야로이드 버전!!",
+      "source_url": ""
+    },
+    {
+      "id": "FmcIIqjow64",
+      "title": "【데스노트MAD】마지막에 발견되고 즉시 미친다 ~광기의 야가미 라이토군~【바카야로이드】",
+      "originalTitle": "【데스노트MAD】마지막에 발견되고 즉시 미친다 ~광기의 야가미 라이토군~【바카야로이드】",
+      "creator": "",
+      "subtitler": "신세계",
+      "upload_date": "2019/08/03",
+      "platform": "youtube",
+      "yt_id": "FmcIIqjow64",
+      "thumbnail_url": "https://i.ytimg.com/vi/FmcIIqjow64/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=FmcIIqjow64",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처: 니코동\n자막: 신세계\n\n이오시스(IOSYS)의 〈환부에서 멈추고 바로 녹는다 ~광기의 우동게인~〉의 바카야로이드 버전!!",
+      "source_url": ""
+    },
+    {
+      "id": "RMpTaaSN1ZU",
+      "title": "【데스노트MAD】요마야신 (妖魔夜神)",
+      "originalTitle": "【데스노트MAD】요마야신 (妖魔夜神)",
+      "creator": "孔雀石",
+      "subtitler": "신세계",
+      "upload_date": "2019/08/03",
+      "platform": "youtube",
+      "yt_id": "RMpTaaSN1ZU",
+      "thumbnail_url": "https://i.ytimg.com/vi/RMpTaaSN1ZU/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=RMpTaaSN1ZU",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처: 니코동\n자막: 신세계\n\n동방홍마향 1면 보스 루미아 테마곡 〈요마야행〉의 바카야로이드 버전!!",
+      "source_url": ""
+    },
+    {
+      "id": "vGWllq7qiYw",
+      "title": "【데스노트MAD】히로아리, 괴조를 쏘다【동방×바카야로이드】",
+      "originalTitle": "【데스노트MAD】히로아리, 괴조를 쏘다【동방×바카야로이드】",
+      "creator": "",
+      "subtitler": "신세계",
+      "upload_date": "2019/08/03",
+      "platform": "youtube",
+      "yt_id": "vGWllq7qiYw",
+      "thumbnail_url": "https://i.ytimg.com/vi/vGWllq7qiYw/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=vGWllq7qiYw",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처: 니코동\n자막: 신세계\n\n〈동방요요몽〉의 콘파쿠 요무 테마곡의 바카야로이드 버전!!",
+      "source_url": ""
+    },
+    {
+      "id": "GY0UMmY0w6Q",
+      "title": "【데스노트MAD】R. I. T. 라이토는 키라인가? 최종귀축 신세계 Y【바카야로이드】",
+      "originalTitle": "【데스노트MAD】R. I. T. 라이토는 키라인가? 최종귀축 신세계 Y【바카야로이드】",
+      "creator": "",
+      "subtitler": "신세계",
+      "upload_date": "2019/08/03",
+      "platform": "youtube",
+      "yt_id": "GY0UMmY0w6Q",
+      "thumbnail_url": "https://i.ytimg.com/vi/GY0UMmY0w6Q/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=GY0UMmY0w6Q",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처: 니코동\n자막: 신세계\n\n\n〈최종귀축 여동생 플랑드르 S〉의 바카야로이드 버전!!",
+      "source_url": ""
     },
     {
       "id": "wkEpz39NEW4",
@@ -4440,7 +4448,7 @@
       "title": "【야가미 라이토 성탄제 '15】아이돌마츠다 시부이마루 걸즈 - 〈Matsudar!!〉",
       "originalTitle": "【야가미 라이토 성탄제 '15】아이돌마츠다 시부이마루 걸즈 - 〈Matsudar!!〉",
       "creator": "のし",
-      "subtitler": "하카세",
+      "subtitler": "데하카세",
       "upload_date": "2019/07/08",
       "platform": "youtube",
       "yt_id": "NX7S_mSmlsg",
@@ -4452,6 +4460,25 @@
       ],
       "description": "《THE iDOLM@TSUDAR: SHiBUiMARU GiRLS》\n\n원본출처: 니코동 (sm25677383)\n자막: 데하카세\n〈아이돌마스터 신데렐라 걸즈〉 OP 〈Star!!〉의 바카야로이드 버전!!",
       "source_url": "https://www.nicovideo.jp/watch/sm25677383"
+    },
+    {
+      "id": "Y-jpVzJBLho",
+      "title": "도화사선교보 ~Forever of mcdonald~ [12th 도날드 합작 란란루] (자막)",
+      "originalTitle": "도화사선교보 ~Forever of mcdonald~ [12th 도날드 합작 란란루] (자막)",
+      "creator": "東北産廃棄物",
+      "subtitler": "쌍쌍바",
+      "upload_date": "2019/07/06",
+      "platform": "youtube",
+      "yt_id": "Y-jpVzJBLho",
+      "thumbnail_url": "https://i.ytimg.com/vi/Y-jpVzJBLho/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=Y-jpVzJBLho",
+      "is_viewable": true,
+      "tags": [
+        "도날드",
+        "합작/메들리"
+      ],
+      "description": "2019/1/1 M.C.D 투고제 기념 / 도날드 MAD 리메이크 메들리 3탄\n[곡 목록]\n0:06 용기 100% (勇気100%)\n0:26 어서와 자파리 파크에 (ようこそジャパリパークへ)\n0:47 God knows…\n1:29 가라몬 송 (ガラモン・ソング)\n1:40 숲의 버섯에 조심 (森のキノコにご用心)\n2:09 헤이안의 에일리언 (平安のエイリアン)\n3:01 음식 레이스 (グルメレース)\n3:15 멜트(メル)\n3:40 Evan's\n4:01 Megalovania\n4:27 Death by glamour\n5:22 이젠 노래밖에 들리지 않아 (もう歌しか聞こえない)\n5:44 칼의 춤(剣の舞/Sabre dance)\n6:10 caramelldansen\n6:31 노 포잇! (ノーポイッ！)\n6:59 메탈 기어 솔리드 (게임)\n7:30 천체 관측 (天体観測)\n8:04 가랑눈 (粉雪)\n8:24 원야요괴전선 (遠野妖怪前線)\n9:07 butterfly\n9:41 치르노의 퍼펙트 산수교실 (チルノのパーフェクト算数教室)\n10:40 나우시카 레퀴엠 (ナウシカ・レクイエム)\n11:29 U.N 오웬은 그녀인가? (U.N.オーエンは彼女なのか？)\n\nhttps://www.nicovideo.jp/watch/sm34403760",
+      "source_url": "https://www.nicovideo.jp/watch/sm34403760"
     },
     {
       "id": "iAGkS5K0q-E",
@@ -4476,23 +4503,22 @@
       "source_url": "https://www.nicovideo.jp/watch/sm33639051"
     },
     {
-      "id": "Y-jpVzJBLho",
-      "title": "도화사선교보 ~Forever of mcdonald~ [12th 도날드 합작 란란루] (자막)",
-      "originalTitle": "도화사선교보 ~Forever of mcdonald~ [12th 도날드 합작 란란루] (자막)",
-      "creator": "東北産廃棄物",
-      "subtitler": "쌍쌍바",
-      "upload_date": "2019/07/06",
+      "id": "ZmT_r-gvT_c",
+      "title": "[데스노트 MAD] 내일 또 쓸데없는 짓 하지 말라고 했잖아!",
+      "originalTitle": "[데스노트 MAD] 내일 또 쓸데없는 짓 하지 말라고 했잖아!",
+      "creator": "四角",
+      "subtitler": "신세계",
+      "upload_date": "2019/07/02",
       "platform": "youtube",
-      "yt_id": "Y-jpVzJBLho",
-      "thumbnail_url": "https://i.ytimg.com/vi/Y-jpVzJBLho/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=Y-jpVzJBLho",
+      "yt_id": "ZmT_r-gvT_c",
+      "thumbnail_url": "https://i.ytimg.com/vi/ZmT_r-gvT_c/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=ZmT_r-gvT_c",
       "is_viewable": true,
       "tags": [
-        "도날드",
-        "합작/메들리"
+        "바카야로이드"
       ],
-      "description": "2019/1/1 M.C.D 투고제 기념 / 도날드 MAD 리메이크 메들리 3탄\n[곡 목록]\n0:06 용기 100% (勇気100%)\n0:26 어서와 자파리 파크에 (ようこそジャパリパークへ)\n0:47 God knows…\n1:29 가라몬 송 (ガラモン・ソング)\n1:40 숲의 버섯에 조심 (森のキノコにご用心)\n2:09 헤이안의 에일리언 (平安のエイリアン)\n3:01 음식 레이스 (グルメレース)\n3:15 멜트(メル)\n3:40 Evan's\n4:01 Megalovania\n4:27 Death by glamour\n5:22 이젠 노래밖에 들리지 않아 (もう歌しか聞こえない)\n5:44 칼의 춤(剣の舞/Sabre dance)\n6:10 caramelldansen\n6:31 노 포잇! (ノーポイッ！)\n6:59 메탈 기어 솔리드 (게임)\n7:30 천체 관측 (天体観測)\n8:04 가랑눈 (粉雪)\n8:24 원야요괴전선 (遠野妖怪前線)\n9:07 butterfly\n9:41 치르노의 퍼펙트 산수교실 (チルノのパーフェクト算数教室)\n10:40 나우시카 레퀴엠 (ナウシカ・レクイエム)\n11:29 U.N 오웬은 그녀인가? (U.N.オーエンは彼女なのか？)\n\nhttps://www.nicovideo.jp/watch/sm34403760",
-      "source_url": "https://www.nicovideo.jp/watch/sm34403760"
+      "description": "원본: 明日また余計なことをするなと指示して置いただろうが！ sm34815268\n\n원곡은 데레마스의 내일 또 만날 수 있겠지 입니다.",
+      "source_url": "https://www.nicovideo.jp/watch/sm34815268"
     },
     {
       "id": "sRwne2fJ8zA",
@@ -4511,24 +4537,6 @@
       ],
       "description": "원본: バジリスクライト sm31726258\n\n원곡은 코우가인법첩 입니다.",
       "source_url": "https://www.nicovideo.jp/watch/sm31726258"
-    },
-    {
-      "id": "ZmT_r-gvT_c",
-      "title": "[데스노트 MAD] 내일 또 쓸데없는 짓 하지 말라고 했잖아!",
-      "originalTitle": "[데스노트 MAD] 내일 또 쓸데없는 짓 하지 말라고 했잖아!",
-      "creator": "四角",
-      "subtitler": "신세계",
-      "upload_date": "2019/07/02",
-      "platform": "youtube",
-      "yt_id": "ZmT_r-gvT_c",
-      "thumbnail_url": "https://i.ytimg.com/vi/ZmT_r-gvT_c/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=ZmT_r-gvT_c",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "원본: 明日また余計なことをするなと指示して置いただろうが！ sm34815268\n\n원곡은 데레마스의 내일 또 만날 수 있겠지 입니다.",
-      "source_url": "https://www.nicovideo.jp/watch/sm34815268"
     },
     {
       "id": "_qjxcmWJ3LQ",
@@ -4889,6 +4897,24 @@
       "source_url": "https://www.nicovideo.jp/watch/sm34493715"
     },
     {
+      "id": "-FLw3KCZV7o",
+      "title": "공부지만 해답만 있으면 문제 없잖아",
+      "originalTitle": "공부지만 해답만 있으면 문제 없잖아",
+      "creator": "クラフタ一電撃隊",
+      "subtitler": "신병",
+      "upload_date": "2019/02/02",
+      "platform": "youtube",
+      "yt_id": "-FLw3KCZV7o",
+      "thumbnail_url": "https://i.ytimg.com/vi/-FLw3KCZV7o/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=-FLw3KCZV7o",
+      "is_viewable": true,
+      "tags": [
+        "Z회"
+      ],
+      "description": "원본:https://nico.ms/sm34389697\n제작자: クラフタ一電撃隊님\n#한글자막 #음매드 #Z회",
+      "source_url": "https://www.nicovideo.jp/watch/sm34389697"
+    },
+    {
       "id": "XsggUnioS2Y",
       "title": "울퉁불퉁 스피드 스터디 [Z회MAD]",
       "originalTitle": "울퉁불퉁 스피드 스터디 [Z회MAD]",
@@ -4925,24 +4951,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm28622543"
     },
     {
-      "id": "-FLw3KCZV7o",
-      "title": "공부지만 해답만 있으면 문제 없잖아",
-      "originalTitle": "공부지만 해답만 있으면 문제 없잖아",
-      "creator": "クラフタ一電撃隊",
-      "subtitler": "신병",
-      "upload_date": "2019/02/02",
-      "platform": "youtube",
-      "yt_id": "-FLw3KCZV7o",
-      "thumbnail_url": "https://i.ytimg.com/vi/-FLw3KCZV7o/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=-FLw3KCZV7o",
-      "is_viewable": true,
-      "tags": [
-        "Z회"
-      ],
-      "description": "원본:https://nico.ms/sm34389697\n제작자: クラフタ一電撃隊님\n#한글자막 #음매드 #Z회",
-      "source_url": "https://www.nicovideo.jp/watch/sm34389697"
-    },
-    {
       "id": "q-m8KkhPRzQ",
       "title": "[타카기라스 번역] 지나가던 마법사",
       "originalTitle": "[타카기라스 번역] 지나가던 마법사",
@@ -4963,7 +4971,7 @@
       "title": "【데스노트MAD】키라키라★라이토 피버【바카야로이드】",
       "originalTitle": "【데스노트MAD】키라키라★라이토 피버【바카야로이드】",
       "creator": "tokachi",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "신세계",
       "upload_date": "2018/12/05",
       "platform": "youtube",
       "yt_id": "RcU_c8Jjywo",
@@ -5087,24 +5095,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm11984402"
     },
     {
-      "id": "NlKYIN1443w",
-      "title": "[Z회]멍청이프렌즈 ~어서 오세요 Z회에~",
-      "originalTitle": "[Z회]멍청이프렌즈 ~어서 오세요 Z회에~",
-      "creator": "メアリー",
-      "subtitler": "마게이 マーゲイ",
-      "upload_date": "2018/09/22",
-      "platform": "youtube",
-      "yt_id": "NlKYIN1443w",
-      "thumbnail_url": "https://i.ytimg.com/vi/NlKYIN1443w/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=NlKYIN1443w",
-      "is_viewable": true,
-      "tags": [
-        "Z회"
-      ],
-      "description": "출처:http://www.nicovideo.jp/watch/sm31123477\n제목:おばかフレンズ　～ようこそぜっとかいへ～\n제작자:メアリー さん\n원곡:어서오세요 쟈파리 파크에",
-      "source_url": "https://www.nicovideo.jp/watch/sm31123477"
-    },
-    {
       "id": "lv3l8Un3DLI",
       "title": "[Z회]공부가 싫打打打打打打打打打打",
       "originalTitle": "[Z회]공부가 싫打打打打打打打打打打",
@@ -5121,6 +5111,24 @@
       ],
       "description": "출처:http://www.nicovideo.jp/watch/sm25225705\n제작자:안보임\n제목:勉強が嫌い打打打打打打打打打打\n원곡:打打打打打打打打打打",
       "source_url": "https://www.nicovideo.jp/watch/sm25225705"
+    },
+    {
+      "id": "NlKYIN1443w",
+      "title": "[Z회]멍청이프렌즈 ~어서 오세요 Z회에~",
+      "originalTitle": "[Z회]멍청이프렌즈 ~어서 오세요 Z회에~",
+      "creator": "メアリー",
+      "subtitler": "마게이 マーゲイ",
+      "upload_date": "2018/09/22",
+      "platform": "youtube",
+      "yt_id": "NlKYIN1443w",
+      "thumbnail_url": "https://i.ytimg.com/vi/NlKYIN1443w/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=NlKYIN1443w",
+      "is_viewable": true,
+      "tags": [
+        "Z회"
+      ],
+      "description": "출처:http://www.nicovideo.jp/watch/sm31123477\n제목:おばかフレンズ　～ようこそぜっとかいへ～\n제작자:メアリー さん\n원곡:어서오세요 쟈파리 파크에",
+      "source_url": "https://www.nicovideo.jp/watch/sm31123477"
     },
     {
       "id": "SsMGQKA81UQ",
@@ -5229,24 +5237,6 @@
       "source_url": "https://www.youtube.com/watch?v=DJfg39WkMvE"
     },
     {
-      "id": "82IVfmC1U3A",
-      "title": "[바카야로이드]신세계의 도넛홀",
-      "originalTitle": "[바카야로이드]신세계의 도넛홀",
-      "creator": "じすみっく",
-      "subtitler": "마게이 マーゲイ",
-      "upload_date": "2018/06/16",
-      "platform": "youtube",
-      "yt_id": "82IVfmC1U3A",
-      "thumbnail_url": "https://i.ytimg.com/vi/82IVfmC1U3A/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=82IVfmC1U3A",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처:http://www.nicovideo.jp/watch/sm26582100\n올린이:(1차)じすみっく(2차?)ブルベ凛\n제목:新世界のドーナツホール\n원곡:도넛홀\n자막:T_Killer(자신)",
-      "source_url": "https://www.nicovideo.jp/watch/sm26582100"
-    },
-    {
       "id": "IdJNIwt7dL8",
       "title": "[바카야로이드]닌쟈리바나나",
       "originalTitle": "[바카야로이드]닌쟈리바나나",
@@ -5263,6 +5253,24 @@
       ],
       "description": "출처:http://www.nicovideo.jp/watch/sm22986934\n올린이:水無月☆★/阿吽\n제목:にんじゃりばなな\n원곡:닌쟈리방방\n자막:T_Killer(자신)",
       "source_url": "https://www.nicovideo.jp/watch/sm22986934"
+    },
+    {
+      "id": "82IVfmC1U3A",
+      "title": "[바카야로이드]신세계의 도넛홀",
+      "originalTitle": "[바카야로이드]신세계의 도넛홀",
+      "creator": "じすみっく",
+      "subtitler": "마게이 マーゲイ",
+      "upload_date": "2018/06/16",
+      "platform": "youtube",
+      "yt_id": "82IVfmC1U3A",
+      "thumbnail_url": "https://i.ytimg.com/vi/82IVfmC1U3A/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=82IVfmC1U3A",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처:http://www.nicovideo.jp/watch/sm26582100\n올린이:(1차)じすみっく(2차?)ブルベ凛\n제목:新世界のドーナツホール\n원곡:도넛홀\n자막:T_Killer(자신)",
+      "source_url": "https://www.nicovideo.jp/watch/sm26582100"
     },
     {
       "id": "2KgCRwEVrp0",
@@ -5428,24 +5436,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm32758371"
     },
     {
-      "id": "O9KlKeaeR8A",
-      "title": "[팝팀에픽MAD]팝팀선진국에픽 6화",
-      "originalTitle": "[팝팀에픽MAD]팝팀선진국에픽 6화",
-      "creator": "なんかの人",
-      "subtitler": "아리스킨충",
-      "upload_date": "2018/02/20",
-      "platform": "youtube",
-      "yt_id": "O9KlKeaeR8A",
-      "thumbnail_url": "https://i.ytimg.com/vi/O9KlKeaeR8A/maxresdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=O9KlKeaeR8A",
-      "is_viewable": true,
-      "tags": [
-        "팝 팀 에픽"
-      ],
-      "description": "지금부터 네 집에 찾아갈테니까\n\nsm32721355 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
-      "source_url": "https://www.nicovideo.jp/watch/sm32721355"
-    },
-    {
       "id": "Q4USbRj4j84",
       "title": "[팝팀에픽MAD]팝팀선진국에픽 5화",
       "originalTitle": "[팝팀에픽MAD]팝팀선진국에픽 5화",
@@ -5464,22 +5454,40 @@
       "source_url": "https://www.nicovideo.jp/watch/sm32687689"
     },
     {
-      "id": "QZf96YeORZQ",
-      "title": "[팝팀에픽MAD]팝팀선진국에픽 4화",
-      "originalTitle": "[팝팀에픽MAD]팝팀선진국에픽 4화",
+      "id": "O9KlKeaeR8A",
+      "title": "[팝팀에픽MAD]팝팀선진국에픽 6화",
+      "originalTitle": "[팝팀에픽MAD]팝팀선진국에픽 6화",
       "creator": "なんかの人",
       "subtitler": "아리스킨충",
-      "upload_date": "2018/02/19",
+      "upload_date": "2018/02/20",
       "platform": "youtube",
-      "yt_id": "QZf96YeORZQ",
-      "thumbnail_url": "https://i.ytimg.com/vi/QZf96YeORZQ/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=QZf96YeORZQ",
+      "yt_id": "O9KlKeaeR8A",
+      "thumbnail_url": "https://i.ytimg.com/vi/O9KlKeaeR8A/maxresdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=O9KlKeaeR8A",
       "is_viewable": true,
       "tags": [
         "팝 팀 에픽"
       ],
-      "description": "나 메리씨, 지금 당신의 집 앞에 있어\n\nsm32655052 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
-      "source_url": "https://www.nicovideo.jp/watch/sm32655052"
+      "description": "지금부터 네 집에 찾아갈테니까\n\nsm32721355 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
+      "source_url": "https://www.nicovideo.jp/watch/sm32721355"
+    },
+    {
+      "id": "GyKcBkmRTq0",
+      "title": "[팝팀에픽MAD]팝팀선진국에픽 2화",
+      "originalTitle": "[팝팀에픽MAD]팝팀선진국에픽 2화",
+      "creator": "なんかの人",
+      "subtitler": "아리스킨충",
+      "upload_date": "2018/02/19",
+      "platform": "youtube",
+      "yt_id": "GyKcBkmRTq0",
+      "thumbnail_url": "https://i.ytimg.com/vi/GyKcBkmRTq0/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=GyKcBkmRTq0",
+      "is_viewable": true,
+      "tags": [
+        "팝 팀 에픽"
+      ],
+      "description": "1화만에 궁지에 내몰린 쓰레기애니\n\nsm32585508 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
+      "source_url": "https://www.nicovideo.jp/watch/sm32585508"
     },
     {
       "id": "_sPPZXDbQ5s",
@@ -5500,22 +5508,22 @@
       "source_url": "https://www.nicovideo.jp/watch/sm32619911"
     },
     {
-      "id": "GyKcBkmRTq0",
-      "title": "[팝팀에픽MAD]팝팀선진국에픽 2화",
-      "originalTitle": "[팝팀에픽MAD]팝팀선진국에픽 2화",
+      "id": "QZf96YeORZQ",
+      "title": "[팝팀에픽MAD]팝팀선진국에픽 4화",
+      "originalTitle": "[팝팀에픽MAD]팝팀선진국에픽 4화",
       "creator": "なんかの人",
       "subtitler": "아리스킨충",
       "upload_date": "2018/02/19",
       "platform": "youtube",
-      "yt_id": "GyKcBkmRTq0",
-      "thumbnail_url": "https://i.ytimg.com/vi/GyKcBkmRTq0/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=GyKcBkmRTq0",
+      "yt_id": "QZf96YeORZQ",
+      "thumbnail_url": "https://i.ytimg.com/vi/QZf96YeORZQ/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=QZf96YeORZQ",
       "is_viewable": true,
       "tags": [
         "팝 팀 에픽"
       ],
-      "description": "1화만에 궁지에 내몰린 쓰레기애니\n\nsm32585508 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
-      "source_url": "https://www.nicovideo.jp/watch/sm32585508"
+      "description": "나 메리씨, 지금 당신의 집 앞에 있어\n\nsm32655052 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
+      "source_url": "https://www.nicovideo.jp/watch/sm32655052"
     },
     {
       "id": "6ktaOyg4qTM",
@@ -5815,24 +5823,6 @@
       "source_url": "https://www.nicovideo.jp/watch/sm15816614"
     },
     {
-      "id": "dJBm6yTMLfk",
-      "title": "Swamp AD [Ichijo Collaboration Madley] (Kaiji MAD)",
-      "originalTitle": "Swamp AD [Ichijo Collaboration Madley] (Kaiji MAD)",
-      "creator": "TxSx",
-      "subtitler": "아리스킨충",
-      "upload_date": "2017/10/20",
-      "platform": "youtube",
-      "yt_id": "dJBm6yTMLfk",
-      "thumbnail_url": "https://i.ytimg.com/vi/dJBm6yTMLfk/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=dJBm6yTMLfk",
-      "is_viewable": true,
-      "tags": [
-        "도박묵시록 카이지"
-      ],
-      "description": "이치죠의 파칭코 권유의 3단계\n1. 지금 쳐라!\n2. 당장 쳐라!\n3. 자~ 쳐라!\n\nsm23432269 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
-      "source_url": "https://www.nicovideo.jp/watch/sm23432269"
-    },
-    {
       "id": "yJlpdSAvHNU",
       "title": "CHEATING'!![카이지MAD]",
       "originalTitle": "CHEATING'!![카이지MAD]",
@@ -5849,6 +5839,24 @@
       ],
       "description": "상냥한 이치죠오..\n\n화질수정\n\nsm16179855 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
       "source_url": "https://www.nicovideo.jp/watch/sm16179855"
+    },
+    {
+      "id": "dJBm6yTMLfk",
+      "title": "Swamp AD [Ichijo Collaboration Madley] (Kaiji MAD)",
+      "originalTitle": "Swamp AD [Ichijo Collaboration Madley] (Kaiji MAD)",
+      "creator": "TxSx",
+      "subtitler": "아리스킨충",
+      "upload_date": "2017/10/20",
+      "platform": "youtube",
+      "yt_id": "dJBm6yTMLfk",
+      "thumbnail_url": "https://i.ytimg.com/vi/dJBm6yTMLfk/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=dJBm6yTMLfk",
+      "is_viewable": true,
+      "tags": [
+        "도박묵시록 카이지"
+      ],
+      "description": "이치죠의 파칭코 권유의 3단계\n1. 지금 쳐라!\n2. 당장 쳐라!\n3. 자~ 쳐라!\n\nsm23432269 \n\n 아리코드(죠죠ASB하는 곳) : https://discord.gg/fEDG7KYuA9",
+      "source_url": "https://www.nicovideo.jp/watch/sm23432269"
     },
     {
       "id": "EGUTxTCCw3M",
@@ -6530,6 +6538,23 @@
       "description": "티비플:http://tvple.com/ani/328453"
     },
     {
+      "id": "neke_8osAGU",
+      "title": "기어와라 라이토 마츠다는 혼돈의 노예 (바카야로이드)",
+      "originalTitle": "기어와라 라이토 마츠다는 혼돈의 노예 (바카야로이드)",
+      "creator": "ロニ坂",
+      "subtitler": "신세계",
+      "upload_date": "2017/01/21",
+      "platform": "youtube",
+      "yt_id": "neke_8osAGU",
+      "thumbnail_url": "https://i.ytimg.com/vi/neke_8osAGU/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=neke_8osAGU",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "티비플:http://tvple.com/humor/126588"
+    },
+    {
       "id": "2YQxQyiC_vQ",
       "title": "라이토의 소생교실(바카야로이드)",
       "originalTitle": "라이토의 소생교실(바카야로이드)",
@@ -6562,23 +6587,6 @@
         "바카야로이드"
       ],
       "description": "티비플:http://tvple.com/ani/131276\n\"이거 노래방에서 라이토 버전으로 부르다가 친구들에게욕먹은적이..\""
-    },
-    {
-      "id": "neke_8osAGU",
-      "title": "기어와라 라이토 마츠다는 혼돈의 노예 (바카야로이드)",
-      "originalTitle": "기어와라 라이토 마츠다는 혼돈의 노예 (바카야로이드)",
-      "creator": "ロニ坂",
-      "subtitler": "신세계",
-      "upload_date": "2017/01/21",
-      "platform": "youtube",
-      "yt_id": "neke_8osAGU",
-      "thumbnail_url": "https://i.ytimg.com/vi/neke_8osAGU/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=neke_8osAGU",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "티비플:http://tvple.com/humor/126588"
     },
     {
       "id": "9Ik6E28rsIw",
@@ -6639,7 +6647,7 @@
       "title": "【데스노트MAD】코토키라 양 OP 「그런 거 뒤의 또 숨은 바나나지?」",
       "originalTitle": "【데스노트MAD】코토키라 양 OP 「그런 거 뒤의 또 숨은 바나나지?」",
       "creator": "ヘッドb",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "풍선",
       "upload_date": "2016/12/31",
       "platform": "youtube",
       "yt_id": "sX4lPcTyh4Q",
@@ -6649,7 +6657,8 @@
       "tags": [
         "바카야로이드"
       ],
-      "description": "출처: 니코동\n자막: pjutkfkdgo@naver.com\n\n코토우라 양 OP 「그런 거 뒤의 또 뒷이야기지?」의 바카야로이드 버전!"
+      "description": "출처: 니코동\n자막: pjutkfkdgo@naver.com\n\n코토우라 양 OP 「그런 거 뒤의 또 뒷이야기지?」의 바카야로이드 버전!",
+      "source_url": ""
     },
     {
       "id": "F7RRUc7ZM0Q",
@@ -6846,11 +6855,29 @@
       "source_url": "https://www.nicovideo.jp/watch/sm29281361"
     },
     {
+      "id": "_EJlB6hkuaU",
+      "title": "【유희왕MAD】원야전속전진 ~그래 난 전갈자리의 남자~",
+      "originalTitle": "【유희왕MAD】원야전속전진 ~그래 난 전갈자리의 남자~",
+      "creator": "",
+      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "upload_date": "2016/07/02",
+      "platform": "youtube",
+      "yt_id": "_EJlB6hkuaU",
+      "thumbnail_url": "https://i.ytimg.com/vi/_EJlB6hkuaU/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=_EJlB6hkuaU",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처: 니코동\n사용된 BGM은 비트마리오의 \"원야환상 이야기\"의 어레인지 \"원야요괴전선\"입니다.",
+      "source_url": ""
+    },
+    {
       "id": "SSuIX-9H6IA",
       "title": "【유희왕MAD】최종귀축 흰토끼 바쿠라 R",
       "originalTitle": "【유희왕MAD】최종귀축 흰토끼 바쿠라 R",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2016/07/02",
       "platform": "youtube",
       "yt_id": "SSuIX-9H6IA",
@@ -6860,31 +6887,15 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\n\"최종귀축 여동생 플랑드르 S\"의 유희왕 버전."
-    },
-    {
-      "id": "VxsOhJ2vgI4",
-      "title": "【유희왕MAD】카이바의 조종신앙",
-      "originalTitle": "【유희왕MAD】카이바의 조종신앙",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2016/07/02",
-      "platform": "youtube",
-      "yt_id": "VxsOhJ2vgI4",
-      "thumbnail_url": "https://i.ytimg.com/vi/VxsOhJ2vgI4/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=VxsOhJ2vgI4",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동\n동방지령전 - \"영지의 태양신앙 ~ Nuclear Fusion\"의 유희왕 버전."
+      "description": "출처 : 니코동\n\"최종귀축 여동생 플랑드르 S\"의 유희왕 버전.",
+      "source_url": ""
     },
     {
       "id": "GQVA_frUgxc",
       "title": "【유희왕MAD】카이바 워치",
       "originalTitle": "【유희왕MAD】카이바 워치",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "이쫑",
       "upload_date": "2016/07/02",
       "platform": "youtube",
       "yt_id": "GQVA_frUgxc",
@@ -6894,7 +6905,26 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\n\"요괴워치\"의 유희왕 버전."
+      "description": "출처 : 니코동\n\"요괴워치\"의 유희왕 버전.",
+      "source_url": ""
+    },
+    {
+      "id": "VxsOhJ2vgI4",
+      "title": "【유희왕MAD】카이바의 조종신앙",
+      "originalTitle": "【유희왕MAD】카이바의 조종신앙",
+      "creator": "",
+      "subtitler": "dnflqkf2",
+      "upload_date": "2016/07/02",
+      "platform": "youtube",
+      "yt_id": "VxsOhJ2vgI4",
+      "thumbnail_url": "https://i.ytimg.com/vi/VxsOhJ2vgI4/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=VxsOhJ2vgI4",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동\n동방지령전 - \"영지의 태양신앙 ~ Nuclear Fusion\"의 유희왕 버전.",
+      "source_url": ""
     },
     {
       "id": "RuzTapXogwM",
@@ -6911,24 +6941,8 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\n\"최종귀축 여동생 플랑드르 S\"의 유희왕 버전."
-    },
-    {
-      "id": "_EJlB6hkuaU",
-      "title": "【유희왕MAD】원야전속전진 ~그래 난 전갈자리의 남자~",
-      "originalTitle": "【유희왕MAD】원야전속전진 ~그래 난 전갈자리의 남자~",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2016/07/02",
-      "platform": "youtube",
-      "yt_id": "_EJlB6hkuaU",
-      "thumbnail_url": "https://i.ytimg.com/vi/_EJlB6hkuaU/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=_EJlB6hkuaU",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처: 니코동\n사용된 BGM은 비트마리오의 \"원야환상 이야기\"의 어레인지 \"원야요괴전선\"입니다."
+      "description": "출처 : 니코동\n\"최종귀축 여동생 플랑드르 S\"의 유희왕 버전.",
+      "source_url": ""
     },
     {
       "id": "7OKC5_Qnqdc",
@@ -6980,6 +6994,22 @@
       "description": "月だけの特権ですっ！"
     },
     {
+      "id": "Yo5Lk_NzdzY",
+      "title": "【소리MAD/おそ松さん】위험한 쵸로마츠 상 /한글 자막",
+      "originalTitle": "【소리MAD/おそ松さん】위험한 쵸로마츠 상 /한글 자막",
+      "creator": "ぎゃびおん！",
+      "subtitler": "r011cake",
+      "upload_date": "2016/04/30",
+      "platform": "youtube",
+      "yt_id": "Yo5Lk_NzdzY",
+      "thumbnail_url": "https://i.ytimg.com/vi/Yo5Lk_NzdzY/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=Yo5Lk_NzdzY",
+      "is_viewable": true,
+      "tags": [],
+      "description": "【音MAD】危険なチョロ松さん\noriginal(ニコニコ動画): http://www.nicovideo.jp/watch/sm27452256\n원본 해상도: 854X480",
+      "source_url": "https://www.nicovideo.jp/watch/sm27452256"
+    },
+    {
       "id": "B1Sz7W7zn_Q",
       "title": "STUDYING NOW",
       "originalTitle": "STUDYING NOW",
@@ -6996,22 +7026,6 @@
       ],
       "description": "みりあちゃんお誕生日おめでとう！！！\nニコニコ版⇒http://www.nicovideo.jp/watch/sm28743354",
       "source_url": "https://www.nicovideo.jp/watch/sm28743354"
-    },
-    {
-      "id": "Yo5Lk_NzdzY",
-      "title": "【소리MAD/おそ松さん】위험한 쵸로마츠 상 /한글 자막",
-      "originalTitle": "【소리MAD/おそ松さん】위험한 쵸로마츠 상 /한글 자막",
-      "creator": "ぎゃびおん！",
-      "subtitler": "r011cake",
-      "upload_date": "2016/04/30",
-      "platform": "youtube",
-      "yt_id": "Yo5Lk_NzdzY",
-      "thumbnail_url": "https://i.ytimg.com/vi/Yo5Lk_NzdzY/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=Yo5Lk_NzdzY",
-      "is_viewable": true,
-      "tags": [],
-      "description": "【音MAD】危険なチョロ松さん\noriginal(ニコニコ動画): http://www.nicovideo.jp/watch/sm27452256\n원본 해상도: 854X480",
-      "source_url": "https://www.nicovideo.jp/watch/sm27452256"
     },
     {
       "id": "lCEl0f-FQCM",
@@ -7791,7 +7805,7 @@
       "title": "【유희왕MAD】에네콘 반항기",
       "originalTitle": "【유희왕MAD】에네콘 반항기",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/09/27",
       "platform": "youtube",
       "yt_id": "Md5ojtMFcDw",
@@ -7801,7 +7815,8 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\n자막은 울프티어님.\n\n인더무드+우사테위 ㅋㅋㅋㅋㅋㅋㅋㅋ"
+      "description": "출처 : 니코동\n자막은 울프티어님.\n\n인더무드+우사테위 ㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
     },
     {
       "title": "[데스노트 MAD] 천본야가미앵",
@@ -7933,14 +7948,15 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\n\nIOSYS - \"마리사는 엄청난 것을 훔쳐갔습니다.\"의 유희왕GX 버전 ㅋㅋㅋ"
+      "description": "출처 : 니코동\n\nIOSYS - \"마리사는 엄청난 것을 훔쳐갔습니다.\"의 유희왕GX 버전 ㅋㅋㅋ",
+      "source_url": ""
     },
     {
       "id": "VIBs8k_Vz74",
       "title": "【유희왕MAD】칠색의 유희왕 동화",
       "originalTitle": "【유희왕MAD】칠색의 유희왕 동화",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/07/31",
       "platform": "youtube",
       "yt_id": "VIBs8k_Vz74",
@@ -7950,7 +7966,8 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처: 니코동\n자막: 울프티어\n\n“칠색의 니코니코 동화”의 유희왕 버전.\n\n◆ Alias\n- 일곱 색의 유희왕 동화\n- 일곱 빛깔의 유희왕 동화"
+      "description": "출처: 니코동\n자막: 울프티어\n\n“칠색의 니코니코 동화”의 유희왕 버전.\n\n◆ Alias\n- 일곱 색의 유희왕 동화\n- 일곱 빛깔의 유희왕 동화",
+      "source_url": ""
     },
     {
       "id": "wFPBmwKpXgU",
@@ -8008,21 +8025,21 @@
       "source_url": ""
     },
     {
-      "id": "-Is8u7JotoY",
-      "title": "【유희왕MAD】마리크의 퍼펙트 표정연기 교실",
-      "originalTitle": "【유희왕MAD】마리크의 퍼펙트 표정연기 교실",
+      "id": "YYx7Ujkayq0",
+      "title": "【유희왕GX MAD】헬카이저의 퍼펙트 헬듀얼 교실",
+      "originalTitle": "【유희왕GX MAD】헬카이저의 퍼펙트 헬듀얼 교실",
       "creator": "",
       "subtitler": "랩소디제이 (RhapsoDJ)",
       "upload_date": "2014/07/16",
       "platform": "youtube",
-      "yt_id": "-Is8u7JotoY",
-      "thumbnail_url": "https://i.ytimg.com/vi/-Is8u7JotoY/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=-Is8u7JotoY",
+      "yt_id": "YYx7Ujkayq0",
+      "thumbnail_url": "https://i.ytimg.com/vi/YYx7Ujkayq0/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=YYx7Ujkayq0",
       "is_viewable": true,
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\r\nIOSYS - \"치르노의 퍼펙트 산수교실\"의 유희왕 마리크 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ"
+      "description": "원제: ヘルカイザーのパーフェクトヘルデュエル教室\n출처: 니코동\n\r\nIOSYS - \"치르노의 퍼펙트 산수교실\"의 유희왕GX버전 ㅋㅋㅋㅋㅋㅋㅋㅋ"
     },
     {
       "id": "hTBd1eJYWBY",
@@ -8056,92 +8073,8 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\r\n\r\n와... 이건 도대체 뭐지...?"
-    },
-    {
-      "id": "sZzvc5H2jFk",
-      "title": "【유희왕MAD】별의 카이바세토 슈퍼디럭스",
-      "originalTitle": "【유희왕MAD】별의 카이바세토 슈퍼디럭스",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/16",
-      "platform": "youtube",
-      "yt_id": "sZzvc5H2jFk",
-      "thumbnail_url": "https://i.ytimg.com/vi/sZzvc5H2jFk/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=sZzvc5H2jFk",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동\r\n\r\n\"별의커비 슈퍼디럭스\"의 수록곡들의 유희왕버전ㅋㅋㅋㅋㅋㅋ"
-    },
-    {
-      "id": "O2-RrBlNJ3o",
-      "title": "【유희왕MAD】카이바 세토의 마치",
-      "originalTitle": "【유희왕MAD】카이바 세토의 마치",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/16",
-      "platform": "youtube",
-      "yt_id": "O2-RrBlNJ3o",
-      "thumbnail_url": "https://i.ytimg.com/vi/O2-RrBlNJ3o/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=O2-RrBlNJ3o",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "《부제 : 카이바 사장이 부르는 호빵맨 노래 ~ 날아라! 카이바 세토 (or 세토빵맨)》\n\n출처 : 니코동\n\n\"호빵맨의 마치\"의 유희왕 버전 ㅋㅋㅋ\n이것도 추억돋네 ㅋㅋㅋ\n\n【가사】\n그래 두려워하지마 모두를 위해애애애~!!\n에네콘과 유우기만이 친구DAAAA!!!!!\n(앗, 아니야!!)\n(후앗! 후앗!) ← → B A ← → B\nA AA B B A → 히다다리\nA → B A ← → B\nA B B A B B A ← 유우기~!\n무엇이 너의 행복일까, 뭘 하면 기뻐할까?\n알지 못하는 채로 끝나, 그런건 싫어!\n잊지 말아줘 꿈으으으을!! 눈물 흘리지 말아.\n그래서 너는 날아가 어디까지라도오오오!!\n그래 두려워하지마 모두를 위해애애애~!!\n에네콘과 유우기만이 친구DAAAA!!!!!\n(그러니까 아니라고!)\n아 아 카이바맨!(받아둬라) 상냥한 너는, (필요없어)\n가라! 모두의 꿈 지키기 위해!! (으흐흐흐흐하하)\n오벨리스크x3 갓 핸드~~~~~!!! \n크러셔~~~~!!!!"
-    },
-    {
-      "id": "ITrk08IC1cc",
-      "title": "【유희왕MAD】사장으로 푼치키 빠얏빠♪",
-      "originalTitle": "【유희왕MAD】사장으로 푼치키 빠얏빠♪",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/16",
-      "platform": "youtube",
-      "yt_id": "ITrk08IC1cc",
-      "thumbnail_url": "https://i.ytimg.com/vi/ITrk08IC1cc/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=ITrk08IC1cc",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동"
-    },
-    {
-      "id": "UegC01Q4kr4",
-      "title": "【유희왕MAD】K. C. 사장은 카이바인가? 최종귀축 신부 제트",
-      "originalTitle": "【유희왕MAD】K. C. 사장은 카이바인가? 최종귀축 신부 제트",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/16",
-      "platform": "youtube",
-      "yt_id": "UegC01Q4kr4",
-      "thumbnail_url": "https://i.ytimg.com/vi/UegC01Q4kr4/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=UegC01Q4kr4",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동\r\n이것도 \"최종귀축 여동생 플랑드르 S\"의 유희왕 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ"
-    },
-    {
-      "id": "YYx7Ujkayq0",
-      "title": "【유희왕GX MAD】헬카이저의 퍼펙트 헬듀얼 교실",
-      "originalTitle": "【유희왕GX MAD】헬카이저의 퍼펙트 헬듀얼 교실",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/16",
-      "platform": "youtube",
-      "yt_id": "YYx7Ujkayq0",
-      "thumbnail_url": "https://i.ytimg.com/vi/YYx7Ujkayq0/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=YYx7Ujkayq0",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "원제: ヘルカイザーのパーフェクトヘルデュエル教室\n출처: 니코동\n\r\nIOSYS - \"치르노의 퍼펙트 산수교실\"의 유희왕GX버전 ㅋㅋㅋㅋㅋㅋㅋㅋ"
+      "description": "출처 : 니코동\n\n와... 이건 도대체 뭐지...?",
+      "source_url": ""
     },
     {
       "id": "ey4raKOv5M8",
@@ -8161,6 +8094,96 @@
       "description": "출처 : 니코동\r\n\"동방췌몽상 - 마녀들의 무도회\"의 유희왕 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ"
     },
     {
+      "id": "-Is8u7JotoY",
+      "title": "【유희왕MAD】마리크의 퍼펙트 표정연기 교실",
+      "originalTitle": "【유희왕MAD】마리크의 퍼펙트 표정연기 교실",
+      "creator": "",
+      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "upload_date": "2014/07/16",
+      "platform": "youtube",
+      "yt_id": "-Is8u7JotoY",
+      "thumbnail_url": "https://i.ytimg.com/vi/-Is8u7JotoY/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=-Is8u7JotoY",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동\nIOSYS - \"치르노의 퍼펙트 산수교실\"의 유희왕 마리크 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
+    },
+    {
+      "id": "sZzvc5H2jFk",
+      "title": "【유희왕MAD】별의 카이바세토 슈퍼디럭스",
+      "originalTitle": "【유희왕MAD】별의 카이바세토 슈퍼디럭스",
+      "creator": "",
+      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "upload_date": "2014/07/16",
+      "platform": "youtube",
+      "yt_id": "sZzvc5H2jFk",
+      "thumbnail_url": "https://i.ytimg.com/vi/sZzvc5H2jFk/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=sZzvc5H2jFk",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동\n\n\"별의커비 슈퍼디럭스\"의 수록곡들의 유희왕버전ㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
+    },
+    {
+      "id": "ITrk08IC1cc",
+      "title": "【유희왕MAD】사장으로 푼치키 빠얏빠♪",
+      "originalTitle": "【유희왕MAD】사장으로 푼치키 빠얏빠♪",
+      "creator": "",
+      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "upload_date": "2014/07/16",
+      "platform": "youtube",
+      "yt_id": "ITrk08IC1cc",
+      "thumbnail_url": "https://i.ytimg.com/vi/ITrk08IC1cc/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=ITrk08IC1cc",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동",
+      "source_url": ""
+    },
+    {
+      "id": "O2-RrBlNJ3o",
+      "title": "【유희왕MAD】카이바 세토의 마치",
+      "originalTitle": "【유희왕MAD】카이바 세토의 마치",
+      "creator": "",
+      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "upload_date": "2014/07/16",
+      "platform": "youtube",
+      "yt_id": "O2-RrBlNJ3o",
+      "thumbnail_url": "https://i.ytimg.com/vi/O2-RrBlNJ3o/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=O2-RrBlNJ3o",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "《부제 : 카이바 사장이 부르는 호빵맨 노래 ~ 날아라! 카이바 세토 (or 세토빵맨)》\n\n출처 : 니코동\n\n\"호빵맨의 마치\"의 유희왕 버전 ㅋㅋㅋ\n이것도 추억돋네 ㅋㅋㅋ\n\n【가사】\n그래 두려워하지마 모두를 위해애애애~!!\n에네콘과 유우기만이 친구DAAAA!!!!!\n(앗, 아니야!!)\n(후앗! 후앗!) ← → B A ← → B\nA AA B B A → 히다다리\nA → B A ← → B\nA B B A B B A ← 유우기~!\n무엇이 너의 행복일까, 뭘 하면 기뻐할까?\n알지 못하는 채로 끝나, 그런건 싫어!\n잊지 말아줘 꿈으으으을!! 눈물 흘리지 말아.\n그래서 너는 날아가 어디까지라도오오오!!\n그래 두려워하지마 모두를 위해애애애~!!\n에네콘과 유우기만이 친구DAAAA!!!!!\n(그러니까 아니라고!)\n아 아 카이바맨!(받아둬라) 상냥한 너는, (필요없어)\n가라! 모두의 꿈 지키기 위해!! (으흐흐흐흐하하)\n오벨리스크x3 갓 핸드~~~~~!!! \n크러셔~~~~!!!!",
+      "source_url": ""
+    },
+    {
+      "id": "UegC01Q4kr4",
+      "title": "【유희왕MAD】K. C. 사장은 카이바인가? 최종귀축 신부 제트",
+      "originalTitle": "【유희왕MAD】K. C. 사장은 카이바인가? 최종귀축 신부 제트",
+      "creator": "",
+      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "upload_date": "2014/07/16",
+      "platform": "youtube",
+      "yt_id": "UegC01Q4kr4",
+      "thumbnail_url": "https://i.ytimg.com/vi/UegC01Q4kr4/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=UegC01Q4kr4",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동\n이것도 \"최종귀축 여동생 플랑드르 S\"의 유희왕 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
+    },
+    {
       "id": "-3VaKhsH4gc",
       "title": "【유희왕GX MAD】환부에서 멈추고 연어소환 ~ 광기의 유우키 쥬다이",
       "originalTitle": "【유희왕GX MAD】환부에서 멈추고 연어소환 ~ 광기의 유우키 쥬다이",
@@ -8175,7 +8198,26 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\r\n\r\n\"환부에서 멈추고 바로 녹는다 ~ 광기의 우돈게인\"의 유희왕버전 ㅋㅋㅋㅋㅋㅋ"
+      "description": "출처 : 니코동\n\n\"환부에서 멈추고 바로 녹는다 ~ 광기의 우돈게인\"의 유희왕버전 ㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
+    },
+    {
+      "id": "F7qEjMz5POE",
+      "title": "【유희왕MAD】동방KC관「KMS FGD」~Kaiba's Command~",
+      "originalTitle": "【유희왕MAD】동방KC관「KMS FGD」~Kaiba's Command~",
+      "creator": "",
+      "subtitler": "울프티어",
+      "upload_date": "2014/07/14",
+      "platform": "youtube",
+      "yt_id": "F7qEjMz5POE",
+      "thumbnail_url": "https://i.ytimg.com/vi/F7qEjMz5POE/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=F7qEjMz5POE",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동\n자막은 울프티어님.\n\n\"상하이 홍차관 ~ Chinese Tea\"의 유희왕 버전.\nㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
     },
     {
       "id": "P_8ZAbqPJRI",
@@ -8192,7 +8234,8 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\n\n유비트 - \"스노우 구스 (Snow Goose)\"의 유희왕 버전 ㅋㅋㅋㅋ"
+      "description": "출처 : 니코동\n\n유비트 - \"스노우 구스 (Snow Goose)\"의 유희왕 버전 ㅋㅋㅋㅋ",
+      "source_url": ""
     },
     {
       "id": "iB3ZAZOcfVk",
@@ -8209,24 +8252,8 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처: 니코동\r\n\r\n유령악단 어레인지 \"질주앙상블\"의 유희왕 버전 ㅋㅋㅋㅋㅋㅋ"
-    },
-    {
-      "id": "F7qEjMz5POE",
-      "title": "【유희왕MAD】동방KC관「KMS FGD」~Kaiba's Command~",
-      "originalTitle": "【유희왕MAD】동방KC관「KMS FGD」~Kaiba's Command~",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/14",
-      "platform": "youtube",
-      "yt_id": "F7qEjMz5POE",
-      "thumbnail_url": "https://i.ytimg.com/vi/F7qEjMz5POE/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=F7qEjMz5POE",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동\r\n자막은 울프티어님.\r\n\r\n\"상하이 홍차관 ~ Chinese Tea\"의 유희왕 버전.\r\nㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"
+      "description": "출처: 니코동\n\n유령악단 어레인지 \"질주앙상블\"의 유희왕 버전 ㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
     },
     {
       "title": "[데스노트 MAD] 키라유리",
@@ -8253,45 +8280,11 @@
       "id": "video-1792496436413"
     },
     {
-      "id": "Pdr0yC5LcYI",
-      "title": "【유희왕MAD】유우기와 카이바는 굉장한 신년을 축하해갔습니다.",
-      "originalTitle": "【유희왕MAD】유우기와 카이바는 굉장한 신년을 축하해갔습니다.",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/07",
-      "platform": "youtube",
-      "yt_id": "Pdr0yC5LcYI",
-      "thumbnail_url": "https://i.ytimg.com/vi/Pdr0yC5LcYI/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=Pdr0yC5LcYI",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동\r\n자막은 울프티어님.\r\n\r\n\"마리사는 엄청난 것을 훔쳐갔습니다.\"의 유희왕MAD버전.\r\n실제로 이 영상은 2008년 1월 1일자로 니코동에 올라왔다고 하네요."
-    },
-    {
-      "id": "pbZbPcpcY8I",
-      "title": "【유희왕MAD】바쿠라는 소중한 천년아이템을 훔쳐갔습니다.",
-      "originalTitle": "【유희왕MAD】바쿠라는 소중한 천년아이템을 훔쳐갔습니다.",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/07",
-      "platform": "youtube",
-      "yt_id": "pbZbPcpcY8I",
-      "thumbnail_url": "https://i.ytimg.com/vi/pbZbPcpcY8I/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=pbZbPcpcY8I",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동\r\n자막은 울프티어님.\r\n\r\n\"마리사는 엄청난 것을 훔쳐갔습니다.\"의 유희왕 바쿠라 버전. 영상화가 안 된 게 아쉬울 뿐......"
-    },
-    {
       "id": "Ew51mqoWgsM",
       "title": "【유희왕5D's＋GX】 두 대주인공은 굉장한 싱크로를 매혹시켜 갔습니다.",
       "originalTitle": "【유희왕5D's＋GX】 두 대주인공은 굉장한 싱크로를 매혹시켜 갔습니다.",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/07/07",
       "platform": "youtube",
       "yt_id": "Ew51mqoWgsM",
@@ -8301,48 +8294,15 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\n자막은 울프티어님.\n\nIOSYS의 \"마리사는 엄청난 것을 훔쳐갔습니다\"의 유희왕 5D's + GX MAD버전ㅋㅋㅋㅋㅋㅋㅋㅋ\n두 대주인공은 \"유우키 쥬다이\" + \"후도 유세이\" ㅋㅋㅋㅋ\n거기다 잭 아틀라스(킹) 까지 ㅋㅋㅋㅋㅋㅋㅋㅋ"
-    },
-    {
-      "id": "5SdSWHgkELA",
-      "title": "【유희왕MAD】별의 카이바세토 64",
-      "originalTitle": "【유희왕MAD】별의 카이바세토 64",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/07",
-      "platform": "youtube",
-      "yt_id": "5SdSWHgkELA",
-      "thumbnail_url": "https://i.ytimg.com/vi/5SdSWHgkELA/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=5SdSWHgkELA",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동\r\n자막은 울프티어님.\r\n\r\n\"별의 커비 64\"의 유희왕 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ"
-    },
-    {
-      "id": "bg_fN0ijjgU",
-      "title": "【유희왕MAD】M. I. 는 인간인가? 최종귀축 6세아 마리크",
-      "originalTitle": "【유희왕MAD】M. I. 는 인간인가? 최종귀축 6세아 마리크",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/07/07",
-      "platform": "youtube",
-      "yt_id": "bg_fN0ijjgU",
-      "thumbnail_url": "https://i.ytimg.com/vi/bg_fN0ijjgU/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=bg_fN0ijjgU",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "출처 : 니코동\r\n자막은 울프티어님.\r\n\r\n\"최종귀축 여동생 플랑드르 S\"의 유희왕 마리크 버전 ㅋㅋㅋ"
+      "description": "출처 : 니코동\n자막은 울프티어님.\n\nIOSYS의 \"마리사는 엄청난 것을 훔쳐갔습니다\"의 유희왕 5D's + GX MAD버전ㅋㅋㅋㅋㅋㅋㅋㅋ\n두 대주인공은 \"유우키 쥬다이\" + \"후도 유세이\" ㅋㅋㅋㅋ\n거기다 잭 아틀라스(킹) 까지 ㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
     },
     {
       "id": "frNywZUklno",
       "title": "【유희왕MAD】 듀얼 폼포코링 (카이바는 아홉살)",
       "originalTitle": "【유희왕MAD】 듀얼 폼포코링 (카이바는 아홉살)",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/07/07",
       "platform": "youtube",
       "yt_id": "frNywZUklno",
@@ -8352,31 +8312,87 @@
       "tags": [
         "유희왕"
       ],
-      "description": "제목: 듀얼 폼포코링 (デュエるポンポコリン)\n출처: 니코동\r\n카이바는 아홉살!!\r\n\r\n2014. 7. 7. 울프티어님 자막버전으로 교체 완료!"
+      "description": "제목: 듀얼 폼포코링 (デュエるポンポコリン)\n출처: 니코동\n카이바는 아홉살!!\n\n2014. 7. 7. 울프티어님 자막버전으로 교체 완료!",
+      "source_url": ""
     },
     {
-      "id": "T5fVkO4QeJ8",
-      "title": "【유희왕MAD】네이티브 마리크",
-      "originalTitle": "【유희왕MAD】네이티브 마리크",
+      "id": "pbZbPcpcY8I",
+      "title": "【유희왕MAD】바쿠라는 소중한 천년아이템을 훔쳐갔습니다.",
+      "originalTitle": "【유희왕MAD】바쿠라는 소중한 천년아이템을 훔쳐갔습니다.",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/06/30",
+      "subtitler": "울프티어",
+      "upload_date": "2014/07/07",
       "platform": "youtube",
-      "yt_id": "T5fVkO4QeJ8",
-      "thumbnail_url": "https://i.ytimg.com/vi/T5fVkO4QeJ8/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=T5fVkO4QeJ8",
+      "yt_id": "pbZbPcpcY8I",
+      "thumbnail_url": "https://i.ytimg.com/vi/pbZbPcpcY8I/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=pbZbPcpcY8I",
       "is_viewable": true,
       "tags": [
         "유희왕"
       ],
-      "description": "출처: 니코동\r\n자막: 울프티어\r\n\r\n\"네이티브 페이스\"의 유희왕 마리크 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ"
+      "description": "출처 : 니코동\n자막은 울프티어님.\n\n\"마리사는 엄청난 것을 훔쳐갔습니다.\"의 유희왕 바쿠라 버전. 영상화가 안 된 게 아쉬울 뿐......",
+      "source_url": ""
+    },
+    {
+      "id": "5SdSWHgkELA",
+      "title": "【유희왕MAD】별의 카이바세토 64",
+      "originalTitle": "【유희왕MAD】별의 카이바세토 64",
+      "creator": "",
+      "subtitler": "울프티어",
+      "upload_date": "2014/07/07",
+      "platform": "youtube",
+      "yt_id": "5SdSWHgkELA",
+      "thumbnail_url": "https://i.ytimg.com/vi/5SdSWHgkELA/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=5SdSWHgkELA",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동\n자막은 울프티어님.\n\n\"별의 커비 64\"의 유희왕 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
+    },
+    {
+      "id": "Pdr0yC5LcYI",
+      "title": "【유희왕MAD】유우기와 카이바는 굉장한 신년을 축하해갔습니다.",
+      "originalTitle": "【유희왕MAD】유우기와 카이바는 굉장한 신년을 축하해갔습니다.",
+      "creator": "",
+      "subtitler": "울프티어",
+      "upload_date": "2014/07/07",
+      "platform": "youtube",
+      "yt_id": "Pdr0yC5LcYI",
+      "thumbnail_url": "https://i.ytimg.com/vi/Pdr0yC5LcYI/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=Pdr0yC5LcYI",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동\n자막은 울프티어님.\n\n\"마리사는 엄청난 것을 훔쳐갔습니다.\"의 유희왕MAD버전.\n실제로 이 영상은 2008년 1월 1일자로 니코동에 올라왔다고 하네요.",
+      "source_url": ""
+    },
+    {
+      "id": "bg_fN0ijjgU",
+      "title": "【유희왕MAD】M. I. 는 인간인가? 최종귀축 6세아 마리크",
+      "originalTitle": "【유희왕MAD】M. I. 는 인간인가? 최종귀축 6세아 마리크",
+      "creator": "",
+      "subtitler": "울프티어",
+      "upload_date": "2014/07/07",
+      "platform": "youtube",
+      "yt_id": "bg_fN0ijjgU",
+      "thumbnail_url": "https://i.ytimg.com/vi/bg_fN0ijjgU/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=bg_fN0ijjgU",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처 : 니코동\n자막은 울프티어님.\n\n\"최종귀축 여동생 플랑드르 S\"의 유희왕 마리크 버전 ㅋㅋㅋ",
+      "source_url": ""
     },
     {
       "id": "5UwKiDxzDHk",
       "title": "【유희왕MAD】 사장야행 ~Kaiba's Go Through the Duel~",
       "originalTitle": "【유희왕MAD】 사장야행 ~Kaiba's Go Through the Duel~",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/06/30",
       "platform": "youtube",
       "yt_id": "5UwKiDxzDHk",
@@ -8386,14 +8402,15 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처: 니코동\n자막: 울프티어\n\n〈요마야행〉의 유희왕 버전.\n사용된 곡은 dBu Music의 요마야행 어레인지 〈Devil's Go Through the Night〉입니다."
+      "description": "출처: 니코동\n자막: 울프티어\n\n〈요마야행〉의 유희왕 버전.\n사용된 곡은 dBu Music의 요마야행 어레인지 〈Devil's Go Through the Night〉입니다.",
+      "source_url": ""
     },
     {
       "id": "R5lp3OwvqYA",
       "title": "【유희왕MAD】 치르밀 듀얼 [카이바/동방]",
       "originalTitle": "【유희왕MAD】 치르밀 듀얼 [카이바/동방]",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/06/30",
       "platform": "youtube",
       "yt_id": "R5lp3OwvqYA",
@@ -8403,31 +8420,33 @@
       "tags": [
         "유희왕"
       ],
-      "description": "▶ 출처: 니코동\r\n▶ 자막: 울프티어\n\r\n“치르밀 치르노”의 유희왕 버전. 저 키로 과연 무슨 춤을 추는 걸까요."
+      "description": "▶ 출처: 니코동\n▶ 자막: 울프티어\n\n“치르밀 치르노”의 유희왕 버전. 저 키로 과연 무슨 춤을 추는 걸까요.",
+      "source_url": ""
     },
     {
-      "id": "OkCrRLpxA5k",
-      "title": "【유희왕MAD】카이바보의 퍼펙트 에네콘 교실",
-      "originalTitle": "【유희왕MAD】카이바보의 퍼펙트 에네콘 교실",
+      "id": "T5fVkO4QeJ8",
+      "title": "【유희왕MAD】네이티브 마리크",
+      "originalTitle": "【유희왕MAD】네이티브 마리크",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/06/28",
+      "subtitler": "울프티어",
+      "upload_date": "2014/06/30",
       "platform": "youtube",
-      "yt_id": "OkCrRLpxA5k",
-      "thumbnail_url": "https://i.ytimg.com/vi/OkCrRLpxA5k/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=OkCrRLpxA5k",
+      "yt_id": "T5fVkO4QeJ8",
+      "thumbnail_url": "https://i.ytimg.com/vi/T5fVkO4QeJ8/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=T5fVkO4QeJ8",
       "is_viewable": true,
       "tags": [
         "유희왕"
       ],
-      "description": "출처: 니코동\r\n자막: 울프티어\r\n\r\n(동방×유희왕) \"치르노의 퍼펙트 산수교실\"의 유희왕 버전."
+      "description": "출처: 니코동\n자막: 울프티어\n\n\"네이티브 페이스\"의 유희왕 마리크 버전 ㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "source_url": ""
     },
     {
       "id": "QzStiNC5Pss",
       "title": "【유희왕MAD】 카이바 세토의 퍼펙트 회사경영교실",
       "originalTitle": "【유희왕MAD】 카이바 세토의 퍼펙트 회사경영교실",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/06/28",
       "platform": "youtube",
       "yt_id": "QzStiNC5Pss",
@@ -8437,14 +8456,33 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처 : 니코동\r\n자막은 울프티어님.\r\n\r\n\"치르노의 퍼펙트 산수교실\"의 유희왕 버전."
+      "description": "출처 : 니코동\n자막은 울프티어님.\n\n\"치르노의 퍼펙트 산수교실\"의 유희왕 버전.",
+      "source_url": ""
+    },
+    {
+      "id": "OkCrRLpxA5k",
+      "title": "【유희왕MAD】카이바보의 퍼펙트 에네콘 교실",
+      "originalTitle": "【유희왕MAD】카이바보의 퍼펙트 에네콘 교실",
+      "creator": "",
+      "subtitler": "울프티어",
+      "upload_date": "2014/06/28",
+      "platform": "youtube",
+      "yt_id": "OkCrRLpxA5k",
+      "thumbnail_url": "https://i.ytimg.com/vi/OkCrRLpxA5k/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=OkCrRLpxA5k",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처: 니코동\n자막: 울프티어\n\n(동방×유희왕) \"치르노의 퍼펙트 산수교실\"의 유희왕 버전.",
+      "source_url": ""
     },
     {
       "id": "-p_eiBGxPWU",
       "title": "【유희왕MAD】해마환상향 (카이바 환상향)",
       "originalTitle": "【유희왕MAD】해마환상향 (카이바 환상향)",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/06/28",
       "platform": "youtube",
       "yt_id": "-p_eiBGxPWU",
@@ -8454,31 +8492,15 @@
       "tags": [
         "유희왕"
       ],
-      "description": "출처: 니코동\n자막: 울프티어\n\n천년환상향의 유희왕 버전입니다.\n※ 사용된 곡은 dBu Music의 어레인지 버전인 ‘천년환상향: the Brain of the Moon’입니다."
-    },
-    {
-      "id": "TNhzZcnHzjg",
-      "title": "[Yu-Gi-Oh! MAD] Stopping at the Affected Area and Inputting Immediately ~ The Madness of Seto Kaiba",
-      "originalTitle": "[Yu-Gi-Oh! MAD] Stopping at the Affected Area and Inputting Immediately ~ The Madness of Seto Kaiba",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/06/28",
-      "platform": "youtube",
-      "yt_id": "TNhzZcnHzjg",
-      "thumbnail_url": "https://i.ytimg.com/vi/TNhzZcnHzjg/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=TNhzZcnHzjg",
-      "is_viewable": true,
-      "tags": [
-        "유희왕"
-      ],
-      "description": "《출처 : 니코동》\n《키워드 : 환부에 멈춰 바로 입력》\n\"환부에서 멈추고 바로 녹는다 ~ 광기의 우돈게인(우동게인)\"의 유희왕 버전."
+      "description": "출처: 니코동\n자막: 울프티어\n\n천년환상향의 유희왕 버전입니다.\n※ 사용된 곡은 dBu Music의 어레인지 버전인 ‘천년환상향: the Brain of the Moon’입니다.",
+      "source_url": ""
     },
     {
       "id": "ovLQVebxKjc",
       "title": "【유희왕MAD】E. C. 커맨드는 입력 가능한 것인가? 최종귀축 사장 카이바 S",
       "originalTitle": "【유희왕MAD】E. C. 커맨드는 입력 가능한 것인가? 최종귀축 사장 카이바 S",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/06/28",
       "platform": "youtube",
       "yt_id": "ovLQVebxKjc",
@@ -8488,7 +8510,8 @@
       "tags": [
         "유희왕"
       ],
-      "description": "원제: E.C.コマンド入力はできるのか？最終鬼畜社長海馬・S\n출처: 니코동\n자막: 울프티어\n\"최종귀축 여동생 플랑드르 S\"의 유희왕 버전."
+      "description": "원제: E.C.コマンド入力はできるのか？最終鬼畜社長海馬・S\n출처: 니코동\n자막: 울프티어\n\"최종귀축 여동생 플랑드르 S\"의 유희왕 버전.",
+      "source_url": ""
     },
     {
       "id": "TjJPUsX4Qzw",
@@ -8533,7 +8556,7 @@
       "title": "【유희왕MAD】카이바는 엄청난 커맨드 입력을 해갔습니다.",
       "originalTitle": "【유희왕MAD】카이바는 엄청난 커맨드 입력을 해갔습니다.",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "울프티어",
       "upload_date": "2014/05/27",
       "platform": "youtube",
       "yt_id": "egfPbNF1YRE",
@@ -8544,7 +8567,7 @@
         "유희왕"
       ],
       "description": "출처: 니코동\n자막: 울프티어s\n\n\"마리사는 엄청난 것을 훔쳐갔습니다\"의 유희왕 버전.\n최초의 에네콘MAD.\n\n※IOSYS 보컬 없는 버전: https://youtu.be/lIPd7_rRBXU",
-      "source_url": "https://www.youtube.com/watch?v=lIPd7_rRBXU"
+      "source_url": ""
     },
     {
       "id": "p4RVgi3Li4c",
@@ -8564,36 +8587,39 @@
       "description": "출처:http://tvple.com/140720\n\n사스가 바카야로이드.."
     },
     {
-      "id": "lrGj0IUA1fQ",
-      "title": "방가 방가 키하라군",
-      "originalTitle": "방가 방가 키하라군",
+      "id": "utF9fH3ILwI",
+      "title": "[데스노트] 경단 경단 경단 경단 경단 대가족~ :)",
+      "originalTitle": "[데스노트] 경단 경단 경단 경단 경단 대가족~ :)",
       "creator": "",
-      "subtitler": "무기농",
+      "subtitler": "신세계",
       "upload_date": "2014/05/25",
       "platform": "youtube",
-      "yt_id": "lrGj0IUA1fQ",
-      "thumbnail_url": "https://i.ytimg.com/vi/lrGj0IUA1fQ/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=lrGj0IUA1fQ",
-      "is_viewable": true,
-      "tags": [],
-      "description": "키이하라구우우운-!!!!!!!!!!!!"
-    },
-    {
-      "id": "1P1aLz19Tgk",
-      "title": "【유희왕MAD】궁극KC레스토랑! 오린의 해마정!",
-      "originalTitle": "【유희왕MAD】궁극KC레스토랑! 오린의 해마정!",
-      "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
-      "upload_date": "2014/05/25",
-      "platform": "youtube",
-      "yt_id": "1P1aLz19Tgk",
-      "thumbnail_url": "https://i.ytimg.com/vi/1P1aLz19Tgk/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=1P1aLz19Tgk",
+      "yt_id": "utF9fH3ILwI",
+      "thumbnail_url": "https://i.ytimg.com/vi/utF9fH3ILwI/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=utF9fH3ILwI",
       "is_viewable": true,
       "tags": [
-        "유희왕"
+        "바카야로이드"
       ],
-      "description": "출처: 니코동\n〈궁극 불고기(야키니쿠) 레스토랑! 오린의 지옥정!〉의 유희왕 버전.\n\n【출연진】\n◆ 동방 프로젝트\n▷ 오린 (카엔뵤 린)\n▷ 오쿠 (레이우지 우츠호)\n▷ 코메이지 사토리\n\n◆ 유희왕\n▷ 무토 유기\n▷ 카이바 세토\n▷ 카이바 모쿠바\n\nAnd More..."
+      "description": "출처:http://tvple.com/138673\n\n슬프다 ㅜㅡ"
+    },
+    {
+      "id": "OtaRV8OprEg",
+      "title": "[데스노트] 기교소녀는 상처받지 않아 ED",
+      "originalTitle": "[데스노트] 기교소녀는 상처받지 않아 ED",
+      "creator": "akka",
+      "subtitler": "신세계",
+      "upload_date": "2014/05/25",
+      "platform": "youtube",
+      "yt_id": "OtaRV8OprEg",
+      "thumbnail_url": "https://i.ytimg.com/vi/OtaRV8OprEg/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=OtaRV8OprEg",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처:http://tvple.com/132568",
+      "source_url": ""
     },
     {
       "id": "xJUeOQaVe4I",
@@ -8613,6 +8639,26 @@
       "description": "출처:http://tvple.com/138568"
     },
     {
+      "id": "n4gaxKOItRM",
+      "title": "[데스노트] 키라키라하게 해줄께!ㅋㅋㅋㅋㅋ",
+      "originalTitle": "[데스노트] 키라키라하게 해줄께!ㅋㅋㅋㅋㅋ",
+      "creator": [
+        "tokachi",
+        "芝EX"
+      ],
+      "subtitler": "신세계",
+      "upload_date": "2014/05/25",
+      "platform": "youtube",
+      "yt_id": "n4gaxKOItRM",
+      "thumbnail_url": "https://i.ytimg.com/vi/n4gaxKOItRM/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=n4gaxKOItRM",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처:http://tvple.com/130459"
+    },
+    {
       "id": "sMvT9kGLqz8",
       "title": "[데스노트] 파돌리기 송",
       "originalTitle": "[데스노트] 파돌리기 송",
@@ -8630,75 +8676,22 @@
       "description": "출처:http://tvple.com/139321"
     },
     {
-      "id": "0lxgDmxCgWE",
-      "title": "모노가타리 X 데스노트",
-      "originalTitle": "모노가타리 X 데스노트",
-      "creator": "Ta2",
-      "subtitler": "불명",
-      "upload_date": "2014/05/25",
-      "platform": "youtube",
-      "yt_id": "0lxgDmxCgWE",
-      "thumbnail_url": "https://i.ytimg.com/vi/0lxgDmxCgWE/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=0lxgDmxCgWE",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처:http://tvple.com/135304"
-    },
-    {
-      "id": "M-_wbspC9mA",
-      "title": "냥캣 X 데스노트",
-      "originalTitle": "냥캣 X 데스노트",
-      "creator": "芝EX",
+      "id": "OdE9DTEeFEo",
+      "title": "[​데스노트]영원히 고통받는 라이토",
+      "originalTitle": "[​데스노트]영원히 고통받는 라이토",
+      "creator": "VISAC-EX",
       "subtitler": "신세계",
       "upload_date": "2014/05/25",
       "platform": "youtube",
-      "yt_id": "M-_wbspC9mA",
-      "thumbnail_url": "https://i.ytimg.com/vi/M-_wbspC9mA/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=M-_wbspC9mA",
+      "yt_id": "OdE9DTEeFEo",
+      "thumbnail_url": "https://i.ytimg.com/vi/OdE9DTEeFEo/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=OdE9DTEeFEo",
       "is_viewable": true,
       "tags": [
         "바카야로이드"
       ],
-      "description": "출처:http://tvple.com/135836"
-    },
-    {
-      "id": "C56z34KDdvU",
-      "title": "기어와라 라이토! 마츠다는 혼돈의 노예",
-      "originalTitle": "기어와라 라이토! 마츠다는 혼돈의 노예",
-      "creator": "ロニ坂",
-      "subtitler": "신세계",
-      "upload_date": "2014/05/25",
-      "platform": "youtube",
-      "yt_id": "C56z34KDdvU",
-      "thumbnail_url": "https://i.ytimg.com/vi/C56z34KDdvU/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=C56z34KDdvU",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처:http://tvple.com/135836\n\n[올린거랑 중복인대 자막 안가린겁니다]"
-    },
-    {
-      "id": "VqvtcXysqM4",
-      "title": "[데스노트]케이온 2쿨 op",
-      "originalTitle": "[데스노트]케이온 2쿨 op",
-      "creator": [
-        "じみまろ",
-        "57877"
-      ],
-      "subtitler": "신세계",
-      "upload_date": "2014/05/25",
-      "platform": "youtube",
-      "yt_id": "VqvtcXysqM4",
-      "thumbnail_url": "https://i.ytimg.com/vi/VqvtcXysqM4/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=VqvtcXysqM4",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처:http://tvple.com/137487\n\nMiracle☆마츠ㅏ"
+      "description": "출처:http://sp.nicovideo.jp/watch/sm20158032?cp_in=wt_uservideo",
+      "source_url": "https://www.nicovideo.jp/watch/sm13722567"
     },
     {
       "id": "fDa7llbLXeY",
@@ -8735,21 +8728,110 @@
       "description": "출처:http://tvple.com/137487"
     },
     {
-      "id": "utF9fH3ILwI",
-      "title": "[데스노트] 경단 경단 경단 경단 경단 대가족~ :)",
-      "originalTitle": "[데스노트] 경단 경단 경단 경단 경단 대가족~ :)",
-      "creator": "",
-      "subtitler": "신세계",
+      "id": "nljuZ63kPGg",
+      "title": "[데스노트]케이온 2기op",
+      "originalTitle": "[데스노트]케이온 2기op",
+      "creator": "ギフト",
+      "subtitler": "불명",
       "upload_date": "2014/05/25",
       "platform": "youtube",
-      "yt_id": "utF9fH3ILwI",
-      "thumbnail_url": "https://i.ytimg.com/vi/utF9fH3ILwI/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=utF9fH3ILwI",
+      "yt_id": "nljuZ63kPGg",
+      "thumbnail_url": "https://i.ytimg.com/vi/nljuZ63kPGg/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=nljuZ63kPGg",
       "is_viewable": true,
       "tags": [
         "바카야로이드"
       ],
-      "description": "출처:http://tvple.com/138673\n\n슬프다 ㅜㅡ"
+      "description": "설명:http://tvple.com/132093"
+    },
+    {
+      "id": "VqvtcXysqM4",
+      "title": "[데스노트]케이온 2쿨 op",
+      "originalTitle": "[데스노트]케이온 2쿨 op",
+      "creator": [
+        "じみまろ",
+        "57877"
+      ],
+      "subtitler": "신세계",
+      "upload_date": "2014/05/25",
+      "platform": "youtube",
+      "yt_id": "VqvtcXysqM4",
+      "thumbnail_url": "https://i.ytimg.com/vi/VqvtcXysqM4/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=VqvtcXysqM4",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처:http://tvple.com/137487\n\nMiracle☆마츠ㅏ"
+    },
+    {
+      "id": "oVXkBqt9gJ0",
+      "title": "[티비플]후와후와타임을 바카야로이드로 불러보았다",
+      "originalTitle": "[티비플]후와후와타임을 바카야로이드로 불러보았다",
+      "creator": "Ta2",
+      "subtitler": "불명",
+      "upload_date": "2014/05/25",
+      "platform": "youtube",
+      "yt_id": "oVXkBqt9gJ0",
+      "thumbnail_url": "https://i.ytimg.com/vi/oVXkBqt9gJ0/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=oVXkBqt9gJ0",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처:http://tvple.com/130824"
+    },
+    {
+      "id": "1P1aLz19Tgk",
+      "title": "【유희왕MAD】궁극KC레스토랑! 오린의 해마정!",
+      "originalTitle": "【유희왕MAD】궁극KC레스토랑! 오린의 해마정!",
+      "creator": "",
+      "subtitler": "울프티어",
+      "upload_date": "2014/05/25",
+      "platform": "youtube",
+      "yt_id": "1P1aLz19Tgk",
+      "thumbnail_url": "https://i.ytimg.com/vi/1P1aLz19Tgk/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=1P1aLz19Tgk",
+      "is_viewable": true,
+      "tags": [
+        "유희왕"
+      ],
+      "description": "출처: 니코동\n〈궁극 불고기(야키니쿠) 레스토랑! 오린의 지옥정!〉의 유희왕 버전.\n\n【출연진】\n◆ 동방 프로젝트\n▷ 오린 (카엔뵤 린)\n▷ 오쿠 (레이우지 우츠호)\n▷ 코메이지 사토리\n\n◆ 유희왕\n▷ 무토 유기\n▷ 카이바 세토\n▷ 카이바 모쿠바\n\nAnd More...",
+      "source_url": ""
+    },
+    {
+      "id": "C56z34KDdvU",
+      "title": "기어와라 라이토! 마츠다는 혼돈의 노예",
+      "originalTitle": "기어와라 라이토! 마츠다는 혼돈의 노예",
+      "creator": "ロニ坂",
+      "subtitler": "신세계",
+      "upload_date": "2014/05/25",
+      "platform": "youtube",
+      "yt_id": "C56z34KDdvU",
+      "thumbnail_url": "https://i.ytimg.com/vi/C56z34KDdvU/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=C56z34KDdvU",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처:http://tvple.com/135836\n\n[올린거랑 중복인대 자막 안가린겁니다]"
+    },
+    {
+      "id": "M-_wbspC9mA",
+      "title": "냥캣 X 데스노트",
+      "originalTitle": "냥캣 X 데스노트",
+      "creator": "芝EX",
+      "subtitler": "신세계",
+      "upload_date": "2014/05/25",
+      "platform": "youtube",
+      "yt_id": "M-_wbspC9mA",
+      "thumbnail_url": "https://i.ytimg.com/vi/M-_wbspC9mA/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=M-_wbspC9mA",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "출처:http://tvple.com/135836"
     },
     {
       "id": "0HO5gr9lCqA",
@@ -8769,94 +8851,36 @@
       "description": "출처:http://tvple.com/128049​"
     },
     {
-      "id": "nljuZ63kPGg",
-      "title": "[데스노트]케이온 2기op",
-      "originalTitle": "[데스노트]케이온 2기op",
-      "creator": "ギフト",
-      "subtitler": "불명",
-      "upload_date": "2014/05/25",
-      "platform": "youtube",
-      "yt_id": "nljuZ63kPGg",
-      "thumbnail_url": "https://i.ytimg.com/vi/nljuZ63kPGg/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=nljuZ63kPGg",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "설명:http://tvple.com/132093"
-    },
-    {
-      "id": "OdE9DTEeFEo",
-      "title": "[​데스노트]영원히 고통받는 라이토",
-      "originalTitle": "[​데스노트]영원히 고통받는 라이토",
-      "creator": "VISAC-EX",
-      "subtitler": "신세계",
-      "upload_date": "2014/05/25",
-      "platform": "youtube",
-      "yt_id": "OdE9DTEeFEo",
-      "thumbnail_url": "https://i.ytimg.com/vi/OdE9DTEeFEo/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=OdE9DTEeFEo",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처:http://sp.nicovideo.jp/watch/sm20158032?cp_in=wt_uservideo",
-      "source_url": "https://www.nicovideo.jp/watch/sm13722567"
-    },
-    {
-      "id": "n4gaxKOItRM",
-      "title": "[데스노트] 키라키라하게 해줄께!ㅋㅋㅋㅋㅋ",
-      "originalTitle": "[데스노트] 키라키라하게 해줄께!ㅋㅋㅋㅋㅋ",
-      "creator": [
-        "tokachi",
-        "芝EX"
-      ],
-      "subtitler": "신세계",
-      "upload_date": "2014/05/25",
-      "platform": "youtube",
-      "yt_id": "n4gaxKOItRM",
-      "thumbnail_url": "https://i.ytimg.com/vi/n4gaxKOItRM/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=n4gaxKOItRM",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처:http://tvple.com/130459"
-    },
-    {
-      "id": "OtaRV8OprEg",
-      "title": "[데스노트] 기교소녀는 상처받지 않아 ED",
-      "originalTitle": "[데스노트] 기교소녀는 상처받지 않아 ED",
-      "creator": "akka",
-      "subtitler": "신세계",
-      "upload_date": "2014/05/25",
-      "platform": "youtube",
-      "yt_id": "OtaRV8OprEg",
-      "thumbnail_url": "https://i.ytimg.com/vi/OtaRV8OprEg/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=OtaRV8OprEg",
-      "is_viewable": true,
-      "tags": [
-        "바카야로이드"
-      ],
-      "description": "출처:http://tvple.com/132568",
-      "source_url": ""
-    },
-    {
-      "id": "oVXkBqt9gJ0",
-      "title": "[티비플]후와후와타임을 바카야로이드로 불러보았다",
-      "originalTitle": "[티비플]후와후와타임을 바카야로이드로 불러보았다",
+      "id": "0lxgDmxCgWE",
+      "title": "모노가타리 X 데스노트",
+      "originalTitle": "모노가타리 X 데스노트",
       "creator": "Ta2",
       "subtitler": "불명",
       "upload_date": "2014/05/25",
       "platform": "youtube",
-      "yt_id": "oVXkBqt9gJ0",
-      "thumbnail_url": "https://i.ytimg.com/vi/oVXkBqt9gJ0/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=oVXkBqt9gJ0",
+      "yt_id": "0lxgDmxCgWE",
+      "thumbnail_url": "https://i.ytimg.com/vi/0lxgDmxCgWE/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=0lxgDmxCgWE",
       "is_viewable": true,
       "tags": [
         "바카야로이드"
       ],
-      "description": "출처:http://tvple.com/130824"
+      "description": "출처:http://tvple.com/135304"
+    },
+    {
+      "id": "lrGj0IUA1fQ",
+      "title": "방가 방가 키하라군",
+      "originalTitle": "방가 방가 키하라군",
+      "creator": "",
+      "subtitler": "무기농",
+      "upload_date": "2014/05/25",
+      "platform": "youtube",
+      "yt_id": "lrGj0IUA1fQ",
+      "thumbnail_url": "https://i.ytimg.com/vi/lrGj0IUA1fQ/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=lrGj0IUA1fQ",
+      "is_viewable": true,
+      "tags": [],
+      "description": "키이하라구우우운-!!!!!!!!!!!!"
     },
     {
       "title": "[데스노트 MAD] 뉴 리얼 월드",
@@ -9151,24 +9175,6 @@
       "id": "video-1792496347781"
     },
     {
-      "id": "vIqrmRT0Y-0",
-      "title": "[PV]사우다지 feat.아마미 하루카",
-      "originalTitle": "[PV]사우다지 feat.아마미 하루카",
-      "creator": "Unknown",
-      "subtitler": "aromasketch",
-      "upload_date": "2012/12/06",
-      "platform": "youtube",
-      "yt_id": "vIqrmRT0Y-0",
-      "thumbnail_url": "https://i.ytimg.com/vi/vIqrmRT0Y-0/hqdefault.jpg",
-      "original_link": "https://www.youtube.com/watch?v=vIqrmRT0Y-0",
-      "is_viewable": true,
-      "tags": [
-        "아이돌 마스터"
-      ],
-      "description": "http://www.nicovideo.jp/watch/sm15718520",
-      "source_url": "https://www.nicovideo.jp/watch/sm15718520"
-    },
-    {
       "id": "ShmVlnu9Ffo",
       "title": "[인력 보컬로이드]사우다지 feat. 아마미 하루카",
       "originalTitle": "[인력 보컬로이드]사우다지 feat. 아마미 하루카",
@@ -9185,6 +9191,24 @@
       ],
       "description": "http://www.nicovideo.jp/watch/sm15704392",
       "source_url": "https://www.nicovideo.jp/watch/sm15704392"
+    },
+    {
+      "id": "vIqrmRT0Y-0",
+      "title": "[PV]사우다지 feat.아마미 하루카",
+      "originalTitle": "[PV]사우다지 feat.아마미 하루카",
+      "creator": "Unknown",
+      "subtitler": "aromasketch",
+      "upload_date": "2012/12/06",
+      "platform": "youtube",
+      "yt_id": "vIqrmRT0Y-0",
+      "thumbnail_url": "https://i.ytimg.com/vi/vIqrmRT0Y-0/hqdefault.jpg",
+      "original_link": "https://www.youtube.com/watch?v=vIqrmRT0Y-0",
+      "is_viewable": true,
+      "tags": [
+        "아이돌 마스터"
+      ],
+      "description": "http://www.nicovideo.jp/watch/sm15718520",
+      "source_url": "https://www.nicovideo.jp/watch/sm15718520"
     },
     {
       "title": "[Z회 MAD] EvanZONE ReflectionWERSig 2 bass so Z회 하이스피드 ver",
