@@ -71,9 +71,21 @@ window.app = (function () {
   const sortVideos = (list) => {
     const arr = [...list];
     if (state.sortOrder === 'latest') {
-      arr.sort((a, b) => API.getRefinedDate(b).localeCompare(API.getRefinedDate(a)));
+      arr.sort((a, b) => {
+        const cmp = API.getRefinedDate(b).localeCompare(API.getRefinedDate(a));
+        if (cmp !== 0) return cmp;
+        return (a.title || "").localeCompare(b.title || "", state.lang);
+      });
     } else if (state.sortOrder === 'oldest') {
-      arr.sort((a, b) => API.getRefinedDate(a).localeCompare(API.getRefinedDate(b)));
+      arr.sort((a, b) => {
+        const dateA = API.getRefinedDate(a);
+        const dateB = API.getRefinedDate(b);
+        const validA = dateA && dateA !== '0000/00/00' ? dateA : '9999/99/99';
+        const validB = dateB && dateB !== '0000/00/00' ? dateB : '9999/99/99';
+        const cmp = validA.localeCompare(validB);
+        if (cmp !== 0) return cmp;
+        return (a.title || "").localeCompare(b.title || "", state.lang);
+      });
     } else if (state.sortOrder === 'name') {
       arr.sort((a, b) => (a.title || "").localeCompare(b.title || "", state.lang));
     } else if (state.sortOrder === 'random') {
@@ -87,8 +99,18 @@ window.app = (function () {
     state.videos.sort((a, b) => {
       const dateA = API.getRefinedDate(a);
       const dateB = API.getRefinedDate(b);
-      if (order === 'latest') return dateB.localeCompare(dateA);
-      if (order === 'oldest') return dateA.localeCompare(dateB);
+      if (order === 'latest') {
+        const cmp = dateB.localeCompare(dateA);
+        if (cmp !== 0) return cmp;
+        return (a.title || "").localeCompare(b.title || "", state.lang);
+      }
+      if (order === 'oldest') {
+        const validA = dateA && dateA !== '0000/00/00' ? dateA : '9999/99/99';
+        const validB = dateB && dateB !== '0000/00/00' ? dateB : '9999/99/99';
+        const cmp = validA.localeCompare(validB);
+        if (cmp !== 0) return cmp;
+        return (a.title || "").localeCompare(b.title || "", state.lang);
+      }
       if (order === 'name') return (a.title || "").localeCompare(b.title || "", state.lang);
       return 0;
     });
@@ -220,17 +242,22 @@ window.app = (function () {
       if (btn) btn.className = `px-2.5 py-1 rounded text-xs font-medium transition-colors ${state.viewMode === m ? 'bg-[#4169e1] text-[#faf9f6] font-semibold shadow-sm' : 'theme-text-sub hover:theme-text-main'}`;
     });
 
-    // 정렬 선택 라벨 다국어 업데이트
+    // 정렬 선택 라벨 다국어 및 현재 상태 동기화
     const sortSelect = document.getElementById('sort-select');
-    if (sortSelect && curI18n) {
-      const optLatest = sortSelect.querySelector('option[value="latest"]');
-      const optOldest = sortSelect.querySelector('option[value="oldest"]');
-      const optName = sortSelect.querySelector('option[value="name"]');
-      const optRandom = sortSelect.querySelector('option[value="random"]');
-      if (optLatest) optLatest.textContent = curI18n.sortLatest;
-      if (optOldest) optOldest.textContent = curI18n.sortOldest;
-      if (optName) optName.textContent = curI18n.sortName;
-      if (optRandom) optRandom.textContent = curI18n.sortRandom;
+    if (sortSelect) {
+      if (sortSelect.value !== state.sortOrder) {
+        sortSelect.value = state.sortOrder;
+      }
+      if (curI18n) {
+        const optLatest = sortSelect.querySelector('option[value="latest"]');
+        const optOldest = sortSelect.querySelector('option[value="oldest"]');
+        const optName = sortSelect.querySelector('option[value="name"]');
+        const optRandom = sortSelect.querySelector('option[value="random"]');
+        if (optLatest) optLatest.textContent = curI18n.sortLatest;
+        if (optOldest) optOldest.textContent = curI18n.sortOldest;
+        if (optName) optName.textContent = curI18n.sortName;
+        if (optRandom) optRandom.textContent = curI18n.sortRandom;
+      }
     }
 
     // 검색 필터 배너
@@ -297,23 +324,54 @@ window.app = (function () {
         });
       });
 
+      // 각 태그별 최소/최대 자막 업로드 날짜 통계 사전 계산
+      const tagDateStats = {};
+      Object.entries(tagGroups).forEach(([tag, vList]) => {
+        let minDate = '9999/99/99';
+        let maxDate = '0000/00/00';
+        vList.forEach(v => {
+          const d = API.getRefinedDate(v);
+          if (d && d !== '0000/00/00') {
+            if (d < minDate) minDate = d;
+            if (d > maxDate) maxDate = d;
+          }
+        });
+        tagDateStats[tag] = {
+          min: minDate === '9999/99/99' ? '0000/00/00' : minDate,
+          max: maxDate
+        };
+      });
+
       // 태그 정렬
       const sortedTags = Object.keys(tagGroups).sort((a, b) => {
         if (state.sortOrder === 'name') {
           return a.localeCompare(b, state.lang);
         } else if (state.sortOrder === 'latest') {
-          const dateA = tagGroups[a][0] ? API.getRefinedDate(tagGroups[a][0]) : '';
-          const dateB = tagGroups[b][0] ? API.getRefinedDate(tagGroups[b][0]) : '';
-          return dateB.localeCompare(dateA);
+          const maxA = tagDateStats[a]?.max || '0000/00/00';
+          const maxB = tagDateStats[b]?.max || '0000/00/00';
+          const cmp = maxB.localeCompare(maxA);
+          if (cmp !== 0) return cmp;
+          const countDiff = (tagCounts[b] || 0) - (tagCounts[a] || 0);
+          if (countDiff !== 0) return countDiff;
+          return a.localeCompare(b, state.lang);
         } else if (state.sortOrder === 'oldest') {
-          const dateA = tagGroups[a][0] ? API.getRefinedDate(tagGroups[a][0]) : '';
-          const dateB = tagGroups[b][0] ? API.getRefinedDate(tagGroups[b][0]) : '';
-          return dateA.localeCompare(dateB);
+          // 유효한 날짜가 있는 태그가 먼저 오도록 9999/99/99 대체
+          const minA = tagDateStats[a]?.min && tagDateStats[a].min !== '0000/00/00' ? tagDateStats[a].min : '9999/99/99';
+          const minB = tagDateStats[b]?.min && tagDateStats[b].min !== '0000/00/00' ? tagDateStats[b].min : '9999/99/99';
+          const cmp = minA.localeCompare(minB);
+          if (cmp !== 0) return cmp;
+          const countDiff = (tagCounts[b] || 0) - (tagCounts[a] || 0);
+          if (countDiff !== 0) return countDiff;
+          return a.localeCompare(b, state.lang);
+        } else if (state.sortOrder === 'random') {
+          return getRandomWeight(a) - getRandomWeight(b);
         }
-        // 기본: 동영상 많은 순 (기타는 맨 뒤)
+        // 기본(동영상 많은 순): '기타'는 맨 뒤
         if (a === '기타') return 1;
         if (b === '기타') return -1;
-        return tagCounts[b] - tagCounts[a];
+        const countDiff = (tagCounts[b] || 0) - (tagCounts[a] || 0);
+        if (countDiff !== 0) return countDiff;
+        return a.localeCompare(b, state.lang);
       });
 
       const formatPlaylistDate = (dateStr) => {
@@ -321,12 +379,17 @@ window.app = (function () {
         return String(dateStr).replace(/-/g, '. ').replace(/\//g, '. ');
       };
 
+      const playlistDateLabel = state.sortOrder === 'oldest' ? (curI18n.playlistOldestVideo || '최초 업로드') : (curI18n.playlistLatestVideo || '최신 업로드');
+
       // 1) 특정 태그 상세 뷰 (해당 태그의 비디오 바둑판 목록)
       if (state.selectedTag && tagGroups[state.selectedTag]) {
         const currentTagVideos = sortVideos(tagGroups[state.selectedTag]);
         const coverVideo = currentTagVideos[0];
         const coverThumb = coverVideo ? getThumbnail(coverVideo) : '';
-        const latestDateText = coverVideo ? formatPlaylistDate(API.getRefinedDate(coverVideo)) : '최근';
+        const repDate = state.sortOrder === 'oldest' ? tagDateStats[state.selectedTag]?.min : tagDateStats[state.selectedTag]?.max;
+        const latestDateText = repDate && repDate !== '0000/00/00' && repDate !== '9999/99/99'
+          ? formatPlaylistDate(repDate)
+          : (coverVideo ? formatPlaylistDate(API.getRefinedDate(coverVideo)) : '최근');
 
         main.innerHTML = `
           <div class="mb-6 space-y-4">
@@ -363,7 +426,7 @@ window.app = (function () {
                     ${API.escapeHTML(state.selectedTag)}
                   </h2>
                   <p class="text-xs theme-text-sub mt-1">
-                    최근 업데이트: ${latestDateText}
+                    ${playlistDateLabel}: ${latestDateText}
                   </p>
                 </div>
               </div>
@@ -392,9 +455,15 @@ window.app = (function () {
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
               ${sortedTags.map(tag => {
                 const gVideos = sortVideos(tagGroups[tag]);
-                const coverVideo = gVideos[0];
-                const coverThumb = coverVideo ? getThumbnail(coverVideo) : '';
-                const latestDateText = coverVideo ? formatPlaylistDate(API.getRefinedDate(coverVideo)) : '최근';
+                // 대표 커버 영상: 오래된순일 땐 가장 오래된 영상, 그 외엔 가장 최신 영상
+                const repVideo = state.sortOrder === 'oldest'
+                  ? gVideos[0]
+                  : (tagGroups[tag].find(v => API.getRefinedDate(v) === tagDateStats[tag]?.max) || gVideos[0]);
+                const coverThumb = repVideo ? getThumbnail(repVideo) : '';
+                const repDate = state.sortOrder === 'oldest' ? tagDateStats[tag]?.min : tagDateStats[tag]?.max;
+                const dateText = repDate && repDate !== '0000/00/00' && repDate !== '9999/99/99'
+                  ? formatPlaylistDate(repDate)
+                  : (repVideo ? formatPlaylistDate(API.getRefinedDate(repVideo)) : '최근');
 
                 return `
                   <div class="playlist-card group" onclick="app.selectTagFilter('${API.escapeHTML(tag)}')">
@@ -430,7 +499,7 @@ window.app = (function () {
                           ${API.escapeHTML(tag)}
                         </h3>
                         <p class="text-xs theme-text-sub mt-1">공개 · 재생목록</p>
-                        <p class="text-xs theme-text-muted mt-0.5">최근 업데이트: ${latestDateText}</p>
+                        <p class="text-xs theme-text-muted mt-0.5">${playlistDateLabel}: ${dateText}</p>
                         <div class="mt-1.5">
                           <button onclick="event.stopPropagation(); app.selectTagFilter('${API.escapeHTML(tag)}')" class="text-xs font-medium text-[#4169e1] hover:underline transition-colors inline-block">
                             전체 재생목록 보기
@@ -1112,6 +1181,12 @@ window.app = (function () {
 
     // URL에 ?mode=edit 이 있을 때만 편집 모드로 시작
     state.isEditMode = hasEdit;
+
+    // 브라우저 폼 복원으로 유지된 select 값이 있다면 상태와 동기화
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect && sortSelect.value) {
+      state.sortOrder = sortSelect.value;
+    }
 
     updateEditModeUI();
     loadData();
