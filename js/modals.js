@@ -781,6 +781,13 @@ window.Modals = (function () {
           if (autoSourceBadge) autoSourceBadge.classList.remove('hidden');
         }
 
+        // 실제 자막 영상 업로드 날짜 자동 감지 및 채우기
+        if (meta.upload_date) {
+          const dateEl = document.getElementById('meta-date');
+          if (dateEl) dateEl.value = meta.upload_date;
+          extracted.upload_date = meta.upload_date;
+        }
+
         const autoBadge = document.getElementById('auto-title-badge');
         const subtitlerBadge = document.getElementById('auto-subtitler-badge');
         if (autoBadge) autoBadge.classList.remove('hidden');
@@ -1033,6 +1040,9 @@ window.Modals = (function () {
       app.state.videos.unshift(item);
     }
 
+    // 영상 추가/수정 후 자막 업로드 날짜 기준 최신순 정렬 배치 유지
+    if (app.sortVideosInState) app.sortVideosInState();
+
     const success = await app.saveDataToServer();
     if (success) closeExtractorModal();
   };
@@ -1083,7 +1093,7 @@ window.Modals = (function () {
           originalTitle: v.originalTitle || cleanTitle,
           creator: v.creator || '',
           subtitler: v.uploader || '',
-          upload_date: defaultDate,
+          upload_date: v.upload_date || defaultDate,
           platform: 'youtube',
           yt_id: v.id,
           thumbnail_url: v.thumbnail || `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`,
@@ -1243,6 +1253,8 @@ window.Modals = (function () {
     });
 
     app.state.videos.unshift(...newVideos);
+    // 재생목록 일괄 등록 후 자막 업로드 날짜 기준 최신순 정렬 배치 유지
+    if (app.sortVideosInState) app.sortVideosInState();
     const success = await app.saveDataToServer();
     if (success) {
       closeExtractorModal();

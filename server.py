@@ -167,21 +167,41 @@ def extract_original_title_from_description(desc):
                     return val
     return None
 
-def fetch_youtube_description(video_id):
+def fetch_youtube_details(video_id):
+    """유튜브 비디오의 설명란과 실제 업로드/게시 날짜를 동시에 추출"""
     url = f"https://www.youtube.com/watch?v={video_id}"
     req = urllib.request.Request(url, headers={
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept-Language": "ko,en"
     })
+    description = ""
+    upload_date = ""
     try:
-        with urllib.request.urlopen(req, timeout=6) as resp:
+        with urllib.request.urlopen(req, timeout=7) as resp:
             html = resp.read().decode("utf-8", errors="ignore")
+        
+        # 1. 설명란 추출
         m = re.search(r'"shortDescription":\s*"((?:[^"\\]|\\.)*)"', html)
         if m:
-            return json.loads(f'"{m.group(1)}"')
+            description = json.loads(f'"{m.group(1)}"')
+            
+        # 2. 실제 자막 영상 업로드 날짜 추출 (itemprop="datePublished" / publishDate / uploadDate)
+        m_date = re.search(r'itemprop="datePublished"\s+content="([^"]+)"', html) or \
+                 re.search(r'"publishDate":\s*"([^"]+)"', html) or \
+                 re.search(r'itemprop="uploadDate"\s+content="([^"]+)"', html) or \
+                 re.search(r'"uploadDate":\s*"([^"]+)"', html)
+        if m_date:
+            raw_d = m_date.group(1)[:10]
+            parts = re.split(r'[\.\-\/]', raw_d)
+            if len(parts) >= 3:
+                upload_date = f"{int(parts[0]):04d}/{int(parts[1]):02d}/{int(parts[2]):02d}"
     except Exception:
         pass
-    return ""
+    return description, upload_date
+
+def fetch_youtube_description(video_id):
+    desc, _ = fetch_youtube_details(video_id)
+    return desc
 
 def get_single_youtube_info(video_id):
     title = ""
@@ -192,6 +212,7 @@ def get_single_youtube_info(video_id):
     source_url = None
     creator = ""
     original_title = ""
+    upload_date = ""
 
     try:
         url = f"https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json"
@@ -208,7 +229,7 @@ def get_single_youtube_info(video_id):
     if title:
         title = re.sub(r'^\[(?:자막|한글자막|번역)\]\s*', '', title, flags=re.I).strip()
 
-    description = fetch_youtube_description(video_id)
+    description, upload_date = fetch_youtube_details(video_id)
     if description:
         source_url = extract_source_url_from_description(description, current_yt_id=video_id)
         creator = extract_creator_from_description(description) or ""
@@ -234,6 +255,7 @@ def get_single_youtube_info(video_id):
         "title": title,
         "author": author,
         "author_url": author_url,
+        "upload_date": upload_date,
         "thumbnail": get_best_youtube_thumbnail(video_id),
         "channel_avatar": avatar,
         "description": description,
@@ -272,14 +294,16 @@ def extract_playlist_videos(playlist_url):
             except Exception:
                 continue
 
-        # 설명란 병렬 다운로드 및 원작/제작자 자동 추출
+        # 설명란 및 실제 업로드 날짜 병렬 다운로드 & 원작/제작자 자동 추출
         if items:
             with ThreadPoolExecutor(max_workers=10) as executor:
-                future_to_item = {executor.submit(fetch_youtube_description, it["id"]): it for it in items}
+                future_to_item = {executor.submit(fetch_youtube_details, it["id"]): it for it in items}
                 for fut in as_completed(future_to_item):
                     it = future_to_item[fut]
                     try:
-                        desc = fut.result()
+                        desc, upload_date = fut.result()
+                        if upload_date:
+                            it["upload_date"] = upload_date
                         if desc:
                             it["description"] = desc
                             src = extract_source_url_from_description(desc, current_yt_id=it["id"])
@@ -656,9 +680,15 @@ def get_naver_info(query):
         if d_match:
             info["upload_date"] = f"{d_match.group(1)}/{int(d_match.group(2)):02d}/{int(d_match.group(3)):02d}"
     if not info["upload_date"]:
-        date_m2 = re.search(r'class="se_publishDate[^"]*">([^<]+)<', content) or re.search(r'class="date[^"]*">([^<]+)<', content)
+        date_m2 = re.search(r'class="se_publishDate[^"]*">([^<]+)<', content) or re.search(r'class="[^"]*date[^"]*">([^<]+)<', content)
         if date_m2:
             d_match = re.search(r'(\d{4})[\.\-\/]\s*(\d{1,2})[\.\-\/]\s*(\d{1,2})', date_m2.group(1))
+            if d_match:
+                info["upload_date"] = f"{d_match.group(1)}/{int(d_match.group(2)):02d}/{int(d_match.group(3)):02d}"
+    if not info["upload_date"]:
+        m_p = re.search(r'<p[^>]*class="[^"]*date[^"]*"[^>]*>(.*?)</p>', content, re.DOTALL | re.IGNORECASE)
+        if m_p:
+            d_match = re.search(r'(\d{4})[\.\-\/]\s*(\d{1,2})[\.\-\/]\s*(\d{1,2})', m_p.group(1))
             if d_match:
                 info["upload_date"] = f"{d_match.group(1)}/{int(d_match.group(2)):02d}/{int(d_match.group(3)):02d}"
 
@@ -666,6 +696,10 @@ def get_naver_info(query):
     img_m = re.search(r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']', content)
     if img_m:
         info["thumbnail_url"] = html_lib.unescape(img_m.group(1)).strip()
+        if not info["upload_date"]:
+            m_thumb = re.search(r'/(\d{4})/(\d{2})/(\d{2})/', info["thumbnail_url"])
+            if m_thumb:
+                info["upload_date"] = f"{m_thumb.group(1)}/{m_thumb.group(2)}/{m_thumb.group(3)}"
 
     # 6. 본문 내 동영상 모듈 감지 (SmartEditor ONE v2_video)
     vid = None
@@ -1090,6 +1124,14 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     json_data["videos"] = unique_videos
                     if dup_count > 0:
                         print(f"[*] 동일 링크 중복 영상 {dup_count}개가 자동으로 필터링되었습니다.")
+
+                    # 자막 업로드 날짜 기준 최신순(내림차순) 정렬 배치 보장
+                    def get_sort_key(v):
+                        d = str(v.get("upload_date") or "").strip()
+                        m = re.search(r'(\d{4})[\.\-\/]\s*(\d{1,2})[\.\-\/]\s*(\d{1,2})', d)
+                        return f"{int(m.group(1)):04d}/{int(m.group(2)):02d}/{int(m.group(3)):02d}" if m else "0000/00/00"
+                    unique_videos.sort(key=get_sort_key, reverse=True)
+                    json_data["videos"] = unique_videos
 
                 with open(DATA_FILE, "w", encoding="utf-8") as f:
                     json.dump(json_data, f, ensure_ascii=False, indent=2)

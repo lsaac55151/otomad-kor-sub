@@ -82,6 +82,19 @@ window.app = (function () {
     return arr;
   };
 
+  // 영상 상태 배열을 설정된 정렬순(기본: 자막 업로드 날짜 최신순)으로 정렬하여 배치
+  const sortVideosInState = (order = state.sortOrder || 'latest') => {
+    state.videos.sort((a, b) => {
+      const dateA = API.getRefinedDate(a);
+      const dateB = API.getRefinedDate(b);
+      if (order === 'latest') return dateB.localeCompare(dateA);
+      if (order === 'oldest') return dateA.localeCompare(dateB);
+      if (order === 'name') return (a.title || "").localeCompare(b.title || "", state.lang);
+      return 0;
+    });
+    if (state.data) state.data.videos = state.videos;
+  };
+
   // 테마 관리 (기본: 라이트 모드, 즉시 일괄 전환)
   const initTheme = () => {
     const saved = localStorage.getItem('archive_theme') || 'light';
@@ -1128,6 +1141,7 @@ window.app = (function () {
     selectTagFilter,
     syncProfiles,
     setSortOrder,
+    sortVideosInState,
     setLanguage,
     parseCreators,
     parseSubtitlers
