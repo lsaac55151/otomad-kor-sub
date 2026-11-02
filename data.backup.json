@@ -194,7 +194,7 @@
     "ムノ": "https://img.nicoprofile.nimg.jp/usericon/3384/33843024.jpg",
     "のりにく": "https://img.nicoprofile.nimg.jp/usericon/6090/60909059.jpg",
     "クラフタ一電撃隊": "https://img.nicoprofile.nimg.jp/usericon/5609/56098026.jpg",
-    "henohenocappa": "https://yt3.googleusercontent.com/ytc/AIdro_nCD2cQ19TaBwcSpQ7dKDgB_HU4eGCr9QfBQih6rzQK6Q=s900-c-k-c0x00ffffff-no-rj",
+    "henohenocappa": "https://img.nicoprofile.nimg.jp/usericon/1669/16691407.jpg?1376986048",
     "メアリー": "https://img.nicoprofile.nimg.jp/usericon/6707/67070940.jpg",
     "修造MADニコニコオープン": "https://img.nicoprofile.nimg.jp/usericon/6560/65608351.jpg",
     "唐揚": "https://img.nicoprofile.nimg.jp/usericon/1233/12338182.jpg",
@@ -288,7 +288,11 @@
     "とこがね2号": "https://img.nicoprofile.nimg.jp/usericon/defaults/blank.jpg",
     "トミー": "https://img.nicoprofile.nimg.jp/usericon/2283/22834261.jpg?1385197121",
     "dnflqkf2": "https://ssl.pstatic.net/static/blog/icon/og_270x270.png",
-    "이쫑": "https://blogpfthumb-phinf.pstatic.net/20160705_96/fgyood_1467688664110GNMR9_PNG/unnamed.png?type=f204_204"
+    "이쫑": "https://blogpfthumb-phinf.pstatic.net/20160705_96/fgyood_1467688664110GNMR9_PNG/unnamed.png?type=f204_204",
+    "とこがね": "https://img.nicoprofile.nimg.jp/usericon/1813/18135022.jpg?1347191546",
+    "김운영": "https://blogpfthumb-phinf.pstatic.net/MjAyMTA5MjNfNDIg/MDAxNjMyMzUwOTEyOTQw.GMHS7O7QY8drUxr-2BYLIPXCrwk7as9Ku-ZS6dc-jRgg.WcCfWW8GmTAPGrr4m2U4RuU30tRy8F1i2K4kZVbF2ZAg.JPEG.dkal0707/NEOGDS-337836_103.jpg",
+    "まんてん": "https://img.nicoprofile.nimg.jp/usericon/1088/10882366.jpg?1316615294",
+    "お茶": "https://img.nicoprofile.nimg.jp/usericon/233/2337986.jpg?1332862341"
   },
   "channelMap": {
     "57877": "https://www.nicovideo.jp/user/19674048",
@@ -524,7 +528,7 @@
     "제노시드": "https://blog.naver.com/chj3244",
     "悪魔たん": "https://www.nicovideo.jp/user/63259067",
     "User 34730837": "https://www.nicovideo.jp/user/34730837",
-    "henohenocappa": "https://www.youtube.com/@henohenocappa",
+    "henohenocappa": "https://www.nicovideo.jp/user/16691407",
     "User 34221972": "https://www.nicovideo.jp/user/34221972",
     "シラカバ": "https://www.nicovideo.jp/user/18600400",
     "레이": "https://www.youtube.com/@vudghkskfk",
@@ -532,7 +536,11 @@
     "セロ": "https://www.nicovideo.jp/user/19720301",
     "とこがね2号": "https://www.nicovideo.jp/user/22502036",
     "トミー": "https://www.nicovideo.jp/user/22834261",
-    "울프티어": "https://www.youtube.com/@rhapsodj"
+    "울프티어": "https://www.youtube.com/@rhapsodj",
+    "とこがね": "https://www.nicovideo.jp/user/18135022",
+    "김운영": "https://blog.naver.com/dkal0707",
+    "まんてん": "https://www.nicovideo.jp/user/10882366",
+    "お茶": "https://www.nicovideo.jp/user/2337986"
   },
   "videos": [
     {
@@ -3725,7 +3733,9 @@
       "thumbnail_url": "https://i.ytimg.com/vi/LdOUUiyni8o/maxresdefault.jpg",
       "original_link": "https://www.youtube.com/watch?v=LdOUUiyni8o",
       "is_viewable": true,
-      "tags": [],
+      "tags": [
+        "Re:제로부터 시작하는 이세계 생활"
+      ],
       "description": "ゼロの名は。【リゼロx前前前世】\nRlcemaster3's channel got taken down due to questionable copyright strikes. He tried to appeal the copyright strikes, however youtube rejected his appeals and took down his channel. His uploads hold a special place in my heart so I will try my best to keep his content up here until he makes his return.\nOriginal link: http://www.nicovideo.jp/watch/sm31923700\nAuthor: さときび",
       "source_url": "https://www.nicovideo.jp/watch/sm31923700"
     },
@@ -4358,7 +4368,7 @@
       "title": "【데스노트MAD】R. I. T. 라이토는 키라인가? 최종귀축 신세계 Y【바카야로이드】",
       "originalTitle": "【데스노트MAD】R. I. T. 라이토는 키라인가? 최종귀축 신세계 Y【바카야로이드】",
       "creator": "",
-      "subtitler": "랩소디제이 (RhapsoDJ)",
+      "subtitler": "신세계",
       "upload_date": "2019/08/03",
       "platform": "youtube",
       "yt_id": "GY0UMmY0w6Q",
@@ -4368,7 +4378,8 @@
       "tags": [
         "바카야로이드"
       ],
-      "description": "출처: 니코동\n자막: 신세계\n\n\n〈최종귀축 여동생 플랑드르 S〉의 바카야로이드 버전!!"
+      "description": "출처: 니코동\n자막: 신세계\n\n\n〈최종귀축 여동생 플랑드르 S〉의 바카야로이드 버전!!",
+      "source_url": ""
     },
     {
       "id": "wkEpz39NEW4",
@@ -6281,7 +6292,9 @@
       "thumbnail_url": "https://i.ytimg.com/vi/b5rLvkOVUbg/maxresdefault.jpg",
       "original_link": "https://www.youtube.com/watch?v=b5rLvkOVUbg",
       "is_viewable": true,
-      "tags": [],
+      "tags": [
+        "가브릴 드롭아웃"
+      ],
       "description": "サターニャ「え？　ダンスを踊るだけでメロンパン10年分プレゼント！？」\n\nhttp://daiohg.dengeki.com/sp/gabriel/\n――――――――――――――――――――――\n音声:絶望(@絶望-p3c)\n動画:月裏(=投稿者)\n\nniconico→https://www.nicovideo.jp/watch/sm31377127\n――――――――――――――――――――――\n原曲:https://youtu.be/g7dvpD_zlIM",
       "source_url": "https://www.nicovideo.jp/watch/sm31377127"
     },
@@ -6478,6 +6491,28 @@
       "description": "고마운거시에엿 프렌즈..."
     },
     {
+      "title": "[브로리 MAD] 브로브로동화 대집결 [브로리 MAD 10주년 합작/니코니코동화 대집결]",
+      "originalTitle": "[브로리 MAD] 브로브로동화 대집결 [브로리 MAD 10주년 합작/니코니코동화 대집결]",
+      "creator": "henohenocappa",
+      "subtitler": "풍선",
+      "upload_date": "2017/03/26",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/pjutkfkdgo/220967411238",
+      "naver_vid": "7211089DDBD84A6B6562DED0B06BBC892E14",
+      "naver_outkey": "V129538d4568f09fb8996833ff0b8efab810c7b27bf343ac447f78f0fd645a51574b1833ff0b8efab810c",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2017/06/18/441/9d308e869b440a0f072b30fcbb1c93a0897e_ugcvideo_270P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/pjutkfkdgo/220967411238",
+      "is_viewable": true,
+      "tags": [
+        "브로리",
+        "합작/메들리"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm30780446",
+      "id": "video-1793179812866"
+    },
+    {
       "id": "Fo026koe-g4",
       "title": "[데스노트 MAD] 데스노 프렌즈",
       "originalTitle": "[데스노트 MAD] 데스노 프렌즈",
@@ -6518,6 +6553,48 @@
       ],
       "description": "원본: ひぐらしのオドル頃に sm29490274\n블로그 포스팅: http://blog.naver.com/a6650027/220947883376",
       "source_url": "https://www.nicovideo.jp/watch/sm29490274"
+    },
+    {
+      "title": "[브로리 MAD] 브로리로 되풀이 한 방울 [되풀이 한 방울]",
+      "originalTitle": "[브로리 MAD] 브로리로 되풀이 한 방울 [되풀이 한 방울]",
+      "creator": "シラカバ",
+      "subtitler": "풍선",
+      "upload_date": "2017/02/06",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/pjutkfkdgo/220928142910",
+      "naver_vid": "D1C88E002893AD2C0D760AF7884589909A7F",
+      "naver_outkey": "V126f6e03708fe8ed1c9a0283b0d2a595a9f749b333ca4b2068e1c58091c01d6642ed0283b0d2a595a9f7",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2017/02/06/1308/86041373b4db0e37086b234ab0f857b5fadc_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/pjutkfkdgo/220928142910",
+      "is_viewable": true,
+      "tags": [
+        "브로리"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm30359414",
+      "id": "video-1793179863597"
+    },
+    {
+      "title": "[브로리 MAD] 브로리가 브로겉러버즈를 노래해보았어YO [UTAU]",
+      "originalTitle": "[브로리 MAD] 브로리가 브로겉러버즈를 노래해보았어YO [UTAU]",
+      "creator": "シラカバ",
+      "subtitler": "풍선",
+      "upload_date": "2017/01/26",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/pjutkfkdgo/220921069829",
+      "naver_vid": "CEC46C9C105471E24A0492B3E8799DCE9E7A",
+      "naver_outkey": "V126c750c40efcba5491af85f5da177373136204fad8d24c06546102e44a6de923277f85f5da177373136",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2017/01/26/1233/77760b1b760938273c5f82d19009ed9788b8_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/pjutkfkdgo/220921069829",
+      "is_viewable": true,
+      "tags": [
+        "브로리"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm30207604",
+      "id": "video-1793179963260"
     },
     {
       "id": "iZEM3DPd-go",
@@ -6743,7 +6820,9 @@
       "thumbnail_url": "https://i.ytimg.com/vi/hPKvZ-qd0_s/hqdefault.jpg",
       "original_link": "https://www.youtube.com/watch?v=hPKvZ-qd0_s",
       "is_viewable": true,
-      "tags": [],
+      "tags": [
+        "Re:제로부터 시작하는 이세계 생활"
+      ],
       "description": "원문 : nicovideo.jp/watch/sm29166263\n\n가능한 자막을 달려고 했었는데, 42초 부분에\n람이 말하는게 잘 안들리네요.. [??로 표시함]",
       "source_url": "https://www.nicovideo.jp/watch/sm29166263"
     },
@@ -6759,7 +6838,9 @@
       "thumbnail_url": "https://i.ytimg.com/vi/wP92pUUyBbk/maxresdefault.jpg",
       "original_link": "https://www.youtube.com/watch?v=wP92pUUyBbk",
       "is_viewable": true,
-      "tags": [],
+      "tags": [
+        "Re:제로부터 시작하는 이세계 생활"
+      ],
       "description": "レムのFlower Dance / たらこ\nnicovideo.jp/watch/sm29431289\n\n자막 : 작은메이\nblog.naver.com/ehdduq23\n\n처음 자막 달아봤는데, 5시간이나 걸려버렸는데..\n익숙해지면 빨라지려나..? 허술한 자막이 있을 수 있습니다.",
       "source_url": "https://www.nicovideo.jp/watch/sm29431289"
     },
@@ -6780,6 +6861,48 @@
       ],
       "description": "원제 : 【ドナルド】ご注文は道化師ですか？【ごちうさＯＰ１】\n출처 : http://www.nicovideo.jp/watch/sm30068737",
       "source_url": "https://www.nicovideo.jp/watch/sm30068737"
+    },
+    {
+      "title": "[브로리 MAD] 브로리로 차지맨 켄! OP [브로리 X 챠켄]",
+      "originalTitle": "[브로리 MAD] 브로리로 차지맨 켄! OP [브로리 X 챠켄]",
+      "creator": "お茶",
+      "subtitler": "풍선",
+      "upload_date": "2016/10/26",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/pjutkfkdgo/220846277171",
+      "naver_vid": "72D8704AB2A90145266ED96732A009E527A9",
+      "naver_outkey": "V127ce93d0306ca2a5ac49cc905fe9074e1ac31d4a9b0563142cbbfbcfeea1fc24c779cc905fe9074e1ac",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2016/10/26/1810/f0c98a2d4d47f52e1f51b4a216446fcfc9d9_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/pjutkfkdgo/220846277171",
+      "is_viewable": true,
+      "tags": [
+        "브로리"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm12197804",
+      "id": "video-1793180015894"
+    },
+    {
+      "title": "[브로리 MAD] 스즈미야 브로리쨩의 우울 OP [스즈미야 하루히쨩의 우울 MAD]",
+      "originalTitle": "[브로리 MAD] 스즈미야 브로리쨩의 우울 OP [스즈미야 하루히쨩의 우울 MAD]",
+      "creator": "",
+      "subtitler": "풍선",
+      "upload_date": "2016/08/26",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/pjutkfkdgo/220797652143",
+      "naver_vid": "A6F84BA27E3D84AED820C2262953FCCA04AD",
+      "naver_outkey": "V121b066fa57630a6369e5f67575ce10db61bc0bd5a1a7edf0b9fdbc05508238365f05f67575ce10db61b",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2016/08/29/1095/ae4a4e24cf74290123c9689cd230b99cd047_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/pjutkfkdgo/220797652143",
+      "is_viewable": true,
+      "tags": [
+        "브로리"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm7759071",
+      "id": "video-1793180069202"
     },
     {
       "id": "nn5giCFSBgk",
@@ -8024,6 +8147,27 @@
       "source_url": ""
     },
     {
+      "title": "[데스노트 MAD] 중2병이라도 신세계의 신이 하고 싶어!",
+      "originalTitle": "[데스노트 MAD] 공상 바보자식",
+      "creator": "のし",
+      "subtitler": "신세계",
+      "upload_date": "2014/07/20",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/220065956324",
+      "naver_vid": "B4F0EA0BF1FF35A1E106B31A16ADE96EB1A7",
+      "naver_outkey": "V128d5e6d0220c1413e0df6cff91b91f7aaec729de27064bbc17045715a3c8fb5461ef6cff91b91f7aaec",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/07/20/1093/b0a69289c49326d12cf4dce7bc47c2d94982_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/220065956324",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793178840228"
+    },
+    {
       "id": "YYx7Ujkayq0",
       "title": "【유희왕GX MAD】헬카이저의 퍼펙트 헬듀얼 교실",
       "originalTitle": "【유희왕GX MAD】헬카이저의 퍼펙트 헬듀얼 교실",
@@ -8530,6 +8674,48 @@
       "description": ""
     },
     {
+      "title": "[데스노트 MAD] 쏴트리스",
+      "originalTitle": "[데스노트 MAD] 쏴트리스",
+      "creator": "",
+      "subtitler": "신세계",
+      "upload_date": "2014/06/15",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/220031085697",
+      "naver_vid": "D37701D1C5ED952E24EB0298BD90FA246E42",
+      "naver_outkey": "V12764ef31909360b0fcebbc72b7a66561cb952209ac45bb047b8e67fbdb9963258cabbc72b7a66561cb9",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/06/15/409/31d7f397540c57d4ee312e77023ec7010982_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/220031085697",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793178883464"
+    },
+    {
+      "title": "[데스노트 MAD] 치약껌 CM을 바카야로이드로 노래해 보았다",
+      "originalTitle": "[데스노트 MAD] 치약껌 CM을 바카야로이드로 노래해 보았다",
+      "creator": "",
+      "subtitler": "신세계",
+      "upload_date": "2014/06/15",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/220031081783",
+      "naver_vid": "4EC3E430EF5E44DF0DBEF02870D008567109",
+      "naver_outkey": "V1297fc591a2500ed4579f85f5da177373136204fad8d24c06546182fb2ede40454acf85f5da177373136",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/06/15/1329/a28df51c63cae8955d5300df955fcf725f35_ugcvideo_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/220031081783",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793178903006"
+    },
+    {
       "title": "[데스노트 MAD] 라이토호마 믹서 리메이크ver",
       "originalTitle": "[데스노트 MAD] 라이토호마 믹서 리메이크ver",
       "creator": "",
@@ -8878,8 +9064,11 @@
       "thumbnail_url": "https://i.ytimg.com/vi/lrGj0IUA1fQ/hqdefault.jpg",
       "original_link": "https://www.youtube.com/watch?v=lrGj0IUA1fQ",
       "is_viewable": true,
-      "tags": [],
-      "description": "키이하라구우우운-!!!!!!!!!!!!"
+      "tags": [
+        "쿠소야로이드"
+      ],
+      "description": "키이하라구우우운-!!!!!!!!!!!!",
+      "source_url": ""
     },
     {
       "title": "[데스노트 MAD] 뉴 리얼 월드",
@@ -8924,6 +9113,48 @@
       "id": "video-1793102358622"
     },
     {
+      "title": "[데스노트 MAD] 라이토는 마츠다의 노예",
+      "originalTitle": "[데스노트 MAD] 라이토호마 믹서 리메이크ver",
+      "creator": "ロニ坂",
+      "subtitler": "신세계",
+      "upload_date": "2014/04/06",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130188858744",
+      "naver_vid": "A60585853B8713F1DCABB1EB03C4406CB236",
+      "naver_outkey": "V1282da9f41e085e33dec28d89245aa5474514ba3fee04d2933def239cc98de20a05828d89245aa547451",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/04/06/1233/ef132f313e914862a274974bcda7800b03a2_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130188858744",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793178935965"
+    },
+    {
+      "title": "[데스노트 MAD] 데스농림",
+      "originalTitle": "[데스노트 MAD] 데스농림",
+      "creator": "セーネ艦",
+      "subtitler": "신세계",
+      "upload_date": "2014/03/23",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130187980097",
+      "naver_vid": "E8BD1133672EFDF8ECA98B64856DBB23F673",
+      "naver_outkey": "V1281da702890155536b820d7d30b15428276156648d5b88bfe352b3365a0baf56ab120d7d30b15428276",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/03/23/141/2fd6e632b23d01e8525fc78c4e6de89326d5_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130187980097",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793178970992"
+    },
+    {
       "id": "YFdHG3aJRLI",
       "title": "바카야로이드 - 이웃집 마츠다",
       "originalTitle": "바카야로이드 - 이웃집 마츠다",
@@ -8962,6 +9193,72 @@
       "id": "video-1793102521304"
     },
     {
+      "title": "[데스노트 MAD] 닌쟈리바나나",
+      "originalTitle": "[데스노트 MAD] 닌쟈리바나나",
+      "creator": "水無月☆★",
+      "subtitler": "신세계",
+      "upload_date": "2014/03/09",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130187106154",
+      "naver_vid": "9D08CD229ACEFFE334DA928155487839090E",
+      "naver_outkey": "V1228b06d7a23bb8b7d63e23dfabd5d92cf3a50155d686d0a1b68bc1acf02374b7b34e23dfabd5d92cf3a",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/03/09/1898/24becccbac40296838d7b0a46f6bc218bea2_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130187106154",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm22986934",
+      "id": "video-1793179003639"
+    },
+    {
+      "title": "[데스노트 MAD] 노려라! 포켓몬 마츠다!",
+      "originalTitle": "[데스노트 MAD] 노려라! 포켓몬 마츠다!",
+      "creator": [
+        "tokachi",
+        "じすみっく"
+      ],
+      "subtitler": "신세계",
+      "upload_date": "2014/03/02",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130186692870",
+      "naver_vid": "1872D5907C2476C1AD794AFE2757F41D08A0",
+      "naver_outkey": "V127ae70f13023ee62f9e50d20c65ce67ef8ed4e5190e5e90f46b3e1e7ce203f97c1f50d20c65ce67ef8e",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/03/02/356/7635b4e8f3da671172ff9a7c0410c477d9e8_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130186692870",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179100924"
+    },
+    {
+      "title": "[데스노트 MAD] 마츠돌은 쏘지 않아",
+      "originalTitle": "[데스노트 MAD] 마츠돌은 쏘지 않아",
+      "creator": "akka",
+      "subtitler": "신세계",
+      "upload_date": "2014/03/01",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130186645558",
+      "naver_vid": "D5B8E0A3A54F0AB8E491D3B32D2F617EC61B",
+      "naver_outkey": "V128512f3bfc090dce4faae3eae4e2ec4997154033b2b24d81597573f1a6bc113c557ae3eae4e2ec49971",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/03/01/1019/e13d91257dfadad226cc6ce43c6eef6645af_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130186645558",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179127328"
+    },
+    {
       "title": "[코만도 MAD] 오쟈마녀 베넷 [오쟈마녀 카니발]",
       "originalTitle": "[코만도 MAD] 오쟈마녀 베넷 [오쟈마녀 카니발]",
       "creator": "ギフト",
@@ -8981,6 +9278,25 @@
       "description": "",
       "source_url": "https://www.nicovideo.jp/watch/sm15947436",
       "id": "video-1792496559319"
+    },
+    {
+      "title": "[사키x마음이 춤을 추다(코코로오도루)] 사키가 츠모하다. [소리MAD] (+자막&무자막)",
+      "originalTitle": "[사키x마음이 춤을 추다(코코로오도루)] 사키가 츠모하다. [소리MAD] (+자막&무자막)",
+      "creator": "まんてん",
+      "subtitler": "김운영",
+      "upload_date": "2014/01/26",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/dkal0707/150183720584",
+      "naver_vid": "6FA841DDB4EB0D70FCA092CDCA6415C608CC",
+      "naver_outkey": "V1284afde15804ba63263a58344e2a3b094c4c50693e7fe34838271cc1e87989d6824a58344e2a3b094c4",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2014/01/23/936/f991d064ee65ce96dc6a6e948d945fdc7fda_dkal0707_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/dkal0707/150183720584",
+      "is_viewable": true,
+      "tags": [],
+      "description": "",
+      "source_url": "https://www.nicovideo.jp/watch/sm9595431",
+      "id": "video-1793179609730"
     },
     {
       "title": "[데스노트 MAD] 데스노트 X 서비스 [서번트 X 서비스 MAD]",
@@ -9174,6 +9490,93 @@
       "id": "video-1792496347781"
     },
     {
+      "title": "[데스노트 MAD] 동방사신첩~New World Information",
+      "originalTitle": "[데스노트 MAD] 동방사신첩~New World Information",
+      "creator": "芝EX",
+      "subtitler": "신세계",
+      "upload_date": "2013/01/15",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130156703576",
+      "naver_vid": "3F85BAA25525D596D8C19C7C5F97885BFB1D",
+      "naver_outkey": "V1249d750a1931877d5534073064032930f89662a9d9bac8e796398afec4746359daf4073064032930f89",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2013/01/15/352/30ce8545503212ffd551cb65e0c2cda6a875_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130156703576",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179151480"
+    },
+    {
+      "title": "[데스노트 MAD] death so happy -EX mix-",
+      "originalTitle": "[데스노트 MAD] death so happy -EX mix-",
+      "creator": "ゾーク",
+      "subtitler": "신세계",
+      "upload_date": "2013/01/09",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130156119688",
+      "naver_vid": "A3CC086C4AC1B64E922B141B435665847E88",
+      "naver_outkey": "V1257dea602bf18eeb047a99351c846ab7e5818668df2f7df425cd8f54c8c12909c19a99351c846ab7e58",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2013/01/09/113/0b6e31063fa613af7340d388ec5a8c90ec1d_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130156119688",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179213309"
+    },
+    {
+      "title": "[데스노트 MAD] 크리스마스? 뭐야그게 웃기지마!",
+      "originalTitle": "[데스노트 MAD] 크리스마스? 뭐야그게 웃기지마!",
+      "creator": "",
+      "subtitler": "신세계",
+      "upload_date": "2012/12/25",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130154857173",
+      "naver_vid": "C7CC55746A750ED639CC141B435665847E88",
+      "naver_outkey": "V12854db0de70151fdffc078f121811fc0a6bce9bf8d3e9d664484c7a821df7364e37078f121811fc0a6b",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2012/12/24/1467/e857e891e19ab60e2931ad4d768e0a2fbe49_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130154857173",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179237062"
+    },
+    {
+      "title": "[데스노트 MAD] 야가밀 라이토",
+      "originalTitle": "[데스노트 MAD] 야가밀 라이토",
+      "creator": [
+        "tokachi",
+        "芝EX"
+      ],
+      "subtitler": "신세계",
+      "upload_date": "2012/12/10",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130153767314",
+      "naver_vid": "9F7AFC54A5331543FA43F4EB9C005C5D5C2B",
+      "naver_outkey": "V124ea3e08a5b7a4b5bad04cc676647dae467d6cc2691a9b5b5a69ea05afd88c8d1dc04cc676647dae467",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2012/12/10/1214/1cbf719b9aca1d9715086c0b23ddf56118f8_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130153767314",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179260410"
+    },
+    {
       "id": "ShmVlnu9Ffo",
       "title": "[인력 보컬로이드]사우다지 feat. 아마미 하루카",
       "originalTitle": "[인력 보컬로이드]사우다지 feat. 아마미 하루카",
@@ -9229,6 +9632,72 @@
       "description": "",
       "source_url": "",
       "id": "video-1792496305306"
+    },
+    {
+      "title": "[데스노트 MAD] Nanananananana!",
+      "originalTitle": "[데스노트 MAD] Nanananananana!",
+      "creator": "芝EX",
+      "subtitler": "신세계",
+      "upload_date": "2012/10/30",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130150583711",
+      "naver_vid": "A79F71DE2BE2949804EAF8FDEDFEB5512DC5",
+      "naver_outkey": "V128469116db0ce119878a476117e4387a7a268332860a1869c4ef9903b3740dfd0cfa476117e4387a7a2",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2012/10/30/304/03100323A44B831118A39B7CB3D92F83D88_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130150583711",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179286291"
+    },
+    {
+      "title": "[데스노트 MAD] 사신디스코",
+      "originalTitle": "死神ディスコ",
+      "creator": [
+        "ロニ坂",
+        "とこがね"
+      ],
+      "subtitler": "신세계",
+      "upload_date": "2012/10/26",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130150293861",
+      "naver_vid": "CB47194F5FF53293A4A0021DC9E8493B2099",
+      "naver_outkey": "V1286172893b050d24881b9f35e9bb7398afc3c354cb8f186d6c6699c8ddf3017055bb9f35e9bb7398afc",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc28/2012/10/26/1309/E3140313AF1913C32C235D0873B86243649_a6650027_480P_01_origin_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130150293861",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179313275"
+    },
+    {
+      "title": "[데스노트 MAD] 웃기지마~하고 마츠닷토 메이트",
+      "originalTitle": "[데스노트 MAD] 웃기지마~하고 마츠닷토 메이트",
+      "creator": "taka-to",
+      "subtitler": "신세계",
+      "upload_date": "2010/11/30",
+      "platform": "naver",
+      "yt_id": "",
+      "naver_url": "https://blog.naver.com/a6650027/130098166815",
+      "naver_vid": "60C9FBE67FFC314DD5A64AAAC45AA20D9C99",
+      "naver_outkey": "V1264124e60daccf1acd784aab071e670dbae5eb3ab3ddec4a8715b4f7b3cc27588fe84aab071e670dbae",
+      "thumbnail_url": "https://phinf.pstatic.net/image.nmv/blogucc23/2010/12/06/986/03100223C10B53BE33C3698B73755653DC8_a6650027_logo.jpg",
+      "original_link": "https://blog.naver.com/a6650027/130098166815",
+      "is_viewable": true,
+      "tags": [
+        "바카야로이드"
+      ],
+      "description": "",
+      "source_url": "",
+      "id": "video-1793179708335"
     },
     {
       "id": "4ehOw9TM6Y8",
