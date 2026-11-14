@@ -26,9 +26,9 @@ window.Builder = (function () {
       const btn = document.getElementById(`btn-viewport-${m}`);
       if (btn) {
         if (m === mode) {
-          btn.className = 'px-2.5 py-1 rounded bg-[#4169e1] text-[#faf9f6] font-semibold text-xs flex items-center gap-1.5 shadow-sm';
+          btn.className = 'px-2 py-0.5 rounded-md theme-accent-btn font-semibold text-xs flex items-center gap-1';
         } else {
-          btn.className = 'px-2.5 py-1 rounded theme-text-sub hover:theme-text-main hover:theme-bg-hover text-xs flex items-center gap-1.5 transition-colors';
+          btn.className = 'px-2 py-0.5 rounded-md theme-text-sub theme-hover-text theme-hover-bg text-xs flex items-center gap-1 transition-colors';
         }
       }
     });
@@ -57,8 +57,8 @@ window.Builder = (function () {
       const btn = document.getElementById(`btn-grid-col-${c}`);
       if (btn) {
         btn.className = c === cols
-          ? 'px-2 py-0.5 rounded bg-[#4169e1] text-[#faf9f6] text-[11px] font-semibold shadow-sm'
-          : 'px-2 py-0.5 rounded theme-text-sub hover:theme-text-main text-[11px] font-medium transition-colors';
+          ? 'px-1.5 py-0.5 rounded-md theme-accent-btn text-[11px] font-semibold'
+          : 'px-1.5 py-0.5 rounded-md theme-text-sub theme-hover-text text-[11px] font-medium transition-colors';
       }
     });
     if (window.app && app.render) app.render();
@@ -66,18 +66,21 @@ window.Builder = (function () {
 
   const getGridClass = () => {
     if (state.viewport === 'mobile') {
-      return 'grid grid-cols-1 gap-3';
+      return 'grid grid-cols-1 gap-4';
     }
     if (state.viewport === 'tablet') {
-      return 'grid grid-cols-1 sm:grid-cols-2 gap-3.5';
+      return 'grid grid-cols-1 sm:grid-cols-2 gap-4';
     }
 
     switch (state.gridColumns) {
-      case '2': return 'grid grid-cols-1 sm:grid-cols-2 gap-4';
-      case '3': return 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4';
+      case '2': return 'grid grid-cols-1 sm:grid-cols-2 gap-6';
+      case '3': return 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6';
       case '4': return 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4';
-      case '5': return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5';
-      default: return 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4';
+      case '5': return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4';
+      default:
+        return window.app && app.getDensityGridClass
+          ? app.getDensityGridClass()
+          : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4';
     }
   };
 
@@ -88,8 +91,8 @@ window.Builder = (function () {
       const btn = document.getElementById(`btn-density-${d}`);
       if (btn) {
         btn.className = d === density
-          ? 'px-2 py-0.5 rounded bg-[#4169e1] text-[#faf9f6] text-[11px] font-semibold shadow-sm'
-          : 'px-2 py-0.5 rounded theme-text-sub hover:theme-text-main text-[11px] font-medium transition-colors';
+          ? 'px-2 py-0.5 rounded-md theme-accent-btn text-[11px] font-semibold'
+          : 'px-2 py-0.5 rounded-md theme-text-sub theme-hover-text text-[11px] font-medium transition-colors';
       }
     });
     if (window.app && app.render) app.render();
@@ -195,24 +198,24 @@ window.Builder = (function () {
     bar.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 z-50 theme-bg-surface border theme-border-medium shadow-2xl rounded-xl px-4 py-2.5 flex items-center gap-3 backdrop-blur-md text-xs theme-text-main animate-slide-up';
     bar.innerHTML = `
       <div class="flex items-center gap-2 pr-3 border-r theme-border-subtle">
-        <span class="w-2 h-2 rounded-full bg-[#ffa500] animate-pulse"></span>
-        <span class="font-semibold"><strong class="font-mono text-[#ffa500] text-sm">${count}</strong>개 선택됨</span>
+        <span class="w-2 h-2 rounded-full" style="background-color: var(--primary);"></span>
+        <span class="font-semibold"><strong class="font-mono theme-accent-text text-sm">${count}</strong>개 선택됨</span>
       </div>
-      <button onclick="Builder.selectAllVideos(false)" class="theme-text-sub hover:theme-text-main transition-colors">선택 해제</button>
+      <button onclick="Builder.selectAllVideos(false)" class="theme-text-sub theme-hover-text transition-colors">선택 해제</button>
       <div class="h-4 w-[1px] theme-border-subtle border-r"></div>
-      <button onclick="Builder.batchAddTags()" class="px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover border theme-border-subtle theme-text-main transition-colors flex items-center gap-1 font-medium shadow-sm">
-        <i data-lucide="tag" class="w-3.5 h-3.5 text-[#4169e1]"></i>
+      <button onclick="Builder.batchAddTags()" class="px-2.5 py-1 rounded-lg theme-bg-subtle theme-hover-bg border theme-border-subtle theme-text-main transition-colors flex items-center gap-1 font-medium">
+        <i data-lucide="tag" class="w-3.5 h-3.5 theme-accent-text"></i>
         <span>태그 추가</span>
       </button>
-      <button onclick="Builder.batchSetSubtitler()" class="px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover border theme-border-subtle theme-text-main transition-colors flex items-center gap-1 font-medium shadow-sm">
-        <i data-lucide="user" class="w-3.5 h-3.5 text-[#4169e1]"></i>
+      <button onclick="Builder.batchSetSubtitler()" class="px-2.5 py-1 rounded-lg theme-bg-subtle theme-hover-bg border theme-border-subtle theme-text-main transition-colors flex items-center gap-1 font-medium">
+        <i data-lucide="user" class="w-3.5 h-3.5 theme-accent-text"></i>
         <span>자막러 변경</span>
       </button>
-      <button onclick="Builder.batchDeleteVideos()" class="px-2.5 py-1 rounded bg-red-950/80 hover:bg-red-900 border border-red-700/80 text-red-200 transition-colors flex items-center gap-1 font-semibold shadow-sm">
-        <i data-lucide="trash-2" class="w-3.5 h-3.5 text-red-400"></i>
+      <button onclick="Builder.batchDeleteVideos()" class="px-2.5 py-1 rounded-lg border transition-colors flex items-center gap-1 font-semibold" style="background-color: var(--accent-danger-bg); border-color: var(--accent-danger-border); color: var(--accent-danger-text);">
+        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
         <span>선택 삭제</span>
       </button>
-      <button onclick="Builder.selectAllVideos(false)" class="p-1 rounded theme-text-sub hover:theme-text-main ml-1">
+      <button onclick="Builder.selectAllVideos(false)" class="p-1 rounded-md theme-text-sub theme-hover-text ml-1">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
     `;
@@ -292,14 +295,14 @@ window.Builder = (function () {
     if (!state.showLayerPanel) {
       drawer.className = 'hidden';
       const btn = document.getElementById('btn-toggle-layers');
-      if (btn) btn.classList.remove('bg-[#4169e1]', 'text-[#faf9f6]');
+      if (btn) btn.classList.remove('theme-accent-btn');
       return;
     }
 
     const btn = document.getElementById('btn-toggle-layers');
-    if (btn) btn.classList.add('bg-[#4169e1]', 'text-[#faf9f6]');
+    if (btn) btn.classList.add('theme-accent-btn');
 
-    drawer.className = 'fixed top-0 right-0 bottom-0 w-80 sm:w-96 theme-bg-subtle border-l theme-border-subtle shadow-2xl z-50 flex flex-col transition-all duration-300';
+    drawer.className = 'fixed top-0 right-0 bottom-0 w-80 sm:w-96 theme-bg-surface border-l theme-border-subtle shadow-2xl z-50 flex flex-col transition-all duration-200';
     renderLayerDrawerContent();
   };
 
@@ -320,52 +323,53 @@ window.Builder = (function () {
     drawer.innerHTML = `
       <div class="p-3.5 border-b theme-border-subtle flex items-center justify-between theme-bg-surface theme-text-main">
         <div class="flex items-center gap-2">
-          <i data-lucide="layers" class="w-4 h-4 text-[#4169e1]"></i>
+          <i data-lucide="layers" class="w-4 h-4 theme-accent-text"></i>
           <span class="font-bold text-xs theme-text-main">레이어 탐색기</span>
-          <span class="text-[11px] font-mono text-[#4169e1]">(${filtered.length})</span>
+          <span class="text-[11px] font-mono theme-accent-text">(${filtered.length})</span>
         </div>
-        <button onclick="Builder.toggleLayerPanel(false)" class="p-1 rounded theme-text-sub hover:theme-text-main hover:theme-bg-hover transition-colors">
+        <button onclick="Builder.toggleLayerPanel(false)" class="p-1 rounded-md theme-text-sub theme-hover-text theme-hover-bg transition-colors">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
 
-      <div class="p-2 border-b theme-border-subtle theme-bg-subtle">
+      <div class="p-2.5 border-b theme-border-subtle theme-bg-subtle">
         <div class="relative">
-          <i data-lucide="search" class="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 theme-text-sub"></i>
+          <i data-lucide="search" class="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 theme-text-muted"></i>
           <input type="text" placeholder="레이어 목록 검색..." value="${API.escapeHTML(state.layerSearch)}"
             oninput="Builder.searchLayers(this.value)"
-            class="w-full theme-bg-canvas border theme-border-medium rounded px-2.5 py-1 pl-8 text-xs theme-text-main placeholder:theme-text-muted outline-none focus:border-[#4169e1] transition-colors" />
+            class="w-full theme-bg-input border theme-border-medium theme-focus-ring rounded-lg px-2.5 py-1.5 pl-8 text-xs theme-text-main placeholder:theme-text-muted outline-none transition-colors" />
         </div>
       </div>
 
-      <div class="p-2 overflow-y-auto flex-grow space-y-1 text-xs">
-        ${filtered.map((v, i) => {
+      <div class="p-2 overflow-y-auto flex-grow space-y-1 text-xs theme-bg-canvas">
+        ${filtered.map((v) => {
           const key = v.id || `${v.title}-${v.upload_date}`;
           const isSelected = state.selectedIds.has(key);
           const thumb = app.getThumbnail ? app.getThumbnail(v) : (v.thumbnail_url || '');
           const crText = Array.isArray(v.creator) ? v.creator.join(', ') : (v.creator || '');
           const subText = Array.isArray(v.subtitler) ? v.subtitler.join(', ') : (v.subtitler || '');
+          const dispDate = API.formatDisplayDate ? API.formatDisplayDate(v) : (v.upload_date || '-');
 
           return `
-            <div class="group/layer p-1.5 rounded-lg border ${isSelected ? 'border-[#ffa500] bg-[#ffa500]/15' : 'theme-border-subtle theme-bg-surface hover:theme-bg-hover'} flex items-center gap-2.5 cursor-pointer transition-colors"
+            <div class="group/layer p-1.5 rounded-lg border ${isSelected ? 'theme-accent-soft' : 'theme-border-subtle theme-bg-surface theme-hover-bg'} flex items-center gap-2.5 cursor-pointer transition-colors"
               onclick="Builder.scrollToCard('${API.escapeHTML(key)}')">
               <input type="checkbox" ${isSelected ? 'checked' : ''}
                 onclick="event.stopPropagation()"
                 onchange="Builder.toggleSelectVideo('${API.escapeHTML(key)}', this.checked)"
-                class="w-3.5 h-3.5 rounded theme-border-medium theme-bg-canvas cursor-pointer" />
-              <div class="w-12 aspect-video rounded overflow-hidden bg-black shrink-0 border theme-border-subtle">
+                class="w-3.5 h-3.5 rounded theme-border-medium theme-bg-input cursor-pointer" />
+              <div class="w-12 aspect-video rounded overflow-hidden theme-bg-subtle shrink-0 border theme-border-hairline">
                 <img src="${thumb}" referrerpolicy="no-referrer" class="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div class="min-w-0 flex-grow">
-                <p class="text-xs font-medium theme-text-main truncate group-hover/layer:text-[#4169e1] transition-colors">${API.escapeHTML(v.title)}</p>
+              <div class="min-w-0 flex-grow text-left">
+                <p class="text-xs font-medium theme-text-main truncate transition-colors">${API.escapeHTML(v.title)}</p>
                 <div class="flex items-center gap-1.5 text-[10px] theme-text-muted font-mono mt-0.5 truncate">
-                  <span class="truncate max-w-[120px]">${API.escapeHTML(subText ? `자막:${subText}` : (crText ? `원작:${crText}` : '미지정'))}</span>
+                  <span class="truncate max-w-[120px]">${API.escapeHTML(subText ? `자막:${subText}` : (crText ? `원작:${crText}` : '-'))}</span>
                   <span>•</span>
-                  <span>${v.upload_date || '날짜없음'}</span>
+                  <span>${dispDate}</span>
                 </div>
               </div>
               <div class="flex items-center gap-1 opacity-0 group-hover/layer:opacity-100 transition-opacity">
-                <button onclick="event.stopPropagation(); Modals.openExtractorModal('${API.escapeHTML(key)}')" title="속성 편집" class="p-1 rounded hover:theme-bg-hover text-[#4169e1]">
+                <button onclick="event.stopPropagation(); Modals.openExtractorModal('${API.escapeHTML(key)}')" title="속성 편집" class="p-1 rounded theme-hover-bg theme-accent-text">
                   <i data-lucide="edit-2" class="w-3 h-3"></i>
                 </button>
               </div>
@@ -399,10 +403,12 @@ window.Builder = (function () {
     const text = document.getElementById('builder-save-indicator-text');
     if (dot && text) {
       if (unsaved) {
-        dot.className = 'w-2 h-2 rounded-full bg-[#ffa500] animate-pulse';
+        dot.className = 'w-2 h-2 rounded-full animate-pulse';
+        dot.style.backgroundColor = 'var(--accent-warn)';
         text.textContent = '변경사항 미저장';
       } else {
-        dot.className = 'w-2 h-2 rounded-full bg-[#4169e1]';
+        dot.className = 'w-2 h-2 rounded-full';
+        dot.style.backgroundColor = 'var(--primary)';
         text.textContent = '저장됨';
       }
     }
@@ -419,8 +425,20 @@ window.Builder = (function () {
           markUnsaved(false);
         }
       }
-      // Esc : 패널 닫기, 선택 해제
+      // Esc : 드로어/모달/패널 닫기, 선택 해제
       if (e.key === 'Escape') {
+        if (window.Modals) {
+          const detailEl = document.getElementById('video-detail-drawer');
+          if (detailEl && !detailEl.classList.contains('hidden')) {
+            Modals.closeDetailDrawer();
+            return;
+          }
+          const creatorEl = document.getElementById('creator-modal');
+          if (creatorEl && !creatorEl.classList.contains('hidden')) {
+            Modals.closeCreatorModal();
+            return;
+          }
+        }
         if (state.selectedIds.size > 0) {
           selectAllVideos(false);
         }

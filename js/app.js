@@ -8,7 +8,9 @@ window.app = (function () {
     videos: [],
     viewMode: 'tag', // 'tag' | 'all' | 'subtitler' | 'creator'
     selectedTag: '',
+    selectedCategory: 'all', // 'all' | 'youtube' | 'naver'
     sortOrder: 'latest', // 'latest' | 'oldest' | 'name' | 'random'
+    gridDensity: localStorage.getItem('archive_grid_density') || '4', // '3' | '4' | '5'
     lang: 'ko',
     theme: 'light',
     searchQuery: '',
@@ -33,6 +35,19 @@ window.app = (function () {
     if (!val) return [];
     if (Array.isArray(val)) return val.map(s => String(s).trim()).filter(Boolean);
     return String(val).split(',').map(s => s.trim()).filter(Boolean);
+  };
+
+  const getPlatformCategory = (v) => {
+    if (!v) return 'youtube';
+    const hasNaver = v.platform === 'naver' || (!v.yt_id && Boolean(v.naver_url || v.naver_vid));
+    return hasNaver ? 'naver' : 'youtube';
+  };
+
+  const getVideoTags = (v) => {
+    const ignoredTags = new Set(['자막', '음매드']);
+    return (Array.isArray(v?.tags) ? v.tags : (v?.tags ? [v.tags] : []))
+      .map(t => String(t).trim().replace(/^#/, ''))
+      .filter(t => t && !ignoredTags.has(t));
   };
 
   const getThumbnail = (v) => {
@@ -68,6 +83,18 @@ window.app = (function () {
     return targets.some(t => API.cleanStr(t).includes(q));
   };
 
+  const matchCategory = (video, category) => {
+    if (!category || category === 'all') return true;
+    return getPlatformCategory(video) === category;
+  };
+
+  const matchTag = (video, tag) => {
+    if (!tag) return true;
+    const tags = getVideoTags(video);
+    if (tag === '기타') return tags.length === 0;
+    return tags.includes(tag);
+  };
+
   const sortVideos = (list) => {
     const arr = [...list];
     if (state.sortOrder === 'latest') {
@@ -94,7 +121,6 @@ window.app = (function () {
     return arr;
   };
 
-  // 영상 상태 배열을 설정된 정렬순(기본: 자막 업로드 날짜 최신순)으로 정렬하여 배치
   const sortVideosInState = (order = state.sortOrder || 'latest') => {
     state.videos.sort((a, b) => {
       const dateA = API.getRefinedDate(a);
@@ -117,15 +143,37 @@ window.app = (function () {
     if (state.data) state.data.videos = state.videos;
   };
 
+  // URL 쿼리 파라미터 동기화
+  const syncURLParams = () => {
+    try {
+      const url = new URL(window.location);
+      if (state.viewMode && state.viewMode !== 'tag') url.searchParams.set('view', state.viewMode);
+      else url.searchParams.delete('view');
+
+      if (state.selectedTag) url.searchParams.set('tag', state.selectedTag);
+      else url.searchParams.delete('tag');
+
+      if (state.selectedCategory && state.selectedCategory !== 'all') url.searchParams.set('cat', state.selectedCategory);
+      else url.searchParams.delete('cat');
+
+      if (state.sortOrder && state.sortOrder !== 'latest') url.searchParams.set('sort', state.sortOrder);
+      else url.searchParams.delete('sort');
+
+      if (state.searchQuery && state.searchQuery.trim()) url.searchParams.set('q', state.searchQuery.trim());
+      else url.searchParams.delete('q');
+
+      window.history.replaceState({}, '', url);
+    } catch (_) {}
+  };
+
   // 테마 관리 (기본: 라이트 모드, 즉시 일괄 전환)
   const initTheme = () => {
     const saved = localStorage.getItem('archive_theme') || 'light';
     setTheme(saved, false);
   };
 
-  const setTheme = (theme, animate = true) => {
+  const setTheme = (theme) => {
     const docEl = document.documentElement;
-    // 테마 전환 시 각 요소들의 개별 트랜지션 지연(차례차례 깜빡임)을 방지하고 전체가 한 번에 '뙇' 즉시 바뀌도록 함
     docEl.classList.add('theme-transitioning');
 
     state.theme = theme;
@@ -136,14 +184,14 @@ window.app = (function () {
     if (btn) {
       if (theme === 'light') {
         btn.innerHTML = `
-          <i id="theme-icon" data-lucide="sun" class="w-3.5 h-3.5 text-[#ffa500]"></i>
-          <span id="theme-text" class="hidden sm:inline text-[11px] font-semibold">라이트</span>
+          <i id="theme-icon" data-lucide="sun" class="w-3.5 h-3.5 theme-text-sub"></i>
+          <span id="theme-text" class="hidden sm:inline text-[11px] font-medium">라이트</span>
         `;
         btn.title = '현재 라이트 모드 (클릭 시 다크 모드로 전환)';
       } else {
         btn.innerHTML = `
-          <i id="theme-icon" data-lucide="moon" class="w-3.5 h-3.5 text-[#87ceeb]"></i>
-          <span id="theme-text" class="hidden sm:inline text-[11px] font-semibold">다크</span>
+          <i id="theme-icon" data-lucide="moon" class="w-3.5 h-3.5 theme-text-sub"></i>
+          <span id="theme-text" class="hidden sm:inline text-[11px] font-medium">다크</span>
         `;
         btn.title = '현재 다크 모드 (클릭 시 라이트 모드로 전환)';
       }
@@ -156,7 +204,6 @@ window.app = (function () {
       }
     }
 
-    // 스타일 동기 리플로우 강제 플러시 후 트랜지션 복원
     void document.body.offsetHeight;
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -167,24 +214,59 @@ window.app = (function () {
 
   const toggleTheme = () => {
     const next = state.theme === 'light' ? 'dark' : 'light';
-    setTheme(next, true);
+    setTheme(next);
+  };
+
+  // 그리드 밀도 클래스 계산 (모바일 1~2열 스택, 16px/24px 일정 간격)
+  const getDensityGridClass = (density = state.gridDensity) => {
+    switch (String(density)) {
+      case '3':
+        return 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6';
+      case '5':
+        return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4';
+      case '4':
+      default:
+        return 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4';
+    }
+  };
+
+  const updateDensityButtonsUI = () => {
+    ['3', '4', '5'].forEach(d => {
+      const btn = document.getElementById(`btn-density-${d}`);
+      if (btn) {
+        btn.className = d === String(state.gridDensity)
+          ? 'px-2 py-1 rounded-md theme-accent-btn font-semibold'
+          : 'px-2 py-1 rounded-md theme-text-sub theme-hover-text transition-colors';
+      }
+    });
+  };
+
+  const setGridDensity = (density) => {
+    const normalized = ['3', '4', '5'].includes(String(density)) ? String(density) : '4';
+    state.gridDensity = normalized;
+    localStorage.setItem('archive_grid_density', normalized);
+    updateDensityButtonsUI();
+    if (window.Builder && Builder.state && Builder.state.gridColumns !== 'auto') {
+      Builder.state.gridColumns = 'auto';
+    }
+    render();
   };
 
   // 스켈레톤 로딩 상태 렌더러
   const renderSkeleton = () => {
     const main = document.getElementById('main-content');
+    const gridCls = getDensityGridClass();
     main.innerHTML = `
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="${gridCls}">
         ${Array(8).fill(0).map(() => `
-          <div class="rounded-lg border theme-border-subtle theme-bg-surface p-3 space-y-3">
-            <div class="w-full aspect-video rounded skeleton"></div>
-            <div class="space-y-1.5">
-              <div class="h-3.5 w-3/4 rounded skeleton"></div>
-              <div class="h-2.5 w-1/2 rounded skeleton"></div>
-            </div>
-            <div class="pt-2 border-t theme-border-subtle flex justify-between">
-              <div class="h-2.5 w-16 rounded skeleton"></div>
-              <div class="h-2.5 w-12 rounded skeleton"></div>
+          <div class="rounded-xl border theme-border-subtle theme-bg-surface overflow-hidden">
+            <div class="w-full aspect-video skeleton"></div>
+            <div class="p-3.5 space-y-2.5">
+              <div class="h-3.5 w-4/5 rounded skeleton"></div>
+              <div class="flex items-center justify-between pt-1">
+                <div class="h-4 w-14 rounded-full skeleton"></div>
+                <div class="h-3 w-16 rounded skeleton"></div>
+              </div>
             </div>
           </div>
         `).join('')}
@@ -231,23 +313,137 @@ window.app = (function () {
     }
   };
 
-  // 렌더링
+  // 상단 가로형 필터 칩 & 활성 필터 요약 배너 렌더링
+  const renderFilterChrome = (searchMatchedVideos, finalFilteredCount) => {
+    const filterStrip = document.getElementById('category-filter-strip');
+    const catContainer = document.getElementById('category-chips-container');
+    const tagContainer = document.getElementById('tag-chips-container');
+    const activeBanner = document.getElementById('active-filter-banner');
+    const activePills = document.getElementById('active-filter-pills');
+    const resultCountEl = document.getElementById('search-result-count');
+    const clearSearchBtn = document.getElementById('search-clear-btn');
+
+    if (clearSearchBtn) {
+      if (state.searchQuery.trim()) clearSearchBtn.classList.remove('hidden');
+      else clearSearchBtn.classList.add('hidden');
+    }
+
+    // 1. 가로형 카테고리 & 인기 태그 필터 스트립 ('all' 뷰에서 노출)
+    if (filterStrip && catContainer && tagContainer) {
+      if (state.viewMode === 'all' && state.videos.length > 0) {
+        filterStrip.classList.remove('hidden');
+
+        const ytCount = searchMatchedVideos.filter(v => getPlatformCategory(v) === 'youtube').length;
+        const naverCount = searchMatchedVideos.filter(v => getPlatformCategory(v) === 'naver').length;
+
+        const categories = [
+          { key: 'all', label: '전체', count: searchMatchedVideos.length },
+          { key: 'youtube', label: 'YouTube', count: ytCount },
+          { key: 'naver', label: 'NAVER', count: naverCount }
+        ];
+
+        catContainer.innerHTML = categories.map(c => {
+          const isActive = state.selectedCategory === c.key;
+          return `
+            <button onclick="app.setCategoryFilter('${c.key}')"
+              class="px-2.5 py-1 rounded-full text-[11px] font-medium transition-colors shrink-0 inline-flex items-center gap-1 ${isActive
+                ? 'theme-accent-btn font-semibold'
+                : 'theme-bg-subtle theme-text-sub theme-hover-bg theme-hover-text border theme-border-subtle'}">
+              <span>${c.label}</span>
+              <span class="font-mono text-[10px] ${isActive ? 'opacity-90' : 'theme-text-muted'}">${c.count}</span>
+            </button>
+          `;
+        }).join('');
+
+        // 태그 집계 (현재 카테고리+검색 기준)
+        const catFiltered = searchMatchedVideos.filter(v => matchCategory(v, state.selectedCategory));
+        const tagCounts = {};
+        catFiltered.forEach(v => {
+          const tList = getVideoTags(v);
+          tList.forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; });
+        });
+        const topTags = Object.entries(tagCounts)
+          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], state.lang))
+          .slice(0, 14)
+          .map(([tag]) => tag);
+
+        if (state.selectedTag && !topTags.includes(state.selectedTag)) {
+          topTags.unshift(state.selectedTag);
+        }
+
+        tagContainer.innerHTML = topTags.map(tag => {
+          const isActive = state.selectedTag === tag;
+          return `
+            <button onclick="app.selectTagFilter('${API.escapeHTML(isActive ? '' : tag)}', 'all')"
+              class="px-2.5 py-1 rounded-full text-[11px] transition-colors shrink-0 ${isActive
+                ? 'theme-accent-soft border font-semibold'
+                : 'theme-bg-surface theme-text-sub theme-hover-bg theme-hover-text border theme-border-subtle'}">
+              #${API.escapeHTML(tag)}
+            </button>
+          `;
+        }).join('');
+      } else {
+        filterStrip.classList.add('hidden');
+      }
+    }
+
+    // 2. 선택된 필터 조건 요약 배너
+    if (activeBanner && activePills && resultCountEl) {
+      const pills = [];
+      if (state.searchQuery.trim()) {
+        pills.push(`
+          <span class="pill-badge pill-badge-accent">
+            <span>검색: "${API.escapeHTML(state.searchQuery.trim())}"</span>
+          </span>
+        `);
+      }
+      if (state.viewMode === 'all' && state.selectedCategory !== 'all') {
+        const catName = state.selectedCategory === 'youtube' ? 'YouTube' : 'NAVER';
+        pills.push(`
+          <span class="pill-badge pill-badge-accent">
+            <span>분류: ${catName}</span>
+          </span>
+        `);
+      }
+      if (state.selectedTag) {
+        pills.push(`
+          <span class="pill-badge pill-badge-accent">
+            <span>태그: #${API.escapeHTML(state.selectedTag)}</span>
+          </span>
+        `);
+      }
+
+      if (pills.length > 0) {
+        activePills.innerHTML = pills.join('');
+        resultCountEl.textContent = `${finalFilteredCount}건`;
+        activeBanner.classList.remove('hidden');
+      } else {
+        activeBanner.classList.add('hidden');
+      }
+    }
+  };
+
+  // 메인 렌더링
   const render = () => {
     const main = document.getElementById('main-content');
     const curI18n = window.I18N[state.lang];
 
-    // 헤더 상태 업데이트
+    // 헤더 뷰 모드 탭 동기화
     ['tag', 'all', 'subtitler', 'creator'].forEach(m => {
       const btn = document.getElementById(`btn-${m}`);
-      if (btn) btn.className = `px-2.5 py-1 rounded text-xs font-medium transition-colors ${state.viewMode === m ? 'bg-[#4169e1] text-[#faf9f6] font-semibold shadow-sm' : 'theme-text-sub hover:theme-text-main'}`;
+      if (btn) {
+        btn.className = state.viewMode === m
+          ? 'px-2.5 py-1 rounded-md text-xs theme-accent-btn font-semibold'
+          : 'px-2.5 py-1 rounded-md text-xs font-medium theme-text-sub theme-hover-text transition-colors';
+      }
     });
 
-    // 정렬 선택 라벨 다국어 및 현재 상태 동기화
+    updateDensityButtonsUI();
+
+    // 정렬 선택 라벨 동기화
     const sortSelect = document.getElementById('sort-select');
     if (sortSelect) {
-      if (sortSelect.value !== state.sortOrder) {
-        sortSelect.value = state.sortOrder;
-      }
+      if (sortSelect.value !== state.sortOrder) sortSelect.value = state.sortOrder;
       if (curI18n) {
         const optLatest = sortSelect.querySelector('option[value="latest"]');
         const optOldest = sortSelect.querySelector('option[value="oldest"]');
@@ -260,45 +456,49 @@ window.app = (function () {
       }
     }
 
-    // 검색 필터 배너
-    const banner = document.getElementById('search-filter-banner');
-    const clearBtn = document.getElementById('search-clear-btn');
-    const countEl = document.getElementById('search-result-count');
-    const filtered = state.videos.filter(v => matchSearch(v, state.searchQuery));
+    const searchMatched = state.videos.filter(v => matchSearch(v, state.searchQuery));
 
-    if (state.searchQuery.trim()) {
-      banner.classList.remove('hidden');
-      clearBtn.classList.remove('hidden');
-      document.getElementById('current-search-text').textContent = state.searchQuery;
-      countEl.textContent = `${filtered.length}건`;
-    } else {
-      banner.classList.add('hidden');
-      clearBtn.classList.add('hidden');
+    // 현재 뷰에 맞는 최종 필터 계산
+    let finalFiltered = searchMatched;
+    if (state.viewMode === 'all') {
+      finalFiltered = searchMatched.filter(v =>
+        matchCategory(v, state.selectedCategory) && matchTag(v, state.selectedTag)
+      );
+    } else if (state.viewMode === 'tag' && state.selectedTag) {
+      finalFiltered = searchMatched.filter(v => matchTag(v, state.selectedTag));
     }
 
+    renderFilterChrome(searchMatched, finalFiltered.length);
+
     // 빈 상태 (Empty State)
-    if (filtered.length === 0) {
+    if (finalFiltered.length === 0) {
       main.innerHTML = `
-        <div class="py-20 text-center border border-dashed theme-border-subtle rounded-xl my-4 theme-bg-subtle">
+        <div class="py-20 text-center border border-dashed theme-border-medium rounded-xl my-4 theme-bg-surface">
           <p class="text-sm font-semibold theme-text-main">${curI18n.noVideos}</p>
-          <p class="text-xs theme-text-sub mt-1">${curI18n.noVideosDesc}</p>
-          ${state.searchQuery ? `<button onclick="app.clearSearch()" class="mt-4 px-3 py-1.5 rounded border theme-border-medium theme-bg-surface hover:theme-bg-hover text-xs theme-text-main font-medium transition-colors">${curI18n.clearFilter}</button>` : ''}
+          <p class="text-xs theme-text-muted mt-1">${curI18n.noVideosDesc}</p>
+          ${(state.searchQuery || state.selectedCategory !== 'all' || state.selectedTag) ? `
+            <button onclick="app.clearAllFilters()" class="mt-4 px-3.5 py-1.5 rounded-lg border theme-border-medium theme-bg-subtle theme-hover-bg text-xs theme-text-main font-medium transition-colors">
+              필터 초기화
+            </button>
+          ` : ''}
         </div>
       `;
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
       return;
     }
 
-    // 뷰 모드별 분기
-    const gridClass = window.Builder ? Builder.getGridClass() : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4';
+    const gridClass = window.Builder && state.isEditMode
+      ? Builder.getGridClass()
+      : getDensityGridClass();
     const densityClass = window.Builder && Builder.state.cardDensity === 'compact' ? 'card-compact' : '';
 
     if (state.viewMode === 'all') {
-      const sorted = sortVideos(filtered);
+      const sorted = sortVideos(finalFiltered);
       main.innerHTML = `
         <div class="space-y-4">
-          <div class="flex items-center justify-between pb-2 border-b theme-border-subtle text-xs theme-text-sub font-mono">
-            <span>ALL (${sorted.length})</span>
+          <div class="flex items-center justify-between pb-2.5 border-b theme-border-subtle text-xs theme-text-muted">
+            <span class="font-medium theme-text-sub">전체 아카이브</span>
+            <span class="font-mono">${sorted.length.toLocaleString()}건</span>
           </div>
           <div class="${gridClass} ${densityClass}">
             ${sorted.map((v, i) => renderCard(v, `all-${i}`)).join('')}
@@ -306,16 +506,11 @@ window.app = (function () {
         </div>
       `;
     } else if (state.viewMode === 'tag') {
-      // 태그별 집계 및 그룹화 (자막, 음매드 제외)
       const tagGroups = {};
       const tagCounts = {};
-      const ignoredTags = new Set(['자막', '음매드', '#자막', '#음매드']);
 
-      filtered.forEach(v => {
-        const rawTags = (Array.isArray(v.tags) ? v.tags : (v.tags ? [v.tags] : []))
-          .map(t => String(t).trim().replace(/^#/, ''))
-          .filter(t => t && !ignoredTags.has(t));
-
+      searchMatched.forEach(v => {
+        const rawTags = getVideoTags(v);
         const effectiveTags = rawTags.length ? rawTags : ['기타'];
         effectiveTags.forEach(tag => {
           if (!tagGroups[tag]) tagGroups[tag] = [];
@@ -324,7 +519,6 @@ window.app = (function () {
         });
       });
 
-      // 각 태그별 최소/최대 자막 업로드 날짜 통계 사전 계산
       const tagDateStats = {};
       Object.entries(tagGroups).forEach(([tag, vList]) => {
         let minDate = '9999/99/99';
@@ -342,7 +536,6 @@ window.app = (function () {
         };
       });
 
-      // 태그 정렬
       const sortedTags = Object.keys(tagGroups).sort((a, b) => {
         if (state.sortOrder === 'name') {
           return a.localeCompare(b, state.lang);
@@ -355,7 +548,6 @@ window.app = (function () {
           if (countDiff !== 0) return countDiff;
           return a.localeCompare(b, state.lang);
         } else if (state.sortOrder === 'oldest') {
-          // 유효한 날짜가 있는 태그가 먼저 오도록 9999/99/99 대체
           const minA = tagDateStats[a]?.min && tagDateStats[a].min !== '0000/00/00' ? tagDateStats[a].min : '9999/99/99';
           const minB = tagDateStats[b]?.min && tagDateStats[b].min !== '0000/00/00' ? tagDateStats[b].min : '9999/99/99';
           const cmp = minA.localeCompare(minB);
@@ -366,7 +558,6 @@ window.app = (function () {
         } else if (state.sortOrder === 'random') {
           return getRandomWeight(a) - getRandomWeight(b);
         }
-        // 기본(동영상 많은 순): '기타'는 맨 뒤
         if (a === '기타') return 1;
         if (b === '기타') return -1;
         const countDiff = (tagCounts[b] || 0) - (tagCounts[a] || 0);
@@ -374,141 +565,100 @@ window.app = (function () {
         return a.localeCompare(b, state.lang);
       });
 
-      const formatPlaylistDate = (dateStr) => {
-        if (!dateStr) return '최근';
-        return String(dateStr).replace(/-/g, '. ').replace(/\//g, '. ');
-      };
-
       const playlistDateLabel = state.sortOrder === 'oldest' ? (curI18n.playlistOldestVideo || '최초 업로드') : (curI18n.playlistLatestVideo || '최신 업로드');
 
-      // 1) 특정 태그 상세 뷰 (해당 태그의 비디오 바둑판 목록)
       if (state.selectedTag && tagGroups[state.selectedTag]) {
         const currentTagVideos = sortVideos(tagGroups[state.selectedTag]);
         const coverVideo = currentTagVideos[0];
         const coverThumb = coverVideo ? getThumbnail(coverVideo) : '';
         const repDate = state.sortOrder === 'oldest' ? tagDateStats[state.selectedTag]?.min : tagDateStats[state.selectedTag]?.max;
         const latestDateText = repDate && repDate !== '0000/00/00' && repDate !== '9999/99/99'
-          ? formatPlaylistDate(repDate)
-          : (coverVideo ? formatPlaylistDate(API.getRefinedDate(coverVideo)) : '최근');
+          ? API.formatDisplayDate(repDate)
+          : (coverVideo ? API.formatDisplayDate(coverVideo) : '-');
 
         main.innerHTML = `
           <div class="mb-6 space-y-4">
-            <!-- 뒤로가기 버튼 -->
             <button onclick="app.selectTagFilter('')"
-              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border theme-border-subtle theme-bg-subtle hover:theme-bg-hover text-xs theme-text-main font-medium transition-colors shadow-sm">
-              <i data-lucide="arrow-left" class="w-3.5 h-3.5 text-[#4169e1]"></i>
-              <span>모든 재생목록 보기</span>
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border theme-border-subtle theme-bg-surface theme-hover-bg text-xs theme-text-main font-medium transition-colors">
+              <i data-lucide="arrow-left" class="w-3.5 h-3.5 theme-accent-text"></i>
+              <span>모든 컬렉션 보기</span>
             </button>
 
-            <!-- 재생목록 정보 헤더 카드 -->
-            <div class="p-4 sm:p-5 rounded-xl border theme-border-subtle theme-bg-surface flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-md">
-              <div class="flex items-center gap-4 min-w-0">
-                <div class="playlist-deck-stack w-28 sm:w-36 shrink-0">
-                  <div class="playlist-deck-layer-1"></div>
-                  <div class="playlist-deck-layer-2"></div>
-                  <div class="playlist-thumb-box">
-                    <img src="${coverThumb}" class="w-full h-full object-cover object-center" onerror="if(!this.dataset.fallback && this.src.includes('maxresdefault')){this.dataset.fallback=1;this.src=this.src.replace('maxresdefault.jpg','hqdefault.jpg');}" />
-                    <div class="absolute bottom-1.5 right-1.5 px-1.5 py-0.5 rounded bg-black/85 text-[10px] text-white font-medium flex items-center gap-1 shadow">
-                      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M22 7H2v2h20V7zm-8 4H2v2h12v-2zm0 4H2v2h12v-2zm4-1v6l5-3-5-3z"/></svg>
-                      <span>${currentTagVideos.length}개</span>
-                    </div>
-                  </div>
+            <div class="p-4 sm:p-5 rounded-xl border theme-border-subtle theme-bg-surface flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div class="playlist-deck-stack w-32 sm:w-40 shrink-0">
+                <div class="playlist-deck-layer-1"></div>
+                <div class="playlist-deck-layer-2"></div>
+                <div class="playlist-thumb-box">
+                  <img src="${coverThumb}" referrerpolicy="no-referrer" class="w-full h-full object-cover object-center" onerror="if(!this.dataset.fallback && this.src.includes('maxresdefault')){this.dataset.fallback=1;this.src=this.src.replace('maxresdefault.jpg','hqdefault.jpg');}" />
                 </div>
-                <div class="min-w-0">
-                  <div class="flex items-center gap-2 text-xs theme-text-sub">
-                    <span class="font-semibold text-[#4169e1]">재생목록</span>
-                    <span>•</span>
-                    <span>공개</span>
-                    <span>•</span>
-                    <span class="font-mono theme-text-main">${currentTagVideos.length}개의 동영상</span>
-                  </div>
-                  <h2 class="text-lg sm:text-xl font-bold theme-text-main tracking-tight mt-1 truncate">
-                    ${API.escapeHTML(state.selectedTag)}
-                  </h2>
-                  <p class="text-xs theme-text-sub mt-1">
-                    ${playlistDateLabel}: ${latestDateText}
-                  </p>
+              </div>
+              <div class="min-w-0 text-left space-y-1.5">
+                <div class="flex items-center gap-2 text-xs">
+                  <span class="pill-badge pill-badge-accent">컬렉션</span>
+                  <span class="font-mono theme-text-muted">${currentTagVideos.length}개 동영상</span>
                 </div>
+                <h2 class="text-lg sm:text-xl font-bold theme-text-main tracking-tight truncate">
+                  ${API.escapeHTML(state.selectedTag)}
+                </h2>
+                <p class="text-xs theme-text-muted font-mono">
+                  ${playlistDateLabel}: ${latestDateText}
+                </p>
               </div>
             </div>
           </div>
 
-          <!-- 비디오 바둑판 그리드 -->
           <div class="${gridClass} ${densityClass}">
             ${currentTagVideos.map((v, i) => renderCard(v, `tag-${state.selectedTag}-${i}`)).join('')}
           </div>
         `;
       } else {
-        // 2) 전체 재생목록 그리드 (스크린샷 속 유튜브 보관함 재생목록 카드 스타일)
         main.innerHTML = `
-          <div class="space-y-6">
-            <div class="flex items-center justify-between pb-3 border-b theme-border-subtle">
+          <div class="space-y-5">
+            <div class="flex items-center justify-between pb-2.5 border-b theme-border-subtle">
               <div class="flex items-baseline gap-2">
-                <h2 class="text-base font-bold theme-text-main tracking-tight">재생목록</h2>
-                <span class="text-xs font-mono text-[#4169e1] font-semibold">${sortedTags.length}개</span>
+                <h2 class="text-sm font-semibold theme-text-main tracking-tight">태그별 컬렉션</h2>
+                <span class="text-xs font-mono theme-accent-text font-semibold">${sortedTags.length}개</span>
               </div>
-              <div class="text-xs theme-text-sub">
-                <span>총 <strong class="theme-text-main font-mono">${filtered.length}</strong>개 동영상</span>
+              <div class="text-xs theme-text-muted font-mono">
+                총 ${searchMatched.length.toLocaleString()}건
               </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
+            <div class="${gridClass}">
               ${sortedTags.map(tag => {
                 const gVideos = sortVideos(tagGroups[tag]);
-                // 대표 커버 영상: 오래된순일 땐 가장 오래된 영상, 그 외엔 가장 최신 영상
                 const repVideo = state.sortOrder === 'oldest'
                   ? gVideos[0]
                   : (tagGroups[tag].find(v => API.getRefinedDate(v) === tagDateStats[tag]?.max) || gVideos[0]);
                 const coverThumb = repVideo ? getThumbnail(repVideo) : '';
                 const repDate = state.sortOrder === 'oldest' ? tagDateStats[tag]?.min : tagDateStats[tag]?.max;
                 const dateText = repDate && repDate !== '0000/00/00' && repDate !== '9999/99/99'
-                  ? formatPlaylistDate(repDate)
-                  : (repVideo ? formatPlaylistDate(API.getRefinedDate(repVideo)) : '최근');
+                  ? API.formatDisplayDate(repDate)
+                  : (repVideo ? API.formatDisplayDate(repVideo) : '-');
 
                 return `
                   <div class="playlist-card group" onclick="app.selectTagFilter('${API.escapeHTML(tag)}')">
-                    <!-- 상단 덱 스택 효과 -->
                     <div class="playlist-deck-stack">
                       <div class="playlist-deck-layer-1"></div>
                       <div class="playlist-deck-layer-2"></div>
                       <div class="playlist-thumb-box">
-                        <img src="${coverThumb}" alt="${API.escapeHTML(tag)}" referrerpolicy="no-referrer" class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" loading="lazy" onerror="if(!this.dataset.fallback && this.src.includes('maxresdefault')){this.dataset.fallback=1;this.src=this.src.replace('maxresdefault.jpg','hqdefault.jpg');}" />
-                        
-                        <!-- 호버 시 재생목록 열기 오버레이 -->
-                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 absolute inset-0 bg-black/40 flex items-center justify-center z-10">
-                          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/85 backdrop-blur-md text-white text-xs font-semibold border border-white/10 shadow-lg">
-                            <i data-lucide="list-video" class="w-3.5 h-3.5"></i>
-                            <span>재생목록 열기</span>
-                          </div>
-                        </div>
-
-                        <!-- 우측 하단 동영상 개수 뱃지 (유튜브 스타일) -->
-                        <div class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/85 backdrop-blur-sm flex items-center gap-1.5 text-[11px] font-semibold text-white tracking-tight z-10 shadow-sm border border-white/5">
-                          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                            <path d="M22 7H2v2h20V7zm-8 4H2v2h12v-2zm0 4H2v2h12v-2zm4-1v6l5-3-5-3z"/>
-                          </svg>
-                          <span>동영상 ${gVideos.length.toLocaleString()}개</span>
+                        <img src="${coverThumb}" alt="${API.escapeHTML(tag)}" referrerpolicy="no-referrer" class="w-full h-full object-cover object-center" loading="lazy" onerror="if(!this.dataset.fallback && this.src.includes('maxresdefault')){this.dataset.fallback=1;this.src=this.src.replace('maxresdefault.jpg','hqdefault.jpg');}" />
+                        <div class="absolute inset-x-0 bottom-0 h-12 thumb-scrim pointer-events-none"></div>
+                        <div class="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-sm flex items-center gap-1 text-[11px] font-mono font-medium text-white z-10">
+                          <i data-lucide="list-video" class="w-3 h-3 opacity-90"></i>
+                          <span>${gVideos.length.toLocaleString()}</span>
                         </div>
                       </div>
                     </div>
 
-                    <!-- 카드 하단 메타 정보 -->
-                    <div class="mt-3 flex items-start justify-between gap-2">
-                      <div class="min-w-0 flex-grow">
-                        <h3 class="text-sm font-semibold theme-text-main group-hover:text-[#4169e1] line-clamp-2 leading-snug cursor-pointer transition-colors" title="${API.escapeHTML(tag)}">
-                          ${API.escapeHTML(tag)}
-                        </h3>
-                        <p class="text-xs theme-text-sub mt-1">공개 · 재생목록</p>
-                        <p class="text-xs theme-text-muted mt-0.5">${playlistDateLabel}: ${dateText}</p>
-                        <div class="mt-1.5">
-                          <button onclick="event.stopPropagation(); app.selectTagFilter('${API.escapeHTML(tag)}')" class="text-xs font-medium text-[#4169e1] hover:underline transition-colors inline-block">
-                            전체 재생목록 보기
-                          </button>
-                        </div>
+                    <div class="mt-2.5 text-left space-y-1">
+                      <h3 class="text-[13px] font-semibold theme-text-main line-clamp-2 leading-snug" title="${API.escapeHTML(tag)}">
+                        ${API.escapeHTML(tag)}
+                      </h3>
+                      <div class="flex items-center justify-between gap-2 text-[11px] theme-text-muted font-mono">
+                        <span>동영상 ${gVideos.length.toLocaleString()}개</span>
+                        <span>${dateText}</span>
                       </div>
-                      <button class="p-1 -mr-1 theme-text-sub hover:theme-text-main rounded-full hover:theme-bg-hover transition-colors shrink-0" title="재생목록 보기" onclick="event.stopPropagation(); app.selectTagFilter('${API.escapeHTML(tag)}')">
-                        <i data-lucide="more-vertical" class="w-4 h-4"></i>
-                      </button>
                     </div>
                   </div>
                 `;
@@ -520,7 +670,7 @@ window.app = (function () {
     } else if (state.viewMode === 'subtitler' || state.viewMode === 'creator') {
       const isSub = state.viewMode === 'subtitler';
       const groups = {};
-      filtered.forEach(v => {
+      searchMatched.forEach(v => {
         const names = isSub ? parseSubtitlers(v.subtitler) : parseCreators(v.creator);
         const effectiveNames = names.length ? names : ['Unknown'];
         effectiveNames.forEach(name => {
@@ -533,47 +683,54 @@ window.app = (function () {
       const pmap = state.data?.profileMap || {};
 
       main.innerHTML = `
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          ${sortedNames.map(name => {
-            const count = groups[name].length;
-            const profile = pmap[name] || 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100';
-            const channelUrl = (state.data?.channelMap || {})[name] || (pmap[name] && pmap[name].match(/usericon\/\d+\/(\d+)/) ? `https://www.nicovideo.jp/user/${pmap[name].match(/usericon\/\d+\/(\d+)/)[1]}` : null);
-            const isNico = channelUrl && (channelUrl.includes('nicovideo') || channelUrl.includes('nico.ms'));
-            const isYt = channelUrl && (channelUrl.includes('youtube') || channelUrl.includes('youtu.be'));
-            const isNaver = channelUrl && channelUrl.includes('naver');
+        <div class="space-y-4">
+          <div class="flex items-center justify-between pb-2.5 border-b theme-border-subtle text-xs">
+            <span class="font-medium theme-text-sub">${isSub ? '자막 제작자' : '원작자'} 디렉토리</span>
+            <span class="font-mono theme-text-muted">${sortedNames.length.toLocaleString()}명</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            ${sortedNames.map(name => {
+              const count = groups[name].length;
+              const profile = pmap[name] || 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100';
+              const channelUrl = (state.data?.channelMap || {})[name] || (pmap[name] && pmap[name].match(/usericon\/\d+\/(\d+)/) ? `https://www.nicovideo.jp/user/${pmap[name].match(/usericon\/\d+\/(\d+)/)[1]}` : null);
+              const isNico = channelUrl && (channelUrl.includes('nicovideo') || channelUrl.includes('nico.ms'));
+              const isYt = channelUrl && (channelUrl.includes('youtube') || channelUrl.includes('youtu.be'));
+              const isNaver = channelUrl && channelUrl.includes('naver');
 
-            return `
-              <div onclick="Modals.openCreatorModal('${API.escapeHTML(name)}', '${state.viewMode}')"
-                class="card-item p-3 rounded-lg border theme-border-subtle theme-bg-surface hover:theme-bg-hover cursor-pointer flex items-center justify-between gap-3 group/item transition-all shadow-sm">
-                <div class="flex items-center gap-3 min-w-0 flex-grow">
-                  <div class="w-10 h-10 rounded overflow-hidden theme-bg-subtle shrink-0 border theme-border-medium">
-                    <img src="${profile}" referrerpolicy="no-referrer" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100'" />
+              return `
+                <div onclick="Modals.openCreatorModal('${API.escapeHTML(name)}', '${state.viewMode}')"
+                  class="card-item p-3 rounded-xl cursor-pointer flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-3 min-w-0 flex-grow text-left">
+                    <div class="w-10 h-10 rounded-lg overflow-hidden theme-bg-subtle shrink-0 border theme-border-hairline">
+                      <img src="${profile}" referrerpolicy="no-referrer" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?w=100'" />
+                    </div>
+                    <div class="flex-grow min-w-0">
+                      <h3 class="text-xs font-semibold theme-text-main truncate">${API.escapeHTML(name)}</h3>
+                      <p class="text-[11px] theme-text-muted font-mono mt-0.5">${count} ${curI18n.works}</p>
+                    </div>
                   </div>
-                  <div class="flex-grow min-w-0">
-                    <h3 class="text-xs font-semibold theme-text-main truncate">${API.escapeHTML(name)}</h3>
-                    <p class="text-[11px] text-[#4169e1] font-mono">${count} ${curI18n.works}</p>
-                  </div>
+                  ${channelUrl ? `
+                    <a href="${channelUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
+                      class="p-1.5 rounded-lg theme-bg-subtle theme-hover-bg theme-text-sub theme-hover-text border theme-border-subtle transition-colors shrink-0"
+                      title="${isNico ? '니코동 마이페이지로 이동' : (isYt ? 'YouTube 채널로 이동' : (isNaver ? '네이버 블로그로 이동' : '채널 페이지로 이동'))}">
+                      <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                  ` : `
+                    <i data-lucide="chevron-right" class="w-4 h-4 theme-text-muted shrink-0"></i>
+                  `}
                 </div>
-                ${channelUrl ? `
-                  <a href="${channelUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()"
-                    class="p-1.5 rounded theme-bg-subtle hover:bg-[#4169e1] text-[#4169e1] hover:text-[#faf9f6] border theme-border-medium transition-colors shrink-0"
-                    title="${isNico ? '니코동 마이페이지로 이동' : (isYt ? 'YouTube 채널로 이동' : (isNaver ? '네이버 블로그로 이동' : '채널 페이지로 이동'))}">
-                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                  </a>
-                ` : `
-                  <i data-lucide="chevron-right" class="w-4 h-4 theme-text-muted shrink-0"></i>
-                `}
-              </div>
-            `;
-          }).join('')}
+              `;
+            }).join('')}
+          </div>
         </div>
       `;
     }
 
-    lucide.createIcons();
+    if (window.lucide) lucide.createIcons();
   };
 
-  const renderThumbnailHTML = (v, videoKey, thumb, date, ytId, hasNaver) => {
+  // 썸네일 영역 렌더링 (원본 색감 보존 + 하단 스크림 + 퀵 재생 버튼)
+  const renderThumbnailHTML = (v, videoKey, thumb, ytId, hasNaver) => {
     const isNaverOnly = hasNaver && !ytId;
     const fallbackHq = ytId ? `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg` : '';
     const onErrorAttr = fallbackHq && thumb !== fallbackHq
@@ -581,33 +738,23 @@ window.app = (function () {
       : `onerror="if(!this.dataset.fallback){this.dataset.fallback=1;this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=640&auto=format&fit=crop&q=80';}"`;
 
     return `
-      <div class="w-full h-full relative group cursor-pointer overflow-hidden" onclick="app.playVideo('${API.escapeHTML(videoKey)}')">
-        <img src="${thumb}" alt="${API.escapeHTML(v.title)}" referrerpolicy="no-referrer" class="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105" loading="lazy" ${onErrorAttr} />
-        <div class="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition-colors flex items-center justify-center">
-          ${isNaverOnly ? `
-            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/80 text-white border border-white/20 shadow-lg group-hover:scale-105 transition-all text-xs font-semibold backdrop-blur-sm">
-              <span class="w-2 h-2 rounded-full bg-[#03c75a] animate-pulse"></span>
-              <span>블로그에서 감상</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-neutral-300"></i>
-            </div>
-          ` : `
-            <div class="w-9 h-9 rounded-full bg-neutral-900/90 text-white flex items-center justify-center border border-neutral-700/80 group-hover:scale-110 transition-transform shadow-md">
-              <i data-lucide="play" class="w-4 h-4 ml-0.5 text-neutral-200"></i>
-            </div>
-          `}
-        </div>
-        <div class="absolute bottom-1.5 left-1.5 flex items-center gap-1 font-mono text-[10px]">
-          ${hasNaver ? `<span class="bg-black/80 text-[#03c75a] border border-[#03c75a]/50 px-1 rounded font-semibold">NAVER</span>` : ''}
-          ${ytId ? `<span class="bg-red-950/90 text-red-400 border border-red-800/80 px-1 rounded font-semibold">YouTube</span>` : ''}
-        </div>
-        ${date !== '0000/00/00' ? `<span class="absolute bottom-1.5 right-1.5 text-[10px] font-mono bg-black/80 px-1.5 py-0.2 rounded text-neutral-300">${date}</span>` : ''}
+      <div class="w-full h-full relative group/thumb cursor-pointer overflow-hidden">
+        <img src="${thumb}" alt="${API.escapeHTML(v.title)}" referrerpolicy="no-referrer" class="w-full h-full object-cover object-center" loading="lazy" ${onErrorAttr} />
+        <div class="absolute inset-x-0 bottom-0 h-14 thumb-scrim pointer-events-none"></div>
+        <button type="button"
+          onclick="event.stopPropagation(); app.playVideo('${API.escapeHTML(videoKey)}')"
+          title="${isNaverOnly ? '네이버 블로그에서 감상' : '카드에서 바로 재생'}"
+          class="thumb-play-btn absolute bottom-2 right-2 inline-flex items-center gap-1 ${isNaverOnly ? 'px-2 py-1 rounded-full' : 'w-8 h-8 rounded-full justify-center'} bg-black/70 hover:bg-[#4169e1] text-white border border-white/15 backdrop-blur-sm z-10 text-[11px] font-medium">
+          ${isNaverOnly
+            ? `<i data-lucide="external-link" class="w-3 h-3"></i><span>블로그</span>`
+            : `<i data-lucide="play" class="w-3.5 h-3.5 ml-0.5 fill-current"></i>`}
+        </button>
       </div>
     `;
   };
 
-  // 모든 임베드 플레이어를 즉시 정리하고 단일 재생 상태 보장
+  // 모든 임베드 플레이어 정리
   const stopAllPlayers = () => {
-    // 1. 모든 HTML5 video 태그 정지 및 리소스 해제 (오디오/스트림 유출 완전 방지)
     const playingVideos = document.querySelectorAll('video');
     playingVideos.forEach(v => {
       try {
@@ -617,159 +764,77 @@ window.app = (function () {
       } catch (_) {}
     });
 
-    // 2. DOM에 이미 렌더링된 활성 플레이어들을 원래 썸네일로 즉시 복원
     Object.keys(state.activePlayers).forEach(key => {
       const safeKey = window.CSS && CSS.escape ? CSS.escape(key) : key.replace(/["\\]/g, '\\$&');
       const mediaBoxes = document.querySelectorAll(`[data-video-key="${safeKey}"]`);
       const v = state.videos.find(x => (x.id || `${x.title}-${x.upload_date}`) === key);
       if (v && mediaBoxes.length > 0) {
         const thumb = getThumbnail(v);
-        const date = API.getRefinedDate(v);
         const ytId = v.yt_id || API.extractYtId(v.original_link);
         const hasNaver = v.platform === 'naver' || v.naver_url || v.naver_vid;
         mediaBoxes.forEach(box => {
-          box.innerHTML = renderThumbnailHTML(v, key, thumb, date, ytId, hasNaver);
+          box.innerHTML = renderThumbnailHTML(v, key, thumb, ytId, hasNaver);
         });
       }
     });
 
-    // 3. 활성 플레이어 상태 맵 초기화
     state.activePlayers = {};
     if (window.lucide) lucide.createIcons();
   };
 
-  // 영상 플레이어 바로 아래에 표시되는 눈에 띄는 외부 링크 이동 버튼 바
-  const renderLinkButtons = (v) => {
-    const buttons = [];
-    const ytId = v.yt_id || API.extractYtId(v.original_link);
-    const ytUrl = ytId ? `https://www.youtube.com/watch?v=${ytId}` : null;
-    const naverUrl = v.naver_url || (v.original_link && v.original_link.includes('blog.naver.com') ? v.original_link : null);
-
-    // 1. 유튜브 바로가기 버튼 (자막 영상)
-    if (ytUrl) {
-      buttons.push(`
-        <a href="${ytUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="YouTube에서 영상 보기"
-          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main border theme-border-subtle hover:border-[#4169e1] transition-all shadow-sm group/btn">
-          <svg class="w-3.5 h-3.5 fill-red-500 shrink-0" viewBox="0 0 24 24">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-          </svg>
-          <span>YouTube 이동</span>
-          <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover/btn:text-[#4169e1] transition-colors"></i>
-        </a>
-      `);
-    }
-
-    // 2. 네이버 블로그 바로가기 버튼 (자막 영상)
-    if (naverUrl) {
-      buttons.push(`
-        <a href="${naverUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="네이버 블로그 게시글 보기"
-          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main hover:text-[#03c75a] border theme-border-subtle hover:border-[#03c75a] transition-all shadow-sm group/btn">
-          <span class="w-3.5 h-3.5 rounded bg-[#03c75a] text-white font-black text-[9px] flex items-center justify-center shrink-0">N</span>
-          <span>네이버 블로그</span>
-          <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover/btn:text-[#03c75a] transition-colors"></i>
-        </a>
-      `);
-    }
-
-    // 3. 원본 MAD 이동 버튼 (니코동, YouTube 등)
-    const sourceUrl = v.source_url || (v.original_link && v.original_link !== ytUrl && v.original_link !== naverUrl ? v.original_link : null);
-    if (sourceUrl) {
-      const isNico = sourceUrl.includes('nicovideo.jp') || sourceUrl.includes('nico.ms');
-      const isYtSource = sourceUrl.includes('youtube.com') || sourceUrl.includes('youtu.be');
-
-      let iconHtml = '<i data-lucide="globe" class="w-3.5 h-3.5 theme-text-sub"></i>';
-      let labelText = '원본 MAD';
-      let titleText = `원본 MAD 영상 열기 (${sourceUrl})`;
-
-      if (isNico) {
-        iconHtml = '<i data-lucide="tv" class="w-3.5 h-3.5 theme-text-sub"></i>';
-        labelText = '원본 MAD (니코동)';
-        titleText = `니코동 원본 MAD 영상 보기 (${sourceUrl})`;
-      } else if (isYtSource) {
-        iconHtml = `
-          <svg class="w-3.5 h-3.5 fill-red-500 shrink-0" viewBox="0 0 24 24">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-          </svg>
-        `;
-        labelText = '원본 MAD (YouTube)';
-        titleText = `YouTube 원본 MAD 영상 보기 (${sourceUrl})`;
-      }
-
-      buttons.push(`
-        <a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" title="${titleText}"
-          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main hover:text-[#4169e1] border theme-border-subtle hover:border-[#4169e1]/60 transition-all shadow-sm group/btn">
-          ${iconHtml}
-          <span>${labelText}</span>
-          <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover/btn:text-[#4169e1] transition-colors"></i>
-        </a>
-      `);
-    }
-
-    if (!buttons.length) return '';
-    return `
-      <div class="px-3 pt-2.5 pb-0 flex items-center gap-1.5 flex-wrap">
-        ${buttons.join('')}
-      </div>
-    `;
-  };
-
-  // 개별 영상 카드 렌더러
+  // 개별 영상 카드 렌더러 (전면 3요소: 썸네일 · 제목 · 핵심 배지/날짜)
   const renderCard = (v, domId) => {
-    const curI18n = window.I18N[state.lang];
     const videoKey = v.id || `${v.title}-${v.upload_date}`;
     const activePlayer = state.activePlayers[videoKey];
     const thumb = getThumbnail(v);
-    const date = API.getRefinedDate(v);
+    const displayDate = API.formatDisplayDate(v);
     const ytId = v.yt_id || API.extractYtId(v.original_link);
-    const hasNaver = v.platform === 'naver' || v.naver_url || v.naver_vid;
+    const hasNaver = v.platform === 'naver' || Boolean(v.naver_url || v.naver_vid);
+    const isNaver = getPlatformCategory(v) === 'naver';
 
-    // 미디어 영역
     let mediaHTML = '';
     if (activePlayer) {
       if (activePlayer.type === 'youtube') {
         mediaHTML = `
-          <div class="w-full h-full relative">
+          <div class="w-full h-full relative" onclick="event.stopPropagation()">
             <iframe src="https://www.youtube.com/embed/${activePlayer.id}?autoplay=1&enablejsapi=1" class="w-full h-full border-none" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-            <button onclick="app.closePlayer('${API.escapeHTML(videoKey)}')" class="absolute top-1.5 right-1.5 p-1 rounded bg-black/80 hover:bg-neutral-800 text-neutral-300 border border-neutral-700 z-20" title="플레이어 닫기">
+            <button onclick="event.stopPropagation(); app.closePlayer('${API.escapeHTML(videoKey)}')" class="absolute top-2 right-2 p-1 rounded-md bg-black/75 hover:bg-black text-white border border-white/15 z-20" title="플레이어 닫기">
               <i data-lucide="x" class="w-3.5 h-3.5"></i>
             </button>
           </div>
         `;
       } else if (activePlayer.type === 'naver_stream') {
         mediaHTML = `
-          <div class="w-full h-full relative bg-black group">
+          <div class="w-full h-full relative bg-black" onclick="event.stopPropagation()">
             <video src="${activePlayer.streamUrl}" controls autoplay playsinline class="w-full h-full object-contain bg-black"></video>
-            <button onclick="app.closePlayer('${API.escapeHTML(videoKey)}')" class="absolute top-1.5 right-1.5 p-1 rounded bg-black/80 hover:bg-neutral-800 text-neutral-300 border border-neutral-700 z-20 opacity-80 hover:opacity-100 transition-opacity" title="플레이어 닫기">
+            <button onclick="event.stopPropagation(); app.closePlayer('${API.escapeHTML(videoKey)}')" class="absolute top-2 right-2 p-1 rounded-md bg-black/75 hover:bg-black text-white border border-white/15 z-20" title="플레이어 닫기">
               <i data-lucide="x" class="w-3.5 h-3.5"></i>
             </button>
           </div>
         `;
       } else if (activePlayer.type === 'naver_embed') {
         mediaHTML = `
-          <div class="w-full h-full relative">
+          <div class="w-full h-full relative" onclick="event.stopPropagation()">
             <iframe src="${activePlayer.embedUrl}" class="w-full h-full border-none" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-            <button onclick="app.closePlayer('${API.escapeHTML(videoKey)}')" class="absolute top-1.5 right-1.5 p-1 rounded bg-black/80 hover:bg-neutral-800 text-neutral-300 border border-neutral-700 z-20" title="플레이어 닫기">
+            <button onclick="event.stopPropagation(); app.closePlayer('${API.escapeHTML(videoKey)}')" class="absolute top-2 right-2 p-1 rounded-md bg-black/75 hover:bg-black text-white border border-white/15 z-20" title="플레이어 닫기">
               <i data-lucide="x" class="w-3.5 h-3.5"></i>
             </button>
           </div>
         `;
       }
     } else {
-      mediaHTML = renderThumbnailHTML(v, videoKey, thumb, date, ytId, hasNaver);
+      mediaHTML = renderThumbnailHTML(v, videoKey, thumb, ytId, hasNaver);
     }
 
-    const pmap = state.data?.profileMap || {};
-    const subtitlers = parseSubtitlers(v.subtitler);
-    const creators = parseCreators(v.creator);
-    const tags = (Array.isArray(v.tags) ? v.tags : (v.tags ? [v.tags] : []))
-      .map(t => String(t).trim().replace(/^#/, ''))
-      .filter(t => t && !['자막', '음매드'].includes(t));
-
     const isSelected = window.Builder && Builder.state.selectedIds.has(videoKey);
+    const platformPill = isNaver
+      ? `<span class="pill-badge pill-badge-naver">NAVER</span>`
+      : `<span class="pill-badge pill-badge-yt">YouTube</span>`;
 
     return `
-      <div class="card-item rounded-lg border ${isSelected ? 'border-[#ffa500] bg-[#ffa500]/15 shadow-[0_0_20px_rgba(255,165,0,0.3)]' : 'theme-border-subtle theme-bg-surface'} overflow-hidden flex flex-col justify-between transition-all"
+      <article class="card-item group rounded-xl overflow-hidden flex flex-col justify-between cursor-pointer text-left ${isSelected ? 'ring-2 ring-[#4169e1]' : ''}"
         data-card-key="${API.escapeHTML(videoKey)}"
+        onclick="Modals.openDetailDrawer('${API.escapeHTML(videoKey)}')"
         ${state.isEditMode ? `
           draggable="true"
           ondragstart="Builder.handleDragStart(event, '${API.escapeHTML(videoKey)}')"
@@ -777,126 +842,66 @@ window.app = (function () {
           ondragleave="Builder.handleDragLeave(event)"
           ondrop="Builder.handleDrop(event, '${API.escapeHTML(videoKey)}')"
         ` : ''}>
-        
+
         ${state.isEditMode ? `
-          <div class="px-2.5 py-1.5 theme-bg-subtle border-b theme-border-subtle flex items-center justify-between text-xs select-none">
+          <div class="px-2.5 py-1.5 theme-bg-subtle border-b theme-border-subtle flex items-center justify-between text-xs select-none" onclick="event.stopPropagation()">
             <div class="flex items-center gap-1.5">
               <input type="checkbox" ${isSelected ? 'checked' : ''}
-                onclick="event.stopPropagation()"
                 onchange="Builder.toggleSelectVideo('${API.escapeHTML(videoKey)}', this.checked)"
                 class="w-3.5 h-3.5 rounded theme-border-medium theme-bg-input cursor-pointer" title="일괄 작업용 선택" />
-              <div class="flex items-center gap-1 cursor-grab active:cursor-grabbing theme-text-sub hover:theme-text-main" title="드래그하여 순서 재배치">
-                <i data-lucide="grip-vertical" class="w-3.5 h-3.5 text-[#4169e1]"></i>
-                <span class="text-[10px] font-mono font-bold text-[#ffa500]">#${domId.split('-').pop() ? Number(domId.split('-').pop()) + 1 : ''}</span>
+              <div class="flex items-center gap-1 cursor-grab active:cursor-grabbing theme-text-sub theme-hover-text" title="드래그하여 순서 재배치">
+                <i data-lucide="grip-vertical" class="w-3.5 h-3.5 theme-accent-text"></i>
+                <span class="text-[10px] font-mono font-semibold theme-accent-text">#${domId.split('-').pop() ? Number(domId.split('-').pop()) + 1 : ''}</span>
               </div>
             </div>
-            <div class="flex items-center gap-1 text-[10px] theme-text-muted font-mono">
-              <span>드래그 이동</span>
-            </div>
+            <span class="text-[10px] theme-text-muted font-mono">드래그 이동</span>
           </div>
         ` : ''}
 
-        <div class="w-full aspect-video bg-black relative overflow-hidden" data-video-key="${API.escapeHTML(videoKey)}">
+        <!-- 1. 썸네일 이미지 -->
+        <div class="thumb-frame" data-video-key="${API.escapeHTML(videoKey)}">
           ${mediaHTML}
         </div>
 
-        ${renderLinkButtons(v)}
+        <!-- 2. 제목 + 3. 핵심 분류 배지/날짜 -->
+        <div class="card-body p-3.5 flex flex-col flex-grow justify-between gap-2.5">
+          ${state.isEditMode ? `
+            <h3 contenteditable="true" spellcheck="false"
+              onclick="event.stopPropagation()"
+              class="text-[13px] font-semibold theme-text-main line-clamp-2 leading-snug cursor-text builder-inline-editable"
+              onblur="Builder.saveInlineTitle('${API.escapeHTML(videoKey)}', this.innerText)"
+              onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}"
+              title="클릭하여 제목 직접 수정">${API.escapeHTML(v.title)}</h3>
+          ` : `
+            <h3 title="${API.escapeHTML(v.title)}"
+              class="text-[13px] font-semibold theme-text-main line-clamp-2 leading-snug">
+              ${API.escapeHTML(v.title)}
+            </h3>
+          `}
 
-        <div class="p-3 pt-2 flex flex-col flex-grow justify-between gap-2.5">
-          <div>
-            ${state.isEditMode ? `
-              <h3 contenteditable="true" spellcheck="false"
-                class="text-xs font-semibold theme-text-main hover:text-[#4169e1] transition-colors line-clamp-2 leading-snug cursor-text builder-inline-editable"
-                onblur="Builder.saveInlineTitle('${API.escapeHTML(videoKey)}', this.innerText)"
-                onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}"
-                title="클릭하여 제목 직접 수정">${API.escapeHTML(v.title)}</h3>
-            ` : `
-              <h3 onclick="app.playVideo('${API.escapeHTML(videoKey)}')" title="${API.escapeHTML(v.title)}"
-                class="text-xs font-semibold theme-text-main hover:text-[#4169e1] transition-colors line-clamp-2 leading-snug cursor-pointer">
-                ${API.escapeHTML(v.title)}
-              </h3>
-            `}
-            ${v.originalTitle ? `<p class="text-[11px] theme-text-sub truncate mt-0.5">${API.escapeHTML(v.originalTitle)}</p>` : ''}
-          </div>
-
-          <div class="pt-2 border-t theme-border-subtle space-y-2 text-xs">
-            <div class="flex items-start justify-between gap-2">
-              <span class="theme-text-sub text-xs shrink-0 font-medium ${subtitlers.length > 1 ? 'mt-0.5' : ''}">자막</span>
-              ${subtitlers.length > 1 ? `
-                <div class="flex items-center gap-1.5 flex-wrap justify-end max-w-[200px]">
-                  ${subtitlers.map(sName => {
-                    const sAvatar = pmap[sName] || '';
-                    return `
-                      <button onclick="Modals.openCreatorModal('${API.escapeHTML(sName)}', 'subtitler')"
-                        class="inline-flex items-center gap-1.5 font-medium theme-text-main hover:text-[#4169e1] transition-colors truncate max-w-[160px] group text-right px-1.5 py-0.5 rounded theme-bg-subtle hover:theme-bg-hover border theme-border-subtle hover:border-[#4169e1]/50" title="${API.escapeHTML(sName)}">
-                        ${sAvatar ? `<img src="${sAvatar}" referrerpolicy="no-referrer" class="card-avatar-img w-[18px] h-[18px] rounded-full object-cover shrink-0 border theme-border-medium" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[18px] h-[18px] rounded-full theme-bg-subtle border theme-border-medium text-[9px] flex items-center justify-center text-[#4169e1] shrink-0 font-medium font-mono">자</span>`}
-                        <span class="truncate text-xs font-medium">${API.escapeHTML(sName)}</span>
-                      </button>
-                    `;
-                  }).join('')}
-                </div>
-              ` : `
-                <button onclick="Modals.openCreatorModal('${API.escapeHTML(subtitlers[0] || 'Unknown')}', 'subtitler')"
-                  class="flex items-center gap-2 font-medium theme-text-main hover:text-[#4169e1] transition-colors truncate max-w-[170px] text-right group">
-                  ${pmap[subtitlers[0]] ? `<img src="${pmap[subtitlers[0]]}" referrerpolicy="no-referrer" class="card-avatar-img w-[22px] h-[22px] rounded-full object-cover shrink-0 border theme-border-medium" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[22px] h-[22px] rounded-full theme-bg-subtle border theme-border-medium text-[10px] flex items-center justify-center text-[#4169e1] shrink-0 font-medium font-mono">자</span>`}
-                  <span class="truncate text-xs font-medium">${API.escapeHTML(subtitlers[0] || 'Unknown')}</span>
-                </button>
-              `}
-            </div>
-            <div class="flex items-start justify-between gap-2">
-              <span class="theme-text-sub text-xs shrink-0 font-medium ${creators.length > 1 ? 'mt-0.5' : ''}">원작</span>
-              ${creators.length > 1 ? `
-                <div class="flex items-center gap-1.5 flex-wrap justify-end max-w-[200px]">
-                  ${creators.map(cName => {
-                    const cAvatar = pmap[cName] || '';
-                    return `
-                      <button onclick="Modals.openCreatorModal('${API.escapeHTML(cName)}', 'creator')"
-                        class="inline-flex items-center gap-1.5 font-medium theme-text-main hover:text-[#4169e1] transition-colors truncate max-w-[160px] group text-right px-1.5 py-0.5 rounded theme-bg-subtle hover:theme-bg-hover border theme-border-subtle hover:border-[#4169e1]/50" title="${API.escapeHTML(cName)}">
-                        ${cAvatar ? `<img src="${cAvatar}" referrerpolicy="no-referrer" class="card-avatar-img w-[18px] h-[18px] rounded-full object-cover shrink-0 border theme-border-medium" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[18px] h-[18px] rounded-full theme-bg-subtle border theme-border-medium text-[9px] flex items-center justify-center text-[#4169e1] shrink-0 font-medium font-mono">원</span>`}
-                        <span class="truncate text-xs font-medium">${API.escapeHTML(cName)}</span>
-                      </button>
-                    `;
-                  }).join('')}
-                </div>
-              ` : `
-                <button onclick="Modals.openCreatorModal('${API.escapeHTML(creators[0] || 'Unknown')}', 'creator')"
-                  class="flex items-center gap-2 font-medium theme-text-main hover:text-[#4169e1] transition-colors truncate max-w-[170px] text-right group">
-                  ${pmap[creators[0]] ? `<img src="${pmap[creators[0]]}" referrerpolicy="no-referrer" class="card-avatar-img w-[22px] h-[22px] rounded-full object-cover shrink-0 border theme-border-medium" onerror="this.style.display='none'">` : `<span class="card-avatar-img w-[22px] h-[22px] rounded-full theme-bg-subtle border theme-border-medium text-[10px] flex items-center justify-center text-[#4169e1] shrink-0 font-medium font-mono">원</span>`}
-                  <span class="truncate text-xs font-medium">${API.escapeHTML(creators[0] || 'Unknown')}</span>
-                </button>
-              `}
-            </div>
-          </div>
-
-          <div class="pt-2 border-t theme-border-subtle flex items-center justify-between gap-2">
-            <div class="flex flex-wrap gap-1 overflow-hidden max-h-5">
-              ${tags.slice(0, 3).map(t => `
-                <span onclick="app.selectTagFilter('${API.escapeHTML(t)}')"
-                  class="cursor-pointer text-[10px] theme-text-sub hover:text-[#faf9f6] transition-colors theme-bg-subtle hover:bg-[#4169e1] px-1.5 py-0.2 rounded border theme-border-subtle">
-                  #${API.escapeHTML(t)}
-                </span>
-              `).join('')}
-            </div>
+          <div class="flex items-center justify-between gap-2 pt-0.5">
+            ${platformPill}
+            <span class="text-[11px] font-mono theme-text-muted shrink-0">${displayDate}</span>
           </div>
 
           ${state.isEditMode ? `
-            <div class="pt-2 border-t theme-border-subtle flex items-center justify-between text-xs">
+            <div class="pt-2 border-t theme-border-subtle flex items-center justify-between text-xs" onclick="event.stopPropagation()">
               <div class="flex items-center gap-1">
-                <button onclick="app.moveVideo('${API.escapeHTML(v.id || videoKey)}', -1)" title="순서 앞으로" class="p-1 rounded hover:theme-bg-hover theme-text-sub hover:theme-text-main transition-colors">
+                <button onclick="app.moveVideo('${API.escapeHTML(v.id || videoKey)}', -1)" title="순서 앞으로" class="p-1 rounded-md theme-hover-bg theme-text-sub theme-hover-text transition-colors">
                   <i data-lucide="chevron-up" class="w-3.5 h-3.5"></i>
                 </button>
-                <button onclick="app.moveVideo('${API.escapeHTML(v.id || videoKey)}', 1)" title="순서 뒤로" class="p-1 rounded hover:theme-bg-hover theme-text-sub hover:theme-text-main transition-colors">
+                <button onclick="app.moveVideo('${API.escapeHTML(v.id || videoKey)}', 1)" title="순서 뒤로" class="p-1 rounded-md theme-hover-bg theme-text-sub theme-hover-text transition-colors">
                   <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
                 </button>
               </div>
               <div class="flex items-center gap-1.5">
-                <button onclick="Modals.openExtractorModal('${API.escapeHTML(v.id || videoKey)}')" class="px-2 py-0.5 rounded border border-[#4169e1]/50 hover:bg-[#4169e1]/15 text-[11px] text-[#4169e1] font-semibold transition-colors">수정</button>
-                <button onclick="app.deleteVideo('${API.escapeHTML(v.id || videoKey)}')" class="px-2 py-0.5 rounded border border-red-500/50 hover:bg-red-950/20 text-[11px] text-red-500 font-medium transition-colors">삭제</button>
+                <button onclick="Modals.openExtractorModal('${API.escapeHTML(v.id || videoKey)}')" class="px-2 py-0.5 rounded-md border theme-accent-soft text-[11px] font-semibold transition-colors">수정</button>
+                <button onclick="app.deleteVideo('${API.escapeHTML(v.id || videoKey)}')" class="px-2 py-0.5 rounded-md border text-[11px] font-medium transition-colors" style="background-color: var(--accent-danger-bg); border-color: var(--accent-danger-border); color: var(--accent-danger-text);">삭제</button>
               </div>
             </div>
           ` : ''}
         </div>
-      </div>
+      </article>
     `;
   };
 
@@ -907,18 +912,17 @@ window.app = (function () {
     const ytId = v.yt_id || API.extractYtId(v.original_link);
     const isNaver = v.platform === 'naver' || v.naver_vid || v.naver_url || (v.original_link && v.original_link.includes('blog.naver.com'));
 
-    // 1. 유튜브 영상 재생
     if (ytId) {
       stopAllPlayers();
       const playerData = { type: 'youtube', id: ytId };
       state.activePlayers[videoKey] = playerData;
 
-      const safeKey = window.CSS && CSS.escape ? CSS.escape(videoKey) : videoKey.replace(/["\\]/g, '\\$&');
+      const safeKey = window.CSS && CSS.escape ? CSS.escape(videoKey) : keyEscape(videoKey);
       const mediaBoxes = document.querySelectorAll(`[data-video-key="${safeKey}"]`);
       const playerHTML = `
-        <div class="w-full h-full relative">
+        <div class="w-full h-full relative" onclick="event.stopPropagation()">
           <iframe src="https://www.youtube.com/embed/${playerData.id}?autoplay=1&enablejsapi=1" class="w-full h-full border-none" allowfullscreen allow="autoplay; encrypted-media"></iframe>
-          <button onclick="app.closePlayer('${API.escapeHTML(videoKey)}')" class="absolute top-1.5 right-1.5 p-1 rounded bg-black/80 hover:bg-neutral-800 text-neutral-300 border border-neutral-700 z-20" title="플레이어 닫기">
+          <button onclick="event.stopPropagation(); app.closePlayer('${API.escapeHTML(videoKey)}')" class="absolute top-2 right-2 p-1 rounded-md bg-black/75 hover:bg-black text-white border border-white/15 z-20" title="플레이어 닫기">
             <i data-lucide="x" class="w-3.5 h-3.5"></i>
           </button>
         </div>
@@ -933,7 +937,6 @@ window.app = (function () {
       return;
     }
 
-    // 2. 네이버 동영상: 원작 블로그 포스트로 안전하게 새 탭 이동
     if (isNaver) {
       stopAllPlayers();
       const targetUrl = v.naver_url || v.original_link;
@@ -947,7 +950,9 @@ window.app = (function () {
     if (v.naver_url) return window.open(v.naver_url, '_blank', 'noopener,noreferrer');
   };
 
-  const closePlayer = (videoKey) => {
+  const keyEscape = (k) => String(k).replace(/["\\]/g, '\\$&');
+
+  const closePlayer = () => {
     stopAllPlayers();
   };
 
@@ -956,6 +961,7 @@ window.app = (function () {
     const v = state.videos.find(x => (x.id || `${x.title}-${x.upload_date}`) === videoKey);
     if (!v || !confirm(`이 영상을 삭제하시겠습니까?\n\n"${v.title}"`)) return;
     state.videos = state.videos.filter(x => (x.id || `${x.title}-${x.upload_date}`) !== videoKey);
+    if (window.Modals && Modals.closeDetailDrawer) Modals.closeDetailDrawer();
     await saveDataToServer();
   };
 
@@ -1023,14 +1029,12 @@ window.app = (function () {
   const updateEditModeUI = () => {
     const isEdit = state.isEditMode;
 
-    // 1. 비주얼 빌더 배너
     const banner = document.getElementById('edit-mode-banner');
     if (banner) {
       if (isEdit) banner.classList.remove('hidden');
       else banner.classList.add('hidden');
     }
 
-    // 2. 데스크톱 영상 등록 버튼
     const btnDesktopReg = document.getElementById('btn-desktop-register');
     if (btnDesktopReg) {
       if (isEdit) {
@@ -1042,7 +1046,6 @@ window.app = (function () {
       }
     }
 
-    // 3. 모바일 영상 등록 버튼
     const btnMobileReg = document.getElementById('btn-mobile-register');
     if (btnMobileReg) {
       if (isEdit) {
@@ -1054,7 +1057,6 @@ window.app = (function () {
       }
     }
 
-    // 4. 푸터 편집 도구 (영상 등록, data.json 관리)
     const footerTools = document.getElementById('footer-edit-tools');
     if (footerTools) {
       if (isEdit) {
@@ -1066,9 +1068,6 @@ window.app = (function () {
       }
     }
 
-    // 5. 상단 모드 전환 토글 버튼
-    // GitHub Pages 등 배포 환경(서버 미연결 상태에서 mode 파라미터도 없음): 완전 숨김
-    // 로컬 서버 연결 상태이거나 mode=edit으로 접근한 경우에만 토글 버튼 노출
     const toggleBtn = document.getElementById('btn-toggle-edit');
     const toggleText = document.getElementById('btn-toggle-edit-text');
     if (toggleBtn) {
@@ -1076,21 +1075,19 @@ window.app = (function () {
       if (showToggle) {
         toggleBtn.classList.remove('hidden');
         if (isEdit) {
-          toggleBtn.className = 'px-2.5 py-1 rounded bg-[#ffa500] hover:bg-[#ffb833] text-[#0c0e1a] font-bold text-xs flex items-center gap-1.5 transition-colors shadow-sm';
+          toggleBtn.className = 'px-2.5 py-1.5 rounded-lg theme-accent-btn font-semibold text-xs flex items-center gap-1.5';
           if (toggleText) toggleText.innerHTML = '<i data-lucide="eye" class="w-3.5 h-3.5"></i><span>뷰어 모드</span>';
         } else {
-          toggleBtn.className = 'px-2.5 py-1 rounded border theme-border-medium hover:theme-bg-hover theme-text-main font-medium text-xs flex items-center gap-1.5 transition-colors';
-          if (toggleText) toggleText.innerHTML = '<i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#4169e1]"></i><span>편집 모드</span>';
+          toggleBtn.className = 'px-2.5 py-1.5 rounded-lg border theme-border-medium theme-bg-surface theme-hover-bg theme-text-main font-medium text-xs flex items-center gap-1.5 transition-colors';
+          if (toggleText) toggleText.innerHTML = '<i data-lucide="edit-3" class="w-3.5 h-3.5 theme-accent-text"></i><span>편집 모드</span>';
         }
       } else {
         toggleBtn.classList.add('hidden');
       }
     }
 
-    // 6. 사이트 타이틀/서브타이틀 인라인 수정 모드 활성화/비활성화
     updateSiteHeaderEditability();
 
-    // 7. 비주얼 빌더 모듈 상태 연동
     if (window.Builder) {
       if (isEdit) {
         Builder.setViewport(Builder.state.viewport || 'desktop');
@@ -1119,28 +1116,53 @@ window.app = (function () {
   const setSearchQuery = (q) => {
     stopAllPlayers();
     state.searchQuery = q;
-    document.getElementById('search-input').value = q;
+    const input = document.getElementById('search-input');
+    if (input && input.value !== q) input.value = q;
+    syncURLParams();
     render();
   };
 
   const clearSearch = () => {
     stopAllPlayers();
     state.searchQuery = '';
-    document.getElementById('search-input').value = '';
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+    syncURLParams();
+    render();
+  };
+
+  const clearAllFilters = () => {
+    stopAllPlayers();
+    state.searchQuery = '';
+    state.selectedCategory = 'all';
+    state.selectedTag = '';
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+    syncURLParams();
     render();
   };
 
   const setViewMode = (mode) => {
     stopAllPlayers();
     state.viewMode = mode;
+    if (mode !== 'all') state.selectedCategory = 'all';
     state.selectedTag = '';
+    syncURLParams();
     render();
   };
 
-  const selectTagFilter = (tag) => {
+  const setCategoryFilter = (category) => {
+    stopAllPlayers();
+    state.selectedCategory = category || 'all';
+    syncURLParams();
+    render();
+  };
+
+  const selectTagFilter = (tag, targetMode = 'tag') => {
     stopAllPlayers();
     state.selectedTag = tag;
-    state.viewMode = 'tag';
+    if (targetMode) state.viewMode = targetMode;
+    syncURLParams();
     render();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -1164,6 +1186,7 @@ window.app = (function () {
   const setSortOrder = (order) => {
     stopAllPlayers();
     state.sortOrder = order;
+    syncURLParams();
     render();
   };
 
@@ -1177,17 +1200,37 @@ window.app = (function () {
     initTheme();
     const params = new URLSearchParams(window.location.search);
     const hasEdit = params.get('mode') === 'edit' || params.has('edit');
-    state.serverConnected = await API.checkServerStatus();
 
-    // URL에 ?mode=edit 이 있을 때만 편집 모드로 시작
-    state.isEditMode = hasEdit;
-
-    // 브라우저 폼 복원으로 유지된 select 값이 있다면 상태와 동기화
-    const sortSelect = document.getElementById('sort-select');
-    if (sortSelect && sortSelect.value) {
-      state.sortOrder = sortSelect.value;
+    const urlView = params.get('view');
+    if (['tag', 'all', 'subtitler', 'creator'].includes(urlView)) {
+      state.viewMode = urlView;
+    }
+    const urlTag = params.get('tag');
+    if (urlTag) state.selectedTag = urlTag;
+    const urlCat = params.get('cat');
+    if (['all', 'youtube', 'naver'].includes(urlCat)) {
+      state.selectedCategory = urlCat;
+    }
+    const urlSort = params.get('sort');
+    if (['latest', 'oldest', 'name', 'random'].includes(urlSort)) {
+      state.sortOrder = urlSort;
+    }
+    const urlQ = params.get('q');
+    if (urlQ) {
+      state.searchQuery = urlQ;
+      const inputEl = document.getElementById('search-input');
+      if (inputEl) inputEl.value = urlQ;
     }
 
+    state.serverConnected = await API.checkServerStatus();
+    state.isEditMode = hasEdit;
+
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect && state.sortOrder) {
+      sortSelect.value = state.sortOrder;
+    }
+
+    updateDensityButtonsUI();
     updateEditModeUI();
     loadData();
   };
@@ -1204,6 +1247,10 @@ window.app = (function () {
     render,
     renderCard,
     getThumbnail,
+    getDensityGridClass,
+    setGridDensity,
+    getPlatformCategory,
+    getVideoTags,
     playVideo,
     closePlayer,
     stopAllPlayers,
@@ -1212,7 +1259,9 @@ window.app = (function () {
     toggleEditMode,
     setSearchQuery,
     clearSearch,
+    clearAllFilters,
     setViewMode,
+    setCategoryFilter,
     selectTagFilter,
     syncProfiles,
     setSortOrder,

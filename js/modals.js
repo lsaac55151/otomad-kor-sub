@@ -88,41 +88,41 @@ window.Modals = (function () {
       if (chInfo.platform === 'youtube') {
         btnHtml = `
           <a href="${chInfo.url}" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main border theme-border-subtle hover:border-[#4169e1] shadow-sm transition-all group"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg theme-bg-subtle theme-hover-bg text-[11px] font-medium theme-text-main border theme-border-subtle transition-colors group"
             title="YouTube 채널로 이동">
-            <svg class="w-3.5 h-3.5 fill-red-500 shrink-0" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <i data-lucide="youtube" class="w-3.5 h-3.5 theme-text-sub"></i>
             <span>YouTube 채널</span>
-            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover:text-[#4169e1] transition-colors"></i>
+            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-muted"></i>
           </a>
         `;
       } else if (chInfo.platform === 'naver') {
         btnHtml = `
           <a href="${chInfo.url}" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main hover:text-[#03c75a] border theme-border-subtle hover:border-[#03c75a] shadow-sm transition-all group"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg theme-bg-subtle theme-hover-bg text-[11px] font-medium theme-text-main border theme-border-subtle transition-colors group"
             title="네이버 블로그로 이동">
-            <span class="w-3.5 h-3.5 rounded bg-[#03c75a] text-white font-black text-[9px] flex items-center justify-center shrink-0">N</span>
+            <span class="pill-badge pill-badge-naver !py-0 !px-1 text-[9px] font-bold">N</span>
             <span>네이버 블로그</span>
-            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover:text-[#03c75a] transition-colors"></i>
+            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-muted"></i>
           </a>
         `;
       } else if (chInfo.platform === 'niconico') {
         btnHtml = `
           <a href="${chInfo.url}" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main border theme-border-subtle hover:border-[#4169e1] shadow-sm transition-all group"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg theme-bg-subtle theme-hover-bg text-[11px] font-medium theme-text-main border theme-border-subtle transition-colors group"
             title="니코동 마이페이지로 이동">
-            <i data-lucide="tv" class="w-3.5 h-3.5 theme-text-sub group-hover:text-[#4169e1]"></i>
+            <i data-lucide="tv" class="w-3.5 h-3.5 theme-text-sub"></i>
             <span>니코동 마이페이지</span>
-            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover:text-[#4169e1] transition-colors"></i>
+            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-muted"></i>
           </a>
         `;
       } else {
         btnHtml = `
           <a href="${chInfo.url}" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded theme-bg-subtle hover:theme-bg-hover text-[11px] font-semibold theme-text-main border theme-border-subtle hover:border-[#4169e1] shadow-sm transition-all group"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg theme-bg-subtle theme-hover-bg text-[11px] font-medium theme-text-main border theme-border-subtle transition-colors group"
             title="공식 채널/페이지로 이동">
-            <i data-lucide="globe" class="w-3.5 h-3.5 theme-text-sub group-hover:text-[#4169e1]"></i>
+            <i data-lucide="globe" class="w-3.5 h-3.5 theme-text-sub"></i>
             <span>채널 바로가기</span>
-            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-sub group-hover:text-[#4169e1] transition-colors"></i>
+            <i data-lucide="arrow-up-right" class="w-3 h-3 theme-text-muted"></i>
           </a>
         `;
       }
@@ -236,6 +236,211 @@ window.Modals = (function () {
     const worksContainer = document.getElementById('modal-creator-works');
     if (worksContainer) worksContainer.innerHTML = '';
     toggleModal('creator-modal', false);
+  };
+
+  // 1-2. 영상 상세 정보 우측 슬라이드 드로어 (Progressive Disclosure)
+  const openDetailDrawer = (videoKey) => {
+    if (window.app && app.stopAllPlayers) app.stopAllPlayers();
+    const v = (app.state.videos || []).find(x => (x.id || `${x.title}-${x.upload_date}`) === videoKey);
+    if (!v) return;
+
+    const pmap = app.state.data?.profileMap || {};
+    const ytId = v.yt_id || API.extractYtId(v.original_link);
+    const ytUrl = ytId ? `https://www.youtube.com/watch?v=${ytId}` : null;
+    const naverUrl = v.naver_url || (v.original_link && v.original_link.includes('blog.naver.com') ? v.original_link : null);
+    const sourceUrl = v.source_url || (v.original_link && v.original_link !== ytUrl && v.original_link !== naverUrl ? v.original_link : null);
+    const isNaver = app.getPlatformCategory ? app.getPlatformCategory(v) === 'naver' : (v.platform === 'naver' || !ytId);
+
+    const badgeEl = document.getElementById('detail-platform-badge');
+    const dateEl = document.getElementById('detail-date-text');
+    const bodyEl = document.getElementById('detail-drawer-body');
+    if (!bodyEl) return;
+
+    if (badgeEl) {
+      badgeEl.className = isNaver ? 'pill-badge pill-badge-naver' : 'pill-badge pill-badge-yt';
+      badgeEl.textContent = isNaver ? 'NAVER' : 'YouTube';
+    }
+    if (dateEl) {
+      dateEl.textContent = API.formatDisplayDate(v);
+    }
+
+    const thumb = app.getThumbnail ? app.getThumbnail(v) : (v.thumbnail_url || '');
+    const subtitlers = app.parseSubtitlers ? app.parseSubtitlers(v.subtitler) : [];
+    const creators = app.parseCreators ? app.parseCreators(v.creator) : [];
+    const tags = app.getVideoTags ? app.getVideoTags(v) : [];
+    const displayDate = API.formatDisplayDate(v);
+    const origTitle = API.formatValueOrDash(v.originalTitle);
+    const desc = API.formatValueOrDash(v.description);
+
+    const renderPersonChips = (names, type) => {
+      if (!names.length) return `<span class="text-xs theme-text-muted">-</span>`;
+      return `
+        <div class="flex flex-wrap gap-1.5">
+          ${names.map(name => {
+            const avatar = pmap[name] || '';
+            const initial = type === 'subtitler' ? '자' : '원';
+            return `
+              <button type="button"
+                onclick="Modals.closeDetailDrawer(); Modals.openCreatorModal('${API.escapeHTML(name)}', '${type}')"
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full theme-bg-subtle theme-hover-bg border theme-border-subtle text-xs font-medium theme-text-main transition-colors">
+                ${avatar
+                  ? `<img src="${avatar}" referrerpolicy="no-referrer" class="w-4 h-4 rounded-full object-cover shrink-0 border theme-border-hairline" onerror="this.style.display='none'" />`
+                  : `<span class="w-4 h-4 rounded-full theme-bg-surface border theme-border-subtle text-[9px] font-mono flex items-center justify-center theme-text-muted shrink-0">${initial}</span>`}
+                <span>${API.escapeHTML(name)}</span>
+              </button>
+            `;
+          }).join('')}
+        </div>
+      `;
+    };
+
+    const actionButtons = [];
+    if (ytUrl) {
+      actionButtons.push(`
+        <a href="${ytUrl}" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg theme-accent-btn text-xs font-semibold">
+          <i data-lucide="youtube" class="w-3.5 h-3.5"></i>
+          <span>YouTube에서 보기</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      `);
+    }
+    if (naverUrl) {
+      actionButtons.push(`
+        <a href="${naverUrl}" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${ytUrl ? 'theme-bg-surface theme-hover-bg border theme-border-medium theme-text-main' : 'theme-accent-btn'} text-xs font-semibold transition-colors">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <span>네이버 블로그 보기</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      `);
+    }
+    if (sourceUrl) {
+      const isNico = sourceUrl.includes('nicovideo.jp') || sourceUrl.includes('nico.ms');
+      const isYtSrc = sourceUrl.includes('youtube.com') || sourceUrl.includes('youtu.be');
+      const srcLabel = isNico ? '원본 MAD (니코동)' : (isYtSrc ? '원본 MAD (YouTube)' : '원본 MAD 링크');
+      actionButtons.push(`
+        <a href="${sourceUrl}" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg theme-bg-surface theme-hover-bg border theme-border-medium text-xs font-medium theme-text-main transition-colors">
+          <i data-lucide="${isNico ? 'tv' : 'globe'}" class="w-3.5 h-3.5 theme-text-sub"></i>
+          <span>${srcLabel}</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 theme-text-muted"></i>
+        </a>
+      `);
+    }
+
+    bodyEl.innerHTML = `
+      <!-- 16:9 미디어 박스 -->
+      <div id="detail-media-box" class="thumb-frame-box">
+        <img src="${thumb}" alt="${API.escapeHTML(v.title)}" referrerpolicy="no-referrer" class="w-full h-full object-cover object-center"
+          onerror="if(!this.dataset.fallback && this.src.includes('maxresdefault')){this.dataset.fallback=1;this.src=this.src.replace('maxresdefault.jpg','hqdefault.jpg');}" />
+        <div class="absolute inset-x-0 bottom-0 h-16 thumb-scrim pointer-events-none"></div>
+        ${ytId ? `
+          <button type="button" onclick="Modals.playInDetailDrawer('${API.escapeHTML(videoKey)}')"
+            class="absolute inset-0 m-auto w-12 h-12 rounded-full bg-black/75 hover:bg-[#4169e1] text-white border border-white/20 flex items-center justify-center transition-colors shadow-lg backdrop-blur-sm"
+            title="드로어에서 바로 재생">
+            <i data-lucide="play" class="w-5 h-5 ml-0.5 fill-current"></i>
+          </button>
+        ` : (naverUrl ? `
+          <a href="${naverUrl}" target="_blank" rel="noopener noreferrer"
+            class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/75 hover:bg-[#4169e1] text-white border border-white/15 text-xs font-medium backdrop-blur-sm transition-colors">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>블로그에서 감상</span>
+          </a>
+        ` : '')}
+      </div>
+
+      <!-- 제목 & 원제 -->
+      <div class="space-y-1.5">
+        <h2 class="text-base sm:text-lg font-bold theme-text-main leading-snug">${API.escapeHTML(v.title || '-')}</h2>
+        <p class="text-xs theme-text-secondary theme-text-sub leading-relaxed">
+          <span class="theme-text-muted font-medium mr-1.5">원제</span>
+          <span>${API.escapeHTML(origTitle)}</span>
+        </p>
+      </div>
+
+      <!-- 외부 링크 액션 바 -->
+      ${actionButtons.length ? `
+        <div class="flex flex-wrap items-center gap-2">
+          ${actionButtons.join('')}
+        </div>
+      ` : ''}
+
+      <!-- 메타데이터 블록 -->
+      <div class="p-4 rounded-xl border theme-border-subtle theme-bg-surface space-y-3.5 text-xs">
+        <div class="grid grid-cols-[76px_1fr] items-start gap-3">
+          <span class="theme-text-muted font-medium pt-0.5">자막 / 번역</span>
+          <div>${renderPersonChips(subtitlers, 'subtitler')}</div>
+        </div>
+        <div class="border-t theme-border-subtle"></div>
+        <div class="grid grid-cols-[76px_1fr] items-start gap-3">
+          <span class="theme-text-muted font-medium pt-0.5">원작자</span>
+          <div>${renderPersonChips(creators, 'creator')}</div>
+        </div>
+        <div class="border-t theme-border-subtle"></div>
+        <div class="grid grid-cols-[76px_1fr] items-center gap-3">
+          <span class="theme-text-muted font-medium">업로드 날짜</span>
+          <span class="font-mono theme-text-main">${displayDate}</span>
+        </div>
+      </div>
+
+      <!-- 전체 태그 목록 -->
+      <div class="space-y-2">
+        <h3 class="text-xs font-semibold theme-text-sub">태그</h3>
+        ${tags.length ? `
+          <div class="flex flex-wrap gap-1.5">
+            ${tags.map(tag => `
+              <button type="button"
+                onclick="Modals.closeDetailDrawer(); app.selectTagFilter('${API.escapeHTML(tag)}', 'all')"
+                class="pill-badge pill-badge-neutral theme-hover-bg transition-colors cursor-pointer">
+                #${API.escapeHTML(tag)}
+              </button>
+            `).join('')}
+          </div>
+        ` : `<p class="text-xs theme-text-muted">-</p>`}
+      </div>
+
+      <!-- 설명 / 비고 -->
+      <div class="space-y-2">
+        <h3 class="text-xs font-semibold theme-text-sub">설명 / 비고</h3>
+        <div class="p-3.5 rounded-xl border theme-border-subtle theme-bg-surface text-xs theme-text-sub leading-relaxed whitespace-pre-line break-words">${API.escapeHTML(desc)}</div>
+      </div>
+
+      ${app.state.isEditMode ? `
+        <div class="pt-3 border-t theme-border-subtle flex items-center justify-end gap-2">
+          <button type="button" onclick="Modals.closeDetailDrawer(); Modals.openExtractorModal('${API.escapeHTML(videoKey)}')"
+            class="px-3 py-1.5 rounded-lg border theme-accent-soft text-xs font-semibold transition-colors">
+            정보 수정
+          </button>
+          <button type="button" onclick="app.deleteVideo('${API.escapeHTML(videoKey)}')"
+            class="px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors"
+            style="background-color: var(--accent-danger-bg); border-color: var(--accent-danger-border); color: var(--accent-danger-text);">
+            삭제
+          </button>
+        </div>
+      ` : ''}
+    `;
+
+    toggleModal('video-detail-drawer', true);
+    if (window.lucide) lucide.createIcons();
+  };
+
+  const playInDetailDrawer = (videoKey) => {
+    const v = (app.state.videos || []).find(x => (x.id || `${x.title}-${x.upload_date}`) === videoKey);
+    const box = document.getElementById('detail-media-box');
+    if (!v || !box) return;
+    const ytId = v.yt_id || API.extractYtId(v.original_link);
+    if (ytId) {
+      box.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&enablejsapi=1" class="w-full h-full border-none" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
+    }
+  };
+
+  const closeDetailDrawer = () => {
+    const box = document.getElementById('detail-media-box');
+    if (box) box.innerHTML = '';
+    const bodyEl = document.getElementById('detail-drawer-body');
+    if (bodyEl) bodyEl.innerHTML = '';
+    toggleModal('video-detail-drawer', false);
   };
 
   // 2. data.json 파일 관리 모달
@@ -526,6 +731,7 @@ window.Modals = (function () {
           }
         }
 
+        const subName = res.nickname || subtitlerEl.value.trim();
         if (!app.state.data) app.state.data = {};
         if (!app.state.data.profileMap) app.state.data.profileMap = {};
         if (!app.state.data.channelMap) app.state.data.channelMap = {};
@@ -905,30 +1111,29 @@ window.Modals = (function () {
     previewSec.classList.remove('hidden');
 
     if (type === 'youtube') {
-      badge.className = 'px-2 py-0.5 rounded text-[11px] font-semibold bg-red-950 text-red-400 border border-red-800';
+      badge.className = 'pill-badge pill-badge-yt';
       badge.textContent = 'YouTube';
       statusText.textContent = `ID: ${item.yt_id}`;
       playerContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${item.yt_id}" class="w-full h-full border-none" allowfullscreen></iframe>`;
     } else {
-      badge.className = 'px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-950 text-emerald-400 border border-emerald-800';
+      badge.className = 'pill-badge pill-badge-naver';
       badge.textContent = 'NAVER Blog';
       const targetUrl = item.naver_url || item.original_link || '#';
       statusText.textContent = targetUrl;
       const thumb = item.thumbnail_url || (window.app && app.getThumbnail ? app.getThumbnail(item) : '') || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=640&auto=format&fit=crop&q=80';
       playerContainer.innerHTML = `
-        <div class="w-full h-full relative bg-neutral-950 flex flex-col items-center justify-center overflow-hidden border border-neutral-800 group">
-          <img src="${thumb}" referrerpolicy="no-referrer" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-300" onerror="this.style.display='none'" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30"></div>
+        <div class="w-full h-full relative theme-bg-subtle flex flex-col items-center justify-center overflow-hidden group">
+          <img src="${thumb}" referrerpolicy="no-referrer" class="absolute inset-0 w-full h-full object-cover opacity-55" onerror="this.style.display='none'" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/25"></div>
           <div class="relative z-10 text-center p-3 flex flex-col items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-950/90 text-emerald-300 font-semibold text-xs border border-emerald-700/80 shadow-md backdrop-blur-sm">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="pill-badge pill-badge-naver backdrop-blur-sm">
               <span>네이버 블로그 원작 포스트 연동</span>
             </span>
-            <p class="text-xs text-neutral-200 truncate max-w-sm font-medium">${API.escapeHTML(item.title || '게시글')}</p>
+            <p class="text-xs text-white truncate max-w-sm font-medium">${API.escapeHTML(item.title || '게시글')}</p>
             <a href="${targetUrl}" target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-900/90 hover:bg-neutral-800 text-[11px] text-neutral-300 hover:text-white border border-neutral-700/80 transition-colors">
+              class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-black/75 hover:bg-black text-[11px] text-white border border-white/15 transition-colors">
               <span>블로그 원문 확인</span>
-              <i data-lucide="arrow-up-right" class="w-3 h-3 text-neutral-400"></i>
+              <i data-lucide="arrow-up-right" class="w-3 h-3 opacity-80"></i>
             </a>
           </div>
         </div>
@@ -1136,9 +1341,9 @@ window.Modals = (function () {
 
     if (summaryCount) {
       if (dupCount > 0) {
-        summaryCount.innerHTML = `총 <strong class="theme-text-main">${totalCount}</strong>개 중 <strong class="text-[#4169e1] font-bold">${selectedCount}</strong>개 선택됨 <span class="text-[#ffa500] font-semibold text-[11px] ml-1">(중복 ${dupCount}개 자동 제외됨)</span>`;
+        summaryCount.innerHTML = `총 <strong class="theme-text-main">${totalCount}</strong>개 중 <strong class="theme-accent-text font-bold">${selectedCount}</strong>개 선택됨 <span class="font-semibold text-[11px] ml-1" style="color: var(--accent-warn-text);">(중복 ${dupCount}개 자동 제외됨)</span>`;
       } else {
-        summaryCount.innerHTML = `총 <strong class="theme-text-main">${totalCount}</strong>개 중 <strong class="text-[#4169e1] font-bold">${selectedCount}</strong>개 선택`;
+        summaryCount.innerHTML = `총 <strong class="theme-text-main">${totalCount}</strong>개 중 <strong class="theme-accent-text font-bold">${selectedCount}</strong>개 선택`;
       }
     }
     if (saveBtn) saveBtn.textContent = `선택 영상 (${selectedCount}개) data.json에 일괄 저장`;
@@ -1148,34 +1353,34 @@ window.Modals = (function () {
       let cardBg = '';
       if (isDup) {
         cardBg = item.selected
-          ? 'bg-[#ffa500]/15 border-[#ffa500]/70'
+          ? 'border-[#b45309]/50'
           : 'theme-bg-subtle theme-border-subtle opacity-60';
       } else {
         cardBg = item.selected
-          ? 'theme-bg-surface border-[#4169e1] shadow-sm'
+          ? 'theme-bg-surface theme-accent-soft'
           : 'theme-bg-subtle theme-border-subtle opacity-60';
       }
 
       return `
-      <div class="p-2 rounded border ${cardBg} flex items-center gap-3 transition-colors">
-        <input type="checkbox" ${item.selected ? 'checked' : ''} onchange="Modals.togglePlaylistItem(${idx}, this.checked)" class="w-4 h-4 cursor-pointer rounded theme-border-medium theme-bg-canvas shrink-0" />
-        <div class="w-16 aspect-video rounded overflow-hidden bg-black shrink-0 border theme-border-subtle relative">
+      <div class="p-2 rounded-lg border ${cardBg} flex items-center gap-3 transition-colors">
+        <input type="checkbox" ${item.selected ? 'checked' : ''} onchange="Modals.togglePlaylistItem(${idx}, this.checked)" class="w-4 h-4 cursor-pointer rounded theme-border-medium theme-bg-input shrink-0" />
+        <div class="w-16 aspect-video rounded overflow-hidden theme-bg-subtle shrink-0 border theme-border-hairline relative">
           <img src="${item.thumbnail_url}" class="w-full h-full object-cover" loading="lazy" />
-          ${isDup ? '<span class="absolute bottom-0 inset-x-0 bg-[#ffa500] text-[#0c0e1a] text-[9px] font-bold text-center py-0.2">중복</span>' : ''}
+          ${isDup ? '<span class="absolute bottom-0 inset-x-0 text-[9px] font-bold text-center py-0.5" style="background-color: var(--accent-warn); color: #ffffff;">중복</span>' : ''}
         </div>
         <div class="flex-grow min-w-0 space-y-1">
           <div class="flex items-center gap-1.5">
-            ${isDup ? `<span class="px-1.5 py-0.2 rounded text-[10px] bg-[#ffa500]/20 text-[#ffa500] border border-[#ffa500]/50 font-semibold shrink-0" title="기존: ${API.escapeHTML(item.existingTitle)}">이미 등록됨</span>` : ''}
+            ${isDup ? `<span class="px-1.5 py-0.5 rounded text-[10px] border font-semibold shrink-0" style="background-color: var(--accent-warn-bg); color: var(--accent-warn-text); border-color: var(--accent-warn-border);" title="기존: ${API.escapeHTML(item.existingTitle)}">이미 등록됨</span>` : ''}
             <input type="text" value="${API.escapeHTML(item.title)}" oninput="Modals.updatePlaylistItemTitle(${idx}, this.value)"
-              class="w-full theme-bg-canvas border theme-border-medium focus:border-[#4169e1] rounded px-2 py-0.5 text-xs theme-text-main outline-none transition-colors" />
+              class="w-full theme-bg-input border theme-border-medium theme-focus-ring rounded-md px-2 py-0.5 text-xs theme-text-main outline-none transition-colors" />
           </div>
           <div class="flex items-center justify-between text-[11px] theme-text-sub font-mono truncate">
             <div class="flex items-center gap-1.5 truncate">
-              <span>자막: ${API.escapeHTML(Array.isArray(item.subtitler) ? item.subtitler.join(', ') : (item.subtitler || '미지정'))}</span>
-              ${item.creator ? `<span>•</span><span class="text-[#4169e1] font-medium truncate max-w-[140px]" title="원작자: ${API.escapeHTML(item.creator)}">원작: ${API.escapeHTML(item.creator)}</span>` : ''}
-              ${item.source_url ? `<span>•</span><span class="text-[#4169e1] font-medium shrink-0" title="${API.escapeHTML(item.source_url)}">출처: ${item.source_url.includes('nicovideo') || item.source_url.includes('nico.ms') ? '니코동' : '유튜브'}</span>` : ''}
+              <span>자막: ${API.escapeHTML(Array.isArray(item.subtitler) ? item.subtitler.join(', ') : (item.subtitler || '-'))}</span>
+              ${item.creator ? `<span>•</span><span class="theme-accent-text font-medium truncate max-w-[140px]" title="원작자: ${API.escapeHTML(item.creator)}">원작: ${API.escapeHTML(item.creator)}</span>` : ''}
+              ${item.source_url ? `<span>•</span><span class="theme-accent-text font-medium shrink-0" title="${API.escapeHTML(item.source_url)}">출처: ${item.source_url.includes('nicovideo') || item.source_url.includes('nico.ms') ? '니코동' : '유튜브'}</span>` : ''}
             </div>
-            ${isDup ? `<span class="text-[#ffa500]/90 truncate text-[10px] ml-2 shrink-0">기존: "${API.escapeHTML(item.existingTitle)}"</span>` : ''}
+            ${isDup ? `<span class="truncate text-[10px] ml-2 shrink-0" style="color: var(--accent-warn-text);">기존: "${API.escapeHTML(item.existingTitle)}"</span>` : ''}
           </div>
         </div>
       </div>
@@ -1300,6 +1505,9 @@ window.Modals = (function () {
   return {
     openCreatorModal,
     closeCreatorModal,
+    openDetailDrawer,
+    playInDetailDrawer,
+    closeDetailDrawer,
     openDataModal,
     closeDataModal,
     handleFileUpload,

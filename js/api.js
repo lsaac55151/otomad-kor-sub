@@ -26,6 +26,35 @@ window.API = (function () {
     return "0000/00/00";
   };
 
+  // UI 표시용 날짜 포맷 (YYYY-MM-DD, 결측치는 '-')
+  const formatDisplayDate = (vOrStr) => {
+    const raw = typeof vOrStr === 'string' ? vOrStr : (vOrStr?.upload_date || '');
+    const d = String(raw || '').trim();
+    if (!d) return '-';
+    const m = d.match(/(\d{4})[\/\.-](\d{2})[\/\.-](\d{2})/);
+    if (m) {
+      if (m[1] === '0000') return '-';
+      return `${m[1]}-${m[2]}-${m[3]}`;
+    }
+    const m2 = d.match(/^(\d{4})(\d{2})(\d{2})$/);
+    if (m2) {
+      if (m2[1] === '0000') return '-';
+      return `${m2[1]}-${m2[2]}-${m2[3]}`;
+    }
+    const mYear = d.match(/^(\d{4})$/);
+    if (mYear && mYear[1] !== '0000') return `${mYear[1]}-01-01`;
+    return '-';
+  };
+
+  const formatValueOrDash = (val) => {
+    if (Array.isArray(val)) {
+      const joined = val.map(s => String(s || '').trim()).filter(Boolean).join(', ');
+      return joined || '-';
+    }
+    const s = String(val || '').trim();
+    return s || '-';
+  };
+
   const extractYtId = (url) => {
     if (!url) return null;
     const m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:v\/|u\/\w\/|embed\/|watch\?v=|shorts\/|watch\?.+&v=))([^#\&\?\s]{11})/i);
@@ -296,14 +325,11 @@ window.API = (function () {
     const container = document.getElementById('toast-container');
     if (!container) return;
     const toast = document.createElement('div');
-    const borderColors = {
-      success: 'border-emerald-600 bg-neutral-900 text-emerald-300',
-      error: 'border-red-600 bg-neutral-900 text-red-300',
-      info: 'border-neutral-700 bg-neutral-900 text-neutral-200'
-    };
-    const cls = borderColors[type] || borderColors.info;
-    toast.className = `p-3 px-4 rounded-lg border text-xs font-medium shadow-lg pointer-events-auto transition-all duration-200 transform translate-y-2 opacity-0 ${cls}`;
-    toast.textContent = message;
+    const dotColor = type === 'success'
+      ? 'var(--primary)'
+      : (type === 'error' ? 'var(--accent-danger)' : 'var(--text-muted)');
+    toast.className = 'p-3 px-4 rounded-lg border theme-bg-surface theme-border-medium theme-text-main text-xs font-medium shadow-lg pointer-events-auto transition-all duration-200 transform translate-y-2 opacity-0 flex items-center gap-2';
+    toast.innerHTML = `<span class="w-2 h-2 rounded-full shrink-0" style="background-color: ${dotColor};"></span><span>${escapeHTML(message)}</span>`;
     container.appendChild(toast);
     requestAnimationFrame(() => {
       toast.classList.remove('translate-y-2', 'opacity-0');
@@ -422,6 +448,8 @@ window.API = (function () {
     escapeHTML,
     cleanStr,
     getRefinedDate,
+    formatDisplayDate,
+    formatValueOrDash,
     extractYtId,
     extractPlaylistId,
     extractNaverVideo,

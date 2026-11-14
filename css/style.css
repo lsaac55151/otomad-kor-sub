@@ -1,109 +1,127 @@
 /* -------------------------------------------------------------
  * 해외 자막 음매드 모음 (Subtitled Otomad Archive) - Style
- * Adobe Color 테마 듀얼 모드: #4169E1, #87CEEB, #1B1F3B, #C0C0C0, #FAF9F6, #FFA500
+ * Cool Neutral 60-30-10 System + Single Accent (#4169E1)
  * ------------------------------------------------------------- */
 
-/* 1. 라이트 모드 (소프트 라이트 / Alabaster Ivory & Midnight Navy) */
+/* 1. 라이트 모드 (Cool Neutral: #FAFAFA / #FFFFFF / #18181B) */
 :root, [data-theme="light"] {
-  /* Adobe Color 원본 팔레트 */
-  --color-royal-blue: #4169E1;
-  --color-sky-blue: #87CEEB;
-  --color-midnight-navy: #1B1F3B;
-  --color-silver-grey: #C0C0C0;
-  --color-off-white: #FAF9F6;
-  --color-vibrant-orange: #FFA500;
+  --bg-canvas: #fafafa;                       /* 60% 무채색 기본 캔버스 */
+  --bg-canvas-backdrop: rgba(250, 250, 250, 0.90);
+  --bg-surface: #ffffff;                      /* 30% 카드·모달·드로어 표면 */
+  --bg-subtle: #f4f4f5;                       /* 컨트롤 바, 칩, 서브 컨테이너 (Zinc-100) */
+  --bg-hover: #e4e4e7;                        /* 호버 명도 단계 (Zinc-200) */
+  --bg-input: #ffffff;                        /* 입력창 배경 */
+  --bg-modal-backdrop: rgba(15, 17, 21, 0.48);
 
-  /* 시맨틱 테마 변수 - Light */
-  --bg-canvas: #faf9f6;                      /* 온화하고 정갈한 알라바스터 오프화이트 캔버스 */
-  --bg-canvas-backdrop: rgba(250, 249, 246, 0.94);
-  --bg-surface: #ffffff;                     /* 카드 및 서피스 클린 화이트 */
-  --bg-subtle: #f0f2f6;                      /* 툴바, 헤더, 인풋 및 서브 컨테이너 */
-  --bg-hover: #e6eaf2;                       /* 목록/카드 호버 상태 */
-  --bg-input: #ffffff;                       /* 텍스트 입력창 배경 */
-  --bg-modal-backdrop: rgba(27, 31, 59, 0.65); /* 모달 딤 배경 */
+  --text-primary: #18181b;                    /* 핵심 텍스트 (Zinc-900, 순수 흑백 회피) */
+  --text-secondary: #52525b;                  /* 보조 텍스트 (Zinc-600) */
+  --text-muted: #71717a;                      /* 메타데이터·날짜 (Zinc-500, >= 4.5:1) */
+  --text-link: #3558c7;                       /* 강조 링크 (명도 대비 >= 4.5:1) */
 
-  --text-primary: #1b1f3b;                   /* 미드나잇 네이비 타이포그래피 (14.8:1 최상급 가독성) */
-  --text-secondary: #4b536d;                 /* 슬레이트 네이비 보조 텍스트 (6.3:1 가독성) */
-  --text-muted: #6d758f;                     /* 날짜 및 부가 라벨 */
-  --text-link: #2554c7;                      /* 명확한 로열 블루 링크 */
+  --border-subtle: rgba(24, 24, 27, 0.08);    /* 기본 헤어라인 구분선 */
+  --border-medium: rgba(24, 24, 27, 0.16);    /* 입력창·컨트롤 테두리 */
+  --border-hairline: rgba(0, 0, 0, 0.08);     /* 썸네일 외곽 1px 헤어라인 */
+  --border-focus: #4169e1;                    /* 단일 강조색 포커스 링 */
 
-  --border-subtle: rgba(27, 31, 59, 0.12);   /* 소프트 네이비 라인 */
-  --border-medium: rgba(27, 31, 59, 0.22);   /* 인풋 및 구분선 */
-  --border-focus: #4169e1;                   /* 포커스 링 */
-
-  --primary: #4169e1;                        /* 로열 블루 액션 버튼 */
-  --primary-hover: #3355c7;
-  --primary-text: #faf9f6;
-
-  --accent-sky: #0284c7;
-  --accent-sky-bg: rgba(135, 206, 235, 0.25);
-  --accent-sky-text: #0369a1;
-  --accent-sky-border: rgba(135, 206, 235, 0.6);
-
-  --accent-orange: #d97706;                  /* 편집 모드/주의 앰버 오렌지 */
-  --accent-orange-bg: rgba(255, 165, 0, 0.16);
-  --accent-orange-text: #b45309;
-  --accent-orange-border: rgba(255, 165, 0, 0.55);
-
-  --shadow-card: 0 4px 16px -2px rgba(27, 31, 59, 0.08), 0 2px 6px -1px rgba(27, 31, 59, 0.04);
-  --shadow-card-hover: 0 12px 28px -4px rgba(27, 31, 59, 0.14), 0 0 16px -2px rgba(65, 105, 225, 0.18);
-  --scrollbar-thumb: #c0c0c0;
-  --skeleton-base: #e8ecf2;
-  --skeleton-highlight: #f5f7fa;
-}
-
-/* 2. 다크 모드 (미드나잇 다크 / Midnight Navy & Alabaster) */
-[data-theme="dark"] {
-  --color-royal-blue: #4169E1;
-  --color-sky-blue: #87CEEB;
-  --color-midnight-navy: #1B1F3B;
-  --color-silver-grey: #C0C0C0;
-  --color-off-white: #FAF9F6;
-  --color-vibrant-orange: #FFA500;
-
-  /* 시맨틱 테마 변수 - Dark */
-  --bg-canvas: #0c0e1a;                      /* 딥 네이비 캔버스 */
-  --bg-canvas-backdrop: rgba(12, 14, 26, 0.94);
-  --bg-surface: #1b1f3b;                     /* 미드나잇 네이비 서피스 */
-  --bg-subtle: #14172c;                      /* 헤더/인풋 서브 배경 */
-  --bg-hover: #252b52;
-  --bg-input: #14172c;
-  --bg-modal-backdrop: rgba(12, 14, 26, 0.88);
-
-  --text-primary: #faf9f6;                   /* 화이트 텍스트 (12.5:1 가독성) */
-  --text-secondary: #c0c0c0;                 /* 실버 그레이 서브 텍스트 (6.5:1 가독성) */
-  --text-muted: #8e98b0;
-  --text-link: #87ceeb;                      /* 스카이 블루 링크 */
-
-  --border-subtle: rgba(192, 192, 192, 0.16);
-  --border-medium: rgba(192, 192, 192, 0.32);
-  --border-focus: #87ceeb;
-
+  /* 10% 단일 강조색 (Royal Blue) */
   --primary: #4169e1;
-  --primary-hover: #3355c7;
-  --primary-text: #faf9f6;
+  --primary-hover: #3558c7;
+  --primary-text: #ffffff;
+  --primary-soft-bg: rgba(65, 105, 225, 0.09);
+  --primary-soft-text: #2e52c4;
+  --primary-soft-border: rgba(65, 105, 225, 0.28);
 
-  --accent-sky: #87ceeb;
-  --accent-sky-bg: rgba(135, 206, 235, 0.15);
-  --accent-sky-text: #87ceeb;
-  --accent-sky-border: rgba(135, 206, 235, 0.35);
+  /* 저채도 파스텔 Pill 배지 (Light) */
+  --badge-yt-bg: #fbf1f2;
+  --badge-yt-text: #883740;
+  --badge-yt-border: rgba(136, 55, 64, 0.16);
 
-  --accent-orange: #ffa500;
-  --accent-orange-bg: rgba(255, 165, 0, 0.15);
-  --accent-orange-text: #ffa500;
-  --accent-orange-border: rgba(255, 165, 0, 0.6);
+  --badge-naver-bg: #eff7f2;
+  --badge-naver-text: #276342;
+  --badge-naver-border: rgba(39, 99, 66, 0.16);
 
-  --shadow-card: 0 4px 14px -2px rgba(0, 0, 0, 0.5);
-  --shadow-card-hover: 0 8px 24px -4px rgba(12, 14, 26, 0.8), 0 0 16px -2px rgba(65, 105, 225, 0.2);
-  --scrollbar-thumb: #252b52;
-  --skeleton-base: #14172c;
-  --skeleton-highlight: #1f2545;
+  --badge-neutral-bg: #f4f4f5;
+  --badge-neutral-text: #52525b;
+  --badge-neutral-border: rgba(24, 24, 27, 0.10);
+
+  /* 편집/경고 시맨틱 토큰 (편집 모드 및 모달 전용) */
+  --accent-warn: #b45309;
+  --accent-warn-bg: rgba(217, 119, 6, 0.10);
+  --accent-warn-text: #92400e;
+  --accent-warn-border: rgba(217, 119, 6, 0.30);
+
+  --accent-danger: #dc2626;
+  --accent-danger-bg: rgba(220, 38, 38, 0.08);
+  --accent-danger-text: #b91c1c;
+  --accent-danger-border: rgba(220, 38, 38, 0.24);
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --scrollbar-thumb: #d4d4d8;
+  --skeleton-base: #e4e4e7;
+  --skeleton-highlight: #f4f4f5;
 }
 
-/* -------------------------------------------------------------
- * 테마 전환 시 지연 및 차례차례 순차 변환(엇박자 깜빡임) 방지
- * 일시적으로 모든 transition을 차단하여 한 번에 즉각('뙇') 일괄 전환
- * ------------------------------------------------------------- */
+/* 2. 다크 모드 (Cool Neutral: #0F1115 / #181B20 / #F4F4F5) */
+[data-theme="dark"] {
+  --bg-canvas: #0f1115;                       /* 60% 다크 베이스 캔버스 */
+  --bg-canvas-backdrop: rgba(15, 17, 21, 0.90);
+  --bg-surface: #181b20;                      /* 30% 카드·모달·드로어 표면 */
+  --bg-subtle: #20242b;                       /* 컨트롤 바, 칩, 서브 컨테이너 */
+  --bg-hover: #2a2f38;                        /* 호버 명도 단계 */
+  --bg-input: #14171c;                        /* 입력창 배경 */
+  --bg-modal-backdrop: rgba(9, 11, 14, 0.72);
+
+  --text-primary: #f4f4f5;                    /* 핵심 텍스트 (Zinc-100, 순수 흰색 회피) */
+  --text-secondary: #a1a1aa;                  /* 보조 텍스트 (Zinc-400) */
+  --text-muted: #8e95a2;                      /* 메타데이터·날짜 (>= 4.5:1) */
+  --text-link: #8ca9ff;                       /* 다크 배경용 명도 보정 강조 링크 */
+
+  --border-subtle: rgba(255, 255, 255, 0.10); /* 기본 헤어라인 구분선 */
+  --border-medium: rgba(255, 255, 255, 0.16); /* 입력창·컨트롤 테두리 */
+  --border-hairline: rgba(255, 255, 255, 0.10); /* 썸네일 외곽 1px 헤어라인 */
+  --border-focus: #5b82f0;                    /* 다크 배경용 포커스 링 */
+
+  /* 10% 단일 강조색 (Royal Blue, 다크 환경 명도 조정) */
+  --primary: #4169e1;
+  --primary-hover: #5278ea;
+  --primary-text: #ffffff;
+  --primary-soft-bg: rgba(91, 130, 240, 0.14);
+  --primary-soft-text: #8ca9ff;
+  --primary-soft-border: rgba(91, 130, 240, 0.30);
+
+  /* 저채도 반투명 Pill 배지 (Dark) */
+  --badge-yt-bg: rgba(190, 90, 100, 0.16);
+  --badge-yt-text: #dfb0b5;
+  --badge-yt-border: rgba(223, 176, 181, 0.18);
+
+  --badge-naver-bg: rgba(74, 155, 110, 0.16);
+  --badge-naver-text: #a4d4b8;
+  --badge-naver-border: rgba(164, 212, 184, 0.18);
+
+  --badge-neutral-bg: rgba(255, 255, 255, 0.06);
+  --badge-neutral-text: #a1a1aa;
+  --badge-neutral-border: rgba(255, 255, 255, 0.10);
+
+  /* 편집/경고 시맨틱 토큰 (Dark) */
+  --accent-warn: #eab308;
+  --accent-warn-bg: rgba(234, 179, 8, 0.12);
+  --accent-warn-text: #fde047;
+  --accent-warn-border: rgba(234, 179, 8, 0.30);
+
+  --accent-danger: #f87171;
+  --accent-danger-bg: rgba(248, 113, 113, 0.12);
+  --accent-danger-text: #fca5a5;
+  --accent-danger-border: rgba(248, 113, 113, 0.28);
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --scrollbar-thumb: #2a2f38;
+  --skeleton-base: #1e2229;
+  --skeleton-highlight: #282d36;
+}
+
+/* 테마 전환 시 즉각 일괄 반영 (순차 깜빡임 방지) */
 html.theme-transitioning,
 html.theme-transitioning *,
 html.theme-transitioning *::before,
@@ -116,16 +134,17 @@ html.theme-transitioning *::after {
 }
 
 body {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  font-family: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
   background-color: var(--bg-canvas);
   color: var(--text-primary);
   letter-spacing: -0.01em;
   overflow-x: hidden;
+  text-align: left;
 }
 
 ::selection {
-  background-color: rgba(65, 105, 225, 0.40);
-  color: #faf9f6;
+  background-color: rgba(65, 105, 225, 0.28);
+  color: var(--text-primary);
 }
 
 /* -------------------------------------------------------------
@@ -135,17 +154,84 @@ body {
 .theme-bg-surface { background-color: var(--bg-surface) !important; }
 .theme-bg-subtle { background-color: var(--bg-subtle) !important; }
 .theme-bg-input { background-color: var(--bg-input) !important; }
-.theme-bg-hover:hover { background-color: var(--bg-hover) !important; }
+.theme-bg-hover:hover,
+.theme-hover-bg:hover { background-color: var(--bg-hover) !important; }
 
 .theme-text-main { color: var(--text-primary) !important; }
 .theme-text-sub { color: var(--text-secondary) !important; }
 .theme-text-muted { color: var(--text-muted) !important; }
 .theme-text-link { color: var(--text-link) !important; }
+.theme-hover-text:hover { color: var(--text-primary) !important; }
 
 .theme-border-subtle { border-color: var(--border-subtle) !important; }
 .theme-border-medium { border-color: var(--border-medium) !important; }
+.theme-border-hairline { border-color: var(--border-hairline) !important; }
 
-/* 스크롤바 */
+.theme-accent-btn {
+  background-color: var(--primary);
+  color: var(--primary-text);
+  transition: background-color 0.16s ease;
+}
+.theme-accent-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.theme-accent-text { color: var(--primary-soft-text); }
+.theme-accent-soft {
+  background-color: var(--primary-soft-bg);
+  color: var(--primary-soft-text);
+  border-color: var(--primary-soft-border);
+}
+
+.theme-focus-ring:focus {
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 2px var(--primary-soft-bg);
+}
+
+/* 저채도 상태/플랫폼 Pill 배지 */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.pill-badge-yt {
+  background-color: var(--badge-yt-bg);
+  color: var(--badge-yt-text);
+  border-color: var(--badge-yt-border);
+}
+.pill-badge-naver {
+  background-color: var(--badge-naver-bg);
+  color: var(--badge-naver-text);
+  border-color: var(--badge-naver-border);
+}
+.pill-badge-neutral {
+  background-color: var(--badge-neutral-bg);
+  color: var(--badge-neutral-text);
+  border-color: var(--badge-neutral-border);
+}
+.pill-badge-accent {
+  background-color: var(--primary-soft-bg);
+  color: var(--primary-soft-text);
+  border-color: var(--primary-soft-border);
+}
+
+/* 가로 스크롤바 숨김 유틸리티 */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* 기본 스크롤바 */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -158,42 +244,76 @@ body {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--text-muted);
 }
 
-/* 카드 아이템 스타일 및 호버 인터랙션 */
+/* -------------------------------------------------------------
+ * 카드 아이템 & 호버 인터랙션 (Layout Shift 금지, 200ms 이내 투명도/테두리 전환)
+ * ------------------------------------------------------------- */
 .card-item {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
-  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
 }
 .card-item:hover {
-  border-color: var(--border-focus);
-  transform: translateY(-2px);
+  border-color: var(--border-medium);
   box-shadow: var(--shadow-card-hover);
 }
 
-/* 썸네일 16:9 여백 없이 꽉 채움 */
-.card-item .aspect-video img {
+/* 썸네일 컨테이너 (1px 헤어라인 보정) */
+.thumb-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-hairline);
+}
+.thumb-frame-box {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+}
+.thumb-frame img,
+.thumb-frame-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 
-/* 카드 내 제작자/자막러 아바타 아이콘 크기 (22px) */
+/* 썸네일 하단 반투명 스크림 */
+.thumb-scrim {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.56) 0%, rgba(0, 0, 0, 0.14) 55%, transparent 100%);
+}
+
+/* 썸네일 퀵 재생 버튼 (호버/포커스 시 은은히 강조) */
+.thumb-play-btn {
+  opacity: 0.88;
+  transition: opacity 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+.group:hover .thumb-play-btn {
+  opacity: 1;
+}
+
+/* 카드 내 아바타 아이콘 크기 */
 .card-avatar-img {
-  width: 22px !important;
-  height: 22px !important;
-  min-width: 22px !important;
-  min-height: 22px !important;
-  max-width: 22px !important;
-  max-height: 22px !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
   object-fit: cover;
   border-radius: 9999px;
   flex-shrink: 0;
-  border: 1px solid var(--border-medium);
+  border: 1px solid var(--border-hairline);
 }
 
 /* 스켈레톤 로더 */
@@ -216,22 +336,31 @@ body {
   overflow: hidden;
 }
 
-/* 모달 페이드 */
+/* 모달 페이드 & 슬라이드 드로어 */
 .modal-fade {
-  animation: modalIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: modalIn 0.16s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 @keyframes modalIn {
-  from { opacity: 0; transform: scale(0.985); }
-  to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.drawer-slide-in {
+  animation: drawerIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes drawerIn {
+  from { opacity: 0; transform: translateX(-18px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* -------------------------------------------------------------
- * 유튜브 스타일 재생목록 카드 상단 덱 스택 효과
+ * 컬렉션(재생목록) 카드 상단 덱 스택 효과 (Layout Shift 없는 정갈한 테두리 전환)
  * ------------------------------------------------------------- */
 .playlist-card {
   position: relative;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .playlist-deck-stack {
@@ -246,13 +375,13 @@ body {
   left: 6%;
   right: 6%;
   height: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   background-color: var(--bg-subtle);
   border-top: 1px solid var(--border-medium);
   border-left: 1px solid var(--border-subtle);
   border-right: 1px solid var(--border-subtle);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.18s ease, background-color 0.18s ease;
   z-index: 1;
 }
 
@@ -262,62 +391,63 @@ body {
   left: 3%;
   right: 3%;
   height: 10px;
-  border-top-left-radius: 11px;
-  border-top-right-radius: 11px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
   background-color: var(--bg-hover);
   border-top: 1px solid var(--border-medium);
   border-left: 1px solid var(--border-subtle);
   border-right: 1px solid var(--border-subtle);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.18s ease, background-color 0.18s ease;
   z-index: 2;
-}
-
-.group:hover .playlist-deck-layer-1 {
-  transform: translateY(-2.5px);
-}
-.group:hover .playlist-deck-layer-2 {
-  transform: translateY(-1.2px);
 }
 
 .playlist-thumb-box {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
-  background-color: var(--bg-canvas);
-  border: 1px solid var(--border-medium);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
   box-shadow: var(--shadow-card);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
   z-index: 3;
+}
+
+.group:hover .playlist-thumb-box {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-card-hover);
+}
+.group:hover .playlist-deck-layer-1,
+.group:hover .playlist-deck-layer-2 {
+  border-color: var(--border-medium);
 }
 
 /* -------------------------------------------------------------
  * 비주얼 웹 빌더 (WYSIWYG) 스타일
  * ------------------------------------------------------------- */
 .builder-dragging {
-  opacity: 0.35 !important;
-  transform: scale(0.97) !important;
-  border: 2px dashed #ffa500 !important;
+  opacity: 0.4 !important;
+  border: 1.5px dashed var(--accent-warn) !important;
   cursor: grabbing !important;
 }
 
 .builder-drag-target {
-  border: 2px solid #4169e1 !important;
-  transform: translateY(-4px) !important;
-  box-shadow: 0 0 20px rgba(65, 105, 225, 0.40) !important;
+  border: 1.5px solid var(--primary) !important;
+  box-shadow: 0 0 0 2px var(--primary-soft-bg) !important;
 }
 
 .builder-highlight-pulse {
-  animation: builder-pulse 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: builder-pulse 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes builder-pulse {
   0% {
-    outline: 3px solid #ffa500;
-    box-shadow: 0 0 25px rgba(255, 165, 0, 0.6);
+    outline: 2px solid var(--primary);
+    box-shadow: 0 0 18px var(--primary-soft-bg);
   }
   100% {
-    outline: 3px solid transparent;
+    outline: 2px solid transparent;
     box-shadow: none;
   }
 }
@@ -326,22 +456,22 @@ body {
   border-radius: 4px;
   padding: 1px 4px;
   margin: -1px -4px;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, outline-color 0.15s ease;
   cursor: text;
 }
 .builder-inline-editable:hover {
-  background: var(--accent-sky-bg);
+  background: var(--primary-soft-bg);
   outline: 1px dashed var(--border-focus);
 }
 .builder-inline-editable:focus {
   background: var(--bg-subtle);
-  outline: 1.5px solid var(--accent-orange);
+  outline: 1.5px solid var(--border-focus);
   color: var(--text-primary);
 }
 
 @keyframes slideUp {
   from {
-    transform: translate(-50%, 20px);
+    transform: translate(-50%, 16px);
     opacity: 0;
   }
   to {
@@ -351,17 +481,14 @@ body {
 }
 
 .animate-slide-up {
-  animation: slideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUp 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* 컴팩트 카드 밀도 스타일 */
-.card-compact .p-3 {
-  padding: 0.5rem 0.65rem !important;
+.card-compact .card-body {
+  padding: 0.625rem 0.75rem !important;
 }
 .card-compact h3 {
-  font-size: 0.72rem !important;
-  line-height: 1.25 !important;
-}
-.card-compact .space-y-2 {
-  gap: 0.25rem !important;
+  font-size: 0.78rem !important;
+  line-height: 1.3 !important;
 }
